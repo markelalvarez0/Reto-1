@@ -54,6 +54,22 @@ class MotorReglasVivienda:
         alquiler_efectivo = alquiler / 2.0 if comparte == "Si" else alquiler
         esfuerzo = (alquiler_efectivo + deudas) / ingresos
 
+        # Exclusión legal: Ingresos superiores al límite normativo de Gaztelagun (25.200 € brutos/año = ~2.100 € netos/mes)
+        if ingresos > 2100.0:
+            return DecisionNegocio(
+                regla_id="R1_SUPERACION_INGRESOS",
+                nombre_regla="Exclusión Legal por Superar el Límite Máximo de Ingresos Gaztelagun",
+                prioridad=1,
+                decision="DENEGADO_SUPERACION_INGRESOS",
+                accion_recomendada="Denegación automática de la subvención pública. El solicitante dispone de renta suficiente para el mercado libre sin subsidio.",
+                canal_notificacion="sede_electronica_resolucion",
+                justificacion_negocio=(
+                    f"Los ingresos declarados ({ingresos:.2f} €/mes) superan el tope legal de 2.100 € netos al mes "
+                    "(25.200 € brutos anuales) fijado por la normativa del Gobierno Vasco para el programa Gaztelagun."
+                ),
+                probabilidad_modelo=p
+            )
+
         if p < 0.30 or esfuerzo > 0.70:
             return DecisionNegocio(
                 regla_id="R1_RIESGO_EXTREMO",

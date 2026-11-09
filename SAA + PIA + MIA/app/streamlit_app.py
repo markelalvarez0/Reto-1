@@ -245,7 +245,7 @@ HTML_INTERFACE = """<!DOCTYPE html>
                 </select>
               </div>
               <div class="col-md-6">
-                <label class="form-label">Ingresos Mensuales Netos (€)</label>
+                <label class="form-label">Ingresos Mensuales Netos (€) <small class="text-muted">(Al mes; ej: 1.250 € si cobras 15.000 €/año)</small></label>
                 <input type="number" class="form-control" id="ingresos" value="1380">
               </div>
               <div class="col-md-6">
