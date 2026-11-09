@@ -4,6 +4,8 @@ Soporta código INE oficial de 5 dígitos para uniones relacionales en MongoDB (
 y campos de características detalladas (fianza, ascensor, planta, transporte).
 """
 
+import re
+import unicodedata
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel, Field
 from datetime import datetime, timezone
@@ -19,7 +21,7 @@ INE_MUNICIPAL_CODES = {
     "Vitoria-Gasteiz": "01059",
     "Vitoria": "01059",
     "Getxo": "48044",
-    "Irun": "20045" if "Irun" else "20045",
+    "Irun": "20045",
     "Irún": "20045",
     "Portugalete": "48078",
     "Santurtzi": "48082",
@@ -45,14 +47,28 @@ INE_MUNICIPAL_CODES = {
 }
 
 
-def resolver_codigo_ine(municipio: str) -> str:
-    """Devuelve el código INE de 5 dígitos a partir del nombre del municipio."""
-    if not municipio:
-        return "48020"
-    for nom, cod in INE_MUNICIPAL_CODES.items():
-        if nom.lower() in municipio.lower() or municipio.lower() in nom.lower():
-            return cod
-    return "48020"
+def _normalizar_nombre_municipio(nombre: str) -> str:
+    """Normaliza tildes y separadores sin aceptar coincidencias parciales."""
+    if not isinstance(nombre, str):
+        return ""
+    sin_tildes = unicodedata.normalize("NFKD", nombre).encode("ascii", "ignore").decode("ascii")
+    return " ".join(re.findall(r"[a-z0-9]+", sin_tildes.casefold()))
+
+
+_ALIASES_INE = {
+    _normalizar_nombre_municipio(nombre): codigo
+    for nombre, codigo in INE_MUNICIPAL_CODES.items()
+}
+
+
+def resolver_codigo_ine(municipio: str) -> Optional[str]:
+    """Resuelve un nombre conocido; un municipio desconocido devuelve None.
+
+    El catálogo es un subconjunto de municipios vascos y no debe servir para
+    inventar la localización de un anuncio cuando aún no está en él.
+    """
+    clave = _normalizar_nombre_municipio(municipio)
+    return _ALIASES_INE.get(clave) if clave else None
 
 
 class HousingAd(BaseModel):
@@ -87,9 +103,16 @@ class HousingAd(BaseModel):
     es_sintetico: bool = Field(False, description="Flag que identifica si el dato es de respaldo o en vivo")
 
     def model_post_init(self, __context: Any) -> None:
-        """Asigna automáticamente el código INE si no está presente."""
-        if not self.codigo_municipio and self.municipio:
-            self.codigo_municipio = resolver_codigo_ine(self.municipio)
+        """Completa el INE conocido, sin inventar códigos municipales."""
+        codigo_esperado = resolver_codigo_ine(self.municipio)
+        if self.codigo_municipio is None:
+            self.codigo_municipio = codigo_esperado
+        elif not re.fullmatch(r"\d{5}", self.codigo_municipio):
+            raise ValueError("codigo_municipio debe contener exactamente cinco dígitos")
+        elif codigo_esperado and self.codigo_municipio != codigo_esperado:
+            raise ValueError(
+                f"Código INE {self.codigo_municipio} incompatible con {self.municipio!r}"
+            )
         if not self.portal_origen:
             self.portal_origen = self.fuente.split("_")[0]
 

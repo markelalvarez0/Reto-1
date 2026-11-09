@@ -15,8 +15,9 @@ Decisión de modelado:
 
 import json
 import logging
+import re
 from pathlib import Path
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 
 from src.extraction.models import resolver_codigo_ine
 from src.extraction.multi_portal_scraper import MultiPortalHousingScraper
@@ -108,12 +109,26 @@ class MongoDBDataLoader:
         logger.info(f"Carga finalizada: {total_municipios} municipios y {total_viviendas} viviendas en MongoDB.")
         return {"municipios": total_municipios, "viviendas": total_viviendas}
 
-    def _normalizar_anuncio(self, ad: Dict[str, Any]) -> Dict[str, Any]:
-        """Transforma anuncio a esquema unificado con código INE de 5 dígitos."""
-        mun = ad.get("municipio", "Bilbao")
-        cod_ine = ad.get("codigo_municipio") or resolver_codigo_ine(mun)
+    def _normalizar_anuncio(self, ad: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        """Normaliza un anuncio; devuelve None si su municipio no está verificado."""
+        mun = ad.get("municipio") or ad.get("mun")
+        codigo_calculado = resolver_codigo_ine(mun)
+        if codigo_calculado is None:
+            logger.warning("Anuncio %s descartado: municipio INE no reconocido (%r)", ad.get("id"), mun)
+            return None
+
+        codigo_origen = ad.get("codigo_municipio") or ad.get("cod")
+        if codigo_origen is not None:
+            if not isinstance(codigo_origen, str) or not re.fullmatch(r"\d{5}", codigo_origen):
+                logger.warning("Anuncio %s descartado: código INE inválido (%r)", ad.get("id"), codigo_origen)
+                return None
+            if codigo_origen != codigo_calculado:
+                logger.warning("Anuncio %s descartado: INE %s no coincide con %s", ad.get("id"), codigo_origen, mun)
+                return None
+
+        cod_ine = codigo_calculado
         precio = float(ad.get("precio", 750.0) or 750.0)
-        sup = float(ad.get("superficie_m2", 65.0) or 65.0)
+        sup = float(ad.get("superficie_m2") or ad.get("m2") or 65.0)
         tipo_op = str(ad.get("tipo_operacion", "alquiler")).lower()
         es_vpo = bool(ad.get("es_protegida", False) or tipo_op in ("vpo", "aroc") or "visesa" in str(ad.get("fuente", "")).lower())
 
@@ -149,7 +164,11 @@ class MongoDBDataLoader:
         """Extrae el catálogo integrado de todos los portales inmobiliarios y VPO."""
         multi_scraper = MultiPortalHousingScraper()
         res = multi_scraper.extraer_todos_los_portales()
-        anuncios = [self._normalizar_anuncio(ad.to_dict()) for ad in res.items]
+        anuncios = []
+        for ad in res.items:
+            normalizado = self._normalizar_anuncio(ad.to_dict())
+            if normalizado is not None:
+                anuncios.append(normalizado)
 
         # Añadir promociones VPO Visesa de referencia
         vpo_seeds = [
@@ -161,7 +180,9 @@ class MongoDBDataLoader:
             {"id": "vpo_irun_01", "mun": "Irun", "cod": "20045", "precio": 410.0, "m2": 65.0, "titulo": "Promoción Oinaurre VPO Alquiler", "fuente": "OpenData_Visesa", "portal_origen": "Visesa", "es_protegida": True},
         ]
         for v in vpo_seeds:
-            anuncios.append(self._normalizar_anuncio(v))
+            normalizado = self._normalizar_anuncio(v)
+            if normalizado is not None:
+                anuncios.append(normalizado)
 
         return anuncios
 

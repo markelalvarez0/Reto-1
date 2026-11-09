@@ -26,7 +26,59 @@ def test_resolver_codigo_ine():
     assert resolver_codigo_ine("Zarautz") == "20079"
     assert resolver_codigo_ine("Durango") == "48027"
     assert resolver_codigo_ine("Irun") == "20045"
-    assert resolver_codigo_ine("MunicipioDesconocido") == "48020"  # Fallback a capital
+    assert resolver_codigo_ine("MunicipioDesconocido") is None
+    assert resolver_codigo_ine("") is None
+    assert resolver_codigo_ine("Bil") is None  # No aceptar coincidencias parciales
+    assert resolver_codigo_ine("  IRÚN ") == "20045"
+    assert resolver_codigo_ine("Donostia / San Sebastian") == "20069"
+    for nombre, codigo in INE_MUNICIPAL_CODES.items():
+        assert resolver_codigo_ine(nombre) == codigo
+
+
+def test_housing_ad_no_inventa_codigo_ine():
+    """Un municipio desconocido queda sin asignar; no se convierte en Bilbao."""
+    ad = HousingAd(id="desconocido", fuente="prueba", tipo_operacion="alquiler", municipio="MunicipioDesconocido")
+    assert ad.codigo_municipio is None
+
+    with pytest.raises(ValueError, match="incompatible"):
+        HousingAd(id="mal-codigo", fuente="prueba", tipo_operacion="alquiler", municipio="Getxo", codigo_municipio="48020")
+
+    with pytest.raises(ValueError, match="cinco dígitos"):
+        HousingAd(id="codigo-corto", fuente="prueba", tipo_operacion="alquiler", municipio="Getxo", codigo_municipio="48")
+
+
+def test_loader_descarta_ine_desconocido_y_lee_aliases():
+    """La carga rechaza municipio incierto y respeta mun/cod de promociones VPO."""
+    from src.database.data_loader import MongoDBDataLoader
+
+    loader = MongoDBDataLoader.__new__(MongoDBDataLoader)
+    assert loader._normalizar_anuncio({"id": "uno", "municipio": "MunicipioDesconocido", "precio": 650}) is None
+    assert loader._normalizar_anuncio({"id": "dos", "municipio": "Getxo", "codigo_municipio": "48020", "precio": 650}) is None
+    vpo = loader._normalizar_anuncio({"id": "tres", "mun": "Vitoria-Gasteiz", "cod": "01059", "precio": 380, "m2": 75})
+    assert vpo["municipio"] == "Vitoria-Gasteiz"
+    assert vpo["codigo_municipio"] == "01059"
+    assert vpo["provincia"] == "Araba"
+    assert vpo["superficie_m2"] == 75.0
+
+
+def test_catalogo_vpo_mantiene_municipio_y_superficie(monkeypatch):
+    """Las promociones de VPO no se convierten en anuncios de Bilbao de 65 m²."""
+    from types import SimpleNamespace
+    import src.database.data_loader as modulo_carga
+
+    class ScraperVacio:
+        def extraer_todos_los_portales(self):
+            return SimpleNamespace(items=[])
+
+    monkeypatch.setattr(modulo_carga, "MultiPortalHousingScraper", ScraperVacio)
+    loader = modulo_carga.MongoDBDataLoader.__new__(modulo_carga.MongoDBDataLoader)
+    anuncios = loader._generar_catalogo_multiportal_completo()
+    por_id = {ad["id_origen"]: ad for ad in anuncios}
+    assert por_id["vpo_vitoria_01"]["codigo_municipio"] == "01059"
+    assert por_id["vpo_vitoria_01"]["municipio"] == "Vitoria-Gasteiz"
+    assert por_id["vpo_vitoria_01"]["superficie_m2"] == 75.0
+    assert por_id["vpo_donostia_01"]["codigo_municipio"] == "20069"
+    assert por_id["vpo_irun_01"]["codigo_municipio"] == "20045"
 
 
 def test_multi_portal_housing_scraper():
