@@ -285,7 +285,7 @@ HTML_INTERFACE = """<!DOCTYPE html>
   <script>
     let ultimoResultado = null;
 
-    function evaluarCaso() {
+    async function evaluarCaso() {
       const ing = parseFloat(document.getElementById('ingresos').value) || 1200;
       const alq = parseFloat(document.getElementById('alquiler').value) || 700;
       const ahorros = parseFloat(document.getElementById('ahorros').value) || 0;
@@ -293,67 +293,111 @@ HTML_INTERFACE = """<!DOCTYPE html>
       const contrato = document.getElementById('tipo_contrato').value;
       const mun = document.getElementById('municipio').value;
 
+      const caso = {
+        solicitud_id: "WEB-" + Date.now(),
+        municipio: mun,
+        tipo_contrato: contrato,
+        ingresos_mensuales: ing,
+        precio_alquiler: alq,
+        antiguedad_laboral_meses: 18.0,
+        ahorros_disponibles: ahorros,
+        comparte_piso: comparte,
+        deudas_mensuales: 0.0,
+        tipo_subvencion: "Gaztelagun"
+      };
+
+      // Intentar evaluar en el backend Python
+      try {
+        const resp = await fetch('/api/evaluar', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(caso)
+        });
+        if (resp.ok) {
+          const res = await resp.json();
+          mostrarResultado(res);
+          return;
+        }
+      } catch (e) {
+        console.warn("Backend API offline, evaluando con reglas locales:", e);
+      }
+
+      // Reglas locales sincronizadas
+      let regla, nomRegla, decision, accion, porQue, clase;
       const alqEf = (comparte === 'Si') ? (alq / 2.0) : alq;
-      const esfuerzo = Math.max(120, alqEf - 300) / ing;
+      const esfuerzo = alqEf / ing;
       let p = 1.0 / (1.0 + Math.exp(7.5 * (esfuerzo - 0.36)));
       if (contrato === 'Indefinido') p += 0.08;
       p = Math.max(0.03, Math.min(0.97, p));
 
-      let regla = "R6_SEGURIDAD_FALLBACK";
-      let nomRegla = "Regla de Seguridad: Revisión Humana Individualizada";
-      let decision = "REVISION_MANUAL_TECNICO_SOCIAL";
-      let accion = "Asignar expediente a trabajador social comarcal para entrevista presencial.";
-      let porQue = "Caso en franja intermedia que requiere criterio humano social.";
-      let clase = "warning";
-
-      if (p < 0.30 || esfuerzo > 0.50) {
+      if (ing > 2100) {
+        regla = "R1_SUPERACION_INGRESOS";
+        nomRegla = "Exclusión Legal por Superar el Límite Máximo de Ingresos Gaztelagun";
+        decision = "DENEGADO_SUPERACION_INGRESOS";
+        accion = "Denegación automática de la subvención pública. El solicitante dispone de renta suficiente para el mercado libre sin subsidio.";
+        porQue = "Los ingresos declarados (" + ing.toFixed(2) + " €/mes) superan el tope legal de 2.100 € netos al mes (25.200 € brutos anuales) fijado por el Gobierno Vasco para el programa Gaztelagun.";
+        clase = "danger";
+      } else if (p < 0.30 || esfuerzo > 0.70) {
         regla = "R1_RIESGO_EXTREMO";
         nomRegla = "Prevención de Sobreendeudamiento Inasumible";
         decision = "DENEGADO_PROTECCION";
         accion = "Derivar urgentemente al Servicio de Mediación de Alokabide y solicitar plaza en VPO de alquiler social.";
-        porQue = "El esfuerzo financiero excede el límite sostenible. La ayuda en mercado libre provocaría desahucio.";
+        porQue = "El esfuerzo financiero individual supera el umbral crítico del 70 % (" + (esfuerzo*100).toFixed(1) + " %). Conceder la ayuda en mercado libre provocaría desahucio.";
         clase = "danger";
-      } else if (p >= 0.72 && contrato === "Indefinido" && ahorros >= 1500) {
+      } else if (p >= 0.72 && contrato === "Indefinido" && ahorros >= 1500 && ing <= 2100) {
         regla = "R2_APROBACION_EXPRES";
         nomRegla = "Concesión Exprés de Ayuda Gaztelagun";
         decision = "CONCESION_EXPRES_300EUR";
-        accion = "Emisión inmediata de la resolución favorable de ayuda Gaztelagun (hasta 300 €/mes).";
-        porQue = "Solvencia acreditada con empleo estable y ahorros. Se tramita en 24h sin burocracia.";
-        clase = "";
+        accion = "Emisión inmediata de la resolución favorable de ayuda Gaztelagun (hasta 300 €/mes) sin requerir documentación adicional.";
+        porQue = "Solicitud con solvencia contrastada (p=" + p.toFixed(2) + "), estabilidad laboral indefinida y colchón de ahorros.";
+        clase = "success";
       } else if (p >= 0.55 && ahorros < alq) {
         regla = "R3_FIANZA_VULNERABLE";
         nomRegla = "Concesión con Microcrédito de Fianza Cero Interés";
         decision = "CONCESION_CON_ANTICIPO_FIANZA";
         accion = "Aprobar ayuda mensual y activar microcrédito sin interés de hasta 1.000 € para depósito de fianza ante Bizilagun.";
-        porQue = "El joven puede pagar el alquiler mensual pero carece del colchón inicial para la fianza legal.";
+        porQue = "El solicitante es solvente para el pago mensual (p=" + p.toFixed(2) + "), pero carece de liquidez inmediata para los 2 meses de fianza legal.";
         clase = "warning";
       } else if (p >= 0.50 && comparte === "Si") {
         regla = "R4_PISO_COMPARTIDO";
         nomRegla = "Ayuda a la Co-Emancipación Juvenil";
         decision = "CONCESION_ALQUILER_COMPARTIDO";
-        accion = "Aprobar subvención proporcional para vivienda compartida y registrar cotitulares.";
-        porQue = "La cohabitación divide el esfuerzo económico garantizando sostenibilidad.";
-        clase = "";
+        accion = "Aprobar subvención proporcional para vivienda compartida y solicitar identificación de cotitulares.";
+        porQue = "Al compartir los gastos de la vivienda, el esfuerzo real individual se reduce a la mitad.";
+        clase = "success";
       } else if (mun === "Donostia-San Sebastián" && p < 0.60) {
         regla = "R5_ZONA_TENSIONADA_VPO";
         nomRegla = "Derivación a Cupo Joven de VPO en Zonas Tensionadas";
         decision = "DERIVACION_CUPO_VPO";
-        accion = "Inscribir con preferencia en la próxima adjudicación de promociones públicas VPO de Alokabide.";
-        porQue = "En Donostia los precios libres son prohibitivos aun con subsidio ordinario.";
+        accion = "Inscribir con preferencia en la próxima adjudicación de promociones públicas VPO de Alokabide en el municipio.";
+        porQue = "En Donostia los alquileres superan la media autonómica. Aun con subsidio, el mercado libre es precario.";
+        clase = "warning";
+      } else {
+        regla = "R6_SEGURIDAD_FALLBACK";
+        nomRegla = "Regla de Seguridad: Revisión Humana Individualizada";
+        decision = "REVISION_MANUAL_TECNICO_SOCIAL";
+        accion = "Asignar expediente a trabajador social comarcal para entrevista presencial.";
+        porQue = "Expediente en franja de incertidumbre sin ajuste a supuestos automatizados.";
         clase = "warning";
       }
 
-      ultimoResultado = { p, regla, nomRegla, decision, accion, porQue };
+      mostrarResultado({ p, regla, nomRegla, decision, accion, porQue, clase });
+    }
+
+    function mostrarResultado(res) {
+      ultimoResultado = res;
       const card = document.getElementById('ruleCard');
-      card.className = "rule-box " + clase;
+      const bgClass = res.clase === 'danger' ? 'bg-danger text-white' : (res.clase === 'success' ? 'bg-success text-white' : 'bg-warning text-dark');
+      const badgeClass = res.clase === 'danger' ? 'bg-white text-danger' : (res.clase === 'success' ? 'bg-white text-success' : 'bg-dark text-white');
+      card.className = "rule-box p-3 rounded mb-3 " + bgClass;
       card.innerHTML = `
         <div class="d-flex justify-content-between align-items-center">
-          <strong>${nomRegla}</strong>
-          <span class="badge bg-dark">Probabilidad p = ${p.toFixed(4)}</span>
+          <h5 class="mb-0"><strong>${res.nomRegla}</strong></h5>
+          <span class="badge ${badgeClass}">Probabilidad p = ${res.p.toFixed(4)}</span>
         </div>
-        <p class="mt-2 mb-1"><strong>Decisión:</strong> <code>${decision}</code></p>
-        <p class="mb-1"><strong>Acción:</strong> ${accion}</p>
-        <p class="mb-0 text-muted"><strong>Por qué:</strong> ${porQue}</p>
+        <p class="mt-2 mb-1"><strong>Decisión Oficial:</strong> <code>${res.decision}</code></p>
+        <p class="mb-1"><strong>Acción Resolutoria:</strong> ${res.accion}</p>
+        <p class="mb-0"><strong>Justificación:</strong> ${res.porQue}</p>
       `;
       document.getElementById('resultadoBox').style.display = 'block';
     }
@@ -379,8 +423,46 @@ class StandaloneWebHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
         self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
+        self.send_header("Pragma", "no-cache")
+        self.send_header("Expires", "0")
         self.end_headers()
         self.wfile.write(HTML_INTERFACE.encode("utf-8"))
+
+    def do_POST(self):
+        if self.path == "/api/evaluar":
+            content_length = int(self.headers.get("Content-Length", 0))
+            post_data = self.rfile.read(content_length).decode("utf-8")
+            try:
+                caso = json.loads(post_data)
+                model_info = cargar_modelo()
+                if model_info:
+                    p, pred_class, dec = predecir_caso(caso, model_info)
+                    clase = "danger" if "DENEGADO" in dec.decision else ("success" if "CONCESION" in dec.decision else "warning")
+                    resp = {
+                        "p": p,
+                        "pred_class": pred_class,
+                        "regla": dec.regla_id,
+                        "nomRegla": dec.nombre_regla,
+                        "decision": dec.decision,
+                        "accion": dec.accion_recomendada,
+                        "porQue": dec.justificacion_negocio,
+                        "clase": clase
+                    }
+                else:
+                    resp = {"error": "Modelo no encontrado"}
+            except Exception as e:
+                resp = {"error": str(e)}
+
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Cache-Control", "no-cache")
+            self.end_headers()
+            self.wfile.write(json.dumps(resp).encode("utf-8"))
+            return
+
+        self.send_response(404)
+        self.end_headers()
 
 
 def iniciar_servidor_web(puerto: int = 8501):
