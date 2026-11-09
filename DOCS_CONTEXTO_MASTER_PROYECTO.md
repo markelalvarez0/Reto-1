@@ -291,3 +291,41 @@ c:\Users\aldeb\Jon\IA y Big Data\Reto 1\
     │   └── 03_explicabilidad_shap.py       <- Análisis de explicabilidad con SHAP
     └── src/                                <- Copia sincronizada de src/ para ML y reglas
 ```
+
+---
+
+## 7. ARQUITECTURA DE CONTROL DE VERSIONES GIT, TOPOLOGÍA DE RAMAS Y AUTOMATIZACIÓN (AGENTS.MD)
+
+### 7.1 Filosofía de Identidad y Topología de las 4 Ramas
+El desarrollo del proyecto se realiza de forma colaborativa entre dos desarrolladores que trabajan en entornos locales independientes. Para garantizar la reproducibilidad y evitar pisados de código accidentales en GitHub, se definió la política estricta de `AGENTS.md`:
+- **Regla Fundamental**: Ninguna instrucción compartida debe fijar o asumir la identidad o rama de un desarrollador específico en el código base.
+- **Configuración Local de Identidad**: Cada desarrollador declara su rama personal ejecutando:
+  ```bash
+  git config dev.branch dev-<nombre>
+  # Ejemplo Jon: git config dev.branch dev-jon
+  # Ejemplo Compañero: git config dev.branch dev-companero
+  ```
+- **Estructura de las 4 Ramas**:
+  1. `dev-jon`: Rama de desarrollo personal de Jon.
+  2. `dev-companero`: Rama de desarrollo personal del segundo desarrollador.
+  3. `test`: Rama de integración continua donde se combinan los cambios de ambos desarrolladores y se valida la no-regresión.
+  4. `main`: Rama principal de producción, protegida y con código 100% probado, estable y coherente.
+
+### 7.2 Flujo Automatizado de 8 Fases en `scripts/git_workflow.py`
+Para asegurar la disciplina de Git sin intervención manual susceptible de error, el script `scripts/git_workflow.py` automatiza todo el ciclo de entrega:
+```bash
+python scripts/git_workflow.py "Mensaje descriptivo del commit"
+```
+El script ejecuta secuencialmente:
+1. **Inspección de Estado**: Detecta rama actual con `git rev-parse --abbrev-ref HEAD` y conmuta a la rama declarada en `git config dev.branch`.
+2. **Control de Secretos**: Escanea archivos en búsqueda de patrones de claves (`.env`, `.pem`, `.key`, `id_rsa`, `password`, `token`, etc.).
+3. **Validación Pre-Commit**: Ejecuta la suite de pruebas unitarias y de integración (`pytest tests/`). Si 1 solo test falla, **se bloquea la creación del commit**.
+4. **Commit Descriptivo**: Genera commit funcional sin incluir artefactos temporales ni entornos virtuales.
+5. **Publicación en Rama Personal**: Push seguro a `origin/<dev-branch>`.
+6. **Integración en 'test'**: Cambia a `test`, descarga remotos (`git pull origin test`), fusiona la rama personal (`git merge <dev-branch>`), reejecuta los 33 tests sobre el código integrado y sube `test` a GitHub (`git push origin test`).
+7. **Promoción a 'main'**: Si y solo si todas las pruebas pasan en `test`, cambia a `main`, descarga (`git pull origin main`), fusiona `test` (`git merge test`) y sube `main` a GitHub (`git push origin main`).
+8. **Sincronización Final**: Regresa a la rama personal de desarrollo y sincroniza con `main` para disponer siempre del estado más reciente.
+
+### 7.3 Protocolo de Resolución de Conflictos y Prohibición de Comandos Destructivos
+- **Resolución Armónica**: Inspección obligatoria de marcadores `<<<<<<< HEAD`, `=======` y `>>>>>>>`. En `requirements.txt` y `.gitignore`, unificar aportaciones sin duplicados. En Python, asegurar la coexistencia de clases y métodos de ambos desarrolladores.
+- **Prohibición Estricta**: Queda terminantemente prohibido utilizar `git reset --hard`, `git push --force` o `git clean -fd` para forzar integraciones en cualquiera de las ramas.

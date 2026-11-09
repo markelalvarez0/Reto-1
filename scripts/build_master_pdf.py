@@ -285,7 +285,12 @@ def generate_master_pdf():
         ("6", "CONTRATOS DE MÓDULOS, TESTS Y CONFIGURACIÓN", "Pág. 18"),
         ("  6.1", "Contratos de Interfaz de Clases y Funciones de src/", "Pág. 18"),
         ("  6.2", "Auditoría Detallada de las 33 Pruebas Automatizadas de pytest", "Pág. 19"),
-        ("  6.3", "Ficheros de Configuración: requirements.txt y pyproject.toml", "Pág. 20")
+        ("  6.3", "Ficheros de Configuración: requirements.txt y pyproject.toml", "Pág. 19"),
+        ("  6.4", "Árbol Completo de Directorios del Repositorio", "Pág. 19"),
+        ("7", "MODELO COLABORATIVO GIT, RAMAS Y AUTOMATIZACIÓN (AGENTS.MD)", "Pág. 20"),
+        ("  7.1", "Topología de 4 Ramas (dev-jon, dev-companero, test, main) e Identidad", "Pág. 20"),
+        ("  7.2", "Pipeline Automatizado de 8 Fases en scripts/git_workflow.py y Pytest", "Pág. 20"),
+        ("  7.3", "Protocolo Estricto de Conflictos y Prohibición de Comandos Destructivos", "Pág. 21")
     ]
 
     for num, txt, pg in toc_items:
@@ -1036,6 +1041,61 @@ pythonpath = [".", "ainhoa", "BDA + SBD", "SAA + PIA + MIA"]"""
     pdf.code_block(tree_text, "Árbol Físico de Archivos y Módulos del Proyecto")
 
     # Guardar en disco
+    
+    # =============================================================
+    # CAPÍTULO 7: MODELO COLABORATIVO GIT, RAMAS Y AUTOMATIZACIÓN
+    # =============================================================
+    pdf.add_page()
+    pdf.chapter_title("7", "MODELO COLABORATIVO GIT, RAMAS Y AUTOMATIZACIÓN (AGENTS.MD)")
+    
+    pdf.section_title("7.1 Filosofía de Identidad y Topología de las 4 Ramas")
+    pdf.paragraph(
+        "El desarrollo del Reto 1 se realiza bajo un modelo colaborativo riguroso entre dos desarrolladores independientes (Jon y un compañero de equipo), cada uno operando desde terminales y entornos locales de Antigravity desacoplados. Para garantizar la reproducibilidad y evitar colisiones destructivas en el repositorio remoto, se redactó y formalizó el marco normativo AGENTS.md, el cual establece una Regla Fundamental de Identidad: Ninguna instrucción, script ni documentación compartida puede fijar o asumir estáticamente la identidad o rama de un desarrollador específico en el código base."
+    )
+    pdf.paragraph(
+        "Cada instalación local declara su identidad dinámica ejecutando 'git config dev.branch dev-<nombre>' (por ejemplo, 'dev-jon' o 'dev-companero'), o mediante la variable de entorno DEV_BRANCH. La topología de ramificación del repositorio se estructura en cuatro ramas con propósitos y permisos estrictamente diferenciados:"
+    )
+
+    branch_w = [30, 42, 118]
+    pdf.table_header(["RAMA GIT", "ÁMBITO / PROPIETARIO", "PROPÓSITO Y POLÍTICA DE MERGE"], branch_w)
+    pdf.table_row(["dev-jon", "Jon Larrea (Local)", "Rama personal de Jon. Desarrollo de features, experimentación, commits y push a origin/dev-jon.", branch_w], False)
+    pdf.table_row(["dev-companero", "Segundo Desarrollador", "Rama personal del compañero de equipo. Desarrollo independiente sin interferencia con dev-jon.", branch_w], True)
+    pdf.table_row(["test", "Integración Continua", "Rama común de confluencia. Aquí se integran dev-jon y dev-companero. Ejecuta la suite de 33 tests.", branch_w], False)
+    pdf.table_row(["main", "Producción Protegida", "Rama principal de producción. Contiene código 100 % probado y validado promovido desde 'test'.", branch_w], True)
+    pdf.ln(3)
+
+    pdf.section_title("7.2 Pipeline Automatizado de 8 Fases en scripts/git_workflow.py")
+    pdf.paragraph(
+        "Para eliminar el error humano en el cumplimiento de AGENTS.md, se desarrolló el orquestador 'scripts/git_workflow.py'. Cualquier tarea completada por los desarrolladores o agentes de Antigravity debe sincronizarse invocando: 'python scripts/git_workflow.py \\\"Mensaje descriptivo\\\"'. El script ejecuta de forma no interactiva un pipeline secuencial atómico de 8 fases:"
+    )
+
+    gw_w = [18, 44, 128]
+    pdf.table_header(["FASE", "NOMBRE DE LA FASE", "MECANISMO OPERATIVO Y REGLAS DE VALIDACIÓN"], gw_w)
+    pdf.table_row(["Paso 1", "Inspección de Estado", "Lee 'git config dev.branch' y verifica con 'git rev-parse --abbrev-ref HEAD'. Si no está en su rama, conmuta.", gw_w], False)
+    pdf.table_row(["Paso 2", "Escaneo de Secretos", "Inspecciona diffs buscando regex de riesgo (.env, .pem, .key, id_rsa, password, token, secret, credential).", gw_w], True)
+    pdf.table_row(["Paso 3", "Validación Pre-Commit", "Ejecuta 'pytest tests/ -v'. Si falla 1 solo test de los 33, detiene el proceso inmediatamente sin commit.", gw_w], False)
+    pdf.table_row(["Paso 4", "Commit Descriptivo", "Genera commit formal con mensaje de funcionalidad sin incluir ficheros temporales ni entornos virtuales.", gw_w], True)
+    pdf.table_row(["Paso 5", "Push a Rama Personal", "Sincroniza y publica cambios hacia 'origin/<dev-branch>' en GitHub (manejando entornos sin terminal).", gw_w], False)
+    pdf.table_row(["Paso 6", "Integración en 'test'", "Checkout a 'test', git pull origin test, merge de la rama personal y reejecución completa de 33 tests en test.", gw_w], True)
+    pdf.table_row(["Paso 7", "Promoción a 'main'", "Si los 33 tests pasan en 'test', checkout a 'main', git pull origin main, merge de test y push origin main.", gw_w], False)
+    pdf.table_row(["Paso 8", "Sincronización Final", "Regresa a la rama personal ('git checkout <dev-branch>') y fusiona 'main' para disponer siempre de la última versión.", gw_w], True)
+    pdf.ln(3)
+
+    pdf.section_title("7.3 Protocolo de Resolución de Conflictos y Prohibiciones de Seguridad")
+    pdf.paragraph(
+        "Cuando durante la fase de integración en 'test' se produce un conflicto originado por aportaciones simultáneas de ambos desarrolladores, el protocolo de AGENTS.md exige la aplicación de tres directrices ineludibles:"
+    )
+    pdf.bullet_point("Análisis de Marcadores", "Inspeccionar rigurosamente los marcadores '<<<<<<< HEAD', '=======' y '>>>>>>>' para comprender la funcionalidad introducida por cada compañero.")
+    pdf.bullet_point("Conservación Funcional", "En ficheros de dependencias (requirements.txt) o configuración (.gitignore), unificar aportaciones sin duplicados. En código Python, coordinar clases y funciones para que ambas coexistan de forma armónica.")
+    pdf.bullet_point("Límite de Seguridad", "Si la resolución del conflicto presenta ambigüedad o riesgo de ruptura, detener la integración, notificar los ficheros afectados y conservar intacto el trabajo local.")
+    pdf.ln(2)
+
+    pdf.callout_box(
+        "PROHIBICIÓN ESTRICTA DE COMANDOS DESTRUCTIVOS (AGENTS.md SECCIÓN 3.4)",
+        "Queda terminantemente prohibido utilizar 'git reset --hard', 'git push --force' o 'git clean -fd' para forzar integraciones en cualquiera de las 4 ramas. Toda modificación debe preservar el histórico criptográfico de Git y basarse en merges de avance limpio validados por la suite de 33 tests automatizados.",
+        (254, 242, 242), (220, 38, 38)
+    )
+
     pdf.output(PDF_OUTPUT_PATH)
     print(f"PDF generado con éxito en: {os.path.abspath(PDF_OUTPUT_PATH)}")
     print(f"Tamaño del fichero: {os.path.getsize(PDF_OUTPUT_PATH):,} bytes")
