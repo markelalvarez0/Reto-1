@@ -1,14 +1,30 @@
 """
 Módulo de carga e integración de datos multifuente en MongoDB.
-Integra datos de API (Visesa/Open Data), Scraping (Habitaclia/Pisos) e Indicadores (Eustat/OVJ),
-demostrando decisiones de modelado (embedding y referencing).
+Integra datos de:
+- Portales inmobiliarios (Habitaclia, EnAlquiler, Inmobiliaria Chomon, Inmobiliaria Quorum, YaEncontre, Pisos.com, Milanuncios)
+- APIs públicas de vivienda protegida (Open Data Euskadi / Visesa)
+- Registro de Fianzas Bizilagun y Demandantes Etxebide
+- Sistema Estatal de Precios de Referencia MIVAU
+- Indicadores de Renta y Juventud (Eustat / Udalmap / OVJ / Lanbide)
+- Conectividad de Transporte (CTB Metro Bilbao, Euskotren, TUVISA, Dbus)
+
+Decisión de modelado:
+- Referencing en 'viviendas' -> 'municipios' mediante 'codigo_municipio' (Código INE de 5 dígitos).
+- Embedding en 'municipios' con indicadores socioeconómicos, programas de ayuda, contratos Bizilagun y transporte.
 """
+
 import json
 import logging
 from pathlib import Path
 from typing import Dict, Any, List
 
+from src.extraction.models import resolver_codigo_ine
+from src.extraction.multi_portal_scraper import MultiPortalHousingScraper
+from src.extraction.official_housing_sources import OfficialHousingClient
+from src.indicators.transport_client import TransportConnectivityClient
+
 logger = logging.getLogger(__name__)
+
 
 class MongoDBDataLoader:
     """Carga e integra datos en colecciones MongoDB respetando decisiones de modelado."""
@@ -26,22 +42,36 @@ class MongoDBDataLoader:
         total_viviendas = 0
         total_municipios = 0
 
-        # 1. Cargar Indicadores Municipales (Colección 'municipios' con embedding de programas)
+        # 1. Cargar Indicadores Municipales (Colección 'municipios' con embedding)
         municipios_seed = self._generar_datos_municipios_base()
-        
-        # Buscar ficheros de indicadores reales si existen
-        indicadores_files = list(data_raw_dir.glob("indicadores_*.json"))
-        if indicadores_files:
-            try:
-                with open(indicadores_files[0], "r", encoding="utf-8") as f:
-                    ind_data = json.load(f)
-                    # Enriquecer municipios seed
-                    for item in ind_data:
-                        mun_name = item.get("municipio")
-                        if mun_name in municipios_seed:
-                            municipios_seed[mun_name]["indicadores_oficiales"] = item
-            except Exception as e:
-                logger.warning(f"Error procesando indicadores JSON: {e}")
+
+        # Enriquecer con Bizilagun, Etxebide, MIVAU y Transporte
+        try:
+            official_client = OfficialHousingClient()
+            transp_client = TransportConnectivityClient()
+
+            # Embedding Bizilagun
+            for b in official_client.obtener_contratos_bizilagun():
+                if b.municipio in municipios_seed:
+                    municipios_seed[b.municipio]["bizilagun_contratos_reales"] = b.model_dump()
+
+            # Embedding Etxebide
+            for e in official_client.obtener_demanda_etxebide():
+                if e.municipio in municipios_seed:
+                    municipios_seed[e.municipio]["etxebide_demanda_social"] = e.model_dump()
+
+            # Embedding MIVAU
+            for m in official_client.obtener_precios_mivau():
+                if m.municipio in municipios_seed:
+                    municipios_seed[m.municipio]["mivau_referencia_estatal"] = m.model_dump()
+
+            # Embedding Transporte
+            for t in transp_client.obtener_conectividad_todos():
+                if t.municipio in municipios_seed:
+                    municipios_seed[t.municipio]["conectividad_transporte"] = t.model_dump()
+
+        except Exception as e:
+            logger.warning(f"Error enriqueciendo datos municipales: {e}")
 
         # Insertar municipios
         self.municipios_col.delete_many({})
@@ -50,37 +80,26 @@ class MongoDBDataLoader:
             self.municipios_col.insert_many(docs_municipios)
             total_municipios = len(docs_municipios)
 
-        # 2. Cargar Viviendas (API + Scraping) con Referencing hacia municipios
+        # 2. Cargar Viviendas (API + MultiPortal Scraping) con Referencing hacia municipios
         self.viviendas_col.delete_many({})
         viviendas_docs = []
 
-        # API (Visesa / Open Data Euskadi)
-        api_files = list(data_raw_dir.glob("vivienda_api_*.json"))
-        if api_files:
+        # A) Buscar ficheros en data/raw si existen
+        for f in data_raw_dir.glob("vivienda_*.json"):
             try:
-                with open(api_files[0], "r", encoding="utf-8") as f:
-                    api_data = json.load(f)
-                    for ad in api_data:
-                        doc = self._normalizar_anuncio_api(ad)
-                        viviendas_docs.append(doc)
-            except Exception as e:
-                logger.warning(f"Error cargando viviendas API: {e}")
+                with open(f, "r", encoding="utf-8") as jf:
+                    data = json.load(jf)
+                    items = data.get("items", data) if isinstance(data, dict) else data
+                    for item in items:
+                        doc = self._normalizar_anuncio(item)
+                        if doc:
+                            viviendas_docs.append(doc)
+            except Exception as ex:
+                logger.warning(f"Error leyendo {f}: {ex}")
 
-        # Scraping (Habitaclia / Pisos.com)
-        scraping_files = list(data_raw_dir.glob("vivienda_scraping_*.json"))
-        if scraping_files:
-            try:
-                with open(scraping_files[0], "r", encoding="utf-8") as f:
-                    scraping_data = json.load(f)
-                    for ad in scraping_data:
-                        doc = self._normalizar_anuncio_scraping(ad)
-                        viviendas_docs.append(doc)
-            except Exception as e:
-                logger.warning(f"Error cargando viviendas Scraping: {e}")
-
-        # Si no había ficheros en bruto, inyectar un conjunto representativo para garantizar ejecución inmediata
-        if not viviendas_docs:
-            viviendas_docs = self._generar_viviendas_seed()
+        # B) Si no hay ficheros o son pocos, generar catálogo unificado completo de portales
+        if len(viviendas_docs) < 15:
+            viviendas_docs.extend(self._generar_catalogo_multiportal_completo())
 
         if viviendas_docs:
             self.viviendas_col.insert_many(viviendas_docs)
@@ -89,197 +108,100 @@ class MongoDBDataLoader:
         logger.info(f"Carga finalizada: {total_municipios} municipios y {total_viviendas} viviendas en MongoDB.")
         return {"municipios": total_municipios, "viviendas": total_viviendas}
 
-    def _normalizar_anuncio_api(self, ad: Dict[str, Any]) -> Dict[str, Any]:
-        """Transforma anuncio de API al esquema unificado con referencing."""
-        municipio = ad.get("municipio", "Bilbao")
+    def _normalizar_anuncio(self, ad: Dict[str, Any]) -> Dict[str, Any]:
+        """Transforma anuncio a esquema unificado con código INE de 5 dígitos."""
+        mun = ad.get("municipio", "Bilbao")
+        cod_ine = ad.get("codigo_municipio") or resolver_codigo_ine(mun)
+        precio = float(ad.get("precio", 750.0) or 750.0)
+        sup = float(ad.get("superficie_m2", 65.0) or 65.0)
+        tipo_op = str(ad.get("tipo_operacion", "alquiler")).lower()
+        es_vpo = bool(ad.get("es_protegida", False) or tipo_op in ("vpo", "aroc") or "visesa" in str(ad.get("fuente", "")).lower())
+
+        caract = ad.get("caracteristicas", {})
+        if not isinstance(caract, dict):
+            caract = {}
+
         return {
-            "id_origen": ad.get("id", ""),
-            "titulo": ad.get("titulo", "Promoción VPO"),
-            "municipio": municipio,
-            "tipo_operacion": ad.get("tipo_operacion", "compra").lower(),
-            "precio": float(ad.get("precio", 150000.0)),
-            "superficie_m2": float(ad.get("superficie_m2", 75.0)),
-            "fuente": "api_visesa",
+            "id_origen": str(ad.get("id") or ad.get("id_origen") or f"ad_{hash(mun + str(precio))}"),
+            "titulo": str(ad.get("titulo", f"Inmueble en {mun}")),
+            "municipio": mun,
+            "codigo_municipio": cod_ine,
+            "provincia": ad.get("provincia") or ("Bizkaia" if cod_ine.startswith("48") else ("Gipuzkoa" if cod_ine.startswith("20") else "Araba")),
+            "barrio": ad.get("barrio"),
+            "direccion": ad.get("direccion"),
+            "tipo_operacion": tipo_op,
+            "precio": precio,
+            "superficie_m2": sup,
+            "precio_m2": round(precio / sup, 2) if sup > 0 else 0.0,
+            "fuente": ad.get("fuente", "habitaclia"),
+            "portal_origen": ad.get("portal_origen", ad.get("fuente", "habitaclia")),
             "caracteristicas": {
-                "habitaciones": int(ad.get("habitaciones", 2)),
-                "banos": int(ad.get("banos", 1)),
-                "ascensor": True,
-                "calefaccion": True,
-                "garaje": True
+                "habitaciones": int(caract.get("habitaciones") or ad.get("habitaciones") or 2),
+                "banos": int(caract.get("banos") or ad.get("banos") or 1),
+                "ascensor": bool(caract.get("ascensor") or ad.get("ascensor") or True),
+                "fianza_meses": int(ad.get("fianza_meses") or caract.get("fianza_meses") or 1),
+                "distancia_transporte_m": int(ad.get("distancia_transporte_m") or 150)
             },
-            "es_protegida": True
+            "es_protegida": es_vpo
         }
 
-    def _normalizar_anuncio_scraping(self, ad: Dict[str, Any]) -> Dict[str, Any]:
-        """Transforma anuncio de Scraping al esquema unificado con referencing."""
-        municipio = ad.get("municipio", "Bilbao")
-        return {
-            "id_origen": ad.get("id", ""),
-            "titulo": ad.get("titulo", "Piso en alquiler"),
-            "municipio": municipio,
-            "tipo_operacion": ad.get("tipo_operacion", "alquiler").lower(),
-            "precio": float(ad.get("precio", 750.0)),
-            "superficie_m2": float(ad.get("superficie_m2", 65.0)),
-            "fuente": ad.get("fuente", "habitaclia"),
-            "caracteristicas": {
-                "habitaciones": int(ad.get("habitaciones", 2)),
-                "banos": int(ad.get("banos", 1)),
-                "ascensor": bool(ad.get("ascensor", True)),
-                "calefaccion": True,
-                "garaje": False
-            },
-            "es_protegida": False
-        }
+    def _generar_catalogo_multiportal_completo(self) -> List[Dict[str, Any]]:
+        """Extrae el catálogo integrado de todos los portales inmobiliarios y VPO."""
+        multi_scraper = MultiPortalHousingScraper()
+        res = multi_scraper.extraer_todos_los_portales()
+        anuncios = [self._normalizar_anuncio(ad.to_dict()) for ad in res.items]
+
+        # Añadir promociones VPO Visesa de referencia
+        vpo_seeds = [
+            {"id": "vpo_bilbao_01", "mun": "Bilbao", "cod": "48020", "precio": 450.0, "m2": 72.0, "titulo": "Promoción VPO Alokabide en Zorrotzaurre", "fuente": "OpenData_Visesa", "portal_origen": "Visesa", "es_protegida": True},
+            {"id": "vpo_vitoria_01", "mun": "Vitoria-Gasteiz", "cod": "01059", "precio": 380.0, "m2": 75.0, "titulo": "Alojamientos Dotacionales Salburua (boe-a)", "fuente": "OpenData_Visesa", "portal_origen": "Visesa", "es_protegida": True},
+            {"id": "vpo_donostia_01", "mun": "Donostia-San Sebastián", "cod": "20069", "precio": 520.0, "m2": 68.0, "titulo": "Promoción Txomin Enea VPO Alquiler", "fuente": "OpenData_Visesa", "portal_origen": "Visesa", "es_protegida": True},
+            {"id": "vpo_barakaldo_01", "mun": "Barakaldo", "cod": "48013", "precio": 420.0, "m2": 70.0, "titulo": "VPO Lutxana Parque Serralta", "fuente": "OpenData_Visesa", "portal_origen": "Visesa", "es_protegida": True},
+            {"id": "vpo_getxo_01", "mun": "Getxo", "cod": "48044", "precio": 480.0, "m2": 70.0, "titulo": "Promoción VPO Iturribarren Algorta", "fuente": "OpenData_Visesa", "portal_origen": "Visesa", "es_protegida": True},
+            {"id": "vpo_irun_01", "mun": "Irun", "cod": "20045", "precio": 410.0, "m2": 65.0, "titulo": "Promoción Oinaurre VPO Alquiler", "fuente": "OpenData_Visesa", "portal_origen": "Visesa", "es_protegida": True},
+        ]
+        for v in vpo_seeds:
+            anuncios.append(self._normalizar_anuncio(v))
+
+        return anuncios
 
     def _generar_datos_municipios_base(self) -> Dict[str, Dict[str, Any]]:
         """
-        Decisión de modelado MongoDB:
-        Embedding de indicadores socioeconómicos y programas juveniles dentro del documento del municipio,
-        evitando joins innecesarios para lecturas frecuentes.
+        Modelado de datos para los municipios vascos representativos,
+        unificados por su código INE oficial de 5 dígitos.
         """
-        return {
-            "Bilbao": {
-                "municipio": "Bilbao",
-                "provincia": "Bizkaia",
-                "poblacion_total": 346000,
-                "poblacion_joven_18_34": 52400,
-                "salario_medio_joven_mes": 1380.0,
-                "renta_media_persona": 18250.0,
-                "paro_juvenil_pct": 14.8,
+        municipios_lista = [
+            ("Bilbao", "48020", "Bizkaia", 346000, 52400, 1380.0, 18250.0, 14.8, "ALTO"),
+            ("Donostia-San Sebastián", "20069", "Gipuzkoa", 188000, 27800, 1420.0, 21500.0, 11.2, "MUY_ALTO"),
+            ("Vitoria-Gasteiz", "01059", "Araba", 254000, 38900, 1360.0, 19100.0, 13.5, "MODERADO"),
+            ("Barakaldo", "48013", "Bizkaia", 101000, 15600, 1310.0, 16800.0, 15.2, "MODERADO"),
+            ("Getxo", "48044", "Bizkaia", 77000, 10500, 1490.0, 23400.0, 10.5, "ALTO"),
+            ("Irun", "20045", "Gipuzkoa", 62000, 8900, 1330.0, 17200.0, 14.1, "MODERADO"),
+            ("Portugalete", "48078", "Bizkaia", 45000, 6200, 1290.0, 16100.0, 15.8, "MODERADO"),
+            ("Santurtzi", "48082", "Bizkaia", 46000, 6500, 1280.0, 15900.0, 16.0, "MODERADO"),
+            ("Basauri", "48015", "Bizkaia", 40000, 5800, 1300.0, 16500.0, 14.9, "MODERADO"),
+            ("Errenteria", "20067", "Gipuzkoa", 39000, 5400, 1310.0, 16900.0, 13.8, "ALTO"),
+            ("Zarautz", "20079", "Gipuzkoa", 23000, 3200, 1440.0, 21800.0, 9.8, "MUY_ALTO"),
+            ("Durango", "48027", "Bizkaia", 30000, 4400, 1350.0, 18400.0, 12.4, "MODERADO"),
+        ]
+
+        base = {}
+        for mun, cod, prov, pob_tot, pob_jov, sal_jov, renta, paro, tension in municipios_lista:
+            base[mun] = {
+                "municipio": mun,
+                "codigo_municipio": cod,
+                "provincia": prov,
+                "poblacion_total": pob_tot,
+                "poblacion_joven_18_34": pob_jov,
+                "salario_medio_joven_mes": sal_jov,
+                "renta_media_persona": renta,
+                "paro_juvenil_pct": paro,
                 "programas_ayuda": [
                     {"nombre": "Gaztelagun", "cobertura_max": 300.0, "requisito_edad_max": 35},
-                    {"nombre": "VPO_Alquiler", "cobertura_max": 400.0, "requisito_edad_max": 35}
+                    {"nombre": "Emantzipa", "cobertura_max": 300.0, "requisito_edad_max": 30},
+                    {"nombre": "VPO_Alquiler_Alokabide", "cobertura_max": 400.0, "requisito_edad_max": 35}
                 ],
-                "nivel_tension_inmobiliaria": "ALTO"
-            },
-            "Donostia-San Sebastián": {
-                "municipio": "Donostia-San Sebastián",
-                "provincia": "Gipuzkoa",
-                "poblacion_total": 188000,
-                "poblacion_joven_18_34": 27800,
-                "salario_medio_joven_mes": 1420.0,
-                "renta_media_persona": 21500.0,
-                "paro_juvenil_pct": 11.2,
-                "programas_ayuda": [
-                    {"nombre": "Gaztelagun", "cobertura_max": 300.0, "requisito_edad_max": 35},
-                    {"nombre": "Etxebide_Donostia", "cobertura_max": 350.0, "requisito_edad_max": 35}
-                ],
-                "nivel_tension_inmobiliaria": "MUY_ALTO"
-            },
-            "Vitoria-Gasteiz": {
-                "municipio": "Vitoria-Gasteiz",
-                "provincia": "Araba",
-                "poblacion_total": 254000,
-                "poblacion_joven_18_34": 38900,
-                "salario_medio_joven_mes": 1360.0,
-                "renta_media_persona": 19100.0,
-                "paro_juvenil_pct": 13.5,
-                "programas_ayuda": [
-                    {"nombre": "Gaztelagun", "cobertura_max": 300.0, "requisito_edad_max": 35},
-                    {"nombre": "Ensanche21", "cobertura_max": 250.0, "requisito_edad_max": 35}
-                ],
-                "nivel_tension_inmobiliaria": "MODERADO"
-            },
-            "Barakaldo": {
-                "municipio": "Barakaldo",
-                "provincia": "Bizkaia",
-                "poblacion_total": 101000,
-                "poblacion_joven_18_34": 15600,
-                "salario_medio_joven_mes": 1310.0,
-                "renta_media_persona": 16800.0,
-                "paro_juvenil_pct": 15.2,
-                "programas_ayuda": [
-                    {"nombre": "Gaztelagun", "cobertura_max": 300.0, "requisito_edad_max": 35}
-                ],
-                "nivel_tension_inmobiliaria": "MODERADO"
-            },
-            "Getxo": {
-                "municipio": "Getxo",
-                "provincia": "Bizkaia",
-                "poblacion_total": 77000,
-                "poblacion_joven_18_34": 10500,
-                "salario_medio_joven_mes": 1490.0,
-                "renta_media_persona": 23400.0,
-                "paro_juvenil_pct": 10.5,
-                "programas_ayuda": [
-                    {"nombre": "Gaztelagun", "cobertura_max": 300.0, "requisito_edad_max": 35}
-                ],
-                "nivel_tension_inmobiliaria": "ALTO"
+                "nivel_tension_inmobiliaria": tension
             }
-        }
 
-    def _generar_viviendas_seed(self) -> List[Dict[str, Any]]:
-        """Genera un catálogo representativo con variedad de precios y operaciones."""
-        items = []
-        municipios = ["Bilbao", "Donostia-San Sebastián", "Vitoria-Gasteiz", "Barakaldo", "Getxo"]
-        precios_alquiler = {
-            "Bilbao": [650, 750, 850, 950, 1100],
-            "Donostia-San Sebastián": [850, 950, 1050, 1250, 1400],
-            "Vitoria-Gasteiz": [520, 600, 680, 750, 820],
-            "Barakaldo": [580, 650, 720, 780, 850],
-            "Getxo": [750, 850, 950, 1150, 1300]
-        }
-
-        counter = 1
-        for mun in municipios:
-            # Alquileres mercado libre (scraping)
-            for p in precios_alquiler[mun]:
-                items.append({
-                    "id_origen": f"scrap_hab_{counter}",
-                    "titulo": f"Piso de alquiler en {mun}",
-                    "municipio": mun,
-                    "tipo_operacion": "alquiler",
-                    "precio": float(p),
-                    "superficie_m2": 65.0,
-                    "fuente": "habitaclia",
-                    "caracteristicas": {
-                        "habitaciones": 2 if p < 800 else 3,
-                        "banos": 1 if p < 800 else 2,
-                        "ascensor": True,
-                        "calefaccion": True,
-                        "garaje": False
-                    },
-                    "es_protegida": False
-                })
-                counter += 1
-
-            # Promociones VPO (API Visesa)
-            items.append({
-                "id_origen": f"vpo_api_{counter}",
-                "titulo": f"Promoción Vivienda Protegida VPO en {mun}",
-                "municipio": mun,
-                "tipo_operacion": "alquiler",
-                "precio": 380.0 if mun == "Vitoria-Gasteiz" else 450.0,
-                "superficie_m2": 72.0,
-                "fuente": "api_visesa",
-                "caracteristicas": {
-                    "habitaciones": 2,
-                    "banos": 1,
-                    "ascensor": True,
-                    "calefaccion": True,
-                    "garaje": True
-                },
-                "es_protegida": True
-            })
-            counter += 1
-
-            items.append({
-                "id_origen": f"vpo_compra_{counter}",
-                "titulo": f"Vivienda Tasada Autonómica en {mun}",
-                "municipio": mun,
-                "tipo_operacion": "compra",
-                "precio": 145000.0,
-                "superficie_m2": 80.0,
-                "fuente": "api_visesa",
-                "caracteristicas": {
-                    "habitaciones": 3,
-                    "banos": 2,
-                    "ascensor": True,
-                    "calefaccion": True,
-                    "garaje": True
-                },
-                "es_protegida": True
-            })
-            counter += 1
-
-        return items
+        return base

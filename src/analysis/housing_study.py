@@ -15,11 +15,13 @@ from pydantic import BaseModel, Field
 from datetime import datetime, timezone
 
 from src.indicators.ovj_client import OVJYouthEmancipationClient
+from src.extraction.models import resolver_codigo_ine
 
 
 class MunicipalHousingAnalysis(BaseModel):
     """Diagnóstico detallado de acceso a la vivienda para un municipio."""
     municipio: str
+    codigo_municipio: Optional[str] = None
     territorio: str
     poblacion: int
     renta_media_personal: float
@@ -130,6 +132,7 @@ class YouthHousingStudy:
 
             item = MunicipalHousingAnalysis(
                 municipio=muni_name,
+                codigo_municipio=resolver_codigo_ine(muni_name),
                 territorio=terr,
                 poblacion=m["pob"],
                 renta_media_personal=m["renta"],
