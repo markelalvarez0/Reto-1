@@ -54,11 +54,13 @@ def predecir_caso(datos_solicitante: dict, model_info: dict) -> tuple:
 # --------------------------------------------------------------------
 # 1. MODO STREAMLIT (Si se ejecuta con 'streamlit run')
 # --------------------------------------------------------------------
-try:
-    import streamlit as st
-    STREAMLIT_AVAILABLE = True
-except ImportError:
-    STREAMLIT_AVAILABLE = False
+STREAMLIT_AVAILABLE = False
+if "streamlit" in sys.modules or (len(sys.argv) > 0 and os.path.basename(sys.argv[0]).lower() in ("streamlit", "streamlit.exe")):
+    try:
+        import streamlit as st
+        STREAMLIT_AVAILABLE = True
+    except Exception:
+        STREAMLIT_AVAILABLE = False
 
 def render_streamlit_app():
     st.set_page_config(page_title="Emancipación Juvenil Euskadi · SAA+PIA+MIA", layout="wide", page_icon="🏠")
@@ -88,10 +90,13 @@ def render_streamlit_app():
         st.subheader("Matriz de Confusión en Test")
         col_m1, col_m2 = st.columns([1, 1])
         with col_m1:
-            st.table({
-                "Predicho Riesgo (0)": [f"TN: {cm['TN']}", f"FN: {cm['FN']}"],
-                "Predicho Viable (1)": [f"FP: {cm['FP']}", f"TP: {cm['TP']}"]
-            })
+            tabla_md = (
+                "| Real \\ Predicho | Predicho Riesgo (0) | Predicho Viable (1) |\n"
+                "|---|---|---|\n"
+                f"| **Real Riesgo (0)** | TN: **{cm['TN']}** | FP: **{cm['FP']}** |\n"
+                f"| **Real Viable (1)** | FN: **{cm['FN']}** | TP: **{cm['TP']}** |\n"
+            )
+            st.markdown(tabla_md)
         with col_m2:
             st.info("""
             **Interpretación para la Administración Pública:**
@@ -385,15 +390,15 @@ def iniciar_servidor_web(puerto: int = 8501):
 
     url = f"http://localhost:{puerto}"
     if en_uso:
-        print(f"[APP INTERACTIVA] Servidor ya activo en {url}. Abriendo navegador...")
+        print(f"[APP INTERACTIVA] Servidor ya activo en {url}. Abriendo navegador...", flush=True)
         webbrowser.open(url)
         return
 
     httpd = ThreadingHTTPServer(("0.0.0.0", puerto), StandaloneWebHandler)
     t = threading.Thread(target=httpd.serve_forever, daemon=True)
     t.start()
-    print(f"[APP INTERACTIVA] Servidor iniciado en {url}")
-    print(f"Abriendo {url} en su navegador...")
+    print(f"[APP INTERACTIVA] Servidor iniciado en {url}", flush=True)
+    print(f"Abriendo {url} en su navegador...", flush=True)
     webbrowser.open(url)
     try:
         while True:
@@ -403,9 +408,17 @@ def iniciar_servidor_web(puerto: int = 8501):
         print("Servidor detenido.")
 
 
+def is_running_in_streamlit() -> bool:
+    if "streamlit" not in sys.modules:
+        return False
+    try:
+        from streamlit.runtime.scriptrunner import get_script_run_ctx
+        return get_script_run_ctx() is not None
+    except Exception:
+        return False
+
 if __name__ == "__main__":
-    # Si streamlit está presente y se invocó via `streamlit run`, usa streamlit
-    if STREAMLIT_AVAILABLE and "streamlit" in sys.argv[0]:
+    if STREAMLIT_AVAILABLE and is_running_in_streamlit():
         render_streamlit_app()
     else:
         iniciar_servidor_web(puerto=8501)
