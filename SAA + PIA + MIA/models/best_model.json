@@ -1,0 +1,110 @@
+{
+  "model_name": "Regresión Logística",
+  "weights": [
+    -0.15059698974017394,
+    0.15038034737166345,
+    -0.2765435518137829,
+    -0.41314413387179877,
+    -0.2284788993608786,
+    -0.41236807603621145,
+    -0.3646196891139184,
+    -0.155574643296191,
+    -0.1636486332355304,
+    0.042403066812198464,
+    -0.2171977359003594,
+    0.13271694849507293,
+    -0.12244124685745103,
+    -0.20810066793172216,
+    0.16875947009916942,
+    -0.19951855243480499,
+    -0.9862657277701369,
+    0.6249647306453248,
+    -0.24611766696053594,
+    -0.11950945123697088,
+    0.004326121072700001
+  ],
+  "bias": -0.14177753163699444,
+  "preprocessor": {
+    "num_features": [
+      "edad",
+      "ingresos_mensuales",
+      "precio_alquiler",
+      "antiguedad_laboral_meses",
+      "ahorros_disponibles",
+      "deudas_mensuales",
+      "ratio_esfuerzo"
+    ],
+    "cat_features": [
+      "municipio",
+      "tipo_contrato",
+      "comparte_piso",
+      "tipo_subvencion"
+    ],
+    "imputer_stats": {
+      "edad": 25.0,
+      "ingresos_mensuales": 1363.02,
+      "precio_alquiler": 822.98,
+      "antiguedad_laboral_meses": 12.4,
+      "ahorros_disponibles": 2508.915,
+      "deudas_mensuales": 0.0,
+      "municipio": "Bilbao",
+      "tipo_contrato": "Indefinido",
+      "comparte_piso": "No",
+      "tipo_subvencion": "Gaztelagun"
+    },
+    "scaler_mean": [
+      25.55952380952381,
+      1382.0377261904762,
+      849.7785714285715,
+      18.02095238095238,
+      3538.426369047619,
+      52.57142857142857,
+      0.6475246428571428
+    ],
+    "scaler_scale": [
+      4.5725662026923715,
+      300.7775273155295,
+      192.30563299603787,
+      17.71734592742429,
+      3464.7902597153675,
+      78.25512089044544,
+      0.21819475916814288
+    ],
+    "encoder_categories": {
+      "municipio": [
+        "Barakaldo",
+        "Bilbao",
+        "Donostia-San Sebastián",
+        "Getxo",
+        "Vitoria-Gasteiz"
+      ],
+      "tipo_contrato": [
+        "Autonomo",
+        "En_Practicas",
+        "Indefinido",
+        "Temporal"
+      ],
+      "comparte_piso": [
+        "No",
+        "Si"
+      ],
+      "tipo_subvencion": [
+        "Emantzipa",
+        "Gaztelagun",
+        "VPO_Alquiler"
+      ]
+    }
+  },
+  "metrics_test": {
+    "accuracy": 0.6389,
+    "recall": 0.3958,
+    "precision": 0.8444,
+    "f1": 0.539,
+    "matriz_confusion": {
+      "TP": 38,
+      "TN": 77,
+      "FP": 7,
+      "FN": 58
+    }
+  }
+}

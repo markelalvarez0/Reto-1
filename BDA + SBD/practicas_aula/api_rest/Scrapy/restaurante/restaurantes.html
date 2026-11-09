@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Restaurantes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            padding: 20px;
+        }
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            width: 90%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .restaurant {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .restaurant img {
+            margin-right: 20px;
+            border-radius: 10px;
+            width: 250px;
+            height: 150px;
+            object-fit: cover;
+        }
+        .restaurant-content {
+            max-width: 600px;
+        }
+        h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        p {
+            color: #555;
+        }
+        a.read-more {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a.read-more:hover {
+            background-color: #45a049;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Blog de Restaurantes</h1>
+    <p>Explora los mejores lugares para disfrutar de buena comida</p>
+</header>
+
+<section id="reseñas-recientes">
+    <h2>Reseñas Recientes</h2>
+    
+    <div class="restaurant">
+        <img src="restaurant.jpg" alt="Restaurante La Buena Mesa">
+        <div class="restaurant-content">
+            <h3>Restaurante La Buena Mesa</h3>
+            <p>Con una cocina tradicional y un ambiente acogedor, La Buena Mesa se ha convertido en un referente de la gastronomía local. Destacan sus platos de temporada y su excelente servicio.</p>
+            <a href="/reseñas/la-buena-mesa" class="read-more" title="Leer más sobre La Buena Mesa">Leer más</a>
+        </div>
+    </div>
+
+    <div class="restaurant">
+        <img src="restaurant.jpg" alt="Restaurante El Sabor del Mar">
+        <div class="restaurant-content">
+            <h3>Restaurante El Sabor del Mar</h3>
+            <p>Especializado en mariscos frescos y cocina mediterránea, El Sabor del Mar ofrece una experiencia culinaria junto a la costa que deleitará a los amantes del pescado y mariscos.</p>
+            <a href="/reseñas/el-sabor-del-mar" class="read-more" title="Leer más sobre El Sabor del Mar">Leer más</a>
+        </div>
+    </div>
+
+    <div class="restaurant">
+        <img src="restaurant.jpg" alt="Restaurante Fusión Asiática">
+        <div class="restaurant-content">
+            <h3>Restaurante Fusión Asiática</h3>
+            <p>Con una mezcla de sabores de todo el continente asiático, Fusión Asiática combina lo mejor de la cocina japonesa, tailandesa y china en un menú sorprendente y lleno de creatividad.</p>
+            <a href="/reseñas/fusion-asiatica" class="read-more" title="Leer más sobre Fusión Asiática">Leer más</a>
+        </div>
+    </div>
+</section>
+
+<section id="mejores-del-mes">
+    <h2>Mejores Restaurantes del Mes</h2>
+    
+    <div class="restaurant">
+        <img src="restaurant.jpg" alt="Restaurante El Jardín Secreto">
+        <div class="restaurant-content">
+            <h3>Restaurante El Jardín Secreto</h3>
+            <p>Rodeado de naturaleza y con un ambiente íntimo, El Jardín Secreto ofrece una experiencia gastronómica única, ideal para cenas románticas. Sus platos con productos frescos del huerto son imperdibles.</p>
+            <a href="/reseñas/el-jardin-secreto" class="read-more" title="Leer más sobre El Jardín Secreto">Leer más</a>
+        </div>
+    </div>
+
+    <div class="restaurant">
+        <img src="restaurant.jpg" alt="Restaurante Tradición Vasca">
+        <div class="restaurant-content">
+            <h3>Restaurante Tradición Vasca</h3>
+            <p>Si buscas la auténtica gastronomía vasca, este es el lugar perfecto. Con platos típicos y un toque moderno, Tradición Vasca te ofrece una experiencia inolvidable en pleno corazón de Bilbao.</p>
+            <a href="/reseñas/tradicion-vasca" class="read-more" title="Leer más sobre Tradición Vasca">Leer más</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2024 Blog de Restaurantes - Tu guía de gastronomía local</p>
+</footer>
+
+</body>
+</html>

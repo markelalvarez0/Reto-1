@@ -1,0 +1,67 @@
+[
+    {
+        "nombre": "Gestión administrativa",
+        "url": "https://www.tartanga.eus/formacion/ciclos-formativos-de-grado-medio-grados-d/gestion-administrativa/",
+        "familia_profesional": "Administrativo",
+        "duracion": "2 años - Primer año - Segundo año",
+        "modelo": "A y D (Castellano y Euskera)",
+        "turno": "D_Matutino (08:00-14:30) y A_vespertino (15:00-21:30)",
+        "metodologia": "Aprendizaje colaborativo basado en retos",
+        "acceso": [
+            "Estar en posesión del título de Graduado en ESO.",
+            "Estar en posesión del título de Técnica o Técnico Básico",
+            "Estar en posesión del título de Técnica o Técnico.",
+            "Haber superado el curso de formación específico preparatorio para el acceso a ciclos formativos de grado medio en centros públicos o privados autorizados por la Administración educativa.",
+            "Haber superado la prueba de acceso a ciclos formativos de grado medio o grado superior, o la prueba de acceso a la universidad para mayores de 25 años y/o 45 años.",
+            "Haber superado una oferta formativa de Grado C de nivel 2, incluida en el ciclo formativo.",
+            "Acreditar la posesión de alguna de las titulaciones equivalentes para el acceso a los ciclos formativos de grado medio establecidos en la disposición adicional sexta, apartado 1 del Real Decreto 659/2023, de 18 de julio.",
+            "Certificado de homologación de estudios extranjeros con alguno de los títulos relacionados anteriormente. En el supuesto de que el procedimiento de homologación no haya sido resuelto, se aceptará el volante de inscripción condicional."
+        ],
+        "salidas_profesionales": [
+            "Auxiliar administrativo.",
+            "Ayudante de oficina.",
+            "Auxiliar administrativo de cobros y pagos",
+            "Administrativa / administrativo comercial.",
+            "Auxiliar administrativo de gestión de personal",
+            "Auxiliar administrativo de las administraciones públicas.",
+            "Recepcionista.",
+            "Empleada / empleado de atención al cliente.",
+            "Empleada / empleado de tesorería.",
+            "Empleada / empleado de medios de pago"
+        ],
+        "continuidad": [
+            "Cursos de especialización profesional",
+            "Otro ciclo de Formación Profesional con la posibilidad de establecer convalidaciones de módulos profesionales de acuerdo a la normativa vigente.",
+            "El Bachillerato en cualquiera de sus modalidades",
+            "Preparación de las Pruebas de Evaluación de Bachillerato (únicamente las materias de opción del bloque de las troncales)"
+        ]
+    },
+    {
+        "nombre": "Instalaciones eléctricas y automáticas",
+        "url": "https://www.tartanga.eus/formacion/ciclos-formativos-de-grado-medio-grados-d/instalaciones-electricas-y-automaticas/",
+        "familia_profesional": "Electricidad",
+        "duracion": "2 años - Primer año - Segundo año",
+        "modelo": "A (Castellano)",
+        "turno": "Matutino (08:00-14:30)",
+        "metodologia": "",
+        "acceso": [
+            "Estar en posesión del título de Graduado en ESO.",
+            "Estar en posesión del título de Técnica o Técnico Básico",
+            "Estar en posesión del título de Técnica o Técnico.",
+            "Haber superado el curso de formación específico preparatorio para el acceso a ciclos formativos de grado medio en centros públicos o privados autorizados por la Administración educativa.",
+            "Haber superado la prueba de acceso a ciclos formativos de grado medio o grado superior, o la prueba de acceso a la universidad para mayores de 25 años y/o 45 años.",
+            "Haber superado una oferta formativa de Grado C de nivel 2, incluida en el ciclo formativo.",
+            "Acreditar la posesión de alguna de las titulaciones equivalentes para el acceso a los ciclos formativos de grado medio establecidos en la disposición adicional sexta, apartado 1 del Real Decreto 659/2023, de 18 de julio:",
+            "Certificado de homologación de estudios extranjeros con alguno de los títulos relacionados anteriormente. En el supuesto de que el procedimiento de homologación no haya sido resuelto, se aceptará el volante de inscripción condicional."
+        ],
+        "salidas_profesionales": [
+            "En el montaje y el mantenimiento de infraestructuras de telecomunicación en edificios, máquinas eléctricas, sistemas automatizados, instalaciones eléctricas de baja tensión y sistemas domóticos."
+        ],
+        "continuidad": [
+            "Cursos de especialización profesional.",
+            "Un ciclo de Formación Profesional de Grado Superior.",
+            "Otro ciclo de Formación Profesional de Grado Medio con la posibilidad de establecer convalidaciones de módulos profesionales de acuerdo a la normativa vigente.",
+            "El Bachillerato en cualquiera de sus modalidades."
+        ]
+    }
+]

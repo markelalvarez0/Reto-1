@@ -1,0 +1,137 @@
+{
+  "name": "Flujo de Decisiones de Emancipación y Vivienda Juvenil Euskadi",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "vivienda-decision",
+        "options": {}
+      },
+      "id": "webhook-node",
+      "name": "Webhook Receptor de Decisiones",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json.decision.decision }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "CONCESION_EXPRES_300EUR",
+              "outputKey": "concesion_expres"
+            },
+            {
+              "value2": "CONCESION_CON_ANTICIPO_FIANZA",
+              "outputKey": "anticipo_fianza"
+            },
+            {
+              "value2": "CONCESION_ALQUILER_COMPARTIDO",
+              "outputKey": "alquiler_compartido"
+            },
+            {
+              "value2": "DERIVACION_CUPO_VPO",
+              "outputKey": "derivacion_vpo"
+            },
+            {
+              "value2": "DENEGADO_PROTECCION",
+              "outputKey": "denegado_proteccion"
+            },
+            {
+              "value2": "REVISION_MANUAL_TECNICO_SOCIAL",
+              "outputKey": "revision_manual"
+            }
+          ]
+        }
+      },
+      "id": "switch-node",
+      "name": "Enrutador por Regla de Decisión",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 2,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "sheetId": "1g9Wf...Euskadi_Gaztelagun",
+        "range": "Aprobados_Expres!A:F"
+      },
+      "id": "sheets-expres",
+      "name": "Registrar en Google Sheets Gaztelagun",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [800, 100]
+    },
+    {
+      "parameters": {
+        "fromEmail": "bizilagun@euskadi.eus",
+        "toEmail": "={{ $json.solicitante.email }}",
+        "subject": "Acuerdo de Anticipo de Fianza Bizilagun Aprobado",
+        "text": "Estimado/a solicitante, su ayuda Gaztelagun ha sido aprobada con anticipo de fianza de hasta 1.000 €."
+      },
+      "id": "email-fianza",
+      "name": "Enviar Notificación Fianza Bizilagun",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [800, 220]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO etxbide_cupo_joven (solicitud_id, municipio, fecha) VALUES ($1, $2, NOW())"
+      },
+      "id": "postgres-vpo",
+      "name": "Inscribir en PostgreSQL Etxebide VPO",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [800, 340]
+    },
+    {
+      "parameters": {
+        "to": "urgencias.alokabide@euskadi.eus",
+        "message": "ALERTA SOCIAL: Joven en riesgo severo de sobreendeudamiento derivado a mediación de alquiler social."
+      },
+      "id": "alerta-social",
+      "name": "Notificación Alerta Social Alokabide",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 1,
+      "position": [800, 460]
+    },
+    {
+      "parameters": {
+        "summary": "Revisión Manual Expediente {{ $json.solicitante.solicitud_id }}",
+        "description": "El caso requiere análisis individualizado según la regla de seguridad del sistema."
+      },
+      "id": "jira-revision",
+      "name": "Crear Tarea Técnico Social Comarcal",
+      "type": "n8n-nodes-base.jira",
+      "typeVersion": 1,
+      "position": [800, 580]
+    }
+  ],
+  "connections": {
+    "Webhook Receptor de Decisiones": {
+      "main": [
+        [
+          {
+            "node": "Enrutador por Regla de Decisión",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enrutador por Regla de Decisión": {
+      "main": [
+        [{"node": "Registrar en Google Sheets Gaztelagun", "type": "main", "index": 0}],
+        [{"node": "Enviar Notificación Fianza Bizilagun", "type": "main", "index": 0}],
+        [{"node": "Registrar en Google Sheets Gaztelagun", "type": "main", "index": 0}],
+        [{"node": "Inscribir en PostgreSQL Etxebide VPO", "type": "main", "index": 0}],
+        [{"node": "Notificación Alerta Social Alokabide", "type": "main", "index": 0}],
+        [{"node": "Crear Tarea Técnico Social Comarcal", "type": "main", "index": 0}]
+      ]
+    }
+  }
+}

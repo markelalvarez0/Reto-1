@@ -2,15 +2,12 @@
 """
 main.py - Orquestador y Portal Multiasignatura del Repositorio.
 
-Permite ejecutar el proyecto de cualquiera de las asignaturas:
-  python main.py                 -> Ejecuta por defecto el proyecto de Ainhoa (Pipeline + Dashboard Visual).
-  python main.py --subject ainhoa -> Ejecuta el proyecto de Ainhoa (Big Data y Vivienda Juvenil).
-  python main.py --subject mia   -> Muestra información y casos de MIA (Modelos de IA).
-  python main.py --subject pia   -> Muestra información y estructura de PIA (Programación de IA).
-  python main.py --subject saa   -> Muestra información y modelos de SAA (Aprendizaje Automático).
-  python main.py --pipeline      -> Ejecuta el pipeline de datos de Ainhoa.
-  python main.py --visual        -> Abre el dashboard visual de Ainhoa.
-  python main.py --test          -> Ejecuta la suite de pruebas completa con pytest.
+Permite ejecutar los retos interdisciplinares y las 5 asignaturas:
+  python main.py                        -> Menú interactivo multiasignatura.
+  python main.py --subject bda_sbd      -> Ejecuta el Pipeline y Dashboard de BDA + SBD.
+  python main.py --subject saa_pia_mia  -> Ejecuta el Pipeline de ML y Dashboard de SAA + PIA + MIA.
+  python main.py --pdf                  -> Genera el PDF técnico de entrega (Entrega_Reto1_IABD_Documentacion.pdf).
+  python main.py --test                 -> Ejecuta la suite completa de 29 pruebas con pytest.
 """
 
 import os
@@ -26,51 +23,65 @@ if sys.platform.startswith("win") and hasattr(sys.stdout, "reconfigure"):
         pass
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-AINHOA_DIR = os.path.join(ROOT_DIR, "ainhoa")
+BDA_SBD_DIR = os.path.join(ROOT_DIR, "BDA + SBD")
+SAA_PIA_MIA_DIR = os.path.join(ROOT_DIR, "SAA + PIA + MIA")
 
-if AINHOA_DIR not in sys.path:
-    sys.path.insert(0, AINHOA_DIR)
-if ROOT_DIR not in sys.path:
-    sys.path.insert(0, ROOT_DIR)
+for p in [BDA_SBD_DIR, SAA_PIA_MIA_DIR, ROOT_DIR]:
+    if os.path.exists(p) and p not in sys.path:
+        sys.path.insert(0, p)
 
 
 def print_banner():
     print("=" * 80)
-    print("  REPOSITORIO ACADÉMICO MULTIDISCIPLINAR - CURSO DE IA Y BIG DATA")
+    print("  REPOSITORIO ACADÉMICO MULTIDISCIPLINAR - CURSO DE IA Y BIG DATA (2026-27)")
     print("=" * 80)
-    print("  Asignaturas disponibles:")
-    print("    1. [ainhoa] -> Sistemas de Big Data / Reto 1 Vivienda Euskadi (Ainhoa)")
-    print("    2. [mia]    -> Modelos de Inteligencia Artificial (Sistemas de Reglas)")
-    print("    3. [pia]    -> Programación de Inteligencia Artificial (API & App)")
-    print("    4. [saa]    -> Sistemas de Aprendizaje Automático (Machine Learning)")
+    print("  Módulos y Asignaturas Disponibles:")
+    print("    [1] BDA + SBD     : Reto ¿Dónde pueden vivir los jóvenes en Euskadi?")
+    print("                        (API, Scraping, HDFS, Kafka, MongoDB y Dashboard Leaflet)")
+    print("    [2] SAA + PIA + MIA : Reto De la Predicción a la Acción: Vivienda y Emancipación")
+    print("                        (EDA, 5 Modelos ML, MLP, SMOTE, MLflow, SHAP, 6 Reglas y Streamlit)")
+    print("    [3] Generar PDF   : Compila 'Entrega_Reto1_IABD_Documentacion.pdf'")
+    print("    [4] Tests Unitarios: Ejecuta las 29 pruebas automatizadas con pytest")
     print("=" * 80 + "\n")
 
 
-def run_ainhoa_main(args_list):
-    """Ejecuta el orquestador de Ainhoa pasando los argumentos pertinentes."""
-    ainhoa_main_script = os.path.join(AINHOA_DIR, "main.py")
-    cmd = [sys.executable, ainhoa_main_script] + args_list
-    return subprocess.call(cmd, cwd=AINHOA_DIR)
+def run_bda_sbd(args_list=None):
+    """Ejecuta el orquestador de BDA + SBD."""
+    script = os.path.join(BDA_SBD_DIR, "main.py")
+    cmd = [sys.executable, script] + (args_list or [])
+    return subprocess.call(cmd, cwd=BDA_SBD_DIR)
 
 
-def show_subject_info(subject: str):
-    subj = subject.lower()
-    readme_map = {
-        "mia": os.path.join(ROOT_DIR, "mia", "README.md"),
-        "pia": os.path.join(ROOT_DIR, "pia", "README.md"),
-        "saa": os.path.join(ROOT_DIR, "saa", "README.md"),
-    }
-    readme_file = readme_map.get(subj)
-    if readme_file and os.path.exists(readme_file):
-        with open(readme_file, "r", encoding="utf-8", errors="replace") as f:
-            text = f.read()
-            try:
-                print(text)
-            except UnicodeEncodeError:
-                safe_text = text.encode("ascii", errors="replace").decode("ascii")
-                print(safe_text)
-    else:
-        print(f"[INFO] Asignatura '{subject}' inicializada en la carpeta ./{subject}/")
+def run_saa_pia_mia():
+    """Ejecuta el pipeline de ML y abre la aplicación Streamlit de SAA + PIA + MIA."""
+    print("[SAA + PIA + MIA] Ejecutando análisis exploratorio y entrenamiento de modelos...")
+    eda_script = os.path.join(SAA_PIA_MIA_DIR, "notebooks", "01_eda.py")
+    train_script = os.path.join(SAA_PIA_MIA_DIR, "notebooks", "02_entrenamiento_modelos.py")
+    shap_script = os.path.join(SAA_PIA_MIA_DIR, "notebooks", "03_explicabilidad_shap.py")
+    
+    subprocess.call([sys.executable, eda_script], cwd=SAA_PIA_MIA_DIR)
+    subprocess.call([sys.executable, train_script], cwd=SAA_PIA_MIA_DIR)
+    subprocess.call([sys.executable, shap_script], cwd=SAA_PIA_MIA_DIR)
+    
+    print("\n[SAA + PIA + MIA] Abriendo aplicación interactiva...")
+    app_script = os.path.join(SAA_PIA_MIA_DIR, "app", "streamlit_app.py")
+    return subprocess.call([sys.executable, app_script], cwd=SAA_PIA_MIA_DIR)
+
+
+def generate_pdf():
+    """Genera el informe de entrega en PDF."""
+    pdf_script = os.path.join(ROOT_DIR, "scripts", "generate_delivery_pdf.py")
+    return subprocess.call([sys.executable, pdf_script], cwd=ROOT_DIR)
+
+
+def run_all_tests():
+    """Ejecuta los tests de BDA + SBD y SAA + PIA + MIA."""
+    import pytest
+    print("\n>>> Ejecutando pruebas unitarias de BDA + SBD...")
+    code1 = pytest.main(["BDA + SBD/tests", "-v"])
+    print("\n>>> Ejecutando pruebas unitarias de SAA + PIA + MIA...")
+    code2 = pytest.main(["tests/test_ml_pipeline.py", "-v"])
+    return code1 or code2
 
 
 def main():
@@ -79,62 +90,60 @@ def main():
     )
     parser.add_argument(
         "--subject",
-        choices=["ainhoa", "mia", "pia", "saa"],
-        default="ainhoa",
-        help="Asignatura a ejecutar (por defecto: ainhoa)"
+        choices=["bda_sbd", "saa_pia_mia", "bda", "sbd", "saa", "pia", "mia", "ainhoa"],
+        help="Asignatura o reto intermodular a ejecutar."
     )
     parser.add_argument(
-        "--pipeline",
+        "--pdf",
         action="store_true",
-        help="Ejecuta únicamente el pipeline de datos (Ainhoa)."
-    )
-    parser.add_argument(
-        "--visual",
-        action="store_true",
-        help="Inicia el servidor web y abre el dashboard visual (Ainhoa)."
+        help="Genera el PDF con toda la documentación y explicaciones de implementación."
     )
     parser.add_argument(
         "--test",
         action="store_true",
-        help="Ejecuta la suite de pruebas unitarias con pytest."
+        help="Ejecuta la suite de pruebas completa con pytest (29 tests)."
     )
     parser.add_argument(
-        "--port",
-        type=int,
-        default=8080,
-        help="Puerto HTTP para el Dashboard Visual (por defecto: 8080)."
-    )
-    parser.add_argument(
-        "--no-browser",
+        "--pipeline",
         action="store_true",
-        help="No abrir el navegador automáticamente."
+        help="Ejecuta el pipeline de datos en BDA + SBD."
+    )
+    parser.add_argument(
+        "--visual",
+        action="store_true",
+        help="Abre el dashboard interactivo de BDA + SBD o SAA + PIA + MIA."
     )
 
     args, unknown = parser.parse_known_args()
 
-    if args.test:
-        import pytest
-        print("\nEjecutando pruebas de todas las asignaturas...\n")
-        code = pytest.main(["-v"])
-        sys.exit(code)
+    if args.pdf:
+        generate_pdf()
+        return
 
-    if args.subject == "ainhoa":
-        # Pasar los argumentos correspondientes a ainhoa/main.py
+    if args.test:
+        sys.exit(run_all_tests())
+
+    if args.subject in ["bda_sbd", "bda", "sbd", "ainhoa"]:
         passthrough = []
         if args.pipeline:
             passthrough.append("--pipeline")
         if args.visual:
             passthrough.append("--visual")
-        if args.port != 8080:
-            passthrough.extend(["--port", str(args.port)])
-        if args.no_browser:
-            passthrough.append("--no-browser")
         passthrough.extend(unknown)
-        
-        sys.exit(run_ainhoa_main(passthrough))
-    else:
-        print_banner()
-        show_subject_info(args.subject)
+        sys.exit(run_bda_sbd(passthrough))
+
+    if args.subject in ["saa_pia_mia", "saa", "pia", "mia"]:
+        sys.exit(run_saa_pia_mia())
+
+    # Si no se pasan argumentos, mostrar banner y opciones interactivas
+    print_banner()
+    print("Opciones de ejecución rápida:")
+    print("  1) python main.py --subject bda_sbd --pipeline   (Ejecutar Pipeline BDA + SBD)")
+    print("  2) python main.py --subject bda_sbd --visual     (Abrir Dashboard Cartográfico Leaflet)")
+    print("  3) python main.py --subject saa_pia_mia          (Entrenar Modelos y Dashboard Streamlit)")
+    print("  4) python main.py --pdf                          (Generar PDF de Entrega)")
+    print("  5) python main.py --test                         (Ejecutar los 29 Tests Unitarios)")
+    print("\nPara ejecutar todo de inmediato, elija una de las opciones anteriores.")
 
 
 if __name__ == "__main__":

@@ -136,6 +136,7 @@ def get_status() -> Tuple[List[str], List[str]]:
         work_status = line[1]
         raw_path = line[3:].strip()
         path = raw_path.split(" -> ")[-1].strip() if " -> " in raw_path else raw_path
+        path = path.strip('"')
         if idx_status not in (" ", "?"):
             staged.append(path)
         if work_status not in (" ",):
@@ -169,7 +170,6 @@ def attempt_resolve_conflicts() -> bool:
 
         # Si ambos añadieron entradas en archivos como requirements.txt o .gitignore sin solape crítico:
         if os.path.basename(file_path) in ("requirements.txt", ".gitignore"):
-            # Resolver uniendo ambas listas de forma no redundante
             pattern = re.compile(r"<<<<<<< HEAD\n(.*?)\n=======\n(.*?)\n>>>>>>> [^\n]+", re.S)
             def merge_unique(m):
                 part_a = m.group(1).splitlines()
@@ -190,11 +190,9 @@ def attempt_resolve_conflicts() -> bool:
             else:
                 return False
         else:
-            # En código Python, no forzamos combinaciones ciegas para preservar exactitud
             print(f"[DECISIÓN PENDIENTE] Conflicto en archivo de lógica {file_path}. Requiere revisión.")
             return False
 
-    # Verificar de nuevo si quedan conflictos
     res_after = run_cmd(["git", "status", "--porcelain"])
     remaining = [line for line in res_after.stdout.splitlines() if line[:2] in ("UU", "AA", "DD")]
     return len(remaining) == 0
@@ -318,7 +316,6 @@ def complete_task(commit_message: str, specific_files: Optional[List[str]] = Non
         pass
 
     run_cmd(["git", "merge", "test", "--ff-only"], check=False)
-    # Si fast-forward no es posible, merge con mensaje
     status_main = run_cmd(["git", "status", "--porcelain"])
     if "working tree clean" not in run_cmd(["git", "status"]).stdout:
         run_cmd(["git", "merge", "test", "--no-edit"])

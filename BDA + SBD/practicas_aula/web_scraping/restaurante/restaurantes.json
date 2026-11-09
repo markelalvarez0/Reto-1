@@ -1,0 +1,37 @@
+[
+    {
+        "seccion": "reseñas-recientes",
+        "nombre": "Restaurante La Buena Mesa",
+        "descripcion": "Con una cocina tradicional y un ambiente acogedor, La Buena Mesa se ha convertido en un referente de la gastronomía local. Destacan sus platos de temporada y su excelente servicio.",
+        "enlace": "/reseñas/la-buena-mesa",
+        "imagen": "restaurant.jpg"
+    },
+    {
+        "seccion": "reseñas-recientes",
+        "nombre": "Restaurante El Sabor del Mar",
+        "descripcion": "Especializado en mariscos frescos y cocina mediterránea, El Sabor del Mar ofrece una experiencia culinaria junto a la costa que deleitará a los amantes del pescado y mariscos.",
+        "enlace": "/reseñas/el-sabor-del-mar",
+        "imagen": "restaurant.jpg"
+    },
+    {
+        "seccion": "reseñas-recientes",
+        "nombre": "Restaurante Fusión Asiática",
+        "descripcion": "Con una mezcla de sabores de todo el continente asiático, Fusión Asiática combina lo mejor de la cocina japonesa, tailandesa y china en un menú sorprendente y lleno de creatividad.",
+        "enlace": "/reseñas/fusion-asiatica",
+        "imagen": "restaurant.jpg"
+    },
+    {
+        "seccion": "mejores-del-mes",
+        "nombre": "Restaurante El Jardín Secreto",
+        "descripcion": "Rodeado de naturaleza y con un ambiente íntimo, El Jardín Secreto ofrece una experiencia gastronómica única, ideal para cenas románticas. Sus platos con productos frescos del huerto son imperdibles.",
+        "enlace": "/reseñas/el-jardin-secreto",
+        "imagen": "restaurant.jpg"
+    },
+    {
+        "seccion": "mejores-del-mes",
+        "nombre": "Restaurante Tradición Vasca",
+        "descripcion": "Si buscas la auténtica gastronomía vasca, este es el lugar perfecto. Con platos típicos y un toque moderno, Tradición Vasca te ofrece una experiencia inolvidable en pleno corazón de Bilbao.",
+        "enlace": "/reseñas/tradicion-vasca",
+        "imagen": "restaurant.jpg"
+    }
+]

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 360" width="500" height="360">
+  <rect width="100%" height="100%" fill="#ffffff" rx="8"/>
+  <text x="250" y="30" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#2c3e50">Gráfico 3: Boxplot - Precio de Alquiler según Viabilidad</text>
+  <line x1="80" y1="280" x2="450" y2="280" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="80" y1="70" x2="80" y2="280" stroke="#bdc3c7" stroke-width="1.5"/>
+  <text x="70" y="285" font-family="Arial" font-size="10" text-anchor="end" fill="#7f8c8d">400€</text>
+  <text x="70" y="175" font-family="Arial" font-size="10" text-anchor="end" fill="#7f8c8d">1000€</text>
+  <text x="70" y="75" font-family="Arial" font-size="10" text-anchor="end" fill="#7f8c8d">1600€</text>
+
+  <!-- Box 0 (En Riesgo) -->
+  <line x1="180" y1="192" x2="180" y2="113" stroke="#c0392b" stroke-dasharray="3"/>
+  <rect x="140" y="167" width="80" height="48" fill="#e74c3c" fill-opacity="0.8" rx="4"/>
+  <line x1="140" y1="192" x2="220" y2="192" stroke="#ffffff" stroke-width="3"/>
+  <text x="180" y="305" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle" fill="#c0392b">En Riesgo (0)</text>
+  <text x="180" y="187" font-family="Arial" font-size="11" text-anchor="middle" fill="#ffffff">Med: 907€</text>
+
+  <!-- Box 1 (Viable) -->
+  <line x1="340" y1="216" x2="340" y2="117" stroke="#27ae60" stroke-dasharray="3"/>
+  <rect x="300" y="194" width="80" height="38" fill="#2ecc71" fill-opacity="0.8" rx="4"/>
+  <line x1="300" y1="216" x2="380" y2="216" stroke="#ffffff" stroke-width="3"/>
+  <text x="340" y="305" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle" fill="#27ae60">Viable (1)</text>
+  <text x="340" y="211" font-family="Arial" font-size="11" text-anchor="middle" fill="#ffffff">Med: 770€</text>
+</svg>

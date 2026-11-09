@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="500" height="400">
+  <rect width="100%" height="100%" fill="#ffffff" rx="10"/>
+  <text x="250" y="35" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#2c3e50">Matriz de Confusión · Modelo en Test Set</text>
+  <text x="250" y="60" font-family="Arial" font-size="12" fill="#7f8c8d" text-anchor="middle">Evaluación ciega sobre 180 expedientes juveniles</text>
+
+  <!-- Etiquetas superiores (Predicción) -->
+  <text x="190" y="100" font-family="Arial" font-size="13" font-weight="bold" fill="#34495e" text-anchor="middle">Predicho: 0 (Riesgo)</text>
+  <text x="350" y="100" font-family="Arial" font-size="13" font-weight="bold" fill="#34495e" text-anchor="middle">Predicho: 1 (Viable)</text>
+
+  <!-- Etiquetas laterales (Real) -->
+  <text x="40" y="180" font-family="Arial" font-size="13" font-weight="bold" fill="#34495e" text-anchor="middle">Real: 0</text>
+  <text x="40" y="280" font-family="Arial" font-size="13" font-weight="bold" fill="#34495e" text-anchor="middle">Real: 1</text>
+
+  <!-- Celdas -->
+  <!-- TN -->
+  <rect x="110" y="120" width="160" height="90" fill="#27ae60" fill-opacity="0.8" rx="6"/>
+  <text x="190" y="160" font-family="Arial" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">77</text>
+  <text x="190" y="185" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle">Verdaderos Negativos (TN)</text>
+
+  <!-- FP -->
+  <rect x="280" y="120" width="160" height="90" fill="#e74c3c" fill-opacity="0.8" rx="6"/>
+  <text x="360" y="160" font-family="Arial" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">7</text>
+  <text x="360" y="185" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle">Falsos Positivos (FP)</text>
+
+  <!-- FN -->
+  <rect x="110" y="220" width="160" height="90" fill="#e67e22" fill-opacity="0.8" rx="6"/>
+  <text x="190" y="260" font-family="Arial" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">58</text>
+  <text x="190" y="285" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle">Falsos Negativos (FN)</text>
+
+  <!-- TP -->
+  <rect x="280" y="220" width="160" height="90" fill="#2ecc71" fill-opacity="0.9" rx="6"/>
+  <text x="360" y="260" font-family="Arial" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">38</text>
+  <text x="360" y="285" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle">Verdaderos Positivos (TP)</text>
+
+  <text x="250" y="355" font-family="Arial" font-size="13" font-weight="bold" fill="#2c3e50" text-anchor="middle">Recall: 39.6 % | Precisión: 84.4 %</text>
+</svg>

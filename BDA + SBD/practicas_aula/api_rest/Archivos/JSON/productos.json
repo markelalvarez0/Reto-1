@@ -1,0 +1,181 @@
+[
+  {
+    "nombre": "iPhone 15",
+    "marca": "Apple",
+    "precio": 999,
+    "categoria": "smartphone",
+    "stock": 12,
+    "disponible": true,
+    "colores": [
+      "negro",
+      "azul"
+    ],
+    "especificaciones": {
+      "almacenamiento": 128,
+      "ram": 6
+    }
+  },
+  {
+    "nombre": "Galaxy S24",
+    "marca": "Samsung",
+    "precio": 899,
+    "categoria": "smartphone",
+    "stock": 20,
+    "disponible": true,
+    "colores": [
+      "negro",
+      "gris",
+      "violeta"
+    ],
+    "especificaciones": {
+      "almacenamiento": 256,
+      "ram": 8
+    }
+  },
+  {
+    "nombre": "Pixel 9",
+    "marca": "Google",
+    "precio": 799,
+    "categoria": "smartphone",
+    "stock": 5,
+    "disponible": true,
+    "colores": [
+      "negro",
+      "verde"
+    ],
+    "especificaciones": {
+      "almacenamiento": 128,
+      "ram": 8
+    }
+  },
+  {
+    "nombre": "MacBook Air M3",
+    "marca": "Apple",
+    "precio": 1299,
+    "categoria": "portatil",
+    "stock": 8,
+    "disponible": true,
+    "colores": [
+      "gris",
+      "plata"
+    ],
+    "especificaciones": {
+      "almacenamiento": 512,
+      "ram": 16
+    }
+  },
+  {
+    "nombre": "ThinkPad E16",
+    "marca": "Lenovo",
+    "precio": 950,
+    "categoria": "portatil",
+    "stock": 4,
+    "disponible": true,
+    "colores": [
+      "negro"
+    ],
+    "especificaciones": {
+      "almacenamiento": 512,
+      "ram": 16
+    }
+  },
+  {
+    "nombre": "HP Pavilion",
+    "marca": "HP",
+    "precio": 750,
+    "categoria": "portatil",
+    "stock": 0,
+    "disponible": false,
+    "colores": [
+      "plata"
+    ],
+    "especificaciones": {
+      "almacenamiento": 512,
+      "ram": 8
+    }
+  },
+  {
+    "nombre": "iPad Air",
+    "marca": "Apple",
+    "precio": 699,
+    "categoria": "tablet",
+    "stock": 15,
+    "disponible": true,
+    "colores": [
+      "azul",
+      "gris"
+    ],
+    "especificaciones": {
+      "almacenamiento": 256,
+      "ram": 8
+    }
+  },
+  {
+    "nombre": "Galaxy Tab S9",
+    "marca": "Samsung",
+    "precio": 699,
+    "categoria": "tablet",
+    "stock": 7,
+    "disponible": true,
+    "colores": [
+      "gris"
+    ],
+    "especificaciones": {
+      "almacenamiento": 256,
+      "ram": 12
+    }
+  },
+  {
+    "nombre": "AirPods Pro",
+    "marca": "Apple",
+    "precio": 279,
+    "categoria": "audio",
+    "stock": 30,
+    "disponible": true,
+    "colores": [
+      "blanco"
+    ],
+    "especificaciones": {
+      "tipo": "inalambrico"
+    }
+  },
+  {
+    "nombre": "Sony WH-1000XM5",
+    "marca": "Sony",
+    "precio": 399,
+    "categoria": "audio",
+    "stock": 6,
+    "disponible": true,
+    "colores": [
+      "negro",
+      "plata"
+    ],
+    "especificaciones": {
+      "tipo": "inalambrico"
+    }
+  },
+  {
+    "nombre": "Logitech MX Master 3S",
+    "marca": "Logitech",
+    "precio": 110,
+    "categoria": "accesorio",
+    "stock": 18,
+    "disponible": true,
+    "colores": [
+      "negro",
+      "gris"
+    ]
+  },
+  {
+    "nombre": "Teclado Keychron K2",
+    "marca": "Keychron",
+    "precio": 95,
+    "categoria": "accesorio",
+    "stock": 0,
+    "disponible": false,
+    "colores": [
+      "negro"
+    ],
+    "descuento": 10
+  }
+]

@@ -1,0 +1,1201 @@
+solicitud_id,municipio,edad,tipo_contrato,ingresos_mensuales,precio_alquiler,antiguedad_laboral_meses,ahorros_disponibles,comparte_piso,deudas_mensuales,tipo_subvencion,es_viable
+SOL-2026-1001,Vitoria-Gasteiz,,Indefinido,1462.08,831.01,20.3,318.33,No,0.0,Gaztelagun,1
+SOL-2026-1002,Bilbao,31,Indefinido,917.44,753.14,1.0,4192.26,Si,0.0,VPO_Alquiler,1
+SOL-2026-1003,Bilbao,,En_Practicas,947.28,739.96,23.6,12656.75,No,0.0,VPO_Alquiler,0
+SOL-2026-1004,Barakaldo,20,Indefinido,1414.33,801.86,1.5,372.66,Si,80.0,Gaztelagun,1
+SOL-2026-1005,Bilbao,20,Temporal,1610.54,992.18,3.2,15955.12,No,0.0,Emantzipa,0
+SOL-2026-1006,Vitoria-Gasteiz,19,En_Practicas,1289.7,691.53,44.0,4429.4,Si,0.0,VPO_Alquiler,1
+SOL-2026-1007,Bilbao,26,Temporal,1022.39,907.53,8.1,521.1,No,80.0,VPO_Alquiler,0
+SOL-2026-1008,Bilbao,20,Indefinido,1102.28,786.33,5.2,9991.69,No,0.0,VPO_Alquiler,0
+SOL-2026-1009,Vitoria-Gasteiz,27,Indefinido,750.0,741.1,37.6,2430.12,Si,160.0,VPO_Alquiler,1
+SOL-2026-1010,Vitoria-Gasteiz,22,Indefinido,1772.08,880.44,46.0,3197.79,No,0.0,Gaztelagun,0
+SOL-2026-1011,Barakaldo,25,En_Practicas,1499.97,706.15,12.0,,No,80.0,Gaztelagun,1
+SOL-2026-1012,Donostia-San Sebastián,31,Autonomo,1833.97,1027.53,21.1,1782.02,No,0.0,VPO_Alquiler,0
+SOL-2026-1013,Bilbao,,Indefinido,1002.97,805.71,1.0,212.37,Si,0.0,Gaztelagun,1
+SOL-2026-1014,Bilbao,22,Temporal,1670.56,761.74,5.0,1829.32,Si,80.0,Gaztelagun,1
+SOL-2026-1015,Barakaldo,,Temporal,1315.6,691.9,23.4,404.99,Si,0.0,Gaztelagun,1
+SOL-2026-1016,Donostia-San Sebastián,20,Indefinido,1624.24,1003.27,1.0,6328.2,No,160.0,VPO_Alquiler,1
+SOL-2026-1017,Donostia-San Sebastián,30,Autonomo,1390.07,1105.65,8.9,5382.02,Si,80.0,Emantzipa,0
+SOL-2026-1018,Vitoria-Gasteiz,24,Indefinido,1767.11,644.3,14.1,206.02,No,0.0,VPO_Alquiler,1
+SOL-2026-1019,Getxo,,Indefinido,1007.94,895.68,4.8,7734.62,Si,0.0,Emantzipa,1
+SOL-2026-1020,Vitoria-Gasteiz,26,Indefinido,1333.29,597.81,9.1,1248.35,Si,80.0,Gaztelagun,1
+SOL-2026-1021,Getxo,20,Temporal,1220.18,978.03,7.7,,Si,0.0,Gaztelagun,1
+SOL-2026-1022,Bilbao,34,Indefinido,1483.57,773.03,19.6,504.72,Si,0.0,Emantzipa,1
+SOL-2026-1023,Vitoria-Gasteiz,24,Temporal,1594.48,575.29,5.2,182.47,No,160.0,Gaztelagun,1
+SOL-2026-1024,Bilbao,23,Temporal,1079.62,816.29,1.0,,No,160.0,Gaztelagun,0
+SOL-2026-1025,Vitoria-Gasteiz,22,Indefinido,919.75,844.79,64.5,,No,80.0,Emantzipa,0
+SOL-2026-1026,Vitoria-Gasteiz,22,Autonomo,1394.87,729.35,29.0,1860.35,Si,160.0,Emantzipa,1
+SOL-2026-1027,Vitoria-Gasteiz,25,Indefinido,1413.39,623.48,37.0,880.55,No,0.0,Gaztelagun,1
+SOL-2026-1028,Bilbao,,Indefinido,1096.87,1026.2,61.3,3590.21,No,280.0,Gaztelagun,0
+SOL-2026-1029,Bilbao,23,Temporal,1463.35,847.12,16.3,5403.24,No,280.0,Gaztelagun,0
+SOL-2026-1030,Bilbao,,Indefinido,840.51,827.37,20.9,4675.11,Si,0.0,VPO_Alquiler,0
+SOL-2026-1031,Vitoria-Gasteiz,21,Temporal,1299.75,751.76,9.4,1226.71,Si,0.0,VPO_Alquiler,1
+SOL-2026-1032,Barakaldo,27,Indefinido,1508.22,646.39,4.2,3265.8,Si,0.0,Emantzipa,1
+SOL-2026-1033,Vitoria-Gasteiz,23,Temporal,1286.66,814.35,17.4,10627.92,Si,0.0,VPO_Alquiler,1
+SOL-2026-1034,Bilbao,20,Temporal,1676.5,764.11,22.8,1785.87,Si,80.0,VPO_Alquiler,0
+SOL-2026-1035,Barakaldo,25,Indefinido,1729.86,688.46,1.0,6601.32,No,160.0,Emantzipa,0
+SOL-2026-1036,Vitoria-Gasteiz,32,Temporal,1311.76,553.65,32.0,7962.67,No,0.0,Gaztelagun,1
+SOL-2026-1037,Vitoria-Gasteiz,34,Temporal,1401.81,777.42,22.5,1432.35,No,0.0,Gaztelagun,1
+SOL-2026-1038,Bilbao,31,Indefinido,1080.04,822.57,4.2,8232.63,No,80.0,VPO_Alquiler,0
+SOL-2026-1039,Donostia-San Sebastián,,Indefinido,1392.84,904.07,55.2,4817.42,No,80.0,Gaztelagun,1
+SOL-2026-1040,Donostia-San Sebastián,,Indefinido,1248.49,1008.13,3.2,477.89,No,0.0,Gaztelagun,0
+SOL-2026-1041,Bilbao,22,En_Practicas,1476.86,920.6,7.1,1441.07,No,0.0,VPO_Alquiler,0
+SOL-2026-1042,Barakaldo,19,Autonomo,1124.52,837.27,27.4,4911.8,No,0.0,Gaztelagun,1
+SOL-2026-1043,Bilbao,24,Temporal,1368.71,945.87,16.8,4434.91,No,0.0,Gaztelagun,0
+SOL-2026-1044,Getxo,30,Indefinido,1353.99,941.2,21.1,376.16,No,160.0,Emantzipa,1
+SOL-2026-1045,Getxo,29,Temporal,1320.15,947.89,18.8,,No,0.0,Gaztelagun,0
+SOL-2026-1046,Barakaldo,22,Indefinido,1300.88,461.88,5.7,2703.98,No,0.0,Emantzipa,1
+SOL-2026-1047,Barakaldo,20,Indefinido,903.82,770.69,15.2,1435.25,No,0.0,Gaztelagun,0
+SOL-2026-1048,Bilbao,26,Temporal,1185.71,843.21,5.0,2835.27,Si,0.0,Emantzipa,1
+SOL-2026-1049,Bilbao,30,Temporal,1243.04,973.85,11.5,1939.92,No,0.0,Emantzipa,0
+SOL-2026-1050,Bilbao,24,Indefinido,1347.07,604.75,21.1,4696.02,Si,0.0,Emantzipa,1
+SOL-2026-1051,Getxo,27,Indefinido,1401.72,995.25,13.7,12813.73,No,80.0,Gaztelagun,0
+SOL-2026-1052,Donostia-San Sebastián,27,Temporal,1201.72,1123.33,1.0,2273.49,No,0.0,Gaztelagun,0
+SOL-2026-1053,Bilbao,27,Indefinido,1384.36,977.79,9.7,3372.01,No,0.0,VPO_Alquiler,1
+SOL-2026-1054,Vitoria-Gasteiz,19,Temporal,1334.66,427.63,4.2,3780.24,Si,0.0,Gaztelagun,1
+SOL-2026-1055,Donostia-San Sebastián,27,Indefinido,1322.0,1179.2,35.3,,Si,0.0,Emantzipa,1
+SOL-2026-1056,Barakaldo,21,Temporal,986.59,545.04,31.5,,Si,0.0,Emantzipa,1
+SOL-2026-1057,Bilbao,27,Temporal,1710.78,808.48,12.3,142.37,No,0.0,Gaztelagun,1
+SOL-2026-1058,Getxo,18,Autonomo,1268.46,910.01,1.0,2225.38,No,160.0,Gaztelagun,0
+SOL-2026-1059,Vitoria-Gasteiz,20,Temporal,1158.57,717.92,2.0,1856.49,No,80.0,Gaztelagun,0
+SOL-2026-1060,Bilbao,,Indefinido,1765.29,964.55,36.0,4.03,No,0.0,Gaztelagun,1
+SOL-2026-1061,Vitoria-Gasteiz,32,En_Practicas,1488.95,790.9,47.3,4193.55,Si,280.0,Emantzipa,1
+SOL-2026-1062,Bilbao,31,Indefinido,2042.08,839.25,11.1,6246.25,No,80.0,Gaztelagun,1
+SOL-2026-1063,Barakaldo,25,Temporal,1499.93,771.3,16.5,513.7,Si,80.0,VPO_Alquiler,1
+SOL-2026-1064,Vitoria-Gasteiz,18,Indefinido,1260.17,796.84,96.0,563.04,No,0.0,Emantzipa,0
+SOL-2026-1065,Donostia-San Sebastián,24,Autonomo,1400.72,1198.03,34.9,1340.44,No,160.0,Gaztelagun,0
+SOL-2026-1066,Vitoria-Gasteiz,22,Temporal,1724.85,697.23,16.1,7255.45,No,0.0,Gaztelagun,0
+SOL-2026-1067,Donostia-San Sebastián,22,Indefinido,1426.33,1023.06,17.6,293.04,Si,80.0,Gaztelagun,0
+SOL-2026-1068,Vitoria-Gasteiz,33,En_Practicas,1490.09,678.42,18.0,20867.92,No,0.0,Gaztelagun,0
+SOL-2026-1069,Barakaldo,27,Autonomo,1892.85,770.82,6.3,550.62,No,0.0,Emantzipa,1
+SOL-2026-1070,Bilbao,25,Temporal,1191.02,813.72,18.3,3846.97,No,0.0,Gaztelagun,0
+SOL-2026-1071,Bilbao,27,Temporal,1177.65,884.74,33.6,1699.72,No,0.0,Emantzipa,0
+SOL-2026-1072,Getxo,30,Indefinido,962.11,918.75,24.6,,No,0.0,VPO_Alquiler,0
+SOL-2026-1073,Vitoria-Gasteiz,29,Indefinido,1463.72,740.65,25.4,3997.39,Si,0.0,Emantzipa,1
+SOL-2026-1074,Vitoria-Gasteiz,,Indefinido,1826.02,831.16,7.1,784.48,No,160.0,Gaztelagun,1
+SOL-2026-1075,Bilbao,33,Autonomo,1210.29,1044.08,29.4,274.0,No,0.0,Emantzipa,0
+SOL-2026-1076,Donostia-San Sebastián,29,Indefinido,1194.6,1148.2,2.4,4838.22,Si,0.0,Emantzipa,1
+SOL-2026-1077,Vitoria-Gasteiz,28,Autonomo,1399.4,705.56,31.3,1259.33,No,0.0,VPO_Alquiler,1
+SOL-2026-1078,Donostia-San Sebastián,,En_Practicas,1597.11,1182.78,20.0,10214.02,No,80.0,Gaztelagun,0
+SOL-2026-1079,Bilbao,31,Autonomo,1294.67,1000.44,4.4,942.67,No,280.0,Gaztelagun,0
+SOL-2026-1080,Vitoria-Gasteiz,,Indefinido,2097.36,621.59,31.3,834.37,No,280.0,Gaztelagun,1
+SOL-2026-1081,Getxo,24,Indefinido,1399.44,912.17,4.4,1394.15,Si,160.0,Gaztelagun,0
+SOL-2026-1082,Bilbao,26,En_Practicas,1844.02,977.84,2.5,5436.22,No,0.0,Gaztelagun,1
+SOL-2026-1083,Donostia-San Sebastián,,Indefinido,1110.45,1130.27,16.2,876.58,No,80.0,VPO_Alquiler,0
+SOL-2026-1084,Bilbao,18,Indefinido,1078.62,863.34,20.9,8416.19,Si,0.0,Emantzipa,1
+SOL-2026-1085,Bilbao,28,Indefinido,1174.72,801.98,12.7,5514.25,Si,80.0,VPO_Alquiler,1
+SOL-2026-1086,Barakaldo,25,Indefinido,1521.46,630.83,23.5,1311.55,Si,280.0,Emantzipa,1
+SOL-2026-1087,Bilbao,,Indefinido,1370.15,753.49,2.5,,No,0.0,Emantzipa,1
+SOL-2026-1088,Barakaldo,31,En_Practicas,1237.4,461.48,16.5,3018.95,Si,80.0,Gaztelagun,1
+SOL-2026-1089,Barakaldo,26,Temporal,1583.87,539.2,66.1,3327.85,No,0.0,VPO_Alquiler,0
+SOL-2026-1090,Bilbao,27,Autonomo,1267.44,900.95,2.8,252.44,No,280.0,Gaztelagun,0
+SOL-2026-1091,Donostia-San Sebastián,23,Indefinido,1287.76,929.55,15.1,189.15,Si,80.0,Emantzipa,1
+SOL-2026-1092,Vitoria-Gasteiz,32,Indefinido,1457.18,787.05,7.6,3968.58,No,0.0,Gaztelagun,1
+SOL-2026-1093,Getxo,,Indefinido,1862.39,922.48,26.0,447.35,No,0.0,Gaztelagun,1
+SOL-2026-1094,Bilbao,29,Indefinido,1436.97,827.55,1.0,6934.55,No,0.0,Emantzipa,1
+SOL-2026-1095,Bilbao,,Indefinido,1511.92,718.4,32.1,322.9,No,0.0,Emantzipa,1
+SOL-2026-1096,Donostia-San Sebastián,28,Indefinido,1401.76,1060.8,18.1,754.43,No,0.0,VPO_Alquiler,0
+SOL-2026-1097,Bilbao,,Indefinido,1459.9,901.08,25.6,,No,80.0,Gaztelagun,0
+SOL-2026-1098,Vitoria-Gasteiz,28,En_Practicas,1260.34,628.99,1.3,1262.49,Si,0.0,Gaztelagun,1
+SOL-2026-1099,Donostia-San Sebastián,,En_Practicas,1911.2,1192.66,34.8,2475.84,No,0.0,Emantzipa,0
+SOL-2026-1100,Donostia-San Sebastián,24,Indefinido,1210.44,1108.72,1.1,8028.62,Si,80.0,Gaztelagun,1
+SOL-2026-1101,Bilbao,32,Temporal,1159.9,789.46,45.0,5212.48,No,0.0,Emantzipa,0
+SOL-2026-1102,Bilbao,30,Indefinido,1307.94,705.78,42.6,1419.28,No,0.0,Gaztelagun,0
+SOL-2026-1103,Vitoria-Gasteiz,20,Indefinido,1000.33,793.92,30.2,6180.48,No,80.0,Gaztelagun,0
+SOL-2026-1104,Donostia-San Sebastián,29,Indefinido,1641.53,1072.38,26.2,25000.0,Si,0.0,Emantzipa,1
+SOL-2026-1105,Donostia-San Sebastián,34,Indefinido,1114.74,1245.8,2.5,619.61,No,80.0,VPO_Alquiler,0
+SOL-2026-1106,Donostia-San Sebastián,25,Autonomo,994.97,993.01,27.6,956.7,No,80.0,VPO_Alquiler,0
+SOL-2026-1107,Vitoria-Gasteiz,32,Temporal,1321.65,766.14,13.5,5941.86,No,0.0,Gaztelagun,0
+SOL-2026-1108,Barakaldo,21,Temporal,1225.95,714.85,1.6,2088.1,No,160.0,Gaztelagun,0
+SOL-2026-1109,Barakaldo,18,Indefinido,1148.96,778.62,8.8,890.04,Si,0.0,Emantzipa,1
+SOL-2026-1110,Bilbao,,Autonomo,822.65,882.48,25.6,3343.96,No,0.0,Gaztelagun,0
+SOL-2026-1111,Getxo,31,Indefinido,1319.78,1062.24,1.0,5527.86,No,0.0,VPO_Alquiler,0
+SOL-2026-1112,Bilbao,25,Temporal,1375.7,855.41,7.8,725.94,No,0.0,Gaztelagun,0
+SOL-2026-1113,Donostia-San Sebastián,34,Temporal,1118.86,1171.59,18.2,1023.96,Si,80.0,Gaztelagun,0
+SOL-2026-1114,Vitoria-Gasteiz,28,Indefinido,1216.51,742.78,18.5,4039.61,No,0.0,Gaztelagun,1
+SOL-2026-1115,Vitoria-Gasteiz,19,Indefinido,1572.58,688.13,1.0,2535.39,No,0.0,Gaztelagun,1
+SOL-2026-1116,Bilbao,19,En_Practicas,1303.85,894.88,8.3,4759.57,No,0.0,VPO_Alquiler,0
+SOL-2026-1117,Donostia-San Sebastián,34,Indefinido,1653.82,1152.15,10.1,696.53,Si,0.0,Gaztelagun,1
+SOL-2026-1118,Donostia-San Sebastián,23,Temporal,1327.43,1123.63,36.7,22025.12,Si,280.0,VPO_Alquiler,1
+SOL-2026-1119,Vitoria-Gasteiz,23,Autonomo,1635.99,776.9,27.4,,Si,80.0,Gaztelagun,1
+SOL-2026-1120,Vitoria-Gasteiz,32,Autonomo,1026.81,792.23,15.4,1776.44,No,0.0,Gaztelagun,0
+SOL-2026-1121,Donostia-San Sebastián,21,Indefinido,1358.93,1208.5,96.0,8689.3,No,0.0,VPO_Alquiler,0
+SOL-2026-1122,Barakaldo,20,En_Practicas,2242.62,660.57,19.8,2794.75,Si,0.0,Gaztelagun,1
+SOL-2026-1123,Vitoria-Gasteiz,29,Temporal,1525.31,716.27,2.7,93.22,No,0.0,VPO_Alquiler,1
+SOL-2026-1124,Vitoria-Gasteiz,,Indefinido,1857.92,669.59,13.4,6067.34,Si,280.0,Emantzipa,1
+SOL-2026-1125,Vitoria-Gasteiz,23,En_Practicas,1624.36,755.69,36.5,2555.08,Si,0.0,VPO_Alquiler,1
+SOL-2026-1126,Getxo,27,En_Practicas,1378.38,1121.99,14.4,1262.51,No,0.0,Gaztelagun,0
+SOL-2026-1127,Bilbao,28,En_Practicas,863.84,777.31,1.0,,No,0.0,Emantzipa,0
+SOL-2026-1128,Donostia-San Sebastián,33,En_Practicas,967.56,1059.52,6.5,5764.07,No,0.0,Emantzipa,0
+SOL-2026-1129,Donostia-San Sebastián,28,Temporal,1197.01,1247.04,23.9,12963.85,Si,0.0,Emantzipa,1
+SOL-2026-1130,Donostia-San Sebastián,25,Indefinido,2067.16,1175.39,35.9,11509.34,No,160.0,VPO_Alquiler,0
+SOL-2026-1131,Bilbao,34,Temporal,1635.11,769.21,1.7,2138.75,Si,0.0,Gaztelagun,1
+SOL-2026-1132,Vitoria-Gasteiz,33,Indefinido,1522.89,672.45,2.6,1593.74,No,0.0,Gaztelagun,1
+SOL-2026-1133,Donostia-San Sebastián,30,Temporal,1401.96,1019.32,81.3,442.69,No,0.0,Emantzipa,0
+SOL-2026-1134,Getxo,24,Temporal,1309.99,996.65,1.0,5703.13,No,0.0,VPO_Alquiler,1
+SOL-2026-1135,Getxo,30,Autonomo,1363.03,895.86,7.4,2660.05,No,0.0,VPO_Alquiler,0
+SOL-2026-1136,Vitoria-Gasteiz,27,En_Practicas,1309.29,519.19,1.0,11946.87,No,80.0,Emantzipa,0
+SOL-2026-1137,Vitoria-Gasteiz,30,Indefinido,1347.96,647.03,53.3,66.92,Si,0.0,Emantzipa,1
+SOL-2026-1138,Vitoria-Gasteiz,19,Temporal,997.76,654.97,96.0,1655.25,No,0.0,Gaztelagun,0
+SOL-2026-1139,Vitoria-Gasteiz,26,Temporal,1460.1,740.34,14.7,12630.15,Si,0.0,Gaztelagun,1
+SOL-2026-1140,Bilbao,26,Indefinido,1043.78,794.24,40.7,1481.64,No,0.0,Gaztelagun,0
+SOL-2026-1141,Bilbao,26,Temporal,1506.28,1032.83,5.7,1109.27,Si,80.0,Gaztelagun,1
+SOL-2026-1142,Barakaldo,25,Indefinido,972.12,802.38,1.9,18.18,No,160.0,Gaztelagun,0
+SOL-2026-1143,Barakaldo,24,En_Practicas,1322.97,799.75,1.1,3697.44,Si,80.0,VPO_Alquiler,1
+SOL-2026-1144,Getxo,23,Autonomo,1935.84,1023.06,27.9,4838.1,No,0.0,Gaztelagun,1
+SOL-2026-1145,Vitoria-Gasteiz,28,Indefinido,1754.71,661.43,12.3,6664.73,No,0.0,Gaztelagun,1
+SOL-2026-1146,Donostia-San Sebastián,23,Indefinido,1249.45,1171.4,20.2,3304.21,No,0.0,Gaztelagun,0
+SOL-2026-1147,Donostia-San Sebastián,,Autonomo,750.0,1133.09,1.0,2071.72,Si,0.0,Emantzipa,0
+SOL-2026-1148,Bilbao,25,Indefinido,1569.17,907.9,9.4,7892.23,No,0.0,Gaztelagun,0
+SOL-2026-1149,Bilbao,25,Autonomo,1052.57,865.06,80.9,4236.62,No,80.0,VPO_Alquiler,0
+SOL-2026-1150,Vitoria-Gasteiz,20,Temporal,1100.13,653.31,44.9,6176.7,No,0.0,Gaztelagun,1
+SOL-2026-1151,Barakaldo,24,Temporal,750.0,735.02,10.6,,Si,0.0,Emantzipa,1
+SOL-2026-1152,Vitoria-Gasteiz,18,Indefinido,1581.35,518.71,15.5,,Si,0.0,VPO_Alquiler,1
+SOL-2026-1153,Bilbao,19,Indefinido,1448.93,898.81,18.5,11613.75,No,160.0,Gaztelagun,0
+SOL-2026-1154,Donostia-San Sebastián,,Autonomo,1493.01,1062.12,35.4,17290.67,No,0.0,VPO_Alquiler,0
+SOL-2026-1155,Vitoria-Gasteiz,32,Temporal,1024.66,636.04,31.2,1487.12,Si,160.0,Emantzipa,1
+SOL-2026-1156,Barakaldo,18,Indefinido,1747.31,775.09,10.6,7200.85,Si,0.0,Gaztelagun,1
+SOL-2026-1157,Vitoria-Gasteiz,22,Temporal,1245.24,848.37,23.7,3188.84,No,0.0,Gaztelagun,1
+SOL-2026-1158,Vitoria-Gasteiz,27,Indefinido,1003.7,623.31,23.9,3974.38,No,0.0,Gaztelagun,1
+SOL-2026-1159,Donostia-San Sebastián,31,Indefinido,1321.03,1160.64,13.9,893.68,No,0.0,Gaztelagun,1
+SOL-2026-1160,Donostia-San Sebastián,34,Indefinido,1389.07,1167.36,18.7,6573.66,Si,80.0,Gaztelagun,1
+SOL-2026-1161,Vitoria-Gasteiz,20,Indefinido,1415.36,509.91,14.7,7126.64,Si,280.0,Gaztelagun,0
+SOL-2026-1162,Getxo,,Autonomo,1158.32,989.84,16.7,8633.08,No,80.0,Gaztelagun,0
+SOL-2026-1163,Donostia-San Sebastián,34,En_Practicas,851.68,1138.2,23.1,1351.02,Si,0.0,Gaztelagun,0
+SOL-2026-1164,Vitoria-Gasteiz,,Temporal,966.5,589.61,6.3,914.86,No,0.0,Emantzipa,0
+SOL-2026-1165,Bilbao,33,Autonomo,1160.77,759.72,3.3,649.06,No,0.0,VPO_Alquiler,0
+SOL-2026-1166,Vitoria-Gasteiz,,Indefinido,1792.73,472.14,19.9,1860.93,No,0.0,Emantzipa,1
+SOL-2026-1167,Donostia-San Sebastián,33,Temporal,1748.0,1112.16,9.5,,No,0.0,Gaztelagun,0
+SOL-2026-1168,Vitoria-Gasteiz,23,Indefinido,1520.1,702.3,3.8,5909.96,Si,0.0,Gaztelagun,1
+SOL-2026-1169,Vitoria-Gasteiz,25,Indefinido,1437.94,633.83,86.2,112.69,No,0.0,Gaztelagun,1
+SOL-2026-1170,Vitoria-Gasteiz,,En_Practicas,1214.93,599.15,68.2,7881.33,No,0.0,VPO_Alquiler,1
+SOL-2026-1171,Vitoria-Gasteiz,20,Temporal,1308.78,792.88,19.3,6649.91,Si,0.0,Gaztelagun,1
+SOL-2026-1172,Barakaldo,27,Indefinido,1414.05,909.38,8.9,1410.72,No,0.0,VPO_Alquiler,0
+SOL-2026-1173,Donostia-San Sebastián,19,Indefinido,1393.36,1139.52,16.7,3168.8,No,0.0,Emantzipa,0
+SOL-2026-1174,Donostia-San Sebastián,30,Indefinido,1191.44,967.09,1.6,5599.16,No,0.0,Gaztelagun,0
+SOL-2026-1175,Vitoria-Gasteiz,28,Indefinido,1982.52,800.17,10.6,377.45,Si,0.0,Emantzipa,1
+SOL-2026-1176,Bilbao,,Temporal,948.92,749.79,35.9,,No,80.0,Emantzipa,0
+SOL-2026-1177,Getxo,34,Indefinido,1259.91,1017.24,6.4,228.75,No,0.0,Gaztelagun,1
+SOL-2026-1178,Bilbao,33,Temporal,1427.88,894.81,6.5,1413.27,No,160.0,Gaztelagun,0
+SOL-2026-1179,Barakaldo,22,Indefinido,1011.39,626.88,11.7,1777.64,Si,80.0,Emantzipa,0
+SOL-2026-1180,Vitoria-Gasteiz,26,En_Practicas,1264.61,700.64,14.9,2760.94,No,0.0,VPO_Alquiler,1
+SOL-2026-1181,Vitoria-Gasteiz,27,En_Practicas,1908.01,751.69,28.5,524.54,Si,0.0,Gaztelagun,1
+SOL-2026-1182,Donostia-San Sebastián,33,Temporal,750.0,1051.42,36.7,131.1,No,80.0,VPO_Alquiler,0
+SOL-2026-1183,Barakaldo,,Indefinido,1287.58,668.14,17.1,3625.04,No,280.0,Gaztelagun,0
+SOL-2026-1184,Bilbao,,Indefinido,1372.42,722.24,20.9,1640.09,No,80.0,Emantzipa,1
+SOL-2026-1185,Getxo,27,Indefinido,1524.73,968.17,50.8,1308.32,No,0.0,Gaztelagun,0
+SOL-2026-1186,Donostia-San Sebastián,28,Indefinido,1834.05,1143.64,1.0,405.36,No,160.0,Emantzipa,0
+SOL-2026-1187,Vitoria-Gasteiz,31,Autonomo,1414.78,771.25,3.7,1980.55,Si,80.0,Gaztelagun,1
+SOL-2026-1188,Donostia-San Sebastián,24,Indefinido,1226.76,929.17,15.5,2694.26,No,0.0,Gaztelagun,0
+SOL-2026-1189,Donostia-San Sebastián,28,Temporal,1074.69,1014.39,7.7,3362.34,No,80.0,Gaztelagun,0
+SOL-2026-1190,Bilbao,21,Indefinido,1595.18,914.82,2.7,3175.88,No,0.0,Gaztelagun,0
+SOL-2026-1191,Barakaldo,23,Temporal,1215.39,723.58,6.8,192.86,No,0.0,Gaztelagun,0
+SOL-2026-1192,Getxo,33,Indefinido,908.51,988.18,10.6,2916.63,No,0.0,Gaztelagun,0
+SOL-2026-1193,Bilbao,33,Temporal,1491.92,882.15,26.9,1599.73,No,0.0,Emantzipa,0
+SOL-2026-1194,Getxo,,En_Practicas,1382.13,895.93,96.0,1500.09,No,0.0,VPO_Alquiler,0
+SOL-2026-1195,Bilbao,29,En_Practicas,1135.94,782.47,17.2,5878.19,No,0.0,Gaztelagun,0
+SOL-2026-1196,Bilbao,27,Indefinido,1315.53,1046.42,76.2,350.24,No,80.0,VPO_Alquiler,0
+SOL-2026-1197,Barakaldo,22,Indefinido,1244.69,537.72,25.8,2352.99,No,0.0,Gaztelagun,1
+SOL-2026-1198,Vitoria-Gasteiz,20,Indefinido,1379.43,515.96,37.8,2343.31,No,160.0,VPO_Alquiler,1
+SOL-2026-1199,Getxo,29,En_Practicas,1465.52,883.42,62.0,2389.21,Si,0.0,Gaztelagun,1
+SOL-2026-1200,Barakaldo,19,Indefinido,979.15,584.39,1.0,601.84,No,280.0,Gaztelagun,0
+SOL-2026-1201,Barakaldo,27,Indefinido,1598.96,687.17,19.1,1627.38,No,0.0,Gaztelagun,1
+SOL-2026-1202,Vitoria-Gasteiz,20,Temporal,1721.47,670.78,2.6,3987.83,Si,80.0,VPO_Alquiler,0
+SOL-2026-1203,Donostia-San Sebastián,20,Indefinido,1839.92,1196.39,2.0,1244.64,No,160.0,VPO_Alquiler,0
+SOL-2026-1204,Vitoria-Gasteiz,,Temporal,1241.82,631.74,7.8,4827.88,No,80.0,Gaztelagun,1
+SOL-2026-1205,Barakaldo,21,Temporal,804.68,891.16,6.8,1135.05,Si,0.0,Emantzipa,1
+SOL-2026-1206,Vitoria-Gasteiz,27,Indefinido,1228.17,629.75,8.9,5360.46,No,0.0,Gaztelagun,1
+SOL-2026-1207,Vitoria-Gasteiz,,En_Practicas,1663.16,677.17,6.8,6391.65,No,0.0,Gaztelagun,1
+SOL-2026-1208,Getxo,,Temporal,1588.36,986.03,46.1,1776.1,Si,80.0,Emantzipa,1
+SOL-2026-1209,Donostia-San Sebastián,22,Indefinido,1248.04,1211.29,4.1,2690.49,No,80.0,VPO_Alquiler,0
+SOL-2026-1210,Bilbao,25,Indefinido,1654.46,905.05,10.9,1295.12,No,80.0,Gaztelagun,0
+SOL-2026-1211,Vitoria-Gasteiz,29,Temporal,1478.61,513.69,3.3,5317.37,Si,160.0,Emantzipa,1
+SOL-2026-1212,Barakaldo,20,Indefinido,1796.46,698.06,12.3,199.62,No,0.0,Gaztelagun,1
+SOL-2026-1213,Barakaldo,21,Indefinido,1290.1,718.34,35.8,2233.75,No,0.0,VPO_Alquiler,0
+SOL-2026-1214,Vitoria-Gasteiz,31,Indefinido,1387.28,892.48,6.9,2966.42,Si,80.0,Gaztelagun,1
+SOL-2026-1215,Donostia-San Sebastián,,Indefinido,1810.63,960.0,26.7,316.21,No,0.0,Gaztelagun,0
+SOL-2026-1216,Vitoria-Gasteiz,29,Temporal,864.12,677.18,3.9,5001.95,Si,0.0,Gaztelagun,1
+SOL-2026-1217,Bilbao,18,Autonomo,1819.03,851.34,34.0,384.15,No,0.0,Gaztelagun,1
+SOL-2026-1218,Getxo,20,Indefinido,1447.34,1171.96,9.6,2146.67,No,0.0,Gaztelagun,0
+SOL-2026-1219,Donostia-San Sebastián,19,Indefinido,1594.98,1083.61,5.4,5647.36,No,80.0,Gaztelagun,1
+SOL-2026-1220,Bilbao,21,Indefinido,1552.21,946.2,9.4,11697.09,Si,0.0,Gaztelagun,1
+SOL-2026-1221,Bilbao,19,Indefinido,1485.51,805.57,22.4,1766.05,Si,0.0,VPO_Alquiler,1
+SOL-2026-1222,Getxo,25,Indefinido,1807.51,1086.17,2.3,,No,0.0,Gaztelagun,1
+SOL-2026-1223,Vitoria-Gasteiz,20,Temporal,1349.58,852.77,1.0,,No,0.0,Gaztelagun,0
+SOL-2026-1224,Barakaldo,19,Autonomo,2027.11,791.04,10.2,2399.0,No,0.0,Gaztelagun,0
+SOL-2026-1225,Bilbao,22,Indefinido,1214.95,798.87,6.3,2800.14,Si,0.0,Gaztelagun,1
+SOL-2026-1226,Barakaldo,18,Autonomo,1436.37,627.56,14.2,8533.5,No,0.0,Gaztelagun,1
+SOL-2026-1227,Bilbao,26,Indefinido,1747.84,843.47,26.2,12771.1,Si,80.0,Gaztelagun,1
+SOL-2026-1228,Barakaldo,,Autonomo,1490.94,910.04,28.7,6397.06,No,0.0,Emantzipa,0
+SOL-2026-1229,Vitoria-Gasteiz,18,Temporal,1148.33,773.96,2.8,6342.51,No,280.0,Gaztelagun,0
+SOL-2026-1230,Bilbao,,Temporal,1719.39,864.24,7.3,5747.68,Si,0.0,VPO_Alquiler,0
+SOL-2026-1231,Bilbao,22,En_Practicas,1719.36,686.84,58.2,9960.96,No,0.0,Gaztelagun,1
+SOL-2026-1232,Bilbao,33,Temporal,1742.08,1083.97,21.3,5412.49,Si,0.0,Gaztelagun,1
+SOL-2026-1233,Vitoria-Gasteiz,18,Autonomo,1663.67,638.42,93.0,115.22,No,160.0,VPO_Alquiler,1
+SOL-2026-1234,Vitoria-Gasteiz,22,Indefinido,1624.44,713.34,6.9,11546.47,No,80.0,Emantzipa,1
+SOL-2026-1235,Bilbao,20,Indefinido,1490.41,694.65,1.0,1904.45,Si,0.0,VPO_Alquiler,1
+SOL-2026-1236,Donostia-San Sebastián,25,Indefinido,1898.95,1186.38,6.3,10603.39,Si,0.0,Gaztelagun,1
+SOL-2026-1237,Donostia-San Sebastián,20,Indefinido,2011.85,1080.46,21.9,3710.92,No,0.0,Gaztelagun,1
+SOL-2026-1238,Getxo,26,Temporal,1340.47,1022.93,9.0,2363.22,Si,0.0,Gaztelagun,0
+SOL-2026-1239,Vitoria-Gasteiz,21,Indefinido,1498.92,743.0,1.5,1290.38,No,0.0,Emantzipa,1
+SOL-2026-1240,Donostia-San Sebastián,30,Indefinido,1158.95,1126.12,11.3,1094.6,Si,80.0,Emantzipa,1
+SOL-2026-1241,Bilbao,25,Temporal,1679.27,694.54,9.8,7058.13,No,160.0,Gaztelagun,1
+SOL-2026-1242,Barakaldo,34,Temporal,991.62,706.27,73.1,10433.28,No,280.0,Gaztelagun,0
+SOL-2026-1243,Bilbao,,Indefinido,1297.81,788.68,31.1,3163.95,Si,80.0,VPO_Alquiler,1
+SOL-2026-1244,Vitoria-Gasteiz,26,Temporal,1421.06,662.16,21.7,5326.37,Si,0.0,Emantzipa,1
+SOL-2026-1245,Getxo,,Indefinido,1477.19,807.48,36.4,7360.02,Si,80.0,Emantzipa,1
+SOL-2026-1246,Bilbao,30,Indefinido,1586.99,792.61,4.9,8876.77,No,0.0,VPO_Alquiler,1
+SOL-2026-1247,Bilbao,21,Autonomo,1415.01,933.73,24.5,1354.29,No,80.0,Gaztelagun,0
+SOL-2026-1248,Barakaldo,33,En_Practicas,1753.72,582.56,13.0,1304.42,No,0.0,VPO_Alquiler,0
+SOL-2026-1249,Bilbao,24,En_Practicas,1381.06,960.42,45.0,1120.61,No,0.0,Emantzipa,1
+SOL-2026-1250,Bilbao,32,Indefinido,1653.94,753.35,7.7,7871.39,No,80.0,Gaztelagun,1
+SOL-2026-1251,Bilbao,24,En_Practicas,1108.67,729.73,5.6,70.9,No,80.0,Gaztelagun,0
+SOL-2026-1252,Vitoria-Gasteiz,18,Indefinido,821.96,519.35,22.5,1127.37,No,160.0,Gaztelagun,1
+SOL-2026-1253,Bilbao,30,Temporal,2538.24,867.84,61.1,2885.04,No,0.0,Emantzipa,1
+SOL-2026-1254,Bilbao,28,En_Practicas,1346.92,1007.2,40.1,568.53,No,160.0,VPO_Alquiler,0
+SOL-2026-1255,Vitoria-Gasteiz,22,Temporal,799.04,400.0,5.4,1720.15,Si,80.0,Emantzipa,1
+SOL-2026-1256,Vitoria-Gasteiz,33,Autonomo,1211.72,565.07,33.6,7320.15,Si,0.0,Gaztelagun,1
+SOL-2026-1257,Barakaldo,23,Autonomo,1733.15,634.01,4.5,7179.55,No,160.0,Gaztelagun,0
+SOL-2026-1258,Donostia-San Sebastián,,Indefinido,1117.44,1001.48,17.4,757.21,Si,80.0,Gaztelagun,1
+SOL-2026-1259,Barakaldo,24,Indefinido,2012.0,703.01,77.7,6941.76,Si,0.0,Gaztelagun,0
+SOL-2026-1260,Bilbao,,Temporal,1510.53,1016.77,15.5,5383.35,No,0.0,Gaztelagun,0
+SOL-2026-1261,Donostia-San Sebastián,18,Indefinido,1470.6,1191.8,1.0,6268.96,Si,80.0,Emantzipa,1
+SOL-2026-1262,Vitoria-Gasteiz,22,Indefinido,1123.58,668.21,1.2,,No,0.0,Gaztelagun,1
+SOL-2026-1263,Donostia-San Sebastián,22,Indefinido,1610.44,1045.21,3.8,8762.4,No,0.0,Emantzipa,1
+SOL-2026-1264,Vitoria-Gasteiz,23,Indefinido,1251.36,498.02,8.5,5162.93,No,0.0,Gaztelagun,1
+SOL-2026-1265,Barakaldo,,Indefinido,1235.24,737.61,5.2,805.13,No,0.0,Gaztelagun,1
+SOL-2026-1266,Donostia-San Sebastián,22,Indefinido,1668.72,1028.8,17.3,5376.01,No,80.0,Emantzipa,0
+SOL-2026-1267,Getxo,31,Indefinido,1720.65,1008.7,4.2,1404.83,Si,80.0,VPO_Alquiler,1
+SOL-2026-1268,Vitoria-Gasteiz,20,En_Practicas,1808.59,742.85,42.3,2135.66,No,0.0,Gaztelagun,0
+SOL-2026-1269,Barakaldo,29,En_Practicas,1191.36,871.25,1.8,164.41,No,80.0,Gaztelagun,0
+SOL-2026-1270,Donostia-San Sebastián,20,Indefinido,1298.85,1141.05,9.2,6321.39,No,0.0,Gaztelagun,0
+SOL-2026-1271,Bilbao,19,Autonomo,1458.44,811.19,43.6,2945.31,No,80.0,Emantzipa,0
+SOL-2026-1272,Barakaldo,22,Temporal,754.52,735.59,10.5,,No,0.0,VPO_Alquiler,0
+SOL-2026-1273,Vitoria-Gasteiz,25,Autonomo,1248.42,590.41,13.3,350.31,No,0.0,Gaztelagun,0
+SOL-2026-1274,Donostia-San Sebastián,19,Indefinido,1706.22,1052.43,11.4,632.83,No,0.0,Gaztelagun,1
+SOL-2026-1275,Donostia-San Sebastián,30,Indefinido,1411.3,1210.37,29.1,6797.15,No,0.0,Gaztelagun,0
+SOL-2026-1276,Bilbao,18,En_Practicas,1580.07,601.84,18.3,2892.04,No,0.0,Gaztelagun,0
+SOL-2026-1277,Barakaldo,28,Temporal,1132.07,642.63,19.3,423.73,No,0.0,Gaztelagun,0
+SOL-2026-1278,Getxo,34,Indefinido,1882.01,1112.04,12.2,4748.72,No,0.0,Gaztelagun,1
+SOL-2026-1279,Barakaldo,24,Temporal,1621.91,784.82,47.0,3110.46,No,0.0,Emantzipa,0
+SOL-2026-1280,Bilbao,34,Temporal,1078.21,815.04,15.8,5316.7,No,80.0,Gaztelagun,0
+SOL-2026-1281,Bilbao,28,Temporal,753.71,1034.84,44.6,1118.77,No,280.0,Gaztelagun,0
+SOL-2026-1282,Donostia-San Sebastián,34,Indefinido,1201.26,910.6,22.4,3504.41,Si,80.0,Gaztelagun,1
+SOL-2026-1283,Vitoria-Gasteiz,23,Temporal,1289.27,587.12,2.2,2291.23,No,80.0,Gaztelagun,0
+SOL-2026-1284,Barakaldo,31,En_Practicas,1312.81,716.78,2.8,780.58,No,0.0,Gaztelagun,1
+SOL-2026-1285,Barakaldo,27,Indefinido,1106.63,695.89,10.8,3939.42,No,0.0,Emantzipa,1
+SOL-2026-1286,Donostia-San Sebastián,27,Temporal,1661.4,1128.52,9.7,4044.79,No,0.0,Emantzipa,0
+SOL-2026-1287,Barakaldo,32,En_Practicas,1777.91,637.55,18.8,2768.55,No,80.0,VPO_Alquiler,1
+SOL-2026-1288,Bilbao,23,Autonomo,1365.84,799.8,1.0,1073.98,Si,160.0,Gaztelagun,1
+SOL-2026-1289,Getxo,,Autonomo,955.75,881.43,17.7,1254.14,No,0.0,Gaztelagun,0
+SOL-2026-1290,Donostia-San Sebastián,34,Indefinido,1069.05,1096.65,13.9,874.99,Si,0.0,Gaztelagun,1
+SOL-2026-1291,Vitoria-Gasteiz,18,Indefinido,1253.81,731.06,18.5,978.2,Si,160.0,Gaztelagun,1
+SOL-2026-1292,Bilbao,27,Indefinido,868.18,831.85,13.0,2334.85,Si,80.0,Gaztelagun,1
+SOL-2026-1293,Bilbao,18,Temporal,1483.13,986.66,4.3,6320.47,Si,160.0,VPO_Alquiler,0
+SOL-2026-1294,Donostia-San Sebastián,20,Temporal,1569.12,1191.22,7.3,195.29,No,0.0,Emantzipa,0
+SOL-2026-1295,Bilbao,30,Indefinido,1826.22,865.85,13.8,3371.37,No,0.0,Emantzipa,1
+SOL-2026-1296,Getxo,,En_Practicas,1339.54,1020.34,26.1,1759.5,No,0.0,Gaztelagun,1
+SOL-2026-1297,Donostia-San Sebastián,27,Autonomo,1658.61,1218.3,44.2,4573.92,No,280.0,Emantzipa,0
+SOL-2026-1298,Bilbao,,Temporal,750.0,793.94,6.5,8185.43,Si,0.0,Emantzipa,1
+SOL-2026-1299,Bilbao,26,Indefinido,1604.89,1012.9,34.4,9427.96,No,0.0,Gaztelagun,1
+SOL-2026-1300,Bilbao,,Temporal,1111.96,857.21,2.5,368.94,No,160.0,Gaztelagun,0
+SOL-2026-1301,Vitoria-Gasteiz,22,Temporal,1207.61,735.6,10.1,,Si,0.0,Emantzipa,1
+SOL-2026-1302,Barakaldo,28,En_Practicas,1104.87,741.81,6.6,676.57,No,160.0,VPO_Alquiler,1
+SOL-2026-1303,Donostia-San Sebastián,20,Temporal,1834.82,977.92,18.0,3027.1,No,0.0,Gaztelagun,1
+SOL-2026-1304,Barakaldo,22,Indefinido,1466.13,889.58,23.8,2187.26,No,0.0,Gaztelagun,0
+SOL-2026-1305,Barakaldo,23,En_Practicas,1492.3,765.47,15.0,7200.38,Si,80.0,VPO_Alquiler,1
+SOL-2026-1306,Vitoria-Gasteiz,26,Indefinido,1576.86,688.09,42.9,2219.92,No,0.0,VPO_Alquiler,1
+SOL-2026-1307,Vitoria-Gasteiz,26,En_Practicas,1348.57,794.94,3.4,1591.09,No,160.0,Gaztelagun,0
+SOL-2026-1308,Barakaldo,29,En_Practicas,1080.78,866.7,39.3,,No,0.0,Gaztelagun,0
+SOL-2026-1309,Bilbao,23,Indefinido,1349.29,800.87,4.7,4458.58,No,0.0,Gaztelagun,1
+SOL-2026-1310,Barakaldo,,Indefinido,1220.79,693.59,17.9,,No,0.0,Gaztelagun,1
+SOL-2026-1311,Getxo,18,En_Practicas,1303.2,796.19,53.0,3264.59,No,0.0,Gaztelagun,0
+SOL-2026-1312,Bilbao,23,Temporal,1198.63,845.89,20.8,3176.82,Si,0.0,Gaztelagun,1
+SOL-2026-1313,Donostia-San Sebastián,31,En_Practicas,1232.22,1061.53,41.7,7355.98,No,80.0,Gaztelagun,0
+SOL-2026-1314,Barakaldo,18,En_Practicas,1447.58,577.01,13.3,155.43,No,0.0,VPO_Alquiler,0
+SOL-2026-1315,Donostia-San Sebastián,21,Indefinido,1365.49,1270.33,43.4,3192.11,No,0.0,Gaztelagun,0
+SOL-2026-1316,Bilbao,34,Indefinido,1121.64,724.05,6.8,588.55,No,0.0,VPO_Alquiler,1
+SOL-2026-1317,Donostia-San Sebastián,30,En_Practicas,931.08,1190.76,11.9,2833.19,Si,0.0,Gaztelagun,0
+SOL-2026-1318,Vitoria-Gasteiz,21,Temporal,940.86,721.05,3.2,1791.16,Si,0.0,Emantzipa,1
+SOL-2026-1319,Bilbao,18,En_Practicas,1530.53,748.79,16.5,1068.52,No,80.0,Emantzipa,0
+SOL-2026-1320,Donostia-San Sebastián,27,Temporal,787.44,961.23,30.9,2022.95,Si,80.0,VPO_Alquiler,1
+SOL-2026-1321,Bilbao,34,Temporal,1043.42,750.85,8.0,13002.69,Si,0.0,Gaztelagun,1
+SOL-2026-1322,Donostia-San Sebastián,18,Temporal,1498.48,1118.17,6.0,8628.23,Si,280.0,Gaztelagun,0
+SOL-2026-1323,Bilbao,18,Indefinido,1261.21,876.14,1.4,10282.14,No,280.0,VPO_Alquiler,0
+SOL-2026-1324,Vitoria-Gasteiz,30,Temporal,1443.19,503.0,58.5,2161.32,No,0.0,Gaztelagun,1
+SOL-2026-1325,Vitoria-Gasteiz,25,En_Practicas,1141.33,718.8,13.8,1069.75,Si,0.0,Emantzipa,1
+SOL-2026-1326,Vitoria-Gasteiz,28,Indefinido,1567.06,621.2,52.9,8424.99,No,0.0,Emantzipa,0
+SOL-2026-1327,Bilbao,25,En_Practicas,1057.89,986.59,2.3,,No,0.0,Gaztelagun,0
+SOL-2026-1328,Getxo,29,Temporal,750.0,993.98,40.9,2362.24,No,160.0,Gaztelagun,0
+SOL-2026-1329,Vitoria-Gasteiz,,En_Practicas,1009.2,686.94,12.6,4058.04,Si,280.0,Emantzipa,0
+SOL-2026-1330,Vitoria-Gasteiz,,Indefinido,1147.54,626.76,17.1,2783.62,Si,0.0,Emantzipa,1
+SOL-2026-1331,Donostia-San Sebastián,29,Indefinido,1113.6,1164.01,15.3,4054.4,No,80.0,VPO_Alquiler,0
+SOL-2026-1332,Barakaldo,22,Temporal,1693.3,726.4,2.6,3486.06,No,0.0,Gaztelagun,1
+SOL-2026-1333,Barakaldo,,Indefinido,1488.26,779.59,5.3,354.41,No,0.0,Gaztelagun,1
+SOL-2026-1334,Barakaldo,31,Indefinido,1898.23,529.84,4.0,3665.7,Si,80.0,Gaztelagun,1
+SOL-2026-1335,Donostia-San Sebastián,20,Indefinido,1283.54,1237.64,2.8,5770.76,Si,80.0,Emantzipa,0
+SOL-2026-1336,Bilbao,25,Indefinido,1109.66,720.9,16.7,7652.78,No,160.0,Emantzipa,0
+SOL-2026-1337,Donostia-San Sebastián,18,Indefinido,1402.03,1175.79,24.5,827.56,No,0.0,VPO_Alquiler,0
+SOL-2026-1338,Bilbao,34,En_Practicas,1582.79,888.98,3.0,7584.25,Si,0.0,Gaztelagun,1
+SOL-2026-1339,Bilbao,18,Indefinido,965.4,1023.97,35.9,7165.04,No,0.0,Gaztelagun,0
+SOL-2026-1340,Donostia-San Sebastián,32,Temporal,1125.93,1002.9,13.3,1297.01,Si,0.0,VPO_Alquiler,1
+SOL-2026-1341,Donostia-San Sebastián,27,Indefinido,879.84,1075.4,2.6,2680.76,No,0.0,Emantzipa,0
+SOL-2026-1342,Vitoria-Gasteiz,25,En_Practicas,1194.89,650.72,38.5,1006.4,No,80.0,VPO_Alquiler,1
+SOL-2026-1343,Bilbao,34,En_Practicas,1839.78,752.68,20.8,4754.38,No,0.0,VPO_Alquiler,1
+SOL-2026-1344,Bilbao,32,Indefinido,1241.26,805.04,1.0,,No,0.0,Gaztelagun,1
+SOL-2026-1345,Vitoria-Gasteiz,25,Indefinido,1589.04,676.47,9.8,2414.8,No,80.0,Gaztelagun,1
+SOL-2026-1346,Vitoria-Gasteiz,26,En_Practicas,1684.68,718.87,3.8,5948.74,No,0.0,Emantzipa,1
+SOL-2026-1347,Vitoria-Gasteiz,19,Indefinido,1367.73,625.77,19.7,1725.01,No,160.0,Gaztelagun,0
+SOL-2026-1348,Vitoria-Gasteiz,21,Indefinido,1251.28,619.11,39.3,859.7,Si,80.0,Gaztelagun,1
+SOL-2026-1349,Bilbao,,En_Practicas,1467.74,851.64,27.5,3174.03,No,0.0,Gaztelagun,1
+SOL-2026-1350,Vitoria-Gasteiz,19,Indefinido,1093.17,547.42,28.2,926.96,No,80.0,Emantzipa,0
+SOL-2026-1351,Donostia-San Sebastián,30,Indefinido,1805.33,1260.27,12.0,1222.03,No,0.0,Gaztelagun,0
+SOL-2026-1352,Vitoria-Gasteiz,23,Indefinido,1521.15,739.26,5.5,2.52,No,0.0,Gaztelagun,1
+SOL-2026-1353,Barakaldo,25,Indefinido,2102.88,821.3,30.8,4023.46,No,0.0,Gaztelagun,1
+SOL-2026-1354,Bilbao,,Temporal,2060.48,914.01,3.5,,Si,0.0,Gaztelagun,1
+SOL-2026-1355,Donostia-San Sebastián,26,Indefinido,1467.3,1256.39,1.0,3732.35,No,160.0,Gaztelagun,0
+SOL-2026-1356,Donostia-San Sebastián,31,En_Practicas,1408.54,1066.67,17.3,4638.86,No,0.0,Gaztelagun,0
+SOL-2026-1357,Bilbao,30,Indefinido,1156.16,837.61,17.7,4840.77,No,0.0,Emantzipa,0
+SOL-2026-1358,Donostia-San Sebastián,21,Indefinido,1508.75,1191.8,7.4,22606.35,No,0.0,Gaztelagun,0
+SOL-2026-1359,Bilbao,31,En_Practicas,1280.86,916.45,14.2,2796.63,No,0.0,Gaztelagun,0
+SOL-2026-1360,Bilbao,,Indefinido,1540.78,855.51,39.8,,No,0.0,Gaztelagun,0
+SOL-2026-1361,Getxo,34,Temporal,1535.44,953.98,1.0,521.41,No,0.0,Gaztelagun,0
+SOL-2026-1362,Bilbao,24,Temporal,1292.03,674.98,3.4,4094.57,No,160.0,Emantzipa,0
+SOL-2026-1363,Vitoria-Gasteiz,20,En_Practicas,1618.72,627.47,38.1,9319.74,Si,80.0,Emantzipa,0
+SOL-2026-1364,Getxo,30,Indefinido,1119.95,966.61,15.0,4187.97,Si,80.0,VPO_Alquiler,0
+SOL-2026-1365,Vitoria-Gasteiz,20,Indefinido,1305.68,767.03,2.6,2965.64,Si,0.0,Gaztelagun,1
+SOL-2026-1366,Vitoria-Gasteiz,22,Temporal,1476.38,765.02,15.2,20425.12,No,0.0,Gaztelagun,1
+SOL-2026-1367,Vitoria-Gasteiz,21,Temporal,1133.8,712.77,7.0,85.77,Si,280.0,Emantzipa,0
+SOL-2026-1368,Donostia-San Sebastián,19,Autonomo,1427.24,1251.26,3.1,314.03,No,0.0,Emantzipa,0
+SOL-2026-1369,Barakaldo,28,Temporal,1631.1,790.38,1.0,2702.71,Si,0.0,Gaztelagun,1
+SOL-2026-1370,Vitoria-Gasteiz,18,Indefinido,1684.87,601.9,5.3,,Si,80.0,Gaztelagun,1
+SOL-2026-1371,Getxo,,Temporal,1035.42,791.28,8.0,1211.04,No,0.0,VPO_Alquiler,0
+SOL-2026-1372,Vitoria-Gasteiz,33,En_Practicas,1191.07,657.35,12.5,9129.51,Si,0.0,Gaztelagun,1
+SOL-2026-1373,Donostia-San Sebastián,29,Temporal,1223.5,1166.92,96.0,1129.79,Si,0.0,Gaztelagun,0
+SOL-2026-1374,Getxo,26,Indefinido,1216.59,1063.74,2.7,2574.13,No,160.0,Emantzipa,0
+SOL-2026-1375,Vitoria-Gasteiz,27,Autonomo,1200.8,779.82,4.2,2728.17,No,160.0,Gaztelagun,0
+SOL-2026-1376,Donostia-San Sebastián,22,Temporal,1218.43,1076.76,1.3,4448.39,Si,160.0,Gaztelagun,1
+SOL-2026-1377,Bilbao,31,Indefinido,1364.63,664.37,18.2,576.88,Si,0.0,Gaztelagun,0
+SOL-2026-1378,Vitoria-Gasteiz,25,Temporal,1388.25,692.83,1.5,503.9,No,0.0,Emantzipa,1
+SOL-2026-1379,Donostia-San Sebastián,23,Indefinido,1879.79,1134.21,1.0,1864.82,No,280.0,Emantzipa,1
+SOL-2026-1380,Getxo,33,Temporal,1800.01,824.72,10.0,3277.1,No,80.0,Gaztelagun,0
+SOL-2026-1381,Vitoria-Gasteiz,19,Temporal,843.8,726.08,1.0,2559.45,No,80.0,Emantzipa,0
+SOL-2026-1382,Vitoria-Gasteiz,,Indefinido,1175.01,720.94,31.6,1921.43,No,0.0,Gaztelagun,1
+SOL-2026-1383,Barakaldo,34,Indefinido,1506.96,488.12,21.4,1867.89,No,0.0,Emantzipa,1
+SOL-2026-1384,Bilbao,26,Indefinido,1098.56,723.28,3.2,334.67,No,80.0,Gaztelagun,0
+SOL-2026-1385,Vitoria-Gasteiz,23,Indefinido,1004.69,786.58,43.8,3771.0,Si,160.0,Gaztelagun,1
+SOL-2026-1386,Donostia-San Sebastián,32,Indefinido,1650.71,1293.96,58.1,,No,0.0,Gaztelagun,0
+SOL-2026-1387,Barakaldo,33,Indefinido,1090.85,659.8,9.5,,No,0.0,Gaztelagun,1
+SOL-2026-1388,Vitoria-Gasteiz,19,Indefinido,1641.5,701.42,2.8,,No,80.0,Gaztelagun,1
+SOL-2026-1389,Bilbao,23,Temporal,1027.5,751.43,16.3,683.58,No,0.0,VPO_Alquiler,1
+SOL-2026-1390,Bilbao,30,En_Practicas,1410.62,657.74,1.2,455.47,No,0.0,Gaztelagun,1
+SOL-2026-1391,Bilbao,,Temporal,1745.01,834.12,1.7,3249.08,No,80.0,Gaztelagun,0
+SOL-2026-1392,Bilbao,29,Autonomo,1115.39,772.93,23.5,5775.55,No,0.0,Gaztelagun,1
+SOL-2026-1393,Bilbao,21,Temporal,1489.85,983.29,9.6,,Si,160.0,Gaztelagun,1
+SOL-2026-1394,Vitoria-Gasteiz,20,Indefinido,1114.79,666.28,1.0,1461.53,No,80.0,Gaztelagun,1
+SOL-2026-1395,Bilbao,33,Autonomo,1506.43,712.26,11.8,7791.57,No,0.0,Emantzipa,1
+SOL-2026-1396,Vitoria-Gasteiz,27,Temporal,1213.51,555.45,1.0,1410.66,No,80.0,Gaztelagun,1
+SOL-2026-1397,Barakaldo,30,Temporal,1594.08,611.22,8.9,6998.16,No,80.0,Gaztelagun,1
+SOL-2026-1398,Donostia-San Sebastián,25,Indefinido,1501.95,1025.46,13.4,1640.62,Si,0.0,Gaztelagun,1
+SOL-2026-1399,Vitoria-Gasteiz,22,Indefinido,1812.14,595.04,13.3,541.32,No,160.0,VPO_Alquiler,1
+SOL-2026-1400,Bilbao,32,Indefinido,1478.31,812.74,6.7,,No,160.0,Gaztelagun,0
+SOL-2026-1401,Bilbao,27,Indefinido,1402.84,707.48,4.2,1181.84,No,80.0,Emantzipa,1
+SOL-2026-1402,Bilbao,,Autonomo,1250.24,832.99,14.1,1106.54,No,160.0,Emantzipa,0
+SOL-2026-1403,Bilbao,32,Indefinido,2017.72,889.16,1.0,315.19,No,80.0,VPO_Alquiler,1
+SOL-2026-1404,Vitoria-Gasteiz,29,Indefinido,1574.88,525.99,20.0,12731.24,No,0.0,Gaztelagun,1
+SOL-2026-1405,Barakaldo,32,Indefinido,1064.91,585.61,11.4,543.06,No,0.0,Gaztelagun,1
+SOL-2026-1406,Barakaldo,28,Temporal,1714.59,741.47,7.8,655.54,No,80.0,Gaztelagun,1
+SOL-2026-1407,Barakaldo,28,Temporal,1609.6,756.56,11.1,953.97,Si,0.0,Gaztelagun,1
+SOL-2026-1408,Bilbao,31,En_Practicas,895.09,919.52,14.2,3802.83,Si,160.0,Emantzipa,0
+SOL-2026-1409,Vitoria-Gasteiz,21,En_Practicas,1715.34,893.44,1.3,5888.29,No,0.0,Gaztelagun,0
+SOL-2026-1410,Bilbao,18,En_Practicas,1204.98,756.93,6.2,2074.4,Si,160.0,Gaztelagun,0
+SOL-2026-1411,Vitoria-Gasteiz,31,Temporal,2166.51,515.22,15.7,2499.75,No,160.0,Gaztelagun,0
+SOL-2026-1412,Getxo,,Temporal,1523.33,973.57,6.0,,No,0.0,Emantzipa,0
+SOL-2026-1413,Donostia-San Sebastián,24,Temporal,1188.67,1110.15,8.7,6413.22,Si,280.0,Emantzipa,1
+SOL-2026-1414,Bilbao,,Temporal,1059.69,858.94,83.3,3597.65,No,0.0,Emantzipa,0
+SOL-2026-1415,Donostia-San Sebastián,34,Indefinido,1506.01,1010.84,4.6,26.1,No,80.0,Emantzipa,0
+SOL-2026-1416,Getxo,19,Autonomo,953.63,915.13,2.2,4104.76,Si,80.0,VPO_Alquiler,0
+SOL-2026-1417,Vitoria-Gasteiz,20,Temporal,1206.67,622.16,17.9,3866.74,No,0.0,Emantzipa,0
+SOL-2026-1418,Barakaldo,18,Temporal,1043.4,711.05,23.8,11317.3,No,0.0,Gaztelagun,0
+SOL-2026-1419,Vitoria-Gasteiz,26,Indefinido,1200.0,680.22,1.0,5792.28,No,0.0,Gaztelagun,1
+SOL-2026-1420,Barakaldo,22,Temporal,1343.52,796.11,24.3,8432.93,No,80.0,Gaztelagun,1
+SOL-2026-1421,Vitoria-Gasteiz,23,En_Practicas,1557.9,600.14,1.6,9510.27,Si,0.0,VPO_Alquiler,1
+SOL-2026-1422,Bilbao,23,Indefinido,1352.92,758.44,18.5,431.52,Si,0.0,Gaztelagun,1
+SOL-2026-1423,Vitoria-Gasteiz,30,Temporal,1199.5,719.73,13.6,1192.77,No,0.0,Gaztelagun,0
+SOL-2026-1424,Getxo,,Temporal,1028.79,1133.24,17.0,1113.93,Si,160.0,Gaztelagun,0
+SOL-2026-1425,Donostia-San Sebastián,25,Temporal,1212.36,1065.16,7.4,694.22,No,80.0,VPO_Alquiler,1
+SOL-2026-1426,Bilbao,,Indefinido,1426.76,930.12,3.9,,Si,160.0,Emantzipa,0
+SOL-2026-1427,Getxo,21,Indefinido,1149.45,920.63,26.0,5689.49,Si,0.0,Gaztelagun,1
+SOL-2026-1428,Vitoria-Gasteiz,,Temporal,1893.62,664.89,21.2,5145.69,Si,80.0,Gaztelagun,1
+SOL-2026-1429,Donostia-San Sebastián,26,Autonomo,1350.25,1207.32,12.2,3298.34,Si,0.0,Gaztelagun,0
+SOL-2026-1430,Bilbao,32,Temporal,1473.01,873.52,15.2,2066.32,No,0.0,Emantzipa,0
+SOL-2026-1431,Vitoria-Gasteiz,28,Autonomo,1057.89,615.6,50.6,2004.81,No,80.0,Emantzipa,0
+SOL-2026-1432,Bilbao,33,Indefinido,750.0,781.98,7.3,198.72,No,80.0,Gaztelagun,0
+SOL-2026-1433,Bilbao,27,Temporal,1417.81,875.37,8.7,4166.19,No,80.0,Gaztelagun,1
+SOL-2026-1434,Vitoria-Gasteiz,22,Indefinido,2373.24,723.22,4.9,5508.22,No,0.0,VPO_Alquiler,1
+SOL-2026-1435,Getxo,,Indefinido,1128.97,1116.13,9.4,3713.09,No,280.0,VPO_Alquiler,0
+SOL-2026-1436,Vitoria-Gasteiz,20,Indefinido,1655.16,783.15,11.5,164.09,No,0.0,Gaztelagun,1
+SOL-2026-1437,Bilbao,32,Temporal,1435.73,818.75,30.6,3163.34,No,0.0,Gaztelagun,1
+SOL-2026-1438,Barakaldo,30,Indefinido,1768.46,700.2,2.7,5514.35,No,0.0,Gaztelagun,1
+SOL-2026-1439,Bilbao,29,Temporal,750.0,935.71,1.0,6579.01,No,80.0,Gaztelagun,0
+SOL-2026-1440,Bilbao,20,Temporal,1176.2,804.62,21.3,2262.01,Si,0.0,Gaztelagun,1
+SOL-2026-1441,Bilbao,19,Temporal,1295.52,715.3,1.7,1254.37,No,0.0,Gaztelagun,0
+SOL-2026-1442,Getxo,34,Indefinido,1436.09,834.44,5.8,5574.26,No,280.0,Gaztelagun,1
+SOL-2026-1443,Vitoria-Gasteiz,,Temporal,1309.98,774.22,7.3,4971.77,Si,80.0,VPO_Alquiler,1
+SOL-2026-1444,Vitoria-Gasteiz,21,Indefinido,1410.02,778.02,15.6,4811.48,No,0.0,Gaztelagun,1
+SOL-2026-1445,Bilbao,24,Indefinido,1442.05,960.94,11.9,548.05,No,0.0,Gaztelagun,1
+SOL-2026-1446,Vitoria-Gasteiz,26,Indefinido,1701.1,780.05,1.1,6678.67,No,0.0,Gaztelagun,0
+SOL-2026-1447,Vitoria-Gasteiz,23,Temporal,1175.06,646.49,9.5,6936.81,Si,0.0,Gaztelagun,1
+SOL-2026-1448,Donostia-San Sebastián,25,Indefinido,824.54,999.02,16.1,2984.15,Si,280.0,Gaztelagun,0
+SOL-2026-1449,Vitoria-Gasteiz,,Temporal,847.96,693.23,31.0,962.89,No,0.0,Emantzipa,0
+SOL-2026-1450,Bilbao,20,Indefinido,1293.19,798.11,11.1,3066.89,No,0.0,Gaztelagun,0
+SOL-2026-1451,Bilbao,32,Temporal,1801.48,851.2,8.7,2649.44,Si,80.0,Emantzipa,1
+SOL-2026-1452,Vitoria-Gasteiz,20,Temporal,1023.05,869.2,13.0,1583.9,Si,0.0,Gaztelagun,1
+SOL-2026-1453,Donostia-San Sebastián,20,Temporal,1404.17,1046.01,7.3,3664.77,No,80.0,VPO_Alquiler,0
+SOL-2026-1454,Vitoria-Gasteiz,28,Indefinido,1330.69,820.11,5.8,,Si,0.0,Gaztelagun,1
+SOL-2026-1455,Vitoria-Gasteiz,27,Temporal,1076.64,780.23,21.3,7513.44,Si,160.0,Gaztelagun,1
+SOL-2026-1456,Bilbao,20,Indefinido,1304.76,1002.5,12.3,2573.91,No,0.0,VPO_Alquiler,0
+SOL-2026-1457,Bilbao,32,Temporal,1572.45,858.71,1.0,6305.22,No,0.0,Emantzipa,0
+SOL-2026-1458,Vitoria-Gasteiz,34,En_Practicas,1139.51,698.71,2.5,659.49,Si,0.0,VPO_Alquiler,1
+SOL-2026-1459,Bilbao,32,Autonomo,1249.47,809.84,13.8,674.83,No,160.0,Emantzipa,0
+SOL-2026-1460,Bilbao,22,Indefinido,1241.14,899.49,22.1,13362.09,Si,0.0,VPO_Alquiler,1
+SOL-2026-1461,Bilbao,,Autonomo,1464.63,608.64,47.3,12290.52,No,0.0,Emantzipa,1
+SOL-2026-1462,Barakaldo,22,En_Practicas,1288.86,496.01,7.4,2281.89,Si,80.0,Gaztelagun,1
+SOL-2026-1463,Vitoria-Gasteiz,29,Indefinido,1784.17,718.54,15.8,9602.78,Si,0.0,Gaztelagun,1
+SOL-2026-1464,Vitoria-Gasteiz,,Temporal,1469.72,752.18,16.7,8367.93,No,0.0,VPO_Alquiler,1
+SOL-2026-1465,Donostia-San Sebastián,29,Indefinido,1017.32,1143.03,4.4,4735.38,No,0.0,Gaztelagun,0
+SOL-2026-1466,Barakaldo,31,Indefinido,1271.34,697.9,4.2,7074.79,No,0.0,VPO_Alquiler,0
+SOL-2026-1467,Bilbao,26,Indefinido,936.54,795.93,25.3,720.31,No,0.0,Gaztelagun,0
+SOL-2026-1468,Barakaldo,32,Indefinido,1424.44,664.09,6.4,3542.5,Si,80.0,Gaztelagun,1
+SOL-2026-1469,Barakaldo,18,Indefinido,1215.78,1036.96,1.2,3045.14,No,160.0,Emantzipa,0
+SOL-2026-1470,Vitoria-Gasteiz,,Temporal,864.03,582.01,3.2,,Si,160.0,Gaztelagun,1
+SOL-2026-1471,Bilbao,29,Indefinido,1269.18,987.88,1.4,3461.3,No,0.0,Gaztelagun,0
+SOL-2026-1472,Bilbao,27,Indefinido,1288.58,760.13,13.8,543.04,Si,0.0,Emantzipa,1
+SOL-2026-1473,Getxo,24,Indefinido,1414.99,1043.56,40.9,6231.13,No,0.0,Emantzipa,0
+SOL-2026-1474,Bilbao,20,Indefinido,1418.14,863.75,7.7,523.87,No,280.0,Gaztelagun,0
+SOL-2026-1475,Bilbao,21,Indefinido,1483.39,806.6,4.6,488.3,Si,80.0,Emantzipa,1
+SOL-2026-1476,Vitoria-Gasteiz,19,Indefinido,1811.22,700.04,16.2,8371.08,Si,0.0,Gaztelagun,1
+SOL-2026-1477,Bilbao,24,Indefinido,1302.05,885.05,33.7,10401.48,Si,0.0,Gaztelagun,1
+SOL-2026-1478,Bilbao,21,En_Practicas,1410.59,727.74,22.6,659.64,No,0.0,Emantzipa,0
+SOL-2026-1479,Getxo,33,Indefinido,1106.7,922.68,57.0,1533.8,No,0.0,Gaztelagun,1
+SOL-2026-1480,Getxo,21,Temporal,1096.05,982.49,6.1,300.4,No,0.0,Gaztelagun,0
+SOL-2026-1481,Vitoria-Gasteiz,25,Temporal,1231.17,860.29,3.8,,No,0.0,Emantzipa,1
+SOL-2026-1482,Getxo,21,Indefinido,933.84,958.68,2.3,4156.48,No,80.0,VPO_Alquiler,0
+SOL-2026-1483,Donostia-San Sebastián,24,Temporal,1533.28,1097.0,32.8,1142.57,No,0.0,Gaztelagun,0
+SOL-2026-1484,Vitoria-Gasteiz,33,Temporal,2225.07,578.74,12.9,2122.05,Si,0.0,Gaztelagun,0
+SOL-2026-1485,Bilbao,20,Temporal,1565.82,860.51,16.7,1262.15,No,80.0,Emantzipa,0
+SOL-2026-1486,Donostia-San Sebastián,27,Temporal,1146.76,1104.77,7.6,2768.59,No,0.0,Gaztelagun,0
+SOL-2026-1487,Donostia-San Sebastián,30,Indefinido,1562.41,1113.99,19.4,7560.77,Si,0.0,Gaztelagun,1
+SOL-2026-1488,Vitoria-Gasteiz,33,Temporal,1225.58,550.28,11.6,2473.13,No,0.0,VPO_Alquiler,1
+SOL-2026-1489,Donostia-San Sebastián,28,Indefinido,1247.56,1071.8,8.2,3069.47,No,80.0,Gaztelagun,0
+SOL-2026-1490,Getxo,19,Temporal,1386.5,1124.51,16.2,237.1,Si,0.0,Gaztelagun,1
+SOL-2026-1491,Donostia-San Sebastián,34,Autonomo,1331.75,1253.47,16.0,1660.38,No,0.0,VPO_Alquiler,0
+SOL-2026-1492,Vitoria-Gasteiz,34,En_Practicas,1290.14,617.58,6.4,788.7,No,280.0,Gaztelagun,0
+SOL-2026-1493,Bilbao,27,Autonomo,1204.73,891.32,24.4,6506.84,Si,0.0,Gaztelagun,0
+SOL-2026-1494,Donostia-San Sebastián,20,Temporal,1206.63,1271.07,10.2,781.34,No,80.0,Gaztelagun,0
+SOL-2026-1495,Bilbao,,Temporal,1635.92,750.39,4.3,4744.61,No,160.0,Gaztelagun,0
+SOL-2026-1496,Vitoria-Gasteiz,19,Temporal,1268.4,712.59,2.9,1249.74,No,0.0,VPO_Alquiler,1
+SOL-2026-1497,Bilbao,27,Temporal,1363.53,985.49,9.4,745.81,Si,160.0,Gaztelagun,1
+SOL-2026-1498,Donostia-San Sebastián,19,Indefinido,1369.62,1124.07,28.1,2800.27,No,0.0,Emantzipa,0
+SOL-2026-1499,Bilbao,28,Temporal,1812.84,690.78,9.4,3749.48,Si,280.0,Emantzipa,1
+SOL-2026-1500,Bilbao,21,Temporal,1729.26,634.99,48.3,7556.66,Si,0.0,VPO_Alquiler,1
+SOL-2026-1501,Vitoria-Gasteiz,25,Autonomo,1408.47,716.57,4.3,1837.09,No,0.0,Gaztelagun,0
+SOL-2026-1502,Bilbao,33,Temporal,1980.77,803.01,49.8,4401.68,No,0.0,VPO_Alquiler,1
+SOL-2026-1503,Barakaldo,19,Temporal,1433.61,648.16,14.5,11135.83,No,160.0,Gaztelagun,0
+SOL-2026-1504,Barakaldo,30,Autonomo,1600.82,678.28,49.6,1235.5,No,0.0,Gaztelagun,1
+SOL-2026-1505,Barakaldo,19,Indefinido,1836.96,803.86,12.2,9136.51,Si,0.0,VPO_Alquiler,1
+SOL-2026-1506,Bilbao,20,Indefinido,939.59,740.33,24.1,97.06,Si,80.0,Emantzipa,1
+SOL-2026-1507,Bilbao,27,Indefinido,1532.88,878.95,13.1,6214.67,No,160.0,Emantzipa,0
+SOL-2026-1508,Bilbao,22,Indefinido,1164.92,677.02,28.9,1873.49,Si,160.0,VPO_Alquiler,0
+SOL-2026-1509,Bilbao,25,Autonomo,1576.81,839.24,21.7,1793.93,No,0.0,Gaztelagun,1
+SOL-2026-1510,Getxo,,Temporal,760.94,1069.05,10.9,441.51,No,0.0,VPO_Alquiler,0
+SOL-2026-1511,Bilbao,22,Indefinido,1436.3,917.11,31.3,734.77,Si,80.0,Gaztelagun,0
+SOL-2026-1512,Bilbao,25,Indefinido,1246.7,748.6,1.0,1366.57,No,80.0,Emantzipa,0
+SOL-2026-1513,Vitoria-Gasteiz,21,Temporal,2036.98,744.38,11.5,3263.24,No,160.0,Emantzipa,0
+SOL-2026-1514,Bilbao,30,Indefinido,1152.12,909.15,62.0,3040.31,Si,0.0,VPO_Alquiler,1
+SOL-2026-1515,Bilbao,34,Indefinido,1363.01,936.51,69.1,12690.2,Si,0.0,Gaztelagun,1
+SOL-2026-1516,Bilbao,26,Temporal,1214.32,873.58,24.0,10488.61,No,160.0,Emantzipa,0
+SOL-2026-1517,Bilbao,,Indefinido,1203.83,861.11,11.3,7894.13,No,0.0,VPO_Alquiler,0
+SOL-2026-1518,Donostia-San Sebastián,,Temporal,1546.3,1174.37,4.1,6305.35,No,160.0,Emantzipa,0
+SOL-2026-1519,Bilbao,18,Temporal,1098.94,805.35,1.4,3954.37,No,0.0,Emantzipa,0
+SOL-2026-1520,Donostia-San Sebastián,21,En_Practicas,1450.12,1133.83,32.0,2118.33,No,0.0,Gaztelagun,0
+SOL-2026-1521,Vitoria-Gasteiz,28,Autonomo,2033.68,669.76,28.7,6964.34,No,0.0,Emantzipa,0
+SOL-2026-1522,Donostia-San Sebastián,20,Indefinido,1719.58,1332.95,36.1,6695.09,Si,80.0,Gaztelagun,1
+SOL-2026-1523,Vitoria-Gasteiz,33,En_Practicas,1320.04,445.18,42.1,1556.78,Si,0.0,Gaztelagun,1
+SOL-2026-1524,Donostia-San Sebastián,31,Indefinido,1125.88,1144.83,3.7,341.44,No,280.0,Emantzipa,0
+SOL-2026-1525,Vitoria-Gasteiz,34,Temporal,1134.33,657.2,10.4,2272.7,Si,0.0,VPO_Alquiler,0
+SOL-2026-1526,Donostia-San Sebastián,19,Temporal,1692.56,1040.4,12.9,2186.96,No,160.0,Gaztelagun,0
+SOL-2026-1527,Vitoria-Gasteiz,,Temporal,867.32,710.6,33.3,,No,80.0,Gaztelagun,0
+SOL-2026-1528,Vitoria-Gasteiz,26,Indefinido,1855.96,580.31,4.3,,No,0.0,Emantzipa,1
+SOL-2026-1529,Bilbao,18,Indefinido,924.46,871.98,36.6,3223.57,No,80.0,VPO_Alquiler,0
+SOL-2026-1530,Vitoria-Gasteiz,30,En_Practicas,1517.75,698.19,3.8,4167.92,Si,0.0,Gaztelagun,1
+SOL-2026-1531,Bilbao,24,Indefinido,1401.0,793.8,9.9,8144.62,No,0.0,Gaztelagun,1
+SOL-2026-1532,Donostia-San Sebastián,27,Temporal,1428.76,1072.05,1.0,4370.09,No,160.0,Emantzipa,0
+SOL-2026-1533,Vitoria-Gasteiz,33,Indefinido,899.9,656.54,49.3,7077.65,Si,0.0,Gaztelagun,1
+SOL-2026-1534,Vitoria-Gasteiz,31,En_Practicas,1690.79,763.6,18.7,2005.88,Si,80.0,Gaztelagun,1
+SOL-2026-1535,Donostia-San Sebastián,28,Autonomo,1667.76,973.83,11.4,4493.02,No,0.0,VPO_Alquiler,0
+SOL-2026-1536,Donostia-San Sebastián,23,Temporal,1278.94,1262.89,19.8,778.75,No,0.0,Gaztelagun,0
+SOL-2026-1537,Bilbao,19,Autonomo,1232.71,910.28,20.3,6867.96,No,160.0,Gaztelagun,0
+SOL-2026-1538,Bilbao,33,Indefinido,1228.91,929.0,1.0,1089.48,Si,80.0,Gaztelagun,1
+SOL-2026-1539,Vitoria-Gasteiz,32,En_Practicas,1869.91,630.95,66.2,3292.54,No,0.0,Emantzipa,1
+SOL-2026-1540,Bilbao,,Indefinido,1067.45,973.33,22.2,2414.77,No,0.0,Gaztelagun,0
+SOL-2026-1541,Bilbao,31,En_Practicas,1948.83,857.85,11.6,657.48,Si,80.0,Gaztelagun,1
+SOL-2026-1542,Bilbao,34,Indefinido,1453.76,1028.22,9.6,2148.58,No,80.0,Gaztelagun,1
+SOL-2026-1543,Bilbao,,En_Practicas,1498.44,835.4,6.8,628.3,Si,80.0,Emantzipa,1
+SOL-2026-1544,Barakaldo,,Temporal,1279.42,576.91,13.2,1799.59,No,0.0,Gaztelagun,0
+SOL-2026-1545,Barakaldo,,Indefinido,750.0,680.91,21.7,803.53,No,80.0,Emantzipa,0
+SOL-2026-1546,Barakaldo,30,En_Practicas,1472.3,691.46,13.9,4441.41,No,0.0,Gaztelagun,1
+SOL-2026-1547,Donostia-San Sebastián,28,En_Practicas,1418.22,1120.08,28.7,966.7,No,80.0,VPO_Alquiler,0
+SOL-2026-1548,Bilbao,34,Indefinido,1795.84,892.87,2.4,4672.72,No,280.0,VPO_Alquiler,0
+SOL-2026-1549,Vitoria-Gasteiz,25,Indefinido,1266.79,841.17,22.6,4385.47,No,0.0,Gaztelagun,0
+SOL-2026-1550,Barakaldo,21,Indefinido,1103.9,766.39,1.7,487.67,Si,0.0,Emantzipa,1
+SOL-2026-1551,Vitoria-Gasteiz,26,Temporal,750.0,415.63,21.0,4604.99,No,0.0,Gaztelagun,1
+SOL-2026-1552,Donostia-San Sebastián,34,En_Practicas,1532.94,1146.72,11.5,10092.76,No,280.0,Emantzipa,0
+SOL-2026-1553,Bilbao,19,Temporal,1568.99,907.5,8.4,99.32,Si,80.0,Gaztelagun,0
+SOL-2026-1554,Bilbao,23,En_Practicas,1227.13,853.59,7.7,1891.94,No,0.0,VPO_Alquiler,0
+SOL-2026-1555,Donostia-San Sebastián,22,En_Practicas,1046.64,1096.67,10.8,7043.74,Si,80.0,Emantzipa,1
+SOL-2026-1556,Bilbao,19,Autonomo,1757.29,746.02,18.7,4299.03,No,80.0,Emantzipa,0
+SOL-2026-1557,Bilbao,24,Autonomo,892.27,806.25,56.8,4859.86,No,0.0,Emantzipa,0
+SOL-2026-1558,Getxo,24,Indefinido,1207.33,778.98,10.6,3267.52,No,0.0,VPO_Alquiler,1
+SOL-2026-1559,Donostia-San Sebastián,34,Indefinido,1373.33,1149.3,1.9,544.34,Si,0.0,Gaztelagun,1
+SOL-2026-1560,Bilbao,28,Indefinido,1322.32,768.1,1.9,7822.6,Si,280.0,VPO_Alquiler,1
+SOL-2026-1561,Bilbao,25,Temporal,1384.44,751.4,2.2,,No,0.0,Gaztelagun,1
+SOL-2026-1562,Bilbao,26,Temporal,1261.05,826.15,25.9,469.65,No,0.0,VPO_Alquiler,0
+SOL-2026-1563,Vitoria-Gasteiz,23,En_Practicas,1073.73,645.47,43.6,3.51,No,160.0,Gaztelagun,0
+SOL-2026-1564,Bilbao,33,Indefinido,1377.47,1000.96,96.0,837.25,No,0.0,Gaztelagun,0
+SOL-2026-1565,Bilbao,,Temporal,1613.58,709.42,96.0,828.8,No,160.0,VPO_Alquiler,0
+SOL-2026-1566,Vitoria-Gasteiz,32,Indefinido,1241.59,594.95,4.3,1393.62,No,0.0,VPO_Alquiler,1
+SOL-2026-1567,Bilbao,,Indefinido,944.9,796.97,12.1,296.21,No,80.0,Gaztelagun,0
+SOL-2026-1568,Barakaldo,21,Indefinido,1596.14,546.93,8.0,5113.05,No,0.0,Gaztelagun,0
+SOL-2026-1569,Donostia-San Sebastián,18,En_Practicas,1180.73,957.56,3.8,3435.11,No,0.0,VPO_Alquiler,0
+SOL-2026-1570,Bilbao,24,Indefinido,1805.83,835.92,2.1,2428.3,Si,0.0,Emantzipa,1
+SOL-2026-1571,Vitoria-Gasteiz,22,Temporal,1866.4,837.16,34.8,4568.42,Si,160.0,Gaztelagun,0
+SOL-2026-1572,Vitoria-Gasteiz,32,Indefinido,977.61,736.11,18.9,1365.29,No,0.0,Gaztelagun,0
+SOL-2026-1573,Donostia-San Sebastián,19,En_Practicas,1418.55,1179.67,9.8,18.1,Si,0.0,Emantzipa,1
+SOL-2026-1574,Vitoria-Gasteiz,31,Autonomo,1552.25,637.01,7.2,,No,0.0,Gaztelagun,1
+SOL-2026-1575,Vitoria-Gasteiz,26,Indefinido,750.0,711.74,32.2,2566.52,Si,0.0,Emantzipa,1
+SOL-2026-1576,Bilbao,21,Indefinido,1452.52,859.69,6.8,235.34,Si,160.0,Gaztelagun,1
+SOL-2026-1577,Vitoria-Gasteiz,,Temporal,1146.39,639.59,8.6,4879.63,Si,0.0,Emantzipa,1
+SOL-2026-1578,Donostia-San Sebastián,21,Indefinido,1864.55,1033.2,10.9,748.26,Si,0.0,Gaztelagun,1
+SOL-2026-1579,Bilbao,34,Indefinido,956.34,926.48,10.6,5581.36,Si,0.0,Gaztelagun,0
+SOL-2026-1580,Vitoria-Gasteiz,22,Indefinido,1280.92,755.49,8.3,,No,80.0,Gaztelagun,0
+SOL-2026-1581,Barakaldo,31,Indefinido,1804.49,698.96,4.0,,Si,0.0,Emantzipa,1
+SOL-2026-1582,Vitoria-Gasteiz,28,Temporal,1224.26,699.1,10.9,150.88,Si,0.0,Gaztelagun,1
+SOL-2026-1583,Vitoria-Gasteiz,28,En_Practicas,1164.25,741.1,31.5,,Si,0.0,Emantzipa,1
+SOL-2026-1584,Donostia-San Sebastián,29,Indefinido,1575.74,1112.31,3.4,4440.87,Si,0.0,Gaztelagun,1
+SOL-2026-1585,Barakaldo,18,En_Practicas,1664.73,830.76,38.9,826.08,No,0.0,Gaztelagun,1
+SOL-2026-1586,Donostia-San Sebastián,31,En_Practicas,1533.63,1122.3,46.4,744.8,No,0.0,Emantzipa,0
+SOL-2026-1587,Bilbao,,Temporal,1518.7,964.88,28.1,191.55,No,160.0,VPO_Alquiler,0
+SOL-2026-1588,Barakaldo,20,En_Practicas,1485.58,586.41,3.3,7492.29,No,0.0,Gaztelagun,1
+SOL-2026-1589,Vitoria-Gasteiz,33,Temporal,1142.98,672.59,9.2,3069.6,Si,0.0,Gaztelagun,0
+SOL-2026-1590,Donostia-San Sebastián,30,Temporal,1646.89,1061.83,14.4,307.19,No,0.0,Emantzipa,0
+SOL-2026-1591,Vitoria-Gasteiz,32,Indefinido,1143.1,756.77,5.7,,No,0.0,Gaztelagun,0
+SOL-2026-1592,Bilbao,20,En_Practicas,1502.29,829.75,1.3,,Si,0.0,Gaztelagun,1
+SOL-2026-1593,Barakaldo,26,Indefinido,1250.28,686.88,34.8,2741.71,Si,80.0,Gaztelagun,1
+SOL-2026-1594,Getxo,18,Temporal,873.91,966.57,2.9,900.83,No,0.0,Gaztelagun,0
+SOL-2026-1595,Vitoria-Gasteiz,32,Indefinido,1877.68,769.35,10.1,1892.62,No,160.0,Gaztelagun,1
+SOL-2026-1596,Barakaldo,18,Temporal,1227.84,641.34,4.6,4888.99,No,80.0,Gaztelagun,0
+SOL-2026-1597,Vitoria-Gasteiz,,Indefinido,2333.89,624.22,15.1,8576.86,No,0.0,Gaztelagun,0
+SOL-2026-1598,Bilbao,33,Indefinido,1082.06,803.64,40.5,385.58,No,0.0,Emantzipa,0
+SOL-2026-1599,Bilbao,,Autonomo,1333.91,921.21,19.4,,Si,0.0,Gaztelagun,0
+SOL-2026-1600,Donostia-San Sebastián,21,Indefinido,948.95,1180.87,8.9,809.47,No,0.0,VPO_Alquiler,0
+SOL-2026-1601,Bilbao,27,Temporal,924.16,847.64,5.8,,Si,0.0,Gaztelagun,0
+SOL-2026-1602,Donostia-San Sebastián,33,Temporal,944.54,1024.73,6.1,2132.79,No,80.0,Gaztelagun,0
+SOL-2026-1603,Barakaldo,25,Indefinido,1144.29,648.29,8.7,4196.7,Si,80.0,Gaztelagun,0
+SOL-2026-1604,Bilbao,27,Temporal,1821.24,915.57,41.9,1854.31,No,0.0,Gaztelagun,0
+SOL-2026-1605,Donostia-San Sebastián,31,Temporal,1373.81,1218.75,11.2,,No,80.0,Gaztelagun,0
+SOL-2026-1606,Barakaldo,18,Indefinido,1338.69,667.61,20.0,2165.46,Si,80.0,Emantzipa,1
+SOL-2026-1607,Donostia-San Sebastián,23,Indefinido,1517.2,1105.21,6.3,1734.91,Si,80.0,Emantzipa,1
+SOL-2026-1608,Donostia-San Sebastián,19,En_Practicas,1062.57,1078.23,1.0,2589.91,No,80.0,Gaztelagun,0
+SOL-2026-1609,Donostia-San Sebastián,19,En_Practicas,1454.02,871.43,8.4,335.42,No,280.0,Gaztelagun,0
+SOL-2026-1610,Vitoria-Gasteiz,21,En_Practicas,1468.07,616.96,3.3,398.77,Si,0.0,Gaztelagun,1
+SOL-2026-1611,Donostia-San Sebastián,21,Indefinido,1588.61,1154.56,1.0,42.19,Si,0.0,Emantzipa,1
+SOL-2026-1612,Vitoria-Gasteiz,,En_Practicas,945.42,760.54,12.5,4363.24,No,160.0,Emantzipa,0
+SOL-2026-1613,Bilbao,30,Temporal,1834.57,823.42,7.3,7538.58,Si,160.0,Gaztelagun,1
+SOL-2026-1614,Vitoria-Gasteiz,30,Temporal,1361.75,551.83,22.0,,Si,80.0,Gaztelagun,1
+SOL-2026-1615,Donostia-San Sebastián,20,Indefinido,1202.58,1159.49,3.0,135.25,No,0.0,VPO_Alquiler,0
+SOL-2026-1616,Bilbao,19,Temporal,1809.25,829.7,6.1,,No,0.0,Gaztelagun,1
+SOL-2026-1617,Barakaldo,25,En_Practicas,1309.52,653.07,37.1,709.74,No,0.0,Gaztelagun,0
+SOL-2026-1618,Bilbao,24,Indefinido,1554.64,961.94,28.5,2478.38,No,0.0,Gaztelagun,1
+SOL-2026-1619,Donostia-San Sebastián,27,Indefinido,976.04,1145.37,5.7,291.9,No,0.0,Gaztelagun,0
+SOL-2026-1620,Donostia-San Sebastián,22,En_Practicas,1396.22,1080.74,8.6,4978.3,No,0.0,Gaztelagun,0
+SOL-2026-1621,Bilbao,32,Indefinido,1062.34,806.42,7.3,762.31,No,0.0,VPO_Alquiler,0
+SOL-2026-1622,Donostia-San Sebastián,31,Autonomo,1664.97,1082.18,12.1,3106.19,No,0.0,VPO_Alquiler,0
+SOL-2026-1623,Vitoria-Gasteiz,31,Autonomo,1446.71,504.6,7.7,3527.31,No,0.0,Gaztelagun,1
+SOL-2026-1624,Bilbao,29,Temporal,1173.1,711.6,18.7,2127.42,No,0.0,Emantzipa,0
+SOL-2026-1625,Barakaldo,,En_Practicas,967.88,544.28,9.1,8094.07,No,0.0,Gaztelagun,0
+SOL-2026-1626,Bilbao,30,Temporal,1329.48,683.75,46.5,405.01,No,80.0,VPO_Alquiler,1
+SOL-2026-1627,Bilbao,27,Indefinido,1551.21,951.38,1.8,1893.53,No,0.0,Gaztelagun,1
+SOL-2026-1628,Bilbao,33,Indefinido,1691.32,815.19,30.3,212.78,Si,80.0,Gaztelagun,1
+SOL-2026-1629,Donostia-San Sebastián,21,En_Practicas,1505.68,1171.99,8.5,1465.73,No,0.0,Emantzipa,0
+SOL-2026-1630,Bilbao,18,Temporal,1401.39,821.64,4.3,1648.74,No,280.0,Gaztelagun,0
+SOL-2026-1631,Vitoria-Gasteiz,28,Indefinido,2275.77,423.47,30.6,3828.5,No,0.0,Gaztelagun,1
+SOL-2026-1632,Bilbao,30,Temporal,1505.05,814.61,16.6,1147.18,No,160.0,Gaztelagun,0
+SOL-2026-1633,Vitoria-Gasteiz,31,Temporal,1807.63,672.8,51.2,3515.8,No,280.0,Emantzipa,0
+SOL-2026-1634,Bilbao,20,Indefinido,2043.06,761.02,11.6,4208.07,Si,0.0,Emantzipa,1
+SOL-2026-1635,Barakaldo,34,Indefinido,1251.94,720.56,32.1,15259.45,No,160.0,VPO_Alquiler,0
+SOL-2026-1636,Donostia-San Sebastián,23,En_Practicas,1310.24,1063.49,10.3,611.22,No,160.0,Emantzipa,0
+SOL-2026-1637,Bilbao,21,Temporal,1755.97,783.88,12.2,1416.33,Si,0.0,VPO_Alquiler,1
+SOL-2026-1638,Bilbao,30,Temporal,1550.76,595.96,10.3,1049.59,Si,0.0,Gaztelagun,1
+SOL-2026-1639,Bilbao,29,Indefinido,1266.22,940.16,24.0,3121.1,Si,0.0,Gaztelagun,1
+SOL-2026-1640,Vitoria-Gasteiz,22,Temporal,1209.25,627.76,9.1,2160.56,Si,280.0,VPO_Alquiler,0
+SOL-2026-1641,Donostia-San Sebastián,22,Temporal,1708.22,947.66,1.0,2442.7,No,0.0,VPO_Alquiler,0
+SOL-2026-1642,Vitoria-Gasteiz,27,Temporal,775.81,867.12,7.3,827.75,No,160.0,Emantzipa,0
+SOL-2026-1643,Barakaldo,33,Temporal,1212.65,895.04,43.8,76.31,No,0.0,Gaztelagun,0
+SOL-2026-1644,Donostia-San Sebastián,,Temporal,1242.78,1321.82,21.7,358.35,Si,80.0,VPO_Alquiler,1
+SOL-2026-1645,Getxo,23,Temporal,1058.38,1020.98,41.0,5710.15,Si,80.0,Gaztelagun,0
+SOL-2026-1646,Bilbao,22,Indefinido,1829.86,833.64,3.3,,No,0.0,VPO_Alquiler,1
+SOL-2026-1647,Donostia-San Sebastián,31,Autonomo,1166.88,1027.18,1.0,2347.29,No,280.0,Emantzipa,0
+SOL-2026-1648,Vitoria-Gasteiz,20,En_Practicas,1667.38,561.2,5.8,1602.28,Si,0.0,Gaztelagun,1
+SOL-2026-1649,Donostia-San Sebastián,,Temporal,1164.62,1064.76,24.6,699.26,No,80.0,Gaztelagun,0
+SOL-2026-1650,Bilbao,,Autonomo,1433.78,788.62,30.2,,No,0.0,VPO_Alquiler,1
+SOL-2026-1651,Donostia-San Sebastián,21,En_Practicas,1496.15,1241.4,2.2,4158.53,Si,0.0,Gaztelagun,1
+SOL-2026-1652,Vitoria-Gasteiz,20,Temporal,1427.66,648.55,70.4,1581.53,No,0.0,VPO_Alquiler,1
+SOL-2026-1653,Bilbao,34,Autonomo,1280.15,969.03,2.7,1313.65,No,280.0,Emantzipa,0
+SOL-2026-1654,Vitoria-Gasteiz,19,Indefinido,1476.06,748.1,32.2,3225.83,Si,0.0,Gaztelagun,1
+SOL-2026-1655,Bilbao,30,Temporal,1551.53,944.39,52.1,9858.58,Si,0.0,Emantzipa,1
+SOL-2026-1656,Vitoria-Gasteiz,29,Temporal,1164.9,574.16,3.2,1331.14,No,0.0,VPO_Alquiler,1
+SOL-2026-1657,Bilbao,31,Indefinido,1198.69,776.78,7.3,7110.09,Si,0.0,Gaztelagun,0
+SOL-2026-1658,Donostia-San Sebastián,,Autonomo,1597.89,1244.18,6.6,2354.09,No,80.0,VPO_Alquiler,0
+SOL-2026-1659,Vitoria-Gasteiz,23,Indefinido,1382.23,606.87,29.5,5441.45,No,160.0,Gaztelagun,1
+SOL-2026-1660,Bilbao,22,Temporal,1622.55,951.14,5.6,3567.95,No,80.0,Emantzipa,0
+SOL-2026-1661,Donostia-San Sebastián,29,En_Practicas,1139.01,1098.87,10.0,7461.63,No,0.0,VPO_Alquiler,0
+SOL-2026-1662,Donostia-San Sebastián,20,Temporal,1576.97,1134.34,1.8,309.32,Si,160.0,VPO_Alquiler,1
+SOL-2026-1663,Getxo,22,Temporal,750.0,946.86,39.4,1819.95,No,160.0,Emantzipa,0
+SOL-2026-1664,Vitoria-Gasteiz,25,Autonomo,1022.51,479.13,96.0,4032.91,Si,0.0,Gaztelagun,0
+SOL-2026-1665,Vitoria-Gasteiz,23,Indefinido,1571.89,568.38,54.8,1668.02,No,0.0,VPO_Alquiler,1
+SOL-2026-1666,Donostia-San Sebastián,21,Indefinido,1146.04,1108.3,1.0,1750.88,No,160.0,VPO_Alquiler,0
+SOL-2026-1667,Barakaldo,33,Indefinido,1712.99,724.11,6.4,1506.24,No,0.0,Gaztelagun,1
+SOL-2026-1668,Bilbao,22,Indefinido,1410.19,843.89,26.4,2226.69,No,0.0,VPO_Alquiler,1
+SOL-2026-1669,Bilbao,32,Indefinido,1185.85,934.81,8.0,774.29,Si,0.0,Gaztelagun,1
+SOL-2026-1670,Barakaldo,24,Autonomo,2208.66,648.52,2.3,2395.13,No,0.0,Emantzipa,0
+SOL-2026-1671,Donostia-San Sebastián,30,Indefinido,1893.51,1053.38,2.4,48.1,No,0.0,VPO_Alquiler,1
+SOL-2026-1672,Vitoria-Gasteiz,,Temporal,1354.95,710.68,10.1,4572.94,Si,0.0,Gaztelagun,1
+SOL-2026-1673,Vitoria-Gasteiz,31,Indefinido,1232.3,494.54,21.7,699.65,No,0.0,Emantzipa,1
+SOL-2026-1674,Bilbao,,Autonomo,1665.39,804.58,17.2,183.05,No,0.0,Emantzipa,1
+SOL-2026-1675,Bilbao,34,Indefinido,1517.31,865.4,8.1,4351.75,Si,160.0,Gaztelagun,1
+SOL-2026-1676,Vitoria-Gasteiz,27,Temporal,1496.03,644.93,3.7,1581.64,Si,0.0,Gaztelagun,1
+SOL-2026-1677,Barakaldo,29,Temporal,1033.4,647.78,4.9,3072.5,Si,0.0,Emantzipa,1
+SOL-2026-1678,Bilbao,24,Indefinido,1251.14,865.23,51.2,1255.75,No,80.0,Gaztelagun,1
+SOL-2026-1679,Bilbao,26,En_Practicas,1414.1,656.87,14.8,1595.04,No,0.0,Gaztelagun,1
+SOL-2026-1680,Donostia-San Sebastián,18,Indefinido,1261.3,1358.76,6.2,219.52,No,0.0,VPO_Alquiler,0
+SOL-2026-1681,Donostia-San Sebastián,20,Indefinido,1381.35,1001.54,27.2,1108.66,Si,0.0,Gaztelagun,1
+SOL-2026-1682,Barakaldo,32,Temporal,1337.32,643.92,34.4,1094.37,Si,0.0,Gaztelagun,1
+SOL-2026-1683,Vitoria-Gasteiz,26,Autonomo,1312.07,845.38,18.5,6068.74,No,0.0,Gaztelagun,0
+SOL-2026-1684,Donostia-San Sebastián,,Temporal,922.75,1051.24,9.4,1373.76,Si,160.0,VPO_Alquiler,1
+SOL-2026-1685,Getxo,18,Temporal,1896.01,956.91,27.3,4793.3,No,80.0,VPO_Alquiler,0
+SOL-2026-1686,Vitoria-Gasteiz,25,Indefinido,1500.75,805.11,35.2,2067.42,No,0.0,Gaztelagun,1
+SOL-2026-1687,Donostia-San Sebastián,23,Indefinido,895.75,1109.63,18.8,,Si,0.0,Gaztelagun,1
+SOL-2026-1688,Bilbao,,Indefinido,2049.69,706.62,1.9,4540.98,No,80.0,Gaztelagun,1
+SOL-2026-1689,Barakaldo,19,Indefinido,1409.85,641.7,50.2,5502.5,Si,80.0,Gaztelagun,1
+SOL-2026-1690,Barakaldo,,Indefinido,1418.47,509.24,30.4,2281.4,Si,0.0,Gaztelagun,1
+SOL-2026-1691,Bilbao,,Temporal,1880.27,975.31,9.7,,Si,0.0,Gaztelagun,1
+SOL-2026-1692,Bilbao,30,Temporal,1238.48,639.88,12.2,889.97,No,0.0,Gaztelagun,1
+SOL-2026-1693,Donostia-San Sebastián,20,En_Practicas,1231.19,1061.77,13.6,3981.83,Si,80.0,Gaztelagun,0
+SOL-2026-1694,Bilbao,,Autonomo,1012.79,652.41,30.0,278.05,Si,160.0,Gaztelagun,0
+SOL-2026-1695,Bilbao,33,En_Practicas,1620.06,918.92,23.3,1365.57,Si,80.0,Gaztelagun,1
+SOL-2026-1696,Donostia-San Sebastián,28,Indefinido,2015.53,1022.27,8.7,2708.33,No,0.0,Gaztelagun,1
+SOL-2026-1697,Vitoria-Gasteiz,25,Temporal,1382.11,677.54,91.8,,No,280.0,VPO_Alquiler,1
+SOL-2026-1698,Bilbao,22,Indefinido,1742.77,1004.16,64.2,972.05,No,0.0,Gaztelagun,0
+SOL-2026-1699,Vitoria-Gasteiz,18,Temporal,1290.95,685.19,2.0,2267.45,No,0.0,Gaztelagun,1
+SOL-2026-1700,Bilbao,,En_Practicas,937.85,935.3,11.4,2623.64,No,0.0,Emantzipa,0
+SOL-2026-1701,Vitoria-Gasteiz,,Indefinido,1780.05,722.8,16.7,611.69,No,0.0,VPO_Alquiler,1
+SOL-2026-1702,Vitoria-Gasteiz,34,Indefinido,1478.67,899.18,5.7,1659.38,No,80.0,Gaztelagun,1
+SOL-2026-1703,Donostia-San Sebastián,20,En_Practicas,1125.05,1117.08,18.5,630.4,No,80.0,Gaztelagun,0
+SOL-2026-1704,Bilbao,28,Indefinido,1304.69,972.35,1.2,4944.54,Si,0.0,Emantzipa,1
+SOL-2026-1705,Bilbao,19,Temporal,1402.94,820.39,6.8,29.8,No,0.0,Gaztelagun,1
+SOL-2026-1706,Vitoria-Gasteiz,22,Temporal,1631.17,728.75,24.3,5766.7,Si,0.0,Gaztelagun,1
+SOL-2026-1707,Barakaldo,22,Temporal,1750.26,786.6,55.0,850.14,No,0.0,Emantzipa,0
+SOL-2026-1708,Donostia-San Sebastián,34,Autonomo,1094.06,1247.28,7.5,6781.64,No,160.0,Emantzipa,0
+SOL-2026-1709,Bilbao,20,Autonomo,750.0,718.58,1.8,,No,0.0,VPO_Alquiler,0
+SOL-2026-1710,Barakaldo,32,Indefinido,1542.98,696.11,5.9,327.12,Si,80.0,Gaztelagun,1
+SOL-2026-1711,Bilbao,22,Autonomo,1721.78,829.51,8.1,1840.98,No,80.0,Gaztelagun,0
+SOL-2026-1712,Vitoria-Gasteiz,20,Temporal,1145.88,667.08,37.5,3392.2,No,80.0,Gaztelagun,0
+SOL-2026-1713,Bilbao,27,Indefinido,847.87,766.35,4.5,3871.32,Si,0.0,Gaztelagun,1
+SOL-2026-1714,Bilbao,21,Autonomo,1833.34,769.98,4.0,1335.87,No,0.0,Emantzipa,1
+SOL-2026-1715,Bilbao,,Indefinido,958.66,876.82,6.9,,No,0.0,VPO_Alquiler,0
+SOL-2026-1716,Donostia-San Sebastián,19,Indefinido,1880.57,1124.22,9.9,678.0,Si,0.0,Gaztelagun,1
+SOL-2026-1717,Donostia-San Sebastián,24,Temporal,1346.47,1288.09,1.7,1465.03,No,0.0,Gaztelagun,0
+SOL-2026-1718,Donostia-San Sebastián,23,Autonomo,769.22,1185.41,15.2,2880.67,No,0.0,Emantzipa,0
+SOL-2026-1719,Bilbao,28,Indefinido,1936.43,708.91,12.5,5496.04,No,0.0,Emantzipa,0
+SOL-2026-1720,Getxo,32,Temporal,1307.93,967.11,24.6,4172.69,No,80.0,Gaztelagun,0
+SOL-2026-1721,Bilbao,18,Indefinido,1213.23,914.02,6.6,466.34,No,280.0,Gaztelagun,0
+SOL-2026-1722,Barakaldo,28,Indefinido,1522.6,814.48,3.5,2738.94,No,160.0,Emantzipa,0
+SOL-2026-1723,Bilbao,21,Autonomo,1428.36,806.04,18.9,1854.31,No,80.0,VPO_Alquiler,1
+SOL-2026-1724,Donostia-San Sebastián,19,Temporal,1503.47,1044.61,27.0,425.61,No,280.0,Gaztelagun,0
+SOL-2026-1725,Donostia-San Sebastián,30,Indefinido,1229.29,1150.46,6.0,1075.21,No,80.0,Gaztelagun,0
+SOL-2026-1726,Barakaldo,18,Indefinido,1524.8,534.48,13.2,1336.83,Si,0.0,Gaztelagun,1
+SOL-2026-1727,Donostia-San Sebastián,30,En_Practicas,1504.88,975.44,2.5,13257.45,Si,160.0,Gaztelagun,1
+SOL-2026-1728,Bilbao,34,Indefinido,1115.01,803.63,25.9,6356.28,Si,0.0,Gaztelagun,1
+SOL-2026-1729,Bilbao,22,Indefinido,1202.13,632.86,1.5,4746.4,Si,0.0,Emantzipa,1
+SOL-2026-1730,Bilbao,27,Indefinido,1639.95,714.33,29.6,1056.14,Si,0.0,Gaztelagun,1
+SOL-2026-1731,Getxo,21,Temporal,1262.36,953.03,6.0,340.79,No,0.0,VPO_Alquiler,0
+SOL-2026-1732,Donostia-San Sebastián,,Indefinido,1495.63,1089.9,20.9,1316.95,No,160.0,Gaztelagun,1
+SOL-2026-1733,Bilbao,19,Indefinido,1227.55,927.04,95.1,17.6,No,0.0,Gaztelagun,0
+SOL-2026-1734,Donostia-San Sebastián,22,Indefinido,955.9,1260.57,1.0,304.96,No,0.0,Gaztelagun,0
+SOL-2026-1735,Bilbao,27,Temporal,1496.35,750.24,52.7,1007.32,Si,160.0,Emantzipa,0
+SOL-2026-1736,Bilbao,27,Indefinido,1511.52,1003.9,10.2,3175.05,Si,0.0,Gaztelagun,1
+SOL-2026-1737,Bilbao,20,Indefinido,1960.58,688.77,5.3,3241.15,No,280.0,Gaztelagun,1
+SOL-2026-1738,Bilbao,31,En_Practicas,1307.01,880.27,19.3,5291.73,Si,0.0,Gaztelagun,1
+SOL-2026-1739,Donostia-San Sebastián,25,Temporal,1073.62,1189.37,13.5,1140.29,No,160.0,VPO_Alquiler,0
+SOL-2026-1740,Barakaldo,31,Indefinido,1295.22,779.94,29.2,16210.2,No,0.0,Gaztelagun,1
+SOL-2026-1741,Donostia-San Sebastián,27,Indefinido,1461.61,971.9,1.0,491.68,No,0.0,Gaztelagun,0
+SOL-2026-1742,Bilbao,,Temporal,1529.42,759.2,6.4,1485.33,Si,80.0,Gaztelagun,1
+SOL-2026-1743,Bilbao,33,En_Practicas,1529.4,839.57,8.4,104.04,Si,0.0,Gaztelagun,1
+SOL-2026-1744,Vitoria-Gasteiz,23,Indefinido,1291.12,489.5,30.5,17.34,No,0.0,VPO_Alquiler,1
+SOL-2026-1745,Bilbao,26,Indefinido,963.17,730.95,5.7,518.79,No,0.0,VPO_Alquiler,0
+SOL-2026-1746,Barakaldo,31,Temporal,1200.93,614.22,5.0,2357.42,Si,80.0,Gaztelagun,1
+SOL-2026-1747,Vitoria-Gasteiz,29,Temporal,1687.19,564.83,23.9,284.3,No,0.0,Gaztelagun,1
+SOL-2026-1748,Barakaldo,21,Indefinido,1578.81,564.17,13.0,10112.33,No,80.0,VPO_Alquiler,1
+SOL-2026-1749,Bilbao,30,Autonomo,1622.96,761.4,27.3,1139.27,Si,0.0,VPO_Alquiler,1
+SOL-2026-1750,Bilbao,21,Indefinido,1531.87,810.27,1.0,2109.28,Si,160.0,Gaztelagun,1
+SOL-2026-1751,Bilbao,34,Indefinido,1111.08,884.62,1.0,9209.78,Si,0.0,Gaztelagun,1
+SOL-2026-1752,Vitoria-Gasteiz,21,Temporal,920.39,469.01,4.5,,Si,0.0,Gaztelagun,1
+SOL-2026-1753,Bilbao,30,Indefinido,1772.58,946.72,38.1,806.05,No,0.0,Gaztelagun,0
+SOL-2026-1754,Vitoria-Gasteiz,,Temporal,1275.45,561.65,6.6,954.18,Si,0.0,Gaztelagun,0
+SOL-2026-1755,Bilbao,,Temporal,1285.49,904.0,5.5,,No,160.0,Emantzipa,0
+SOL-2026-1756,Vitoria-Gasteiz,25,Temporal,1433.95,675.25,20.5,907.0,No,80.0,Emantzipa,1
+SOL-2026-1757,Barakaldo,33,Temporal,1610.94,715.06,12.0,47.79,No,80.0,VPO_Alquiler,0
+SOL-2026-1758,Barakaldo,33,Indefinido,1189.87,571.55,1.0,6789.26,No,0.0,Gaztelagun,1
+SOL-2026-1759,Vitoria-Gasteiz,29,Indefinido,1951.86,789.75,8.5,1120.35,No,0.0,VPO_Alquiler,0
+SOL-2026-1760,Barakaldo,29,En_Practicas,1138.49,785.73,91.9,146.89,No,0.0,Emantzipa,0
+SOL-2026-1761,Donostia-San Sebastián,29,Indefinido,1726.21,1077.59,20.8,569.75,No,80.0,Emantzipa,1
+SOL-2026-1762,Bilbao,18,Temporal,1494.28,1032.93,2.4,17.86,No,160.0,Gaztelagun,0
+SOL-2026-1763,Barakaldo,34,Temporal,1400.61,662.36,1.6,19250.88,Si,0.0,Gaztelagun,1
+SOL-2026-1764,Donostia-San Sebastián,30,Indefinido,1513.42,1090.62,5.5,1302.46,No,80.0,Gaztelagun,0
+SOL-2026-1765,Vitoria-Gasteiz,22,Indefinido,1459.81,751.05,6.4,2164.14,Si,80.0,VPO_Alquiler,1
+SOL-2026-1766,Donostia-San Sebastián,34,Autonomo,1301.48,990.68,10.0,1848.25,Si,0.0,VPO_Alquiler,1
+SOL-2026-1767,Vitoria-Gasteiz,27,En_Practicas,1126.22,623.27,17.5,7357.49,Si,160.0,Gaztelagun,0
+SOL-2026-1768,Donostia-San Sebastián,34,Temporal,1474.81,1111.23,31.9,1419.92,Si,0.0,Gaztelagun,1
+SOL-2026-1769,Bilbao,34,Temporal,1572.07,872.15,2.8,2393.3,Si,80.0,VPO_Alquiler,1
+SOL-2026-1770,Bilbao,18,En_Practicas,1236.82,803.07,1.3,7417.98,No,0.0,Gaztelagun,1
+SOL-2026-1771,Donostia-San Sebastián,21,Indefinido,1189.66,1106.51,4.8,1055.15,No,0.0,Emantzipa,1
+SOL-2026-1772,Bilbao,,Indefinido,1372.45,775.84,12.9,782.54,No,0.0,Gaztelagun,1
+SOL-2026-1773,Donostia-San Sebastián,30,Temporal,1623.38,1164.86,10.0,,No,0.0,Gaztelagun,0
+SOL-2026-1774,Vitoria-Gasteiz,32,Indefinido,2022.15,528.54,11.4,1134.75,No,0.0,VPO_Alquiler,1
+SOL-2026-1775,Bilbao,30,Temporal,1458.53,900.97,19.2,2153.29,No,0.0,Emantzipa,0
+SOL-2026-1776,Getxo,,En_Practicas,750.0,1006.13,16.8,4314.51,No,80.0,Gaztelagun,0
+SOL-2026-1777,Vitoria-Gasteiz,30,Indefinido,1859.09,699.97,4.7,2422.05,No,0.0,Gaztelagun,1
+SOL-2026-1778,Barakaldo,21,En_Practicas,1671.18,907.56,25.4,232.87,No,0.0,VPO_Alquiler,1
+SOL-2026-1779,Vitoria-Gasteiz,18,Autonomo,1179.08,809.68,8.5,2984.8,Si,0.0,Gaztelagun,1
+SOL-2026-1780,Bilbao,34,En_Practicas,1520.56,973.51,17.9,796.52,No,160.0,Gaztelagun,0
+SOL-2026-1781,Donostia-San Sebastián,,Indefinido,1297.2,881.78,18.5,6251.67,No,0.0,Gaztelagun,0
+SOL-2026-1782,Vitoria-Gasteiz,20,Indefinido,949.52,525.66,15.2,2548.87,Si,0.0,Gaztelagun,1
+SOL-2026-1783,Bilbao,27,Autonomo,1375.94,1005.88,1.3,12059.65,Si,0.0,VPO_Alquiler,0
+SOL-2026-1784,Donostia-San Sebastián,19,Temporal,1688.49,1016.88,49.7,3706.85,Si,0.0,Gaztelagun,0
+SOL-2026-1785,Bilbao,28,Autonomo,1061.07,674.45,4.8,,No,160.0,Emantzipa,0
+SOL-2026-1786,Bilbao,31,Temporal,1286.45,823.39,14.4,1103.93,Si,0.0,Gaztelagun,1
+SOL-2026-1787,Donostia-San Sebastián,25,Indefinido,1866.14,1158.75,30.0,6888.76,No,80.0,Emantzipa,1
+SOL-2026-1788,Vitoria-Gasteiz,31,Temporal,1238.46,654.82,2.3,8185.6,No,0.0,VPO_Alquiler,1
+SOL-2026-1789,Bilbao,,Indefinido,1388.79,668.43,13.8,,No,160.0,Gaztelagun,1
+SOL-2026-1790,Bilbao,27,Indefinido,1123.41,968.24,5.0,3261.02,No,0.0,Gaztelagun,0
+SOL-2026-1791,Donostia-San Sebastián,29,En_Practicas,1585.09,1016.04,6.5,2805.73,No,0.0,VPO_Alquiler,1
+SOL-2026-1792,Donostia-San Sebastián,,Indefinido,756.76,1230.32,12.0,,No,160.0,Gaztelagun,0
+SOL-2026-1793,Vitoria-Gasteiz,22,Indefinido,1410.2,777.26,26.0,75.32,No,0.0,Emantzipa,1
+SOL-2026-1794,Getxo,,En_Practicas,1336.36,993.0,8.7,889.63,No,80.0,Gaztelagun,0
+SOL-2026-1795,Bilbao,18,Autonomo,1387.64,759.5,31.7,4898.8,Si,0.0,Emantzipa,1
+SOL-2026-1796,Barakaldo,19,En_Practicas,750.0,638.88,48.5,16444.78,No,0.0,Emantzipa,0
+SOL-2026-1797,Bilbao,32,Temporal,1522.0,825.75,1.0,10553.43,Si,0.0,Gaztelagun,1
+SOL-2026-1798,Donostia-San Sebastián,29,Indefinido,1378.59,1245.5,26.6,,Si,80.0,VPO_Alquiler,0
+SOL-2026-1799,Donostia-San Sebastián,,Indefinido,1655.19,1121.72,18.3,1838.48,No,0.0,VPO_Alquiler,0
+SOL-2026-1800,Getxo,26,En_Practicas,1281.08,1178.93,2.4,556.08,No,0.0,Gaztelagun,0
+SOL-2026-1801,Vitoria-Gasteiz,28,Indefinido,1358.36,635.32,22.6,1041.8,No,160.0,Gaztelagun,0
+SOL-2026-1802,Vitoria-Gasteiz,20,Temporal,1471.26,696.21,4.1,6184.14,No,0.0,Gaztelagun,1
+SOL-2026-1803,Bilbao,29,Indefinido,1014.74,929.28,11.5,3404.24,Si,0.0,VPO_Alquiler,1
+SOL-2026-1804,Bilbao,28,Temporal,1448.9,733.1,15.7,846.67,No,0.0,Emantzipa,1
+SOL-2026-1805,Getxo,,Indefinido,1576.65,951.89,12.6,2781.06,No,80.0,VPO_Alquiler,0
+SOL-2026-1806,Bilbao,34,Temporal,1299.32,910.13,15.4,1394.81,No,280.0,Gaztelagun,0
+SOL-2026-1807,Getxo,32,Temporal,1587.57,915.21,7.8,8612.89,No,80.0,Gaztelagun,0
+SOL-2026-1808,Vitoria-Gasteiz,22,Autonomo,1400.88,888.97,20.2,3255.88,No,0.0,Gaztelagun,0
+SOL-2026-1809,Donostia-San Sebastián,33,Temporal,1471.27,887.63,37.6,,Si,0.0,Emantzipa,0
+SOL-2026-1810,Vitoria-Gasteiz,19,En_Practicas,1559.27,679.05,1.4,2637.44,No,0.0,Gaztelagun,0
+SOL-2026-1811,Bilbao,28,En_Practicas,1702.3,770.24,17.3,162.03,No,0.0,Gaztelagun,1
+SOL-2026-1812,Donostia-San Sebastián,27,En_Practicas,1229.58,945.31,23.2,6003.86,No,0.0,Gaztelagun,0
+SOL-2026-1813,Vitoria-Gasteiz,28,Indefinido,981.03,662.75,52.1,1235.13,Si,0.0,VPO_Alquiler,1
+SOL-2026-1814,Barakaldo,28,Indefinido,1414.08,472.53,1.0,7491.16,No,0.0,Gaztelagun,1
+SOL-2026-1815,Bilbao,23,Indefinido,1331.85,956.3,39.0,8740.55,No,80.0,VPO_Alquiler,0
+SOL-2026-1816,Bilbao,34,En_Practicas,2017.84,886.9,57.9,5615.44,Si,160.0,Gaztelagun,1
+SOL-2026-1817,Getxo,32,Temporal,1502.26,907.0,2.1,6519.38,No,0.0,Gaztelagun,0
+SOL-2026-1818,Getxo,21,Autonomo,1543.84,824.15,4.5,,Si,0.0,Gaztelagun,1
+SOL-2026-1819,Vitoria-Gasteiz,,Temporal,1445.41,652.48,1.9,2578.36,Si,0.0,VPO_Alquiler,1
+SOL-2026-1820,Getxo,25,Indefinido,868.14,1148.05,20.1,574.72,No,80.0,Gaztelagun,0
+SOL-2026-1821,Barakaldo,24,Indefinido,1729.5,772.39,4.2,1895.46,Si,0.0,Emantzipa,1
+SOL-2026-1822,Donostia-San Sebastián,23,En_Practicas,1710.09,928.28,19.8,3480.14,No,0.0,Gaztelagun,1
+SOL-2026-1823,Getxo,27,Indefinido,1166.16,1004.57,10.0,10957.67,No,0.0,Gaztelagun,1
+SOL-2026-1824,Barakaldo,33,Temporal,1352.05,697.62,5.6,6663.06,No,0.0,Gaztelagun,0
+SOL-2026-1825,Donostia-San Sebastián,31,Indefinido,1582.09,1058.64,23.4,5973.22,Si,0.0,Emantzipa,1
+SOL-2026-1826,Bilbao,28,Indefinido,750.0,789.42,1.0,5306.35,Si,0.0,Emantzipa,1
+SOL-2026-1827,Bilbao,24,Autonomo,1538.33,764.66,22.8,616.09,No,0.0,Emantzipa,1
+SOL-2026-1828,Bilbao,34,Indefinido,1103.09,918.91,3.1,914.8,No,0.0,Gaztelagun,1
+SOL-2026-1829,Vitoria-Gasteiz,22,En_Practicas,1806.46,530.72,1.4,4254.85,No,0.0,Emantzipa,1
+SOL-2026-1830,Barakaldo,,Temporal,941.24,839.26,35.3,1937.78,No,0.0,Gaztelagun,1
+SOL-2026-1831,Getxo,30,Indefinido,2033.08,1124.1,14.8,8338.19,No,0.0,Gaztelagun,0
+SOL-2026-1832,Donostia-San Sebastián,21,Temporal,1320.55,1089.45,26.5,2267.31,Si,0.0,Gaztelagun,1
+SOL-2026-1833,Bilbao,24,En_Practicas,1152.92,854.85,2.7,2245.36,No,0.0,Gaztelagun,0
+SOL-2026-1834,Bilbao,28,En_Practicas,1826.5,884.75,16.4,1092.6,Si,0.0,Gaztelagun,1
+SOL-2026-1835,Getxo,32,Temporal,788.99,962.09,88.7,388.43,No,0.0,Emantzipa,0
+SOL-2026-1836,Vitoria-Gasteiz,32,En_Practicas,1851.95,806.36,12.3,2602.52,Si,160.0,Gaztelagun,1
+SOL-2026-1837,Bilbao,26,Temporal,1163.19,786.21,18.9,2592.68,Si,80.0,Emantzipa,1
+SOL-2026-1838,Bilbao,28,Autonomo,1270.51,657.82,2.6,6189.68,Si,0.0,Gaztelagun,1
+SOL-2026-1839,Getxo,24,Indefinido,1656.21,1041.6,1.8,3158.83,Si,80.0,VPO_Alquiler,1
+SOL-2026-1840,Bilbao,27,En_Practicas,1648.68,752.31,6.6,1807.01,Si,0.0,Emantzipa,1
+SOL-2026-1841,Bilbao,26,Indefinido,1236.16,829.73,13.3,1689.8,No,160.0,Emantzipa,0
+SOL-2026-1842,Vitoria-Gasteiz,33,Indefinido,1597.86,671.22,4.4,3340.1,Si,0.0,Gaztelagun,1
+SOL-2026-1843,Getxo,32,Indefinido,1129.34,995.02,25.7,1748.72,No,80.0,Gaztelagun,0
+SOL-2026-1844,Bilbao,,Temporal,1420.67,908.73,18.1,539.64,No,0.0,Emantzipa,1
+SOL-2026-1845,Bilbao,29,Indefinido,1773.3,703.42,26.5,1931.24,No,160.0,VPO_Alquiler,1
+SOL-2026-1846,Donostia-San Sebastián,18,Indefinido,1253.14,1150.47,15.9,8468.52,No,0.0,Gaztelagun,0
+SOL-2026-1847,Vitoria-Gasteiz,30,Indefinido,1303.05,598.05,17.7,6067.07,No,160.0,VPO_Alquiler,1
+SOL-2026-1848,Donostia-San Sebastián,21,Indefinido,2005.54,1138.2,3.0,7165.45,Si,0.0,VPO_Alquiler,1
+SOL-2026-1849,Vitoria-Gasteiz,,Indefinido,750.0,591.71,3.9,58.85,No,160.0,Gaztelagun,0
+SOL-2026-1850,Barakaldo,29,Temporal,1663.78,682.92,32.7,235.06,No,0.0,Emantzipa,1
+SOL-2026-1851,Donostia-San Sebastián,24,Temporal,1021.31,1176.67,33.2,1304.63,No,0.0,Gaztelagun,0
+SOL-2026-1852,Bilbao,20,Indefinido,1788.71,937.14,3.7,11810.83,No,80.0,Gaztelagun,1
+SOL-2026-1853,Bilbao,25,Indefinido,1078.21,633.08,36.0,4689.41,Si,0.0,Gaztelagun,1
+SOL-2026-1854,Vitoria-Gasteiz,24,Indefinido,1642.0,934.39,5.4,339.38,No,0.0,Emantzipa,0
+SOL-2026-1855,Barakaldo,23,Indefinido,1530.31,634.94,13.9,4239.52,Si,160.0,Emantzipa,1
+SOL-2026-1856,Vitoria-Gasteiz,26,Indefinido,1413.98,593.54,11.3,,Si,80.0,Gaztelagun,1
+SOL-2026-1857,Vitoria-Gasteiz,30,Temporal,1595.36,618.72,2.0,8095.07,Si,0.0,Gaztelagun,0
+SOL-2026-1858,Bilbao,23,Temporal,1404.56,869.31,29.8,3002.79,No,0.0,VPO_Alquiler,1
+SOL-2026-1859,Donostia-San Sebastián,30,Indefinido,1984.34,1062.58,25.9,2475.08,No,80.0,VPO_Alquiler,1
+SOL-2026-1860,Bilbao,27,En_Practicas,2080.69,798.16,4.0,4878.03,Si,0.0,VPO_Alquiler,0
+SOL-2026-1861,Bilbao,29,Temporal,1386.25,853.54,2.9,1254.78,Si,0.0,Gaztelagun,1
+SOL-2026-1862,Bilbao,29,Indefinido,1454.25,888.64,14.4,836.09,No,0.0,Gaztelagun,1
+SOL-2026-1863,Barakaldo,28,En_Practicas,1725.36,848.17,41.1,4587.49,No,0.0,Gaztelagun,1
+SOL-2026-1864,Vitoria-Gasteiz,25,En_Practicas,1475.82,735.89,8.1,5.57,No,0.0,Gaztelagun,1
+SOL-2026-1865,Donostia-San Sebastián,,Indefinido,1626.5,1154.23,3.6,1304.27,No,0.0,Gaztelagun,0
+SOL-2026-1866,Bilbao,34,En_Practicas,1258.41,859.08,20.9,6943.61,No,0.0,Gaztelagun,0
+SOL-2026-1867,Donostia-San Sebastián,33,Temporal,1228.9,1008.12,1.0,4742.67,Si,160.0,VPO_Alquiler,1
+SOL-2026-1868,Vitoria-Gasteiz,29,Indefinido,1516.26,764.72,25.7,291.87,Si,280.0,Emantzipa,1
+SOL-2026-1869,Donostia-San Sebastián,32,Indefinido,1296.54,1106.26,36.4,179.8,No,0.0,Gaztelagun,0
+SOL-2026-1870,Vitoria-Gasteiz,,Indefinido,1296.36,770.08,10.7,126.93,Si,80.0,Gaztelagun,1
+SOL-2026-1871,Bilbao,22,Temporal,1166.18,771.25,5.8,4087.78,Si,160.0,VPO_Alquiler,0
+SOL-2026-1872,Donostia-San Sebastián,20,Indefinido,1779.48,1132.67,23.2,373.13,No,80.0,Gaztelagun,0
+SOL-2026-1873,Bilbao,23,Autonomo,1361.2,995.34,38.6,1988.57,Si,0.0,Gaztelagun,1
+SOL-2026-1874,Donostia-San Sebastián,25,Temporal,1753.27,1139.42,4.4,1124.51,No,0.0,Gaztelagun,1
+SOL-2026-1875,Donostia-San Sebastián,27,Indefinido,1331.32,1110.71,9.6,1087.39,No,280.0,Gaztelagun,0
+SOL-2026-1876,Bilbao,20,Temporal,1323.75,714.19,11.1,3165.53,No,0.0,Emantzipa,1
+SOL-2026-1877,Bilbao,22,Temporal,1370.37,781.3,21.5,1033.55,Si,160.0,VPO_Alquiler,1
+SOL-2026-1878,Vitoria-Gasteiz,24,Temporal,1128.98,654.26,25.0,2204.82,Si,0.0,Emantzipa,1
+SOL-2026-1879,Donostia-San Sebastián,27,Temporal,1160.93,1104.25,45.7,3269.89,No,0.0,Gaztelagun,0
+SOL-2026-1880,Vitoria-Gasteiz,23,En_Practicas,2209.36,642.79,14.4,859.54,No,0.0,Emantzipa,1
+SOL-2026-1881,Vitoria-Gasteiz,28,Temporal,1170.2,655.51,9.3,1180.44,No,0.0,VPO_Alquiler,1
+SOL-2026-1882,Bilbao,32,Temporal,1324.5,808.43,15.6,1896.12,Si,0.0,Gaztelagun,1
+SOL-2026-1883,Donostia-San Sebastián,,Temporal,1325.83,1111.66,16.9,3437.53,No,280.0,Gaztelagun,0
+SOL-2026-1884,Vitoria-Gasteiz,34,En_Practicas,1484.9,622.07,8.3,674.2,No,160.0,Gaztelagun,1
+SOL-2026-1885,Barakaldo,32,Temporal,1248.49,620.98,5.0,2165.78,No,160.0,VPO_Alquiler,0
+SOL-2026-1886,Barakaldo,20,Indefinido,1821.67,750.32,36.3,6936.04,Si,0.0,Gaztelagun,1
+SOL-2026-1887,Bilbao,18,Indefinido,1429.44,818.99,30.1,4520.36,Si,0.0,VPO_Alquiler,1
+SOL-2026-1888,Donostia-San Sebastián,21,Indefinido,1336.04,1286.2,25.2,647.74,No,0.0,VPO_Alquiler,0
+SOL-2026-1889,Bilbao,,Temporal,1954.32,946.14,12.2,1053.87,Si,0.0,Emantzipa,1
+SOL-2026-1890,Vitoria-Gasteiz,22,Indefinido,1329.3,738.63,8.3,1204.73,No,0.0,Emantzipa,1
+SOL-2026-1891,Donostia-San Sebastián,22,Indefinido,1302.34,1195.01,18.2,,Si,0.0,Emantzipa,1
+SOL-2026-1892,Vitoria-Gasteiz,34,Indefinido,1245.11,628.59,7.6,6701.37,Si,0.0,VPO_Alquiler,1
+SOL-2026-1893,Bilbao,23,Temporal,1055.16,951.85,1.2,809.24,Si,80.0,Emantzipa,1
+SOL-2026-1894,Bilbao,18,En_Practicas,1676.84,705.86,13.4,792.09,No,0.0,Gaztelagun,1
+SOL-2026-1895,Bilbao,20,Autonomo,1744.24,894.55,5.1,4707.17,No,80.0,Gaztelagun,0
+SOL-2026-1896,Donostia-San Sebastián,,Temporal,1255.62,1085.96,3.8,230.25,No,0.0,Gaztelagun,0
+SOL-2026-1897,Vitoria-Gasteiz,32,Indefinido,1451.5,648.08,28.1,,No,0.0,Gaztelagun,1
+SOL-2026-1898,Vitoria-Gasteiz,27,Temporal,860.73,572.4,2.1,5258.26,Si,160.0,Emantzipa,1
+SOL-2026-1899,Bilbao,26,Temporal,1538.98,956.53,13.0,1246.55,No,0.0,Gaztelagun,0
+SOL-2026-1900,Bilbao,23,Temporal,1037.91,1095.49,11.4,237.33,No,0.0,VPO_Alquiler,0
+SOL-2026-1901,Vitoria-Gasteiz,23,Indefinido,1548.99,715.84,6.6,5089.82,No,80.0,VPO_Alquiler,1
+SOL-2026-1902,Vitoria-Gasteiz,24,En_Practicas,1510.92,479.33,17.0,10989.17,No,80.0,Emantzipa,0
+SOL-2026-1903,Bilbao,33,Autonomo,1526.12,766.97,6.6,6186.06,Si,0.0,Emantzipa,1
+SOL-2026-1904,Bilbao,19,Autonomo,1051.09,993.92,66.4,68.85,No,0.0,Emantzipa,0
+SOL-2026-1905,Donostia-San Sebastián,30,Indefinido,1193.93,1075.46,4.4,6792.62,Si,0.0,Gaztelagun,1
+SOL-2026-1906,Vitoria-Gasteiz,19,En_Practicas,793.92,831.49,22.1,15180.81,No,0.0,Gaztelagun,0
+SOL-2026-1907,Donostia-San Sebastián,27,Indefinido,1711.94,1224.37,7.1,1869.19,Si,0.0,Gaztelagun,1
+SOL-2026-1908,Bilbao,26,Temporal,1568.33,710.52,2.7,7160.36,No,80.0,VPO_Alquiler,1
+SOL-2026-1909,Vitoria-Gasteiz,24,Indefinido,1053.14,691.97,7.3,4261.6,Si,80.0,Gaztelagun,1
+SOL-2026-1910,Donostia-San Sebastián,33,En_Practicas,1431.94,1069.28,82.3,2919.19,No,280.0,VPO_Alquiler,0
+SOL-2026-1911,Donostia-San Sebastián,28,Temporal,1342.19,971.53,65.9,2655.73,No,160.0,Gaztelagun,0
+SOL-2026-1912,Vitoria-Gasteiz,20,En_Practicas,1160.83,703.85,10.8,4700.47,No,0.0,Emantzipa,1
+SOL-2026-1913,Donostia-San Sebastián,31,En_Practicas,1176.21,1148.4,17.6,30.01,Si,0.0,VPO_Alquiler,1
+SOL-2026-1914,Vitoria-Gasteiz,24,En_Practicas,1129.38,627.81,38.2,579.56,No,0.0,Gaztelagun,1
+SOL-2026-1915,Vitoria-Gasteiz,22,Temporal,1636.45,644.97,6.8,819.75,Si,0.0,Gaztelagun,0
+SOL-2026-1916,Bilbao,22,En_Practicas,1524.48,832.45,53.2,,No,160.0,Gaztelagun,1
+SOL-2026-1917,Donostia-San Sebastián,30,Temporal,1941.01,1286.18,12.7,2543.44,Si,0.0,VPO_Alquiler,1
+SOL-2026-1918,Donostia-San Sebastián,31,Indefinido,1915.72,1083.29,8.0,415.71,No,0.0,VPO_Alquiler,1
+SOL-2026-1919,Barakaldo,27,En_Practicas,847.0,798.01,6.4,308.81,No,0.0,Gaztelagun,0
+SOL-2026-1920,Bilbao,28,Indefinido,1487.71,798.86,1.0,528.78,No,0.0,Emantzipa,1
+SOL-2026-1921,Vitoria-Gasteiz,31,En_Practicas,1217.55,700.11,13.2,5801.85,No,0.0,VPO_Alquiler,0
+SOL-2026-1922,Bilbao,30,Temporal,1578.03,807.51,7.0,1409.95,No,0.0,VPO_Alquiler,0
+SOL-2026-1923,Bilbao,34,Indefinido,1604.63,904.48,4.5,240.2,No,0.0,Gaztelagun,0
+SOL-2026-1924,Donostia-San Sebastián,18,Indefinido,750.0,1141.15,2.5,1592.67,No,80.0,Gaztelagun,0
+SOL-2026-1925,Barakaldo,25,Temporal,1436.81,667.86,19.4,4421.4,Si,80.0,Gaztelagun,1
+SOL-2026-1926,Vitoria-Gasteiz,32,Temporal,989.45,653.62,38.7,494.29,No,80.0,Emantzipa,0
+SOL-2026-1927,Bilbao,30,Temporal,1609.35,581.8,1.0,6314.38,Si,0.0,Gaztelagun,1
+SOL-2026-1928,Barakaldo,30,Temporal,1471.62,855.97,14.2,1146.39,No,160.0,Gaztelagun,0
+SOL-2026-1929,Bilbao,33,En_Practicas,1249.9,862.21,34.9,1067.44,No,0.0,Gaztelagun,0
+SOL-2026-1930,Bilbao,21,Indefinido,1343.79,799.46,7.7,2820.53,No,280.0,VPO_Alquiler,1
+SOL-2026-1931,Barakaldo,34,Indefinido,1493.87,660.2,1.0,1529.0,No,0.0,VPO_Alquiler,1
+SOL-2026-1932,Barakaldo,25,Temporal,1561.18,718.93,3.1,3526.61,No,0.0,VPO_Alquiler,0
+SOL-2026-1933,Donostia-San Sebastián,31,En_Practicas,1245.28,1348.79,53.5,8092.69,No,160.0,Gaztelagun,0
+SOL-2026-1934,Getxo,,Indefinido,1136.5,950.34,46.2,11203.26,Si,0.0,Gaztelagun,1
+SOL-2026-1935,Vitoria-Gasteiz,25,Indefinido,1548.44,757.79,16.1,1509.93,Si,280.0,Gaztelagun,1
+SOL-2026-1936,Vitoria-Gasteiz,22,Indefinido,1530.69,732.62,7.1,2573.42,No,80.0,Emantzipa,1
+SOL-2026-1937,Donostia-San Sebastián,32,Indefinido,1746.88,985.49,22.9,10449.4,Si,160.0,Gaztelagun,1
+SOL-2026-1938,Donostia-San Sebastián,33,En_Practicas,1402.21,1146.05,96.0,3198.69,No,160.0,Emantzipa,0
+SOL-2026-1939,Getxo,21,En_Practicas,1289.19,1137.59,5.8,2481.21,No,160.0,VPO_Alquiler,0
+SOL-2026-1940,Bilbao,25,Temporal,1437.21,954.93,5.6,6125.7,No,80.0,Emantzipa,0
+SOL-2026-1941,Barakaldo,19,Temporal,930.64,624.49,55.5,437.38,No,0.0,Emantzipa,0
+SOL-2026-1942,Donostia-San Sebastián,19,Indefinido,1519.24,910.03,15.3,9858.45,No,80.0,Emantzipa,0
+SOL-2026-1943,Bilbao,18,Temporal,1261.25,923.13,9.6,,No,160.0,Gaztelagun,0
+SOL-2026-1944,Donostia-San Sebastián,26,Indefinido,1697.27,1132.75,84.7,5523.48,Si,80.0,Gaztelagun,1
+SOL-2026-1945,Donostia-San Sebastián,23,En_Practicas,1547.91,1029.36,17.2,6332.64,Si,160.0,Gaztelagun,0
+SOL-2026-1946,Vitoria-Gasteiz,33,Temporal,1388.31,602.85,34.9,1438.44,No,0.0,Gaztelagun,1
+SOL-2026-1947,Bilbao,27,Autonomo,1261.65,727.99,25.4,1776.08,No,0.0,Gaztelagun,0
+SOL-2026-1948,Barakaldo,26,Indefinido,1229.54,798.85,2.6,6525.37,No,160.0,Emantzipa,0
+SOL-2026-1949,Getxo,25,Indefinido,1745.72,1011.93,19.8,2387.68,No,280.0,Gaztelagun,1
+SOL-2026-1950,Vitoria-Gasteiz,18,Indefinido,1957.65,626.44,11.9,2844.3,No,0.0,Gaztelagun,1
+SOL-2026-1951,Donostia-San Sebastián,30,Temporal,1151.86,827.11,29.3,1618.39,No,160.0,Gaztelagun,0
+SOL-2026-1952,Getxo,25,En_Practicas,1261.06,958.54,44.9,4312.75,No,0.0,VPO_Alquiler,0
+SOL-2026-1953,Bilbao,25,Temporal,1291.4,835.13,17.4,2005.6,No,0.0,Emantzipa,0
+SOL-2026-1954,Bilbao,22,Indefinido,924.7,1047.16,5.8,7939.62,Si,0.0,Gaztelagun,1
+SOL-2026-1955,Bilbao,32,Indefinido,1296.71,769.4,4.8,2482.15,No,80.0,VPO_Alquiler,0
+SOL-2026-1956,Barakaldo,19,Temporal,1284.66,759.24,68.2,2640.88,No,80.0,Gaztelagun,0
+SOL-2026-1957,Vitoria-Gasteiz,23,Indefinido,1816.9,600.15,7.3,1808.69,No,80.0,VPO_Alquiler,1
+SOL-2026-1958,Donostia-San Sebastián,23,Indefinido,1091.42,1223.76,38.0,714.12,No,0.0,VPO_Alquiler,0
+SOL-2026-1959,Bilbao,34,Indefinido,1457.2,825.62,14.7,351.27,Si,280.0,Gaztelagun,1
+SOL-2026-1960,Bilbao,29,En_Practicas,1566.43,832.25,17.5,862.33,Si,160.0,VPO_Alquiler,1
+SOL-2026-1961,Vitoria-Gasteiz,23,Temporal,1508.11,570.22,17.5,7669.7,No,0.0,VPO_Alquiler,0
+SOL-2026-1962,Bilbao,34,Indefinido,1539.22,888.42,3.0,1440.53,No,80.0,VPO_Alquiler,0
+SOL-2026-1963,Getxo,20,Indefinido,1232.49,1035.29,30.6,1812.97,No,160.0,VPO_Alquiler,0
+SOL-2026-1964,Barakaldo,21,En_Practicas,1748.03,798.89,43.7,4239.74,No,80.0,Emantzipa,1
+SOL-2026-1965,Bilbao,27,Autonomo,1093.11,897.73,1.5,,Si,0.0,Emantzipa,1
+SOL-2026-1966,Getxo,19,Temporal,2081.92,1042.64,6.6,8068.73,No,80.0,Emantzipa,0
+SOL-2026-1967,Bilbao,24,Indefinido,836.69,806.2,20.7,2485.14,No,0.0,Emantzipa,1
+SOL-2026-1968,Bilbao,23,En_Practicas,1352.67,812.15,4.1,3579.88,Si,160.0,Gaztelagun,1
+SOL-2026-1969,Getxo,,Indefinido,1600.33,806.22,74.9,6131.98,No,160.0,Gaztelagun,1
+SOL-2026-1970,Bilbao,31,Temporal,1219.84,641.14,6.7,3707.9,No,0.0,Gaztelagun,0
+SOL-2026-1971,Donostia-San Sebastián,24,En_Practicas,974.92,1110.02,17.7,4167.57,No,80.0,Gaztelagun,0
+SOL-2026-1972,Bilbao,33,Indefinido,1203.29,836.08,24.3,4393.72,No,0.0,Gaztelagun,0
+SOL-2026-1973,Bilbao,30,En_Practicas,1928.23,686.89,14.6,475.83,No,0.0,Gaztelagun,1
+SOL-2026-1974,Barakaldo,20,Indefinido,1138.81,648.83,2.8,146.71,No,80.0,Gaztelagun,1
+SOL-2026-1975,Bilbao,22,Indefinido,2024.75,780.79,7.8,3616.22,No,0.0,Gaztelagun,1
+SOL-2026-1976,Bilbao,32,Indefinido,842.15,920.29,16.6,614.81,No,0.0,Gaztelagun,1
+SOL-2026-1977,Donostia-San Sebastián,,Temporal,1337.14,1013.06,1.0,4035.55,Si,0.0,Gaztelagun,1
+SOL-2026-1978,Vitoria-Gasteiz,19,Temporal,1768.05,734.81,43.5,3622.66,Si,80.0,Gaztelagun,1
+SOL-2026-1979,Vitoria-Gasteiz,29,Autonomo,1156.16,583.53,41.2,7404.75,Si,0.0,Emantzipa,0
+SOL-2026-1980,Donostia-San Sebastián,23,Indefinido,1918.15,1123.74,2.8,4340.85,No,0.0,Gaztelagun,0
+SOL-2026-1981,Donostia-San Sebastián,31,En_Practicas,1060.85,1126.9,54.8,1442.66,No,0.0,Gaztelagun,0
+SOL-2026-1982,Vitoria-Gasteiz,29,Autonomo,893.41,619.31,9.4,840.63,Si,0.0,Emantzipa,1
+SOL-2026-1983,Barakaldo,31,Indefinido,1457.81,843.99,3.1,2550.72,Si,0.0,Emantzipa,1
+SOL-2026-1984,Vitoria-Gasteiz,22,Temporal,899.91,588.37,2.9,986.87,No,80.0,Gaztelagun,0
+SOL-2026-1985,Vitoria-Gasteiz,19,Temporal,1409.24,628.79,1.0,189.68,No,0.0,VPO_Alquiler,1
+SOL-2026-1986,Bilbao,20,Indefinido,1714.21,778.56,31.7,4256.2,Si,0.0,Emantzipa,1
+SOL-2026-1987,Bilbao,31,Indefinido,1060.26,813.64,73.7,8189.25,No,80.0,Gaztelagun,0
+SOL-2026-1988,Vitoria-Gasteiz,30,Temporal,873.23,694.71,15.9,1575.07,No,0.0,Gaztelagun,1
+SOL-2026-1989,Donostia-San Sebastián,29,En_Practicas,2003.99,1084.04,1.3,1248.89,No,0.0,VPO_Alquiler,0
+SOL-2026-1990,Vitoria-Gasteiz,28,Indefinido,1520.03,500.56,7.9,2389.46,No,0.0,VPO_Alquiler,1
+SOL-2026-1991,Bilbao,34,Autonomo,1639.91,862.86,3.3,4219.92,Si,280.0,Gaztelagun,1
+SOL-2026-1992,Getxo,20,Indefinido,1976.57,1019.72,47.0,,No,0.0,Gaztelagun,1
+SOL-2026-1993,Donostia-San Sebastián,26,Temporal,1102.81,1254.82,34.6,1830.11,Si,280.0,Emantzipa,0
+SOL-2026-1994,Donostia-San Sebastián,32,Autonomo,1762.82,1175.25,6.9,421.76,No,160.0,Gaztelagun,1
+SOL-2026-1995,Donostia-San Sebastián,25,En_Practicas,1407.36,1089.48,1.0,7145.07,No,0.0,Emantzipa,0
+SOL-2026-1996,Donostia-San Sebastián,21,Temporal,1533.85,1118.89,45.0,718.45,No,0.0,Gaztelagun,0
+SOL-2026-1997,Bilbao,30,Indefinido,1044.69,829.16,4.0,3255.1,Si,0.0,Emantzipa,1
+SOL-2026-1998,Bilbao,18,Indefinido,1611.43,837.38,37.9,734.7,Si,80.0,Gaztelagun,1
+SOL-2026-1999,Vitoria-Gasteiz,30,Temporal,1039.57,595.66,12.7,1946.13,No,80.0,Gaztelagun,0
+SOL-2026-2000,Getxo,23,Indefinido,1634.42,1015.31,23.8,5957.42,Si,80.0,Emantzipa,1
+SOL-2026-2001,Vitoria-Gasteiz,,Temporal,1625.79,622.47,20.6,238.52,Si,160.0,Gaztelagun,1
+SOL-2026-2002,Donostia-San Sebastián,33,Indefinido,1574.92,1099.63,15.9,,No,0.0,Gaztelagun,0
+SOL-2026-2003,Barakaldo,32,En_Practicas,1211.61,732.77,24.1,10459.54,No,80.0,Gaztelagun,0
+SOL-2026-2004,Bilbao,31,En_Practicas,1282.73,797.63,16.2,348.78,No,0.0,Gaztelagun,1
+SOL-2026-2005,Donostia-San Sebastián,26,Indefinido,900.53,1113.55,10.2,609.49,No,0.0,VPO_Alquiler,1
+SOL-2026-2006,Bilbao,27,Indefinido,1032.14,836.27,4.4,11001.3,No,0.0,Gaztelagun,0
+SOL-2026-2007,Vitoria-Gasteiz,34,Indefinido,1294.04,490.85,35.9,12323.57,Si,0.0,Gaztelagun,1
+SOL-2026-2008,Bilbao,28,Temporal,1658.31,784.22,5.9,5526.49,No,160.0,VPO_Alquiler,0
+SOL-2026-2009,Vitoria-Gasteiz,25,En_Practicas,1382.19,798.72,39.8,7442.23,No,0.0,Gaztelagun,0
+SOL-2026-2010,Donostia-San Sebastián,26,Indefinido,1228.88,1141.9,26.4,1582.75,No,0.0,Gaztelagun,1
+SOL-2026-2011,Donostia-San Sebastián,22,En_Practicas,1712.73,1069.03,6.8,781.26,No,0.0,VPO_Alquiler,0
+SOL-2026-2012,Bilbao,,En_Practicas,1028.54,832.57,5.1,4221.45,No,0.0,Gaztelagun,0
+SOL-2026-2013,Bilbao,31,Indefinido,750.0,897.93,2.9,2835.96,No,80.0,Gaztelagun,0
+SOL-2026-2014,Bilbao,32,Indefinido,1153.27,804.35,1.0,,Si,0.0,Gaztelagun,1
+SOL-2026-2015,Donostia-San Sebastián,,Indefinido,1295.9,1155.99,17.1,3611.16,Si,80.0,Gaztelagun,1
+SOL-2026-2016,Vitoria-Gasteiz,33,Indefinido,1536.59,693.72,13.3,937.64,No,280.0,Gaztelagun,1
+SOL-2026-2017,Vitoria-Gasteiz,19,Temporal,1190.64,591.9,3.0,5893.89,No,0.0,VPO_Alquiler,1
+SOL-2026-2018,Bilbao,18,Indefinido,1498.2,790.34,1.0,926.91,Si,160.0,Gaztelagun,1
+SOL-2026-2019,Vitoria-Gasteiz,18,Temporal,1363.87,691.14,22.6,246.33,Si,0.0,Gaztelagun,1
+SOL-2026-2020,Bilbao,,En_Practicas,817.07,839.2,9.1,25.82,No,80.0,Gaztelagun,0
+SOL-2026-2021,Donostia-San Sebastián,26,Indefinido,1271.55,1168.74,2.3,102.34,No,80.0,Gaztelagun,0
+SOL-2026-2022,Bilbao,,En_Practicas,1352.42,646.57,4.0,4814.06,No,80.0,VPO_Alquiler,0
+SOL-2026-2023,Donostia-San Sebastián,,Temporal,810.99,1015.3,5.2,1298.22,Si,0.0,Gaztelagun,1
+SOL-2026-2024,Vitoria-Gasteiz,32,Autonomo,1235.34,634.12,12.2,1175.83,No,160.0,Gaztelagun,0
+SOL-2026-2025,Barakaldo,19,En_Practicas,2033.83,644.29,6.5,2938.55,Si,0.0,Gaztelagun,1
+SOL-2026-2026,Donostia-San Sebastián,20,Indefinido,1236.51,1030.91,1.0,535.37,No,160.0,VPO_Alquiler,0
+SOL-2026-2027,Bilbao,18,En_Practicas,1549.15,824.35,2.2,2125.96,No,80.0,Gaztelagun,1
+SOL-2026-2028,Vitoria-Gasteiz,,Temporal,1445.0,768.31,8.5,,No,0.0,Gaztelagun,1
+SOL-2026-2029,Barakaldo,26,Temporal,1340.76,653.97,5.6,11556.91,Si,80.0,VPO_Alquiler,0
+SOL-2026-2030,Bilbao,31,Temporal,1225.11,680.49,22.6,1181.59,Si,0.0,VPO_Alquiler,1
+SOL-2026-2031,Donostia-San Sebastián,22,Indefinido,1183.49,1021.51,15.6,14368.1,No,0.0,Emantzipa,0
+SOL-2026-2032,Vitoria-Gasteiz,31,Indefinido,1376.72,724.41,46.6,2097.32,No,80.0,VPO_Alquiler,1
+SOL-2026-2033,Barakaldo,22,Temporal,831.34,672.78,3.1,525.93,No,0.0,Emantzipa,1
+SOL-2026-2034,Donostia-San Sebastián,,Temporal,1515.6,1112.21,1.0,3823.9,Si,0.0,Emantzipa,1
+SOL-2026-2035,Bilbao,29,Temporal,1033.34,939.68,9.0,4849.6,No,280.0,Gaztelagun,0
+SOL-2026-2036,Bilbao,24,Temporal,2000.05,685.87,29.0,8662.78,No,0.0,Emantzipa,1
+SOL-2026-2037,Bilbao,24,Indefinido,1529.51,859.86,3.7,259.03,Si,280.0,Gaztelagun,1
+SOL-2026-2038,Donostia-San Sebastián,27,Indefinido,1199.57,1160.21,17.4,3529.61,No,80.0,VPO_Alquiler,0
+SOL-2026-2039,Donostia-San Sebastián,33,En_Practicas,1101.88,1183.03,1.9,3388.68,No,280.0,Gaztelagun,1
+SOL-2026-2040,Bilbao,20,Temporal,1259.83,838.71,23.2,8942.64,No,80.0,Gaztelagun,0
+SOL-2026-2041,Bilbao,32,Indefinido,1343.47,857.66,2.5,5312.75,No,0.0,Gaztelagun,1
+SOL-2026-2042,Vitoria-Gasteiz,19,Indefinido,1647.34,751.26,3.4,6723.87,Si,80.0,Gaztelagun,1
+SOL-2026-2043,Getxo,,Temporal,1381.79,1078.98,24.6,680.23,No,0.0,Gaztelagun,0
+SOL-2026-2044,Vitoria-Gasteiz,32,En_Practicas,1521.16,654.07,3.2,13487.63,No,0.0,Gaztelagun,0
+SOL-2026-2045,Donostia-San Sebastián,29,Temporal,1646.82,1170.18,5.9,1920.18,Si,0.0,VPO_Alquiler,1
+SOL-2026-2046,Donostia-San Sebastián,22,Indefinido,1584.82,1210.62,19.7,19812.97,No,0.0,Gaztelagun,0
+SOL-2026-2047,Bilbao,19,Indefinido,1476.41,892.74,21.8,,Si,80.0,Gaztelagun,1
+SOL-2026-2048,Vitoria-Gasteiz,,En_Practicas,1820.11,840.81,35.5,731.77,No,0.0,Gaztelagun,1
+SOL-2026-2049,Vitoria-Gasteiz,20,Indefinido,1630.2,755.48,35.5,,No,280.0,Emantzipa,1
+SOL-2026-2050,Vitoria-Gasteiz,29,Autonomo,1524.18,579.88,25.1,,Si,0.0,Gaztelagun,1
+SOL-2026-2051,Donostia-San Sebastián,25,Temporal,1668.74,1199.1,28.1,3635.01,No,0.0,Emantzipa,0
+SOL-2026-2052,Vitoria-Gasteiz,18,Indefinido,946.32,610.99,27.0,142.69,Si,0.0,Emantzipa,0
+SOL-2026-2053,Bilbao,28,Autonomo,1587.8,761.14,12.0,6403.28,No,0.0,Emantzipa,0
+SOL-2026-2054,Vitoria-Gasteiz,28,Indefinido,1105.89,675.94,13.1,1014.33,Si,0.0,Gaztelagun,1
+SOL-2026-2055,Bilbao,25,Temporal,1231.12,919.66,31.4,1855.86,Si,0.0,Emantzipa,0
+SOL-2026-2056,Barakaldo,27,Indefinido,1194.53,574.68,14.5,2174.13,No,0.0,Emantzipa,1
+SOL-2026-2057,Bilbao,28,Indefinido,1168.81,756.27,5.1,1105.04,No,0.0,Gaztelagun,0
+SOL-2026-2058,Bilbao,30,Indefinido,1641.96,1066.27,47.3,16430.44,No,0.0,Emantzipa,1
+SOL-2026-2059,Bilbao,33,Temporal,1086.52,864.63,2.3,1569.31,No,0.0,VPO_Alquiler,0
+SOL-2026-2060,Donostia-San Sebastián,21,Autonomo,1301.34,1037.56,39.9,34.67,Si,80.0,Gaztelagun,1
+SOL-2026-2061,Bilbao,26,Autonomo,1246.56,908.44,1.0,5029.36,Si,280.0,Gaztelagun,0
+SOL-2026-2062,Bilbao,26,En_Practicas,1539.92,903.02,9.4,3292.11,No,160.0,Gaztelagun,1
+SOL-2026-2063,Vitoria-Gasteiz,30,Indefinido,1444.98,862.65,9.5,570.4,No,160.0,Emantzipa,1
+SOL-2026-2064,Vitoria-Gasteiz,33,Indefinido,1574.37,605.33,1.0,1718.01,No,0.0,Gaztelagun,1
+SOL-2026-2065,Barakaldo,23,En_Practicas,1449.34,803.72,9.3,1202.06,Si,80.0,Gaztelagun,1
+SOL-2026-2066,Getxo,20,Temporal,1472.18,885.63,7.6,2363.28,No,160.0,Gaztelagun,0
+SOL-2026-2067,Bilbao,26,Temporal,1668.05,1020.93,18.6,5815.18,No,280.0,Gaztelagun,0
+SOL-2026-2068,Bilbao,20,Temporal,1164.67,825.26,13.4,564.82,Si,0.0,VPO_Alquiler,1
+SOL-2026-2069,Donostia-San Sebastián,20,Indefinido,1462.14,1117.93,19.1,10764.66,No,0.0,Gaztelagun,0
+SOL-2026-2070,Barakaldo,24,Temporal,1837.15,800.13,5.6,2672.14,No,0.0,Gaztelagun,1
+SOL-2026-2071,Donostia-San Sebastián,18,Indefinido,1492.87,1170.3,30.2,7882.89,No,0.0,Gaztelagun,0
+SOL-2026-2072,Bilbao,29,Temporal,1338.78,923.84,3.5,998.57,No,80.0,Gaztelagun,0
+SOL-2026-2073,Bilbao,33,Temporal,1083.96,926.53,9.3,11455.27,No,0.0,Emantzipa,0
+SOL-2026-2074,Vitoria-Gasteiz,34,Autonomo,1675.6,841.23,2.4,,Si,280.0,VPO_Alquiler,1
+SOL-2026-2075,Barakaldo,27,Indefinido,1301.22,781.16,1.0,3560.78,Si,160.0,Emantzipa,1
+SOL-2026-2076,Vitoria-Gasteiz,25,Indefinido,1906.25,543.4,5.2,4367.62,No,0.0,Gaztelagun,0
+SOL-2026-2077,Bilbao,21,Indefinido,1697.07,886.65,8.8,1988.25,No,0.0,Gaztelagun,1
+SOL-2026-2078,Getxo,33,Indefinido,1253.35,1055.16,12.7,,Si,80.0,Emantzipa,1
+SOL-2026-2079,Donostia-San Sebastián,29,Indefinido,938.9,1202.08,11.1,1173.8,Si,0.0,Gaztelagun,1
+SOL-2026-2080,Donostia-San Sebastián,19,Temporal,903.73,1050.63,12.7,582.55,No,0.0,Emantzipa,0
+SOL-2026-2081,Vitoria-Gasteiz,24,Indefinido,1156.01,736.76,1.0,10743.55,Si,0.0,Gaztelagun,1
+SOL-2026-2082,Bilbao,26,Autonomo,1605.61,1147.68,3.2,,No,80.0,Gaztelagun,0
+SOL-2026-2083,Bilbao,21,Indefinido,757.64,903.81,17.3,6653.8,No,0.0,Emantzipa,0
+SOL-2026-2084,Barakaldo,28,Temporal,1098.45,554.86,16.0,5743.05,No,0.0,VPO_Alquiler,1
+SOL-2026-2085,Bilbao,27,Temporal,1330.83,749.47,54.7,6960.43,Si,0.0,Gaztelagun,1
+SOL-2026-2086,Barakaldo,22,Autonomo,1264.37,607.69,9.6,2926.11,Si,0.0,Emantzipa,0
+SOL-2026-2087,Vitoria-Gasteiz,19,Indefinido,1448.98,616.92,11.5,,No,0.0,Gaztelagun,0
+SOL-2026-2088,Donostia-San Sebastián,24,Indefinido,1524.19,1033.36,17.0,606.87,Si,0.0,Gaztelagun,1
+SOL-2026-2089,Vitoria-Gasteiz,,Temporal,1248.1,672.03,63.2,3654.13,No,0.0,Gaztelagun,1
+SOL-2026-2090,Getxo,29,Temporal,1533.71,1011.41,6.7,19612.71,Si,0.0,Gaztelagun,0
+SOL-2026-2091,Vitoria-Gasteiz,33,Indefinido,1034.6,593.47,13.4,1171.44,Si,80.0,Gaztelagun,1
+SOL-2026-2092,Vitoria-Gasteiz,,Temporal,1351.39,646.33,34.4,4155.01,No,0.0,Gaztelagun,1
+SOL-2026-2093,Vitoria-Gasteiz,25,En_Practicas,1634.69,548.59,4.3,4251.85,Si,0.0,VPO_Alquiler,1
+SOL-2026-2094,Getxo,20,Indefinido,1249.14,1056.22,4.9,1846.01,No,80.0,Emantzipa,0
+SOL-2026-2095,Bilbao,33,Temporal,1183.6,925.01,7.6,,No,160.0,Gaztelagun,0
+SOL-2026-2096,Donostia-San Sebastián,28,Indefinido,1579.28,948.54,22.1,11100.73,No,160.0,Gaztelagun,0
+SOL-2026-2097,Bilbao,20,Temporal,1549.45,845.86,38.8,3241.5,No,160.0,Emantzipa,0
+SOL-2026-2098,Vitoria-Gasteiz,28,En_Practicas,1364.49,675.3,11.9,2433.56,Si,0.0,Emantzipa,1
+SOL-2026-2099,Donostia-San Sebastián,34,Autonomo,1065.94,1010.63,10.3,5637.93,No,80.0,Gaztelagun,0
+SOL-2026-2100,Vitoria-Gasteiz,,Indefinido,1028.07,747.23,28.2,7369.8,No,160.0,Emantzipa,0
+SOL-2026-2101,Bilbao,32,Indefinido,1835.52,726.8,30.5,3032.62,No,0.0,Gaztelagun,1
+SOL-2026-2102,Barakaldo,18,Indefinido,1902.1,673.72,5.8,2768.01,No,0.0,VPO_Alquiler,1
+SOL-2026-2103,Vitoria-Gasteiz,19,Temporal,1055.28,610.34,14.5,6764.23,No,0.0,Emantzipa,1
+SOL-2026-2104,Vitoria-Gasteiz,,Indefinido,1273.02,736.07,11.8,9361.93,No,0.0,Gaztelagun,1
+SOL-2026-2105,Bilbao,23,Indefinido,1403.45,767.82,96.0,3566.29,Si,0.0,Gaztelagun,1
+SOL-2026-2106,Getxo,,En_Practicas,1392.63,900.77,3.5,1441.23,No,160.0,Gaztelagun,0
+SOL-2026-2107,Donostia-San Sebastián,20,Indefinido,1536.52,1134.05,29.6,1008.18,Si,160.0,VPO_Alquiler,0
+SOL-2026-2108,Bilbao,,Indefinido,1674.41,1005.37,13.8,9052.61,No,0.0,VPO_Alquiler,0
+SOL-2026-2109,Donostia-San Sebastián,30,Indefinido,1536.97,1232.5,26.7,242.35,No,0.0,Emantzipa,0
+SOL-2026-2110,Donostia-San Sebastián,30,Indefinido,942.66,1257.46,1.0,2961.55,Si,80.0,Gaztelagun,1
+SOL-2026-2111,Vitoria-Gasteiz,,Indefinido,1223.24,682.2,1.8,5085.39,No,0.0,Emantzipa,1
+SOL-2026-2112,Vitoria-Gasteiz,,En_Practicas,1476.31,531.09,5.1,1940.75,Si,0.0,VPO_Alquiler,1
+SOL-2026-2113,Getxo,30,Autonomo,1268.14,1171.09,71.6,1582.77,No,80.0,Gaztelagun,1
+SOL-2026-2114,Bilbao,20,En_Practicas,1750.45,793.22,34.3,349.98,Si,0.0,VPO_Alquiler,1
+SOL-2026-2115,Bilbao,25,Indefinido,1188.85,1006.64,25.3,290.55,No,160.0,VPO_Alquiler,0
+SOL-2026-2116,Barakaldo,21,En_Practicas,1381.25,691.16,45.2,3754.26,Si,0.0,Gaztelagun,0
+SOL-2026-2117,Vitoria-Gasteiz,,Temporal,1101.31,688.19,14.1,3127.89,No,80.0,Gaztelagun,1
+SOL-2026-2118,Vitoria-Gasteiz,21,Temporal,1589.44,677.42,22.2,11036.76,No,0.0,VPO_Alquiler,1
+SOL-2026-2119,Donostia-San Sebastián,24,Temporal,1404.13,1205.68,17.1,6100.9,Si,0.0,VPO_Alquiler,1
+SOL-2026-2120,Vitoria-Gasteiz,21,Temporal,1367.15,806.28,1.0,3126.89,No,80.0,Emantzipa,0
+SOL-2026-2121,Vitoria-Gasteiz,25,Indefinido,2410.26,758.65,24.6,4032.8,Si,0.0,VPO_Alquiler,1
+SOL-2026-2122,Vitoria-Gasteiz,18,Indefinido,1202.66,761.41,2.9,460.34,No,280.0,Gaztelagun,0
+SOL-2026-2123,Bilbao,22,Indefinido,1014.12,1011.0,35.1,2356.11,No,0.0,Gaztelagun,0
+SOL-2026-2124,Bilbao,19,Temporal,1179.79,839.74,2.1,1166.56,Si,80.0,Gaztelagun,0
+SOL-2026-2125,Bilbao,27,Temporal,944.86,897.79,5.8,1733.45,Si,0.0,VPO_Alquiler,1
+SOL-2026-2126,Bilbao,25,Autonomo,972.59,804.22,2.8,1621.76,Si,0.0,VPO_Alquiler,1
+SOL-2026-2127,Bilbao,20,Temporal,1547.03,800.8,6.0,4962.06,No,0.0,Emantzipa,0
+SOL-2026-2128,Donostia-San Sebastián,33,Autonomo,2137.0,1105.35,7.1,2825.03,No,0.0,Gaztelagun,1
+SOL-2026-2129,Bilbao,26,Temporal,1352.5,916.07,9.3,3220.8,No,0.0,Gaztelagun,1
+SOL-2026-2130,Bilbao,,Indefinido,1160.71,863.29,7.3,11054.03,Si,0.0,Emantzipa,1
+SOL-2026-2131,Donostia-San Sebastián,,Temporal,900.38,1064.28,1.9,2783.66,No,0.0,Gaztelagun,0
+SOL-2026-2132,Bilbao,,Temporal,1557.13,905.64,16.0,820.97,Si,0.0,Gaztelagun,1
+SOL-2026-2133,Vitoria-Gasteiz,25,Indefinido,1239.97,554.25,19.3,22.32,No,160.0,Gaztelagun,1
+SOL-2026-2134,Bilbao,,Temporal,1595.47,813.3,10.0,1545.09,No,80.0,Gaztelagun,1
+SOL-2026-2135,Vitoria-Gasteiz,,Indefinido,1462.45,721.57,24.1,762.92,Si,0.0,Gaztelagun,1
+SOL-2026-2136,Bilbao,21,Temporal,1333.48,755.69,25.4,6300.96,No,80.0,VPO_Alquiler,1
+SOL-2026-2137,Donostia-San Sebastián,19,Temporal,1126.11,906.31,2.1,832.95,Si,0.0,Gaztelagun,0
+SOL-2026-2138,Bilbao,34,Autonomo,1964.71,761.34,44.8,7612.39,Si,280.0,Gaztelagun,1
+SOL-2026-2139,Getxo,32,Indefinido,1366.62,1049.28,23.8,70.81,No,0.0,Gaztelagun,0
+SOL-2026-2140,Barakaldo,,Temporal,1556.02,677.84,21.7,420.34,No,160.0,Emantzipa,0
+SOL-2026-2141,Bilbao,25,En_Practicas,1385.79,882.22,35.2,269.74,No,0.0,Gaztelagun,1
+SOL-2026-2142,Bilbao,23,Indefinido,808.72,861.37,2.7,4199.65,Si,0.0,Gaztelagun,1
+SOL-2026-2143,Vitoria-Gasteiz,,En_Practicas,939.91,706.78,88.7,117.83,Si,0.0,Emantzipa,1
+SOL-2026-2144,Barakaldo,,Indefinido,1405.87,538.54,15.9,739.35,No,0.0,Emantzipa,1
+SOL-2026-2145,Donostia-San Sebastián,18,Temporal,1639.19,1093.69,20.1,2454.27,Si,0.0,Gaztelagun,1
+SOL-2026-2146,Bilbao,33,Indefinido,872.18,826.21,2.9,1193.68,No,0.0,Gaztelagun,1
+SOL-2026-2147,Donostia-San Sebastián,,Temporal,1613.44,1101.37,5.1,1462.21,No,0.0,Gaztelagun,0
+SOL-2026-2148,Vitoria-Gasteiz,22,En_Practicas,750.0,647.58,8.3,,Si,0.0,Emantzipa,1
+SOL-2026-2149,Vitoria-Gasteiz,,Temporal,1194.65,711.01,16.6,2156.8,No,280.0,Emantzipa,0
+SOL-2026-2150,Getxo,34,Indefinido,1597.68,1011.14,1.0,1739.67,No,0.0,Emantzipa,0
+SOL-2026-2151,Bilbao,26,Autonomo,1146.16,751.09,11.6,1002.3,Si,80.0,Gaztelagun,1
+SOL-2026-2152,Donostia-San Sebastián,20,Indefinido,1014.53,1188.41,23.3,3626.57,No,0.0,Gaztelagun,1
+SOL-2026-2153,Barakaldo,22,Indefinido,1322.99,598.89,4.3,5272.42,Si,160.0,VPO_Alquiler,1
+SOL-2026-2154,Getxo,29,Autonomo,1205.69,1039.09,37.2,5439.99,No,0.0,Gaztelagun,0
+SOL-2026-2155,Bilbao,18,Temporal,1127.31,866.16,28.3,2518.08,No,0.0,VPO_Alquiler,1
+SOL-2026-2156,Bilbao,,Indefinido,1262.27,735.6,31.9,4524.75,Si,80.0,Emantzipa,1
+SOL-2026-2157,Bilbao,19,Autonomo,1327.82,915.4,4.4,6079.21,Si,0.0,Emantzipa,0
+SOL-2026-2158,Bilbao,22,En_Practicas,1779.19,934.51,10.9,7380.23,Si,0.0,VPO_Alquiler,1
+SOL-2026-2159,Bilbao,33,Indefinido,1160.84,899.65,4.6,6754.08,No,280.0,VPO_Alquiler,0
+SOL-2026-2160,Donostia-San Sebastián,28,Autonomo,2010.55,1243.44,35.2,4458.96,No,0.0,VPO_Alquiler,1
+SOL-2026-2161,Bilbao,21,Indefinido,1053.77,914.29,32.7,46.22,No,0.0,Emantzipa,0
+SOL-2026-2162,Vitoria-Gasteiz,21,Autonomo,1939.99,548.12,38.5,1740.16,No,0.0,VPO_Alquiler,1
+SOL-2026-2163,Vitoria-Gasteiz,34,Temporal,1251.68,648.2,6.2,2641.75,Si,0.0,Gaztelagun,0
+SOL-2026-2164,Bilbao,23,Autonomo,1100.7,776.3,1.4,1428.9,No,0.0,VPO_Alquiler,0
+SOL-2026-2165,Barakaldo,34,Temporal,1462.69,709.22,8.2,,No,0.0,VPO_Alquiler,1
+SOL-2026-2166,Getxo,34,Temporal,1497.17,1015.1,27.3,,Si,0.0,VPO_Alquiler,1
+SOL-2026-2167,Bilbao,20,En_Practicas,1403.7,751.5,20.8,,No,0.0,VPO_Alquiler,0
+SOL-2026-2168,Bilbao,19,En_Practicas,1189.34,846.37,15.3,6580.5,No,0.0,VPO_Alquiler,0
+SOL-2026-2169,Getxo,27,Temporal,1596.24,998.67,40.8,,No,0.0,Gaztelagun,0
+SOL-2026-2170,Donostia-San Sebastián,34,Indefinido,1589.79,1120.85,8.4,192.08,No,0.0,Emantzipa,0
+SOL-2026-2171,Bilbao,20,En_Practicas,1337.66,911.75,1.0,16853.07,No,0.0,Emantzipa,0
+SOL-2026-2172,Vitoria-Gasteiz,30,En_Practicas,1067.63,513.06,18.5,4796.74,No,80.0,VPO_Alquiler,1
+SOL-2026-2173,Donostia-San Sebastián,29,Temporal,1125.96,1001.76,2.9,1220.51,No,160.0,Emantzipa,0
+SOL-2026-2174,Barakaldo,24,Indefinido,1669.26,566.34,4.5,5240.58,No,0.0,VPO_Alquiler,1
+SOL-2026-2175,Vitoria-Gasteiz,,Temporal,1621.12,788.27,11.0,7776.99,No,0.0,Gaztelagun,0
+SOL-2026-2176,Getxo,25,Indefinido,1037.85,793.77,18.9,2570.41,No,0.0,Gaztelagun,0
+SOL-2026-2177,Bilbao,,Indefinido,1009.93,931.06,71.9,2923.65,No,0.0,VPO_Alquiler,0
+SOL-2026-2178,Donostia-San Sebastián,22,Indefinido,1327.19,1274.08,8.7,1828.52,Si,160.0,Gaztelagun,1
+SOL-2026-2179,Donostia-San Sebastián,22,En_Practicas,1471.6,1018.78,7.4,448.16,No,80.0,Gaztelagun,0
+SOL-2026-2180,Vitoria-Gasteiz,34,Indefinido,1854.46,553.56,32.2,4884.84,Si,80.0,Gaztelagun,1
+SOL-2026-2181,Barakaldo,19,Indefinido,1674.47,707.38,4.1,751.95,No,160.0,VPO_Alquiler,1
+SOL-2026-2182,Getxo,19,Temporal,1334.35,1061.88,16.8,1356.99,No,80.0,VPO_Alquiler,0
+SOL-2026-2183,Barakaldo,31,Temporal,1653.33,749.79,18.3,7912.31,No,0.0,Gaztelagun,1
+SOL-2026-2184,Getxo,30,En_Practicas,1245.43,1007.82,2.7,,No,80.0,Gaztelagun,0
+SOL-2026-2185,Donostia-San Sebastián,19,Autonomo,750.0,1007.23,1.2,80.49,No,80.0,Gaztelagun,0
+SOL-2026-2186,Bilbao,20,Autonomo,1629.84,825.35,22.6,1479.54,No,0.0,Gaztelagun,1
+SOL-2026-2187,Bilbao,23,Temporal,1537.78,878.31,8.6,1918.03,No,280.0,Gaztelagun,0
+SOL-2026-2188,Donostia-San Sebastián,30,Indefinido,1403.36,1138.53,19.8,1075.69,Si,280.0,VPO_Alquiler,1
+SOL-2026-2189,Bilbao,34,Indefinido,1511.07,753.18,6.0,,No,80.0,VPO_Alquiler,1
+SOL-2026-2190,Donostia-San Sebastián,32,Temporal,1019.93,1100.26,44.4,,No,80.0,VPO_Alquiler,0
+SOL-2026-2191,Vitoria-Gasteiz,21,Temporal,1331.72,900.42,9.8,1455.03,No,80.0,Emantzipa,0
+SOL-2026-2192,Vitoria-Gasteiz,25,En_Practicas,784.93,619.92,33.9,4004.81,Si,0.0,Gaztelagun,1
+SOL-2026-2193,Getxo,,En_Practicas,974.08,895.78,10.1,18190.03,No,80.0,Gaztelagun,0
+SOL-2026-2194,Bilbao,22,En_Practicas,1887.81,866.5,8.5,3764.64,Si,0.0,Gaztelagun,1
+SOL-2026-2195,Bilbao,29,Indefinido,921.7,1108.13,49.8,1816.79,Si,0.0,Emantzipa,0
+SOL-2026-2196,Bilbao,28,Temporal,1873.57,817.45,55.8,2674.44,No,0.0,Emantzipa,1
+SOL-2026-2197,Vitoria-Gasteiz,23,Indefinido,1890.34,574.5,28.8,4119.45,Si,160.0,Gaztelagun,1
+SOL-2026-2198,Vitoria-Gasteiz,27,Temporal,1258.1,800.22,33.7,2822.43,Si,0.0,Gaztelagun,1
+SOL-2026-2199,Donostia-San Sebastián,19,Temporal,1116.98,1133.82,3.6,1797.55,No,0.0,Emantzipa,0
+SOL-2026-2200,Bilbao,26,Indefinido,1745.24,914.94,22.9,2165.78,No,0.0,Gaztelagun,0

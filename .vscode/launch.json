@@ -2,37 +2,56 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "▶️ Reto 1 (Ainhoa): Pipeline Completo + Dashboard Visual",
+      "name": "▶️ BDA + SBD: Pipeline Completo + Dashboard Cartográfico",
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/main.py",
+      "args": ["--subject", "bda_sbd"],
       "console": "integratedTerminal",
       "justMyCode": true
     },
     {
-      "name": "🌐 Abrir Solo Dashboard Visual (Ainhoa)",
+      "name": "🤖 SAA + PIA + MIA: Modelos ML + Dashboard Streamlit",
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/main.py",
-      "args": ["--visual"],
+      "args": ["--subject", "saa_pia_mia"],
       "console": "integratedTerminal",
       "justMyCode": true
     },
     {
-      "name": "⚡ Ejecutar Solo Pipeline de Datos y Análisis",
+      "name": "📄 Generar Documentación Oficial PDF (5 Asignaturas)",
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/main.py",
-      "args": ["--pipeline"],
+      "args": ["--pdf"],
       "console": "integratedTerminal",
       "justMyCode": true
     },
     {
-      "name": "🧪 Ejecutar Suite de Pruebas (pytest)",
+      "name": "🧪 Ejecutar Suite Completa de Tests (29 tests)",
       "type": "debugpy",
       "request": "launch",
-      "module": "pytest",
-      "args": ["-v"],
+      "program": "${workspaceFolder}/main.py",
+      "args": ["--test"],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "🌐 BDA + SBD: Abrir Solo Dashboard Leaflet",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/main.py",
+      "args": ["--subject", "bda_sbd", "--visual"],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "⚡ BDA + SBD: Ejecutar Solo Pipeline de Ingesta",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/main.py",
+      "args": ["--subject", "bda_sbd", "--pipeline"],
       "console": "integratedTerminal",
       "justMyCode": true
     }

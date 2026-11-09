@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "nombre": "Ane",
+        "edad": 20,
+        "curso": "DAM",
+        "nota": 8.5,
+        "activo": true
+    },
+    {
+        "id": 3,
+        "nombre": "Maialen",
+        "edad": 19,
+        "curso": "DAM",
+        "nota": 5.5,
+        "activo": false
+    },
+    {
+        "id": 4,
+        "nombre": "Unai",
+        "edad": 21,
+        "curso": "ASIR",
+        "nota": 7.8,
+        "activo": true
+    },
+    {
+        "id": 5,
+        "nombre": "Nerea",
+        "edad": 23,
+        "curso": "DAW",
+        "nota": 9.1,
+        "activo": true
+    }
+]

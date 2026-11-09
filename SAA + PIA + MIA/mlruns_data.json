@@ -1,0 +1,531 @@
+[
+  {
+    "run_id": "run_1794238420436_1",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:33:40",
+    "model_name": "Regresión Logística",
+    "params": {
+      "lr": 0.05,
+      "epochs": 300
+    },
+    "metrics": {
+      "train_recall": 0.279,
+      "val_recall": 0.3542,
+      "val_precision": 0.9189,
+      "val_f1": 0.5113,
+      "val_accuracy": 0.6389,
+      "val_tp": 34,
+      "val_fn": 62
+    },
+    "training_time_sec": 0.9
+  },
+  {
+    "run_id": "run_1794238423003_2",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:33:43",
+    "model_name": "K-Nearest Neighbors (KNN)",
+    "params": {
+      "k": 7,
+      "distance": "euclidean"
+    },
+    "metrics": {
+      "train_recall": 0.808,
+      "val_recall": 0.8333,
+      "val_precision": 0.7619,
+      "val_f1": 0.796,
+      "val_accuracy": 0.7722,
+      "val_tp": 80,
+      "val_fn": 16
+    },
+    "training_time_sec": 0.0
+  },
+  {
+    "run_id": "run_1794238423022_3",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:33:43",
+    "model_name": "Random Forest",
+    "params": {
+      "n_estimators": 30
+    },
+    "metrics": {
+      "train_recall": 0.7924,
+      "val_recall": 0.8438,
+      "val_precision": 0.7642,
+      "val_f1": 0.802,
+      "val_accuracy": 0.7778,
+      "val_tp": 81,
+      "val_fn": 15
+    },
+    "training_time_sec": 0.01
+  },
+  {
+    "run_id": "run_1794238423041_4",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:33:43",
+    "model_name": "XGBoost (Gradient Boosting)",
+    "params": {
+      "n_estimators": 40,
+      "lr": 0.1
+    },
+    "metrics": {
+      "train_recall": 0.7433,
+      "val_recall": 0.8021,
+      "val_precision": 0.7857,
+      "val_f1": 0.7938,
+      "val_accuracy": 0.7778,
+      "val_tp": 77,
+      "val_fn": 19
+    },
+    "training_time_sec": 0.01
+  },
+  {
+    "run_id": "run_1794238424218_5",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:33:44",
+    "model_name": "Support Vector Machine (SVM)",
+    "params": {
+      "C": 1.0,
+      "epochs": 250
+    },
+    "metrics": {
+      "train_recall": 0.0424,
+      "val_recall": 0.0417,
+      "val_precision": 1.0,
+      "val_f1": 0.08,
+      "val_accuracy": 0.4889,
+      "val_tp": 4,
+      "val_fn": 92
+    },
+    "training_time_sec": 1.17
+  },
+  {
+    "run_id": "run_1794238450887_6",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:34:10",
+    "model_name": "MLP Base (1 capa 32, relu)",
+    "params": {
+      "hidden_layers": "(32,)",
+      "activation": "relu",
+      "alpha": 0.0001,
+      "lr": 0.02
+    },
+    "metrics": {
+      "val_recall": 0.5938,
+      "val_precision": 0.8028,
+      "val_f1": 0.6826,
+      "val_accuracy": 0.7056
+    },
+    "training_time_sec": 26.59
+  },
+  {
+    "run_id": "run_1794238519672_7",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:35:19",
+    "model_name": "Regresión Logística",
+    "params": {
+      "lr": 0.05,
+      "epochs": 300
+    },
+    "metrics": {
+      "train_recall": 0.279,
+      "val_recall": 0.3542,
+      "val_precision": 0.9189,
+      "val_f1": 0.5113,
+      "val_accuracy": 0.6389,
+      "val_tp": 34,
+      "val_fn": 62
+    },
+    "training_time_sec": 1.19
+  },
+  {
+    "run_id": "run_1794238522220_8",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:35:22",
+    "model_name": "K-Nearest Neighbors (KNN)",
+    "params": {
+      "k": 7,
+      "distance": "euclidean"
+    },
+    "metrics": {
+      "train_recall": 0.808,
+      "val_recall": 0.8333,
+      "val_precision": 0.7619,
+      "val_f1": 0.796,
+      "val_accuracy": 0.7722,
+      "val_tp": 80,
+      "val_fn": 16
+    },
+    "training_time_sec": 0.0
+  },
+  {
+    "run_id": "run_1794238522246_9",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:35:22",
+    "model_name": "Random Forest",
+    "params": {
+      "n_estimators": 30
+    },
+    "metrics": {
+      "train_recall": 0.7924,
+      "val_recall": 0.8438,
+      "val_precision": 0.7642,
+      "val_f1": 0.802,
+      "val_accuracy": 0.7778,
+      "val_tp": 81,
+      "val_fn": 15
+    },
+    "training_time_sec": 0.02
+  },
+  {
+    "run_id": "run_1794238522267_10",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:35:22",
+    "model_name": "XGBoost (Gradient Boosting)",
+    "params": {
+      "n_estimators": 40,
+      "lr": 0.1
+    },
+    "metrics": {
+      "train_recall": 0.7433,
+      "val_recall": 0.8021,
+      "val_precision": 0.7857,
+      "val_f1": 0.7938,
+      "val_accuracy": 0.7778,
+      "val_tp": 77,
+      "val_fn": 19
+    },
+    "training_time_sec": 0.01
+  },
+  {
+    "run_id": "run_1794238523233_11",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:35:23",
+    "model_name": "Support Vector Machine (SVM)",
+    "params": {
+      "C": 1.0,
+      "epochs": 250
+    },
+    "metrics": {
+      "train_recall": 0.0424,
+      "val_recall": 0.0417,
+      "val_precision": 1.0,
+      "val_f1": 0.08,
+      "val_accuracy": 0.4889,
+      "val_tp": 4,
+      "val_fn": 92
+    },
+    "training_time_sec": 0.96
+  },
+  {
+    "run_id": "run_1794238548555_12",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:35:48",
+    "model_name": "MLP Base (1 capa 32, relu)",
+    "params": {
+      "hidden_layers": "(32,)",
+      "activation": "relu",
+      "alpha": 0.0001,
+      "lr": 0.02
+    },
+    "metrics": {
+      "val_recall": 0.5938,
+      "val_precision": 0.8028,
+      "val_f1": 0.6826,
+      "val_accuracy": 0.7056
+    },
+    "training_time_sec": 25.24
+  },
+  {
+    "run_id": "run_1794238635585_13",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:37:15",
+    "model_name": "Regresión Logística",
+    "params": {
+      "lr": 0.05,
+      "epochs": 300
+    },
+    "metrics": {
+      "train_recall": 0.433,
+      "val_recall": 0.5104,
+      "val_precision": 0.9074,
+      "val_f1": 0.6533,
+      "val_accuracy": 0.7111,
+      "val_tp": 49,
+      "val_fn": 47
+    },
+    "training_time_sec": 0.42
+  },
+  {
+    "run_id": "run_1794238636042_14",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:37:16",
+    "model_name": "K-Nearest Neighbors (KNN)",
+    "params": {
+      "k": 7,
+      "distance": "euclidean"
+    },
+    "metrics": {
+      "train_recall": 0.7478,
+      "val_recall": 0.8125,
+      "val_precision": 0.7222,
+      "val_f1": 0.7647,
+      "val_accuracy": 0.7333,
+      "val_tp": 78,
+      "val_fn": 18
+    },
+    "training_time_sec": 0.0
+  },
+  {
+    "run_id": "run_1794238636052_15",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:37:16",
+    "model_name": "Random Forest",
+    "params": {
+      "n_estimators": 30
+    },
+    "metrics": {
+      "train_recall": 0.7768,
+      "val_recall": 0.8229,
+      "val_precision": 0.7596,
+      "val_f1": 0.79,
+      "val_accuracy": 0.7667,
+      "val_tp": 79,
+      "val_fn": 17
+    },
+    "training_time_sec": 0.01
+  },
+  {
+    "run_id": "run_1794238636064_16",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:37:16",
+    "model_name": "XGBoost (Gradient Boosting)",
+    "params": {
+      "n_estimators": 40,
+      "lr": 0.1
+    },
+    "metrics": {
+      "train_recall": 0.7277,
+      "val_recall": 0.8021,
+      "val_precision": 0.7938,
+      "val_f1": 0.7979,
+      "val_accuracy": 0.7833,
+      "val_tp": 77,
+      "val_fn": 19
+    },
+    "training_time_sec": 0.01
+  },
+  {
+    "run_id": "run_1794238636452_17",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:37:16",
+    "model_name": "Support Vector Machine (SVM)",
+    "params": {
+      "C": 1.0,
+      "epochs": 250
+    },
+    "metrics": {
+      "train_recall": 0.3683,
+      "val_recall": 0.4479,
+      "val_precision": 0.8113,
+      "val_f1": 0.5772,
+      "val_accuracy": 0.65,
+      "val_tp": 43,
+      "val_fn": 53
+    },
+    "training_time_sec": 0.38
+  },
+  {
+    "run_id": "run_1794238645287_18",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:37:25",
+    "model_name": "MLP Base (1 capa 32, relu)",
+    "params": {
+      "hidden_layers": "(32,)",
+      "activation": "relu",
+      "alpha": 0.0001,
+      "lr": 0.02
+    },
+    "metrics": {
+      "val_recall": 0.7188,
+      "val_precision": 0.7841,
+      "val_f1": 0.75,
+      "val_accuracy": 0.7444
+    },
+    "training_time_sec": 8.78
+  },
+  {
+    "run_id": "run_1794238676369_19",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:37:56",
+    "model_name": "Regresión Logística",
+    "params": {
+      "lr": 0.05,
+      "epochs": 300
+    },
+    "metrics": {
+      "train_recall": 0.433,
+      "val_recall": 0.5104,
+      "val_precision": 0.9074,
+      "val_f1": 0.6533,
+      "val_accuracy": 0.7111,
+      "val_tp": 49,
+      "val_fn": 47
+    },
+    "training_time_sec": 0.48
+  },
+  {
+    "run_id": "run_1794238676822_20",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:37:56",
+    "model_name": "K-Nearest Neighbors (KNN)",
+    "params": {
+      "k": 7,
+      "distance": "euclidean"
+    },
+    "metrics": {
+      "train_recall": 0.7478,
+      "val_recall": 0.8125,
+      "val_precision": 0.7222,
+      "val_f1": 0.7647,
+      "val_accuracy": 0.7333,
+      "val_tp": 78,
+      "val_fn": 18
+    },
+    "training_time_sec": 0.0
+  },
+  {
+    "run_id": "run_1794238676832_21",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:37:56",
+    "model_name": "Random Forest",
+    "params": {
+      "n_estimators": 30
+    },
+    "metrics": {
+      "train_recall": 0.7768,
+      "val_recall": 0.8229,
+      "val_precision": 0.7596,
+      "val_f1": 0.79,
+      "val_accuracy": 0.7667,
+      "val_tp": 79,
+      "val_fn": 17
+    },
+    "training_time_sec": 0.01
+  },
+  {
+    "run_id": "run_1794238676843_22",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:37:56",
+    "model_name": "XGBoost (Gradient Boosting)",
+    "params": {
+      "n_estimators": 40,
+      "lr": 0.1
+    },
+    "metrics": {
+      "train_recall": 0.7277,
+      "val_recall": 0.8021,
+      "val_precision": 0.7938,
+      "val_f1": 0.7979,
+      "val_accuracy": 0.7833,
+      "val_tp": 77,
+      "val_fn": 19
+    },
+    "training_time_sec": 0.01
+  },
+  {
+    "run_id": "run_1794238677188_23",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:37:57",
+    "model_name": "Support Vector Machine (SVM)",
+    "params": {
+      "C": 1.0,
+      "epochs": 250
+    },
+    "metrics": {
+      "train_recall": 0.3683,
+      "val_recall": 0.4479,
+      "val_precision": 0.8113,
+      "val_f1": 0.5772,
+      "val_accuracy": 0.65,
+      "val_tp": 43,
+      "val_fn": 53
+    },
+    "training_time_sec": 0.34
+  },
+  {
+    "run_id": "run_1794238686514_24",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:38:06",
+    "model_name": "MLP Base (1 capa 32, relu)",
+    "params": {
+      "hidden_layers": "(32,)",
+      "activation": "relu",
+      "alpha": 0.0001,
+      "lr": 0.02
+    },
+    "metrics": {
+      "val_recall": 0.7188,
+      "val_precision": 0.7841,
+      "val_f1": 0.75,
+      "val_accuracy": 0.7444
+    },
+    "training_time_sec": 9.27
+  },
+  {
+    "run_id": "run_1794238727522_25",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:38:47",
+    "model_name": "MLP Exp 1: Profunda (2 capas 64-32, relu)",
+    "params": {
+      "hidden_layers": "(64, 32)",
+      "activation": "relu",
+      "alpha": 0.0001,
+      "lr": 0.02
+    },
+    "metrics": {
+      "val_recall": 0.75,
+      "val_precision": 0.7347,
+      "val_f1": 0.7423,
+      "val_accuracy": 0.7222
+    },
+    "training_time_sec": 40.77
+  },
+  {
+    "run_id": "run_1794238736292_26",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:38:56",
+    "model_name": "MLP Exp 2: Activación Tanh (1 capa 32, tanh)",
+    "params": {
+      "hidden_layers": "(32,)",
+      "activation": "tanh",
+      "alpha": 0.0001,
+      "lr": 0.02
+    },
+    "metrics": {
+      "val_recall": 0.7604,
+      "val_precision": 0.7157,
+      "val_f1": 0.7374,
+      "val_accuracy": 0.7111
+    },
+    "training_time_sec": 8.72
+  },
+  {
+    "run_id": "run_1794238745198_27",
+    "experiment": "reto1_vivienda_joven_euskadi",
+    "timestamp": "2026-11-09 16:39:05",
+    "model_name": "MLP Exp 3: Regularización Alta (alpha=0.01)",
+    "params": {
+      "hidden_layers": "(32,)",
+      "activation": "relu",
+      "alpha": 0.01,
+      "lr": 0.015
+    },
+    "metrics": {
+      "val_recall": 0.6979,
+      "val_precision": 0.8816,
+      "val_f1": 0.7791,
+      "val_accuracy": 0.7889
+    },
+    "training_time_sec": 8.85
+  }
+]

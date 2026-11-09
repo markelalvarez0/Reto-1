@@ -22,5 +22,6 @@ dev = [
 ]
 
 [tool.pytest.ini_options]
-testpaths = ["ainhoa/tests", "tests"]
-pythonpath = [".", "ainhoa"]
+addopts = "--import-mode=importlib"
+testpaths = ["tests"]
+pythonpath = [".", "ainhoa", "BDA + SBD", "SAA + PIA + MIA"]

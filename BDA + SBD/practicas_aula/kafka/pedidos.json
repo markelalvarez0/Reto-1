@@ -1,0 +1,218 @@
+[
+  {
+    "id_pedido": 1,
+    "cliente": "Ane",
+    "producto": "Portátil",
+    "categoria": "Informática",
+    "cantidad": 1,
+    "precio_unitario": 850,
+    "fecha": "2026-10-19"
+  },
+  {
+    "id_pedido": 2,
+    "cliente": "Jon",
+    "producto": "Ratón",
+    "categoria": "Accesorios",
+    "cantidad": 2,
+    "precio_unitario": 25,
+    "fecha": "2026-10-19"
+  },
+  {
+    "id_pedido": 3,
+    "cliente": "Maite",
+    "producto": "Teclado mecánico",
+    "categoria": "Accesorios",
+    "cantidad": 1,
+    "precio_unitario": 70,
+    "fecha": "2026-10-19"
+  },
+  {
+    "id_pedido": 4,
+    "cliente": "Unai",
+    "producto": "Monitor 27\"",
+    "categoria": "Informática",
+    "cantidad": 2,
+    "precio_unitario": 210,
+    "fecha": "2026-10-19"
+  },
+  {
+    "id_pedido": 5,
+    "cliente": "Leire",
+    "producto": "Auriculares",
+    "categoria": "Audio",
+    "cantidad": 1,
+    "precio_unitario": 60,
+    "fecha": "2026-10-19"
+  },
+  {
+    "id_pedido": 6,
+    "cliente": "Iker",
+    "producto": "Smartphone",
+    "categoria": "Móviles",
+    "cantidad": 1,
+    "precio_unitario": 599,
+    "fecha": "2026-10-19"
+  },
+  {
+    "id_pedido": 7,
+    "cliente": "Amaia",
+    "producto": "Funda móvil",
+    "categoria": "Accesorios",
+    "cantidad": 3,
+    "precio_unitario": 12,
+    "fecha": "2026-10-19"
+  },
+  {
+    "id_pedido": 8,
+    "cliente": "Mikel",
+    "producto": "Tablet",
+    "categoria": "Móviles",
+    "cantidad": 1,
+    "precio_unitario": 320,
+    "fecha": "2026-10-19"
+  },
+  {
+    "id_pedido": 9,
+    "cliente": "Nerea",
+    "producto": "Altavoz Bluetooth",
+    "categoria": "Audio",
+    "cantidad": 2,
+    "precio_unitario": 45,
+    "fecha": "2026-10-19"
+  },
+  {
+    "id_pedido": 10,
+    "cliente": "Asier",
+    "producto": "Disco SSD 1TB",
+    "categoria": "Informática",
+    "cantidad": 2,
+    "precio_unitario": 95,
+    "fecha": "2026-10-19"
+  },
+  {
+    "id_pedido": 11,
+    "cliente": "Olatz",
+    "producto": "Webcam HD",
+    "categoria": "Accesorios",
+    "cantidad": 1,
+    "precio_unitario": 40,
+    "fecha": "2026-10-19"
+  },
+  {
+    "id_pedido": 12,
+    "cliente": "Gorka",
+    "producto": "Impresora",
+    "categoria": "Informática",
+    "cantidad": 1,
+    "precio_unitario": 130,
+    "fecha": "2026-10-20"
+  },
+  {
+    "id_pedido": 13,
+    "cliente": "Itziar",
+    "producto": "Cargador USB-C",
+    "categoria": "Accesorios",
+    "cantidad": 4,
+    "precio_unitario": 18,
+    "fecha": "2026-10-20"
+  },
+  {
+    "id_pedido": 14,
+    "cliente": "Aitor",
+    "producto": "Smartwatch",
+    "categoria": "Móviles",
+    "cantidad": 1,
+    "precio_unitario": 180,
+    "fecha": "2026-10-20"
+  },
+  {
+    "id_pedido": 15,
+    "cliente": "Ainhoa",
+    "producto": "Barra de sonido",
+    "categoria": "Audio",
+    "cantidad": 1,
+    "precio_unitario": 150,
+    "fecha": "2026-10-20"
+  },
+  {
+    "id_pedido": 16,
+    "cliente": "Xabier",
+    "producto": "Router WiFi 6",
+    "categoria": "Redes",
+    "cantidad": 1,
+    "precio_unitario": 110,
+    "fecha": "2026-10-20"
+  },
+  {
+    "id_pedido": 17,
+    "cliente": "Maialen",
+    "producto": "Cable HDMI",
+    "categoria": "Accesorios",
+    "cantidad": 5,
+    "precio_unitario": 9,
+    "fecha": "2026-10-20"
+  },
+  {
+    "id_pedido": 18,
+    "cliente": "Josu",
+    "producto": "Portátil gaming",
+    "categoria": "Informática",
+    "cantidad": 1,
+    "precio_unitario": 1450,
+    "fecha": "2026-10-20"
+  },
+  {
+    "id_pedido": 19,
+    "cliente": "Garazi",
+    "producto": "Switch de red",
+    "categoria": "Redes",
+    "cantidad": 2,
+    "precio_unitario": 35,
+    "fecha": "2026-10-20"
+  },
+  {
+    "id_pedido": 20,
+    "cliente": "Oier",
+    "producto": "Micrófono USB",
+    "categoria": "Audio",
+    "cantidad": 1,
+    "precio_unitario": 85,
+    "fecha": "2026-10-20"
+  },
+  {
+    "id_pedido": 21,
+    "cliente": "Naroa",
+    "producto": "Teclado inalámbrico",
+    "categoria": "Accesorios",
+    "cantidad": 2,
+    "precio_unitario": 38,
+    "fecha": "2026-10-20"
+  },
+  {
+    "id_pedido": 22,
+    "cliente": "Beñat",
+    "producto": "Smartphone",
+    "categoria": "Móviles",
+    "cantidad": 2,
+    "precio_unitario": 450,
+    "fecha": "2026-10-20"
+  },
+  {
+    "id_pedido": 23,
+    "cliente": "Uxue",
+    "producto": "Repetidor WiFi",
+    "categoria": "Redes",
+    "cantidad": 3,
+    "precio_unitario": 29,
+    "fecha": "2026-10-20"
+  },
+  {
+    "id_pedido": 24,
+    "cliente": "Eneko",
+    "producto": "Monitor 24\"",
+    "categoria": "Informática",
+    "cantidad": 1,
+    "precio_unitario": 140,
+    "fecha": "2026-10-20"
+  }
+]

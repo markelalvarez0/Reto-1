@@ -7,10 +7,14 @@ import sys
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Asegurar que la carpeta de Ainhoa está en sys.path para imports de src
-ainhoa_dir = os.path.join(ROOT_DIR, "ainhoa")
-if ainhoa_dir not in sys.path:
-    sys.path.insert(0, ainhoa_dir)
+# Asegurar módulos intermodulares y por asignatura en sys.path
+paths_to_add = [
+    os.path.join(ROOT_DIR, "BDA + SBD"),
+    os.path.join(ROOT_DIR, "SAA + PIA + MIA"),
+    os.path.join(ROOT_DIR, "ainhoa"),
+    ROOT_DIR
+]
 
-if ROOT_DIR not in sys.path:
-    sys.path.insert(0, ROOT_DIR)
+for p in paths_to_add:
+    if os.path.exists(p) and p not in sys.path:
+        sys.path.insert(0, p)

@@ -1,0 +1,5 @@
+id,nombre,edad,curso,nota,activo
+1,Ane,20,DAM,8.5,True
+2,Jon,22,DAW,6.7,True
+3,Maialen,19,DAM,4.2,False
+4,Unai,21,ASIR,7.8,True

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Juegos Online</title>
+	<style>
+			/* ====== Reset básico ====== */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background: #f5f6fa;
+			color: #2c3e50;
+			line-height: 1.6;
+		}
+
+		/* ====== Header ====== */
+		header {
+			background: linear-gradient(135deg, #1e90ff, #00b894);
+			color: white;
+			text-align: center;
+			padding: 2rem 1rem;
+			border-bottom: 5px solid #0984e3;
+		}
+
+		header h1 {
+			font-size: 2.5rem;
+			margin-bottom: 0.5rem;
+		}
+
+		header p {
+			font-size: 1.2rem;
+			opacity: 0.9;
+		}
+
+		/* ====== Secciones ====== */
+		section {
+			padding: 2rem 1rem;
+			max-width: 1200px;
+			margin: auto;
+		}
+
+		section h2 {
+			font-size: 2rem;
+			margin-bottom: 1.5rem;
+			border-left: 6px solid #1e90ff;
+			padding-left: 10px;
+			color: #1e90ff;
+		}
+
+		/* ====== Tarjetas de Juegos ====== */
+		.juego {
+			background: white;
+			border-radius: 12px;
+			padding: 1rem;
+			margin-bottom: 1.5rem;
+			box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+			transition: transform 0.2s ease, box-shadow 0.2s ease;
+			text-align: center;
+		}
+
+		.juego:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+		}
+
+		.juego img {
+			border-radius: 10px;
+			margin-bottom: 1rem;
+			max-width: 100%;
+			height: auto;
+		}
+
+		.juego h3 {
+			font-size: 1.3rem;
+			margin-bottom: 0.5rem;
+			color: #2d3436;
+		}
+
+		.precio {
+			font-size: 1.2rem;
+			font-weight: bold;
+			color: #27ae60;
+			margin-bottom: 1rem;
+		}
+
+		/* ====== Botón Comprar ====== */
+		.comprar-btn {
+			display: inline-block;
+			padding: 0.6rem 1.2rem;
+			background: #1e90ff;
+			color: white;
+			text-decoration: none;
+			border-radius: 8px;
+			font-weight: bold;
+			transition: background 0.3s ease, transform 0.2s ease;
+		}
+
+		.comprar-btn:hover {
+			background: #0984e3;
+			transform: scale(1.05);
+		}
+
+		/* ====== Footer ====== */
+		footer {
+			background: #2c3e50;
+			color: white;
+			text-align: center;
+			padding: 1rem;
+			margin-top: 2rem;
+			font-size: 0.9rem;
+		}
+
+		/* ====== Responsive ====== */
+		@media (min-width: 768px) {
+			section {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 1.5rem;
+			}
+
+			.juego {
+				margin: 0;
+			}
+		}
+	</style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a la Tienda de Juegos Online</h1>
+        <p>Encuentra los mejores juegos para PC y Consolas</p>
+    </header>
+
+    <section id="juegos-destacados">
+        <h2>Juegos Destacados</h2>
+        <div class="juego" data-id="001">
+            <h3>The Legend of Zelda: Breath of the Wild</h3>
+            <img src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero" alt="Imagen de Zelda" width="200" height="150">
+            <p class="precio">59.99€</p>
+            <a href="/comprar/zelda" class="comprar-btn" title="Comprar Zelda">Comprar</a>
+        </div>
+        <div class="juego" data-id="002">
+            <h3>The Witcher 3: Wild Hunt</h3>
+            <img src="https://th.bing.com/th/id/OIP.7wiL2rFVFgFUFB-jiYiSrwHaEK?w=321&h=181&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Imagen de Witcher 3" width="200" height="150">
+            <p class="precio">39.99€</p>
+            <a href="/comprar/witcher3" class="comprar-btn" title="Comprar Witcher 3">Comprar</a>
+        </div>
+        <div class="juego" data-id="003">
+            <h3>Cyberpunk 2077</h3>
+            <img src="https://th.bing.com/th/id/OIP.E4XWyisiUY34i1GpZAWUcAHaEK?rs=1&pid=ImgDetMain" alt="Imagen de Cyberpunk 2077" width="200" height="150">
+            <p class="precio">49.99€</p>
+            <a href="/comprar/cyberpunk2077" class="comprar-btn" title="Comprar Cyberpunk 2077">Comprar</a>
+        </div>
+    </section>
+
+    <section id="juegos-nuevos">
+        <h2>Nuevos Lanzamientos</h2>
+        <div class="juego" data-id="004">
+            <h3>Elden Ring</h3>
+            <img src="https://th.bing.com/th/id/OSK.HEROCLICKTHROUGHeJ8C-vOc8Kozl_udnetJoq3gAha4kA7vpBS_ZodhUe8?rs=1&pid=ImgDetMain" alt="Imagen de Elden Ring" width="200" height="150">
+            <p class="precio">69.99€</p>
+            <a href="/comprar/elden-ring" class="comprar-btn" title="Comprar Elden Ring">Comprar</a>
+        </div>
+        <div class="juego" data-id="005">
+            <h3>Resident Evil Village</h3>
+            <img src="https://www.trustedreviews.com/wp-content/uploads/sites/54/2021/01/Resident-Evil-Village-Chris-Keyart.jpg" alt="Imagen de Resident Evil Village" width="200" height="150">
+            <p class="precio">49.99€</p>
+            <a href="/comprar/resident-evil-village" class="comprar-btn" title="Comprar Resident Evil Village">Comprar</a>
+        </div>
+    </section>
+
+    <section id="juegos-en-oferta">
+        <h2>Juegos en Oferta</h2>
+        <div class="juego" data-id="006">
+            <h3>Hades</h3>
+            <img src="https://static.actugaming.net/media/2018/12/Hades-Pack-Art-1.jpg" alt="Imagen de Hades" width="200" height="150">
+            <p class="precio">19.99€</p>
+            <a href="/comprar/hades" class="comprar-btn" title="Comprar Hades">Comprar</a>
+        </div>
+        <div class="juego" data-id="007">
+            <h3>Hollow Knight</h3>
+            <img src="https://cdn02.nintendo-europe.com/media/images/11_square_images/games_18/wii_u_download_software_3/SQ_WiiUDS_HollowKnight.jpg" alt="Imagen de Hollow Knight" width="200" height="150">
+            <p class="precio">9.99€</p>
+            <a href="/comprar/hollow-knight" class="comprar-btn" title="Comprar Hollow Knight">Comprar</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Tienda de Juegos Online</p>
+    </footer>
+</body>
+</html>
