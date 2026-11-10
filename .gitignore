@@ -68,3 +68,9 @@ config.local.json
 # Scratch scripts and temporary test files
 scratch/
 *.log
+
+# Resultados regenerables de servicios y análisis (originales conservados aparte)
+data/bda/
+data/bda_demo/
+data/analisis_municipal/
+test-results/

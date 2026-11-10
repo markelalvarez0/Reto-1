@@ -2,6 +2,11 @@
 
 Proyecto interdisciplinar del Curso de Especialización en Inteligencia Artificial y Big Data, IABD 2026–27.
 
+**Acceso y comparación territorial actualizados:** consultar [estado por asignatura y comandos](docs/ESTADO_ENTREGA.md).
+`python main.py --audit --json` verifica la integridad sin ejecutar el modelo.
+`python main.py --subject saa_pia_mia` abre directamente la aplicación conservada.
+El análisis territorial usa MongoDB, rentas EMAL y un escenario salarial OVJ del mismo año.
+
 **Versión de trabajo: `dev-jon`.** `main` y `test` no deben confundirse con la versión en desarrollo. La entrega global sigue pendiente de la revisión final de los dos bloques y de su integración verificada.
 
 ## Resultado publicado del bloque ML
