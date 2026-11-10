@@ -18,23 +18,74 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install requests pydantic beautifulsoup4
+      - run: python -m pip install -r requirements-ci.txt
+      - name: Verificar regresion antes de la integracion
+        run: |
+          mkdir -p test-results
+          python -m pytest tests/ -q --junitxml=test-results/regresion.xml
+          python scripts/sync_sources.py --check
       - name: Preparar workflow publicado en servicio local
         run: |
           mkdir -p data/acciones_n8n test-results
           docker compose -f n8n/compose.yml run --rm n8n import:workflow --input=/workflow/flujo.json
           docker compose -f n8n/compose.yml run --rm n8n publish:workflow --id=reto1Vivienda2026
           docker compose -f n8n/compose.yml up -d
-          for i in $(seq 1 90); do
-            if curl -fsS http://localhost:5678/healthz >/dev/null; then break; fi
-            sleep 2
-          done
-          curl -fsS http://localhost:5678/healthz
+      - name: Esperar registro real del webhook sin crear acciones
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import time
+          import requests
+
+          started = time.monotonic()
+          attempts = 0
+          last = 'Servicio no disponible'
+          while time.monotonic() - started < 120:
+              attempts += 1
+              try:
+                  health = requests.get('http://localhost:5678/healthz/readiness', timeout=3)
+                  if health.status_code != 200:
+                      last = f'Readiness HTTP {health.status_code}'
+                      time.sleep(2)
+                      continue
+                  # La rama de rechazo no llama al servicio de acciones.
+                  response = requests.post(
+                      'http://localhost:5678/webhook/vivienda-decision',
+                      json={'decision': '__CI_READINESS__'}, timeout=5,
+                  )
+                  if response.status_code in (404, 502, 503):
+                      last = f'Webhook HTTP {response.status_code}'
+                      time.sleep(2)
+                      continue
+                  if response.status_code != 400:
+                      raise RuntimeError(f'Rechazo inesperado: HTTP {response.status_code}: {response.text[:500]}')
+                  body = response.json()
+                  if body.get('persistido') is not False or body.get('error') != 'decision desconocida':
+                      raise RuntimeError(f'El webhook no ha validado el rechazo esperado: {body}')
+                  evidence = {'webhook_registrado': True, 'rechazo_sin_persistencia': True,
+                              'intentos': attempts, 'segundos': round(time.monotonic() - started, 2)}
+                  Path('test-results/n8n-readiness.json').write_text(json.dumps(evidence, indent=2))
+                  print(json.dumps(evidence))
+                  break
+              except (requests.ConnectionError, requests.Timeout) as error:
+                  last = type(error).__name__
+                  time.sleep(2)
+          else:
+              raise RuntimeError(f'Webhook no disponible tras 120 segundos: {last}')
+          PY
       - name: Comprobar ocho ramas y persistencia real
-        run: python integration_tests/check_n8n_live.py
+        shell: bash
+        run: |
+          set -o pipefail
+          python integration_tests/check_n8n_live.py 2>&1 | tee test-results/n8n-live.log
       - name: Recoger logs sin credenciales
         if: ${{ always() }}
-        run: docker compose -f n8n/compose.yml logs --no-color > test-results/n8n-service.log
+        shell: bash
+        run: |
+          mkdir -p test-results
+          docker compose -f n8n/compose.yml logs --no-color > test-results/n8n-service.log
+          tail -n 100 test-results/n8n-service.log
       - uses: actions/upload-artifact@v4
         if: ${{ always() }}
         with:
