@@ -1,0 +1,11 @@
+{
+  "modelo": "MLP_2_capas",
+  "n_test": 92,
+  "mae": 28.66563646053045,
+  "rmse": 37.9285330648495,
+  "r2": 0.918932902983818,
+  "sha256_modelo": "d6f05d11fa6002de53ecaff671b697bd901f63f946b87cc7484701aea76c210a",
+  "sha256_test": "f1520fc0580fee119b031252538961e5d62eee68db6a0783c3a5384bc5a65011",
+  "evaluaciones": 1,
+  "aviso": "Holdout retrospectivo de agregados EMAL; no valida elegibilidad ni decisiones personales."
+}

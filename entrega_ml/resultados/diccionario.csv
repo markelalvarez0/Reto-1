@@ -1,0 +1,12 @@
+campo,tipo,nulos_pct_train
+codigo_municipio,object,0.0
+municipio,object,0.0
+anio,int64,0.0
+trimestre,int64,0.0
+renta_media_eur,float64,0.0
+numero_contratos,float64,0.0
+periodo,int64,0.0
+renta_lag1,float64,4.159733777038269
+renta_lag4,float64,13.643926788685523
+contratos_lag1,float64,2.995008319467554
+provincia,object,0.0

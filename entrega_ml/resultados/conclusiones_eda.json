@@ -1,0 +1,8 @@
+{
+  "01_barras.png": "Donostia-San Sebastian presenta la mayor media de train (911.58 EUR). Es una media de agregados trimestrales, no ponderada por contratos.",
+  "02_histograma.png": "La mediana de train es 656.00 EUR. El objetivo es una renta municipal observada, no la viabilidad de una persona.",
+  "03_boxplot.png": "IQR = 136.13 EUR. No se eliminan precios altos solo por ser extremos: pueden reflejar diferencias territoriales reales.",
+  "04_dispersion.png": "Correlacion lag1/objetivo = 0.985. La persistencia debe ser un baseline; correlacion no demuestra causalidad.",
+  "05_correlacion.png": "Los retardos recogen persistencia. Ni la renta actual, ni su precio/m2, ni una categoria derivada del objetivo se incluyen entre las entradas.",
+  "nulos": "Los '-' de EMAL significan no disponible/oferta insuficiente. Los retardos iniciales faltan por construccion. Se conserva el patron; las medianas y categorias se ajustan dentro de cada fold, nunca con test."
+}

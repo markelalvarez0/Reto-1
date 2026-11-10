@@ -1,0 +1,66 @@
+{
+  "tipo": "captura_publica_original",
+  "fuentes": [
+    {
+      "archivo": "emal_catalogo.html",
+      "url_solicitada": "https://opendata.euskadi.eus/estadistica/tablas-estadisticas-de-la-estadistica-del-mercado-de-alquiler-emal-2016-2020-hasta-el-2-trimestre-de-2020/webopd00-dataset/es/",
+      "fecha_utc": "2026-11-10T14:37:17.351049+00:00",
+      "http_status": 200,
+      "url_final": "https://opendata.euskadi.eus/estadistica/tablas-estadisticas-de-la-estadistica-del-mercado-de-alquiler-emal-2016-2020-hasta-el-2-trimestre-de-2020/webopd00-dataset/es/",
+      "estado": "descargado",
+      "bytes": 164483,
+      "sha256": "0045c30a0efe49ee69792f7eaaa8491c6db4250a9f6fbb69c00fa541084c22b6"
+    },
+    {
+      "archivo": "emal_municipios.xlsx",
+      "url_solicitada": "https://opendata.euskadi.eus/contenidos/estadistica/122417_emal_tablas_estad/opendata/EMAL.-Barrios-Municipios.-2016-2026_es.xlsx",
+      "fecha_utc": "2026-11-10T14:37:18.098528+00:00",
+      "http_status": 200,
+      "url_final": "https://opendata.euskadi.eus/contenidos/estadistica/122417_emal_tablas_estad/opendata/EMAL.-Barrios-Municipios.-2016-2026_es.xlsx",
+      "estado": "descargado",
+      "bytes": 256980,
+      "sha256": "f4d27d4e8e9bd3688d4e7a454026a4a0884073dc73e3fc1c0da4891a1ad1af5c"
+    },
+    {
+      "archivo": "visesa.json",
+      "url_solicitada": "https://apps.visesa.eus/ws/promocion/filtro",
+      "fecha_utc": "2026-11-10T14:37:18.325207+00:00",
+      "http_status": 200,
+      "url_final": "https://apps.visesa.eus/ws/promocion/filtro",
+      "estado": "descargado",
+      "bytes": 1426128,
+      "sha256": "d12204dfb4f4b0d21cac38f32579129763c5f7617e1968864798e59fae112409"
+    },
+    {
+      "archivo": "etxebide.csv",
+      "url_solicitada": "https://opendata.euskadi.eus/contenidos/ds_localizaciones/promociones_etxebide/opendata/promociones.csv",
+      "fecha_utc": "2026-11-10T14:37:19.476012+00:00",
+      "http_status": 200,
+      "url_final": "https://opendata.euskadi.eus/contenidos/ds_localizaciones/promociones_etxebide/opendata/promociones.csv",
+      "estado": "descargado",
+      "bytes": 130681,
+      "sha256": "f6d867e1e7e940d7df48989dc6dd802ceba6f75987521cb0d9813dfe6f1d2537"
+    },
+    {
+      "archivo": "ine_2026.xlsx",
+      "url_solicitada": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx",
+      "fecha_utc": "2026-11-10T14:37:19.620907+00:00",
+      "http_status": 200,
+      "url_final": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx",
+      "estado": "descargado",
+      "bytes": 318222,
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741"
+    },
+    {
+      "archivo": "ovj_salario_2024.html",
+      "url_solicitada": "https://www.euskadi.eus/gobierno-vasco/-/noticia/2025/el-salario-neto-medio-juventud-asalariada-18-y-34-anos-2024-incluidas-pagas-extra-asciende-1-564-euros-mensuales-ligero-incremento-respecto-2023/",
+      "fecha_utc": "2026-11-10T14:37:20.620671+00:00",
+      "http_status": 200,
+      "url_final": "https://www.euskadi.eus/gobierno-vasco/-/noticia/2025/el-salario-neto-medio-juventud-asalariada-18-y-34-anos-2024-incluidas-pagas-extra-asciende-1-564-euros-mensuales-ligero-incremento-respecto-2023/",
+      "estado": "descargado",
+      "bytes": 47334,
+      "sha256": "ef8899a548fb273ae892223b29c6fdf85f3a8945202f77346eb1914c0a36d892"
+    }
+  ],
+  "advertencia": "Los errores se conservan. EMAL es estadistica agregada, no anuncios individuales."
+}

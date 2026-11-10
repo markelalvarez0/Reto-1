@@ -1,0 +1,17 @@
+[
+  {
+    "notebook": "01_eda.ipynb",
+    "celdas_ejecutadas": 3,
+    "errores": 0
+  },
+  {
+    "notebook": "02_entrenamiento_modelos.ipynb",
+    "celdas_ejecutadas": 3,
+    "errores": 0
+  },
+  {
+    "notebook": "03_explicabilidad_shap.ipynb",
+    "celdas_ejecutadas": 2,
+    "errores": 0
+  }
+]

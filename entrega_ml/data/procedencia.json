@@ -1,0 +1,36 @@
+{
+  "fuente": {
+    "archivo": "emal_municipios.xlsx",
+    "url_solicitada": "https://opendata.euskadi.eus/contenidos/estadistica/122417_emal_tablas_estad/opendata/EMAL.-Barrios-Municipios.-2016-2026_es.xlsx",
+    "fecha_utc": "2026-11-10T14:37:18.098528+00:00",
+    "http_status": 200,
+    "url_final": "https://opendata.euskadi.eus/contenidos/estadistica/122417_emal_tablas_estad/opendata/EMAL.-Barrios-Municipios.-2016-2026_es.xlsx",
+    "estado": "descargado",
+    "bytes": 256980,
+    "sha256": "f4d27d4e8e9bd3688d4e7a454026a4a0884073dc73e3fc1c0da4891a1ad1af5c"
+  },
+  "unidad": "municipio/trimestre; nuevos contratos EMAL",
+  "observaciones": 768,
+  "municipios": 19,
+  "objetivos_no_publicados_excluidos": 11,
+  "exclusion_territorial": "48036 Galdakao: cambio de perimetro",
+  "advertencia": "Serie revisada en la fecha de captura; evaluacion retrospectiva, no prueba de disponibilidad historica en tiempo real. No representa anuncios individuales ni todos los municipios de Euskadi.",
+  "smote": "No aplicable al objetivo continuo de renta; comparacion binaria auxiliar separada sobre subidas observadas.",
+  "particiones": {
+    "train": {
+      "filas": 601,
+      "desde": 8064,
+      "hasta": 8095
+    },
+    "val": {
+      "filas": 75,
+      "desde": 8096,
+      "hasta": 8099
+    },
+    "test": {
+      "filas": 92,
+      "desde": 8100,
+      "hasta": 8104
+    }
+  }
+}

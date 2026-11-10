@@ -1,0 +1,87 @@
+{
+  "dataset": {
+    "fuente": {
+      "archivo": "emal_municipios.xlsx",
+      "url_solicitada": "https://opendata.euskadi.eus/contenidos/estadistica/122417_emal_tablas_estad/opendata/EMAL.-Barrios-Municipios.-2016-2026_es.xlsx",
+      "fecha_utc": "2026-11-10T14:37:18.098528+00:00",
+      "http_status": 200,
+      "url_final": "https://opendata.euskadi.eus/contenidos/estadistica/122417_emal_tablas_estad/opendata/EMAL.-Barrios-Municipios.-2016-2026_es.xlsx",
+      "estado": "descargado",
+      "bytes": 256980,
+      "sha256": "f4d27d4e8e9bd3688d4e7a454026a4a0884073dc73e3fc1c0da4891a1ad1af5c"
+    },
+    "unidad": "municipio/trimestre; nuevos contratos EMAL",
+    "observaciones": 768,
+    "municipios": 19,
+    "objetivos_no_publicados_excluidos": 11,
+    "exclusion_territorial": "48036 Galdakao: cambio de perimetro",
+    "advertencia": "Serie revisada en la fecha de captura; evaluacion retrospectiva, no prueba de disponibilidad historica en tiempo real. No representa anuncios individuales ni todos los municipios de Euskadi.",
+    "smote": "No aplicable al objetivo continuo de renta; comparacion binaria auxiliar separada sobre subidas observadas.",
+    "particiones": {
+      "train": {
+        "filas": 601,
+        "desde": 8064,
+        "hasta": 8095
+      },
+      "val": {
+        "filas": 75,
+        "desde": 8096,
+        "hasta": 8099
+      },
+      "test": {
+        "filas": 92,
+        "desde": 8100,
+        "hasta": 8104
+      }
+    }
+  },
+  "seleccion": {
+    "modelo": "MLP_2_capas",
+    "criterio": "MAE validacion; empate del 1% a favor de regresion lineal",
+    "mae_val": 24.197045199402613,
+    "baseline_persistencia_val": {
+      "mae": 24.626666666666672,
+      "rmse": 34.79208683977821,
+      "r2": 0.9248964905926897
+    },
+    "sha256_modelo": "d6f05d11fa6002de53ecaff671b697bd901f63f946b87cc7484701aea76c210a",
+    "sha256_test": "f1520fc0580fee119b031252538961e5d62eee68db6a0783c3a5384bc5a65011",
+    "features": [
+      "anio",
+      "trimestre",
+      "renta_lag1",
+      "renta_lag4",
+      "contratos_lag1",
+      "codigo_municipio",
+      "provincia"
+    ],
+    "objetivo": "renta_media_eur",
+    "municipios": [
+      "01059",
+      "20030",
+      "20040",
+      "20045",
+      "20055",
+      "20067",
+      "20069",
+      "20071",
+      "20079",
+      "48013",
+      "48015",
+      "48020",
+      "48027",
+      "48044",
+      "48054",
+      "48078",
+      "48082",
+      "48084",
+      "48902"
+    ],
+    "max_periodo_entrenamiento": 8095,
+    "max_periodo_validacion": 8099,
+    "test_evaluado": false,
+    "unidad_prediccion": "renta media municipal trimestral, no precio de un anuncio individual"
+  },
+  "experimentos_regresion": 9,
+  "test": "reservado para Streamlit"
+}

@@ -1,0 +1,47 @@
+{
+  "modelo": "MLP_2_capas",
+  "criterio": "MAE validacion; empate del 1% a favor de regresion lineal",
+  "mae_val": 24.197045199402613,
+  "baseline_persistencia_val": {
+    "mae": 24.626666666666672,
+    "rmse": 34.79208683977821,
+    "r2": 0.9248964905926897
+  },
+  "sha256_modelo": "d6f05d11fa6002de53ecaff671b697bd901f63f946b87cc7484701aea76c210a",
+  "sha256_test": "f1520fc0580fee119b031252538961e5d62eee68db6a0783c3a5384bc5a65011",
+  "features": [
+    "anio",
+    "trimestre",
+    "renta_lag1",
+    "renta_lag4",
+    "contratos_lag1",
+    "codigo_municipio",
+    "provincia"
+  ],
+  "objetivo": "renta_media_eur",
+  "municipios": [
+    "01059",
+    "20030",
+    "20040",
+    "20045",
+    "20055",
+    "20067",
+    "20069",
+    "20071",
+    "20079",
+    "48013",
+    "48015",
+    "48020",
+    "48027",
+    "48044",
+    "48054",
+    "48078",
+    "48082",
+    "48084",
+    "48902"
+  ],
+  "max_periodo_entrenamiento": 8095,
+  "max_periodo_validacion": 8099,
+  "test_evaluado": false,
+  "unidad_prediccion": "renta media municipal trimestral, no precio de un anuncio individual"
+}

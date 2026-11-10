@@ -1,0 +1,21 @@
+{
+  "tipo": "caso de prueba explicito, no persona real",
+  "modelo_cargado": true,
+  "formulario_sin_errores": true,
+  "decision": "CONSULTAR_GAZTELAGUN",
+  "renta_estimada": 918.5930619507241,
+  "consentimiento_requerido": true,
+  "n8n_real": true,
+  "accion": {
+    "event_id": "80ce9d3c-899b-4f11-b8f6-a4dabdcd703b",
+    "decision": "CONSULTAR_GAZTELAGUN",
+    "accion": "checklist_gaztelagun",
+    "persistido": true,
+    "fecha_utc": "2026-11-10T16:43:16.715187+00:00",
+    "huella": "f1aee060142f0b53547fa474a6c57d9667ec82c7595c698c0d1b777deddf31d1",
+    "documento": "Preparar solicitud para revision administrativa, sin concesion automatica.",
+    "resolucion_administrativa": false
+  },
+  "idempotencia": true,
+  "test_final_evaluado": false
+}

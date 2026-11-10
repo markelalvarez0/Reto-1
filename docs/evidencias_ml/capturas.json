@@ -1,0 +1,9 @@
+{
+  "origen": "Chromium contra Streamlit y MLflow locales reales",
+  "ficheros": [
+    "streamlit-formulario.png",
+    "mlflow-experimentos.png",
+    "streamlit-modelos.png"
+  ],
+  "imagenes_generadas": false
+}

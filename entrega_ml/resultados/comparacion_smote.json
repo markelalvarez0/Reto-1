@@ -1,0 +1,41 @@
+{
+  "objetivo": "sube_renta_respecto_trimestre_anterior",
+  "clases_train": {
+    "1": 357,
+    "0": 219
+  },
+  "datos": "EMAL observado; solo numericas; no solicitantes ni elegibilidad",
+  "modelos": {
+    "subida_sin_SMOTE": {
+      "run_id": "b7a73d4817d04568a184867c45996f10",
+      "accuracy": 0.7066666666666667,
+      "precision": 0.7123287671232876,
+      "recall": 0.9811320754716981,
+      "f1": 0.8253968253968254,
+      "matriz_confusion": {
+        "TN": 1,
+        "FP": 21,
+        "FN": 1,
+        "TP": 52
+      },
+      "roc_auc": 0.6380789022298456,
+      "tiempo_s": 0.006821005000006153
+    },
+    "subida_con_SMOTE": {
+      "run_id": "68f3d500852a4d05b0f08f1de0984ec9",
+      "accuracy": 0.7066666666666667,
+      "precision": 0.7313432835820896,
+      "recall": 0.9245283018867925,
+      "f1": 0.8166666666666667,
+      "matriz_confusion": {
+        "TN": 4,
+        "FP": 18,
+        "FN": 4,
+        "TP": 49
+      },
+      "roc_auc": 0.6680960548885078,
+      "tiempo_s": 0.008791725999998334
+    }
+  },
+  "estado": "comparacion_real_en_validacion_sin_tocar_test"
+}
