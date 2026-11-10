@@ -1,0 +1,243 @@
+name: Validacion de notebooks y aplicacion
+
+"on":
+  push:
+    branches: [dev-jon]
+    paths: ['.github/workflows/validate-delivery.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  delivery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      MPLBACKEND: Agg
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      STREAMLIT_BROWSER_GATHER_USAGE_STATS: 'false'
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Instalar y verificar version publicada
+        run: |
+          mkdir -p evidencia_entrega
+          python -m pip install -r requirements-ci.txt
+          python -m pip check
+          python -m pytest tests/ -q --junitxml=evidencia_entrega/tests.xml
+          python scripts/sync_sources.py --check
+          git rev-parse HEAD > evidencia_entrega/commit.txt
+          python -m pip freeze > evidencia_entrega/entorno.txt
+      - name: Recuperar modelo congelado y sus evidencias de seleccion
+        uses: actions/download-artifact@v4
+        with:
+          name: validacion-propuesta-ml
+          run-id: 42855647062
+          github-token: ${{ github.token }}
+          path: .
+      - name: Recuperar originales oficiales sin recapturar ni sustituir datos
+        uses: actions/download-artifact@v4
+        with:
+          name: fuentes-oficiales-originales
+          run-id: 42835919323
+          github-token: ${{ github.token }}
+          path: data/capturas_oficiales
+      - name: Comprobar identidad del modelo, test y codigo entrenado
+        run: |
+          python - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          root = Path.cwd()
+          out = root/'entrega_ml'
+          manifest = json.loads((root/'test-results/propuesta.json').read_text())
+          for entry in manifest['files']:
+              data = (root/entry['path']).read_bytes()
+              digest = hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
+              assert digest == entry['blob_sha'], 'Codigo distinto al validado: '+entry['path']
+          selection = json.loads((out/'models/selection.json').read_text())
+          for name, key in [('models/best_model.joblib','sha256_modelo'),('data/test.csv','sha256_test')]:
+              assert hashlib.sha256((out/name).read_bytes()).hexdigest() == selection[key]
+          assert not (out/'resultados/test_final.json').exists(), 'No se espera una evaluacion final previa'
+          with open(os.environ['GITHUB_ENV'],'a') as handle:
+              handle.write('RETO1_ARTIFACT_DIR='+str(out)+'\n')
+          print('Modelo y codigo identicos a los validados. Test reservado intacto.')
+          PY
+      - name: Ejecutar los tres notebooks y conservar sus salidas reales
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import nbformat
+          from nbclient import NotebookClient
+          root = Path.cwd()
+          output = root/'entrega_ml/notebooks_ejecutados'
+          output.mkdir(parents=True, exist_ok=True)
+          evidence = []
+          for name in ['01_eda.ipynb','02_entrenamiento_modelos.ipynb','03_explicabilidad_shap.ipynb']:
+              notebook = nbformat.read(root/'notebooks'/name, as_version=4)
+              nbformat.validate(notebook)
+              NotebookClient(notebook, timeout=600, kernel_name='python3',
+                             resources={'metadata': {'path': str(root)}}).execute()
+              nbformat.write(notebook, output/name)
+              code = [cell for cell in notebook.cells if cell.cell_type == 'code']
+              assert all(cell.execution_count is not None for cell in code)
+              assert not any(o.output_type == 'error' for cell in code for o in cell.get('outputs', []))
+              evidence.append({'notebook': name, 'celdas_ejecutadas': len(code), 'errores': 0})
+              print(json.dumps(evidence[-1]))
+          assert not (root/'entrega_ml/resultados/test_final.json').exists()
+          (root/'evidencia_entrega/notebooks.json').write_text(json.dumps(evidence, indent=2))
+          PY
+      - name: Preparar n8n local para el caso de prueba de Streamlit
+        run: |
+          mkdir -p data/acciones_n8n
+          docker compose -f n8n/compose.yml run --rm n8n import:workflow --input=/workflow/flujo.json
+          docker compose -f n8n/compose.yml run --rm n8n publish:workflow --id=reto1Vivienda2026
+          docker compose -f n8n/compose.yml up -d
+          python - <<'PY'
+          import time, requests
+          deadline = time.monotonic() + 120
+          while time.monotonic() < deadline:
+              try:
+                  r = requests.post('http://localhost:5678/webhook/vivienda-decision',
+                                    json={'decision':'__CI_READINESS__'}, timeout=5)
+                  if r.status_code == 400 and r.json().get('error') == 'decision desconocida' and r.json().get('persistido') is False:
+                      break
+                  if r.status_code not in (404, 502, 503):
+                      raise RuntimeError('Webhook inesperado: '+str(r.status_code)+': '+r.text[:300])
+              except (requests.ConnectionError, requests.Timeout):
+                  pass
+              time.sleep(2)
+          else:
+              raise RuntimeError('El webhook no se ha registrado')
+          PY
+      - name: Probar formulario, consentimiento, accion real e idempotencia
+        run: |
+          python - <<'PY'
+          import json, math
+          from pathlib import Path
+          from streamlit.testing.v1 import AppTest
+
+          root = Path.cwd()
+          def label(elements, text):
+              matches = [e for e in elements if e.label == text]
+              assert len(matches) == 1, 'Widget ambiguo o ausente: '+text
+              return matches[0]
+          app = AppTest.from_file(str(root/'app/streamlit_app.py'), default_timeout=60).run()
+          assert not app.exception, [str(e.value) for e in app.exception]
+          label(app.selectbox,'Municipio cubierto por EMAL').select('48020').run()
+          values = {'Edad':25, 'Ingresos netos mensuales (EUR)':1800.0,
+                    'Ingresos anuales computables documentados (EUR)':24000.0,
+                    'Tu pago mensual real de alquiler (EUR)':600.0,
+                    'Renta total de la vivienda (EUR/mes)':600.0,
+                    'Deudas mensuales (EUR)':0.0, 'Ahorro disponible (EUR)':2500.0,
+                    'Coste real de entrada, fianza y gastos (EUR)':1000.0}
+          for key, value in values.items():
+              label(app.number_input,key).set_value(value)
+          for text in ['Residencia previa acreditada','Vivienda habitual de mercado libre',
+                       'Titularidad del contrato acreditada','Pagos bancarios acreditados',
+                       'Sin vivienda en propiedad disponible','Sin parentesco excluyente',
+                       'Incompatibilidades comprobadas']:
+              label(app.checkbox,text).set_value(True)
+          label(app.button,'Predecir referencia y orientar').click().run()
+          assert not app.exception, [str(e.value) for e in app.exception]
+          decision = app.session_state['decision_vivienda']
+          assert decision['decision'] == 'CONSULTAR_GAZTELAGUN', decision
+          assert math.isfinite(decision['renta_estimada']) and decision['renta_estimada'] > 0
+          assert label(app.button,'Registrar accion en n8n').disabled is True
+          consent = 'Autorizo enviar SOLO decision y referencia municipal a n8n; sin salario ni datos identificativos'
+          label(app.checkbox,consent).set_value(True).run()
+          label(app.button,'Registrar accion en n8n').click().run()
+          assert not app.exception, [str(e.value) for e in app.exception]
+          assert any('Accion confirmada por n8n' in e.value for e in app.success)
+          event_id = app.session_state['event_id_vivienda']
+          action = root/'data/acciones_n8n'/f'{event_id}.json'
+          first = action.read_bytes()
+          record = json.loads(first)
+          assert record['accion'] == 'checklist_gaztelagun' and record['persistido'] is True
+          assert record['resolucion_administrativa'] is False
+          label(app.button,'Registrar accion en n8n').click().run()
+          assert not app.exception
+          assert action.read_bytes() == first, 'La repeticion no debe duplicar ni modificar la accion'
+          assert not (root/'entrega_ml/resultados/test_final.json').exists()
+          evidence = {'tipo': 'caso de prueba explicito, no persona real',
+                      'modelo_cargado': True, 'formulario_sin_errores': True,
+                      'decision': decision['decision'], 'renta_estimada': decision['renta_estimada'],
+                      'consentimiento_requerido': True, 'n8n_real': True,
+                      'accion': record, 'idempotencia': True, 'test_final_evaluado': False}
+          (root/'evidencia_entrega/streamlit-n8n.json').write_text(json.dumps(evidence, indent=2))
+          print(json.dumps(evidence, indent=2))
+          PY
+      - name: Arrancar interfaces locales y capturar pantallas reales
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+          python -m streamlit run app/streamlit_app.py --server.headless true --server.address 127.0.0.1 --server.port 8501 > evidencia_entrega/streamlit-server.log 2>&1 &
+          mlflow ui --backend-store-uri "sqlite:///$GITHUB_WORKSPACE/entrega_ml/mlruns/mlflow.db" --host 127.0.0.1 --port 5000 > evidencia_entrega/mlflow-server.log 2>&1 &
+          python - <<'PY'
+          from pathlib import Path
+          import json, time, requests
+          from playwright.sync_api import sync_playwright
+          root = Path.cwd()
+          for url in ['http://127.0.0.1:8501/_stcore/health','http://127.0.0.1:5000/']:
+              for _ in range(60):
+                  try:
+                      if requests.get(url, timeout=3).status_code == 200:
+                          break
+                  except requests.RequestException:
+                      pass
+                  time.sleep(1)
+              else:
+                  raise RuntimeError('Interfaz no disponible: '+url)
+          out = root/'evidencia_entrega/capturas'
+          out.mkdir(parents=True, exist_ok=True)
+          with sync_playwright() as p:
+              browser = p.chromium.launch()
+              page = browser.new_page(viewport={'width':1440,'height':1000})
+              page.goto('http://127.0.0.1:8501/', wait_until='domcontentloaded')
+              page.get_by_role('heading',name='Vivienda joven en Euskadi',exact=True).wait_for(timeout=60000)
+              page.get_by_text('Comparativa de MLflow: entrenamiento y validacion',exact=True).wait_for(timeout=60000)
+              page.screenshot(path=str(out/'streamlit-modelos.png'))
+              page.get_by_role('tab',name='Nuevo caso y accion').click()
+              page.get_by_text('Tu pago mensual real de alquiler (EUR)',exact=True).wait_for()
+              page.screenshot(path=str(out/'streamlit-formulario.png'))
+              page.goto('http://127.0.0.1:5000/', wait_until='domcontentloaded')
+              page.get_by_text('Reto1_EMAL',exact=True).first.wait_for(timeout=60000)
+              page.screenshot(path=str(out/'mlflow-experimentos.png'))
+              browser.close()
+          (root/'evidencia_entrega/capturas.json').write_text(json.dumps({'origen':'Chromium contra Streamlit y MLflow locales reales','ficheros':[p.name for p in out.glob('*.png')],'imagenes_generadas':False},indent=2))
+          PY
+      - name: Empaquetar codigo y evidencias sin alterar datos ni evaluar test
+        run: |
+          git archive --format=zip HEAD -o evidencia_entrega/codigo_publicado.zip
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path.cwd()
+          assert not (root/'entrega_ml/resultados/test_final.json').exists()
+          files=[]
+          for folder in ['entrega_ml','evidencia_entrega','data/capturas_oficiales']:
+              for file in sorted((root/folder).rglob('*')):
+                  if file.is_file():
+                      files.append({'archivo':str(file.relative_to(root)), 'sha256':hashlib.sha256(file.read_bytes()).hexdigest()})
+          (root/'evidencia_entrega/manifest.json').write_text(json.dumps(files,indent=2))
+          PY
+      - name: Conservar paquete y pruebas incluso ante fallos
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: entrega-ml-validada
+          path: |
+            evidencia_entrega/
+            entrega_ml/
+            data/capturas_oficiales/
+          retention-days: 30
+      - name: Detener servicios temporales
+        if: ${{ always() }}
+        run: docker compose -f n8n/compose.yml down
