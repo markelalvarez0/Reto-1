@@ -109,7 +109,7 @@ jobs:
                   raise ValueError('Ruta no permitida')
               target.parent.mkdir(parents=True, exist_ok=True)
               target.write_bytes(blob(entry['sha']))
-          patch_shas = ['b23d3c1956e6b100542b9c7443830376cf1a72ec', '92af7fac9f108e52502d0bb9a52108110aa77ef6']
+          patch_shas = ['b23d3c1956e6b100542b9c7443830376cf1a72ec', '92af7fac9f108e52502d0bb9a52108110aa77ef6', 'bb927806cd24587ca0a89b580a20da2991d62ca0']
           for index, patch_sha in enumerate(patch_shas):
               patch = Path(os.environ['RUNNER_TEMP'])/f'apply_bda_candidate_{index}.py'
               patch.write_bytes(blob(patch_sha))
