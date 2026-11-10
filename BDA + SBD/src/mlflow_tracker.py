@@ -1,62 +1,41 @@
-"""
-src/mlflow_tracker.py - Registro y trazabilidad de experimentos compatible con MLflow.
-Cumple con la rúbrica PIA RA2:
-- Registro de modelos, hiperparámetros y métricas de validación/train
-- Trazabilidad y persistencia de experimentos para auditoría y visualización
-"""
-
-import time
-import json
+"""Registro real de experimentos en MLflow; no simula un servidor con JSON."""
 from pathlib import Path
-from typing import Dict, Any, List
+import math
 
-class MLflowExperimentTracker:
-    """Gestiona el registro estructurado de ejecuciones y métricas de experimentos."""
+import mlflow
+import mlflow.sklearn
 
-    def __init__(self, experiment_name: str = "reto1_vivienda_joven_euskadi", runs_file: Path = None):
-        self.experiment_name = experiment_name
-        self.runs_file = runs_file or Path(__file__).resolve().parent.parent / "mlruns_data.json"
-        self.runs: List[Dict[str, Any]] = self._cargar_historial()
 
-    def _cargar_historial(self) -> List[Dict[str, Any]]:
-        if self.runs_file.exists():
-            try:
-                with open(self.runs_file, "r", encoding="utf-8") as f:
-                    return json.load(f)
-            except Exception:
-                return []
-        return []
+class MLflowTracker:
+    """Almacenamiento local SQLite y artefactos MLflow reproducibles."""
+    def __init__(self, experiment_name="Reto1_EMAL", tracking_dir="mlruns"):
+        self.root = Path(tracking_dir).resolve()
+        self.root.mkdir(parents=True, exist_ok=True)
+        self.tracking_uri = "sqlite:///" + (self.root / "mlflow.db").as_posix()
+        mlflow.set_tracking_uri(self.tracking_uri)
+        client = mlflow.tracking.MlflowClient()
+        experiment = client.get_experiment_by_name(experiment_name)
+        self.experiment_id = (experiment.experiment_id if experiment else
+                              client.create_experiment(experiment_name, artifact_location=(self.root / "artifacts").as_uri()))
 
-    def log_run(self, model_name: str, params: Dict[str, Any], metrics: Dict[str, Any], training_time_sec: float) -> Dict[str, Any]:
-        """Registra un nuevo run de experimento."""
-        run_record = {
-            "run_id": f"run_{int(time.time()*1000)}_{len(self.runs)+1}",
-            "experiment": self.experiment_name,
-            "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
-            "model_name": model_name,
-            "params": params,
-            "metrics": metrics,
-            "training_time_sec": round(training_time_sec, 2)
-        }
-        self.runs.append(run_record)
-        self._guardar()
-        return run_record
+    def log_run(self, name, params, metrics, model=None, artifacts=(), tags=None):
+        """Registra solo medidas calculadas, con modelo y ficheros verificables."""
+        mlflow.set_tracking_uri(self.tracking_uri)
+        with mlflow.start_run(experiment_id=self.experiment_id, run_name=name) as run:
+            mlflow.log_params({key: str(value)[:500] for key, value in params.items()})
+            for key, value in metrics.items():
+                number = float(value)
+                if not math.isfinite(number):
+                    raise ValueError(f"Metrica no finita: {key}")
+                mlflow.log_metric(key, number)
+            mlflow.set_tags({"fuente": "EMAL_observado", "test_utilizado": "no", **(tags or {})})
+            if model is not None:
+                mlflow.sklearn.log_model(model, artifact_path="modelo", serialization_format="cloudpickle")
+            for path in artifacts:
+                mlflow.log_artifact(str(path))
+            return run.info.run_id
 
-    def _guardar(self):
-        with open(self.runs_file, "w", encoding="utf-8") as f:
-            json.dump(self.runs, f, indent=2, ensure_ascii=False)
-
-    def obtener_tabla_comparativa(self) -> List[Dict[str, Any]]:
-        """Devuelve un resumen consolidado para la tabla comparativa exigida en el README."""
-        tabla = []
-        for r in self.runs:
-            m = r["metrics"]
-            tabla.append({
-                "Modelo": r["model_name"],
-                "Recall (Validación)": m.get("val_recall", m.get("recall", 0.0)),
-                "F1 (Validación)": m.get("val_f1", m.get("f1", 0.0)),
-                "Precisión (Validación)": m.get("val_precision", m.get("precision", 0.0)),
-                "Accuracy (Validación)": m.get("val_accuracy", m.get("accuracy", 0.0)),
-                "Tiempo (s)": r["training_time_sec"]
-            })
-        return tabla
+    def results(self):
+        """Tabla obtenida de MLflow, no de una copia de metricas escrita a mano."""
+        mlflow.set_tracking_uri(self.tracking_uri)
+        return mlflow.search_runs(experiment_ids=[self.experiment_id], output_format="pandas")

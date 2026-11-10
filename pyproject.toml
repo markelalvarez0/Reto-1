@@ -1,25 +1,20 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "curso-ia-bigdata"
-version = "0.1.0"
-description = "Repositorio Académico Multidisciplinar - IA y Big Data (Ainhoa, MIA, PIA, SAA)"
+version = "0.2.0"
+description = "Reto vivienda Euskadi: datos observados, pipeline Big Data y aprendizaje supervisado"
 readme = "README.md"
-requires-python = ">=3.10"
-dependencies = [
-    "requests>=2.31.0",
-    "beautifulsoup4>=4.12.0",
-    "pydantic>=2.5.0",
-    "kafka-python-ng>=2.2.0",
-    "python-dotenv>=1.0.0",
-]
+requires-python = ">=3.12,<3.14"
+dynamic = ["dependencies"]
 
-[project.optional-dependencies]
-dev = [
-    "pytest>=8.0.0",
-]
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.packages.find]
+include = ["src*"]
 
 [tool.pytest.ini_options]
 addopts = "--import-mode=importlib"
