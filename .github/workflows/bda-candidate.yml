@@ -109,10 +109,11 @@ jobs:
                   raise ValueError('Ruta no permitida')
               target.parent.mkdir(parents=True, exist_ok=True)
               target.write_bytes(blob(entry['sha']))
-          patch_sha = 'b23d3c1956e6b100542b9c7443830376cf1a72ec'
-          patch = Path(os.environ['RUNNER_TEMP'])/'apply_bda_candidate.py'
-          patch.write_bytes(blob(patch_sha))
-          subprocess.run([sys.executable, str(patch)], check=True)
+          patch_shas = ['b23d3c1956e6b100542b9c7443830376cf1a72ec', '92af7fac9f108e52502d0bb9a52108110aa77ef6']
+          for index, patch_sha in enumerate(patch_shas):
+              patch = Path(os.environ['RUNNER_TEMP'])/f'apply_bda_candidate_{index}.py'
+              patch.write_bytes(blob(patch_sha))
+              subprocess.run([sys.executable, str(patch)], check=True)
           attributes = root/'.gitattributes'
           attributes.write_text(attributes.read_text(encoding='utf-8').replace('/data/capturas_oficiales/** -text', '/data/capturas_oficiales/** -text -diff'), encoding='utf-8')
           doc = root/'docs/BDA_ESTADO.md'
@@ -136,7 +137,7 @@ jobs:
                       raise ValueError('Diferencia de original no explicada: '+name)
                   target.write_bytes(original)
                   restoration.append({'archivo':name, 'causa':'normalizacion CRLF a LF de Git', 'sha256_anterior':hashlib.sha256(previous).hexdigest(), 'sha256_restaurado':record['sha256']})
-          evidence = {'base_commit':os.environ['GITHUB_SHA'], 'overlay_tree':tree_sha, 'patch_blob':patch_sha,
+          evidence = {'base_commit':os.environ['GITHUB_SHA'], 'overlay_tree':tree_sha, 'patch_blobs':patch_shas,
                       'originales_restaurados':restoration, 'modelo_ml_modificado':False}
           (root/'evidencia_bda_integracion/propuesta.json').write_text(json.dumps(evidence,indent=2))
           print(json.dumps(evidence,indent=2))
