@@ -1,18 +1,14 @@
 name: Auditoria global del proyecto
-
 "on":
   push:
     branches: [dev-jon]
     paths: ['.github/workflows/project-audit.yml']
   workflow_dispatch:
-
 permissions:
   contents: read
-
 concurrency:
   group: auditoria-propuesta-${{ github.ref }}
   cancel-in-progress: false
-
 jobs:
   validation:
     if: ${{ github.ref == 'refs/heads/dev-jon' }}
@@ -30,8 +26,7 @@ jobs:
       STREAMLIT_BROWSER_GATHER_USAGE_STATS: 'false'
       AUDIT_TREE: '1678a54d291d21431d86221ceec235d33394bb41'
     steps:
-      - name: Conservar bytes en el checkout temporal
-        run: git config --global core.autocrlf false
+      - run: git config --global core.autocrlf false
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
@@ -48,80 +43,67 @@ jobs:
       - name: Instalar solo pytest para auditoria estructural Windows
         if: runner.os == 'Windows'
         run: python -m pip install --retries 5 --timeout 60 -q 'pytest>=8,<10'
-      - name: Comprobar la base antes de aplicar propuesta
+      - name: Validar base Linux
         if: runner.os == 'Linux'
         run: |
           python -m pip check
           python -m pytest tests/ -q
           python scripts/sync_sources.py --check
-      - name: Aplicar propuesta solo en copia temporal
+      - name: Aplicar propuesta verificada solo a la copia temporal
         shell: bash
         env:
           GH_READ_TOKEN: ${{ github.token }}
         run: |
           python - <<'PY'
           import base64, hashlib, json, os, subprocess
-          from pathlib import Path, PurePosixPath
+          from pathlib import Path
           from urllib.request import Request, urlopen
-          root = Path.cwd().resolve()
-          folder = root/'evidencia_auditoria'
-          folder.mkdir(exist_ok=True)
-          bases = {'main.py': '54f74e862c52ea8de55935a1d5b1274ca5203498',
-                   '.gitattributes': '48e561fd461f34872992057e1d341929eddacdf7'}
-          allowed = set(bases) | {'scripts/audit_project.py','tests/test_project_launcher.py','tests/test_project_audit.py'}
+          root=Path.cwd().resolve(); folder=root/'evidencia_auditoria'; folder.mkdir(exist_ok=True)
+          bases={'main.py':'54f74e862c52ea8de55935a1d5b1274ca5203498','.gitattributes':'48e561fd461f34872992057e1d341929eddacdf7'}
+          allowed=set(bases)|{'scripts/audit_project.py','tests/test_project_launcher.py','tests/test_project_audit.py'}
           for name, expected in bases.items():
-              actual = subprocess.check_output(['git','rev-parse','HEAD:'+name], text=True).strip()
-              if actual != expected:
-                  raise RuntimeError('La base cambio: '+name)
-          def hashes():
-              return {p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
-                      for group in ['entrega_ml','data/capturas_oficiales','docs/evidencias_ml','docs/evidencias_bda']
-                      for p in (root/group).rglob('*') if p.is_file()}
-          (folder/'inmutables_antes.json').write_text(json.dumps(hashes(), indent=2), encoding='utf-8')
-          api = 'https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']+'/git/'
-          headers = {'Authorization': 'Bearer '+os.environ['GH_READ_TOKEN'], 'Accept':'application/vnd.github+json'}
-          def get(suffix):
-              with urlopen(Request(api+suffix, headers=headers), timeout=30) as response:
-                  return json.load(response)
-          sha = os.environ['AUDIT_TREE']
-          tree = get('trees/'+sha+'?recursive=1')
-          if tree.get('truncated') or tree['sha'] != sha:
-              raise RuntimeError('Arbol incompleto')
+              actual=subprocess.check_output(['git','rev-parse','HEAD:'+name],text=True).strip()
+              if actual!=expected: raise RuntimeError('Base modificada: '+name)
+          before={p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+                  for group in ['entrega_ml','data/capturas_oficiales','docs/evidencias_ml','docs/evidencias_bda']
+                  for p in (root/group).rglob('*') if p.is_file()}
+          (folder/'inmutables_antes.json').write_text(json.dumps(before,indent=2),encoding='utf-8')
+          api='https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']+'/git/'
+          headers={'Authorization':'Bearer '+os.environ['GH_READ_TOKEN'],'Accept':'application/vnd.github+json'}
+          def get(path):
+              with urlopen(Request(api+path,headers=headers),timeout=30) as r: return json.load(r)
+          sha=os.environ['AUDIT_TREE']; tree=get('trees/'+sha+'?recursive=1')
+          if tree.get('truncated') or tree['sha']!=sha: raise RuntimeError('Arbol incompleto')
           for entry in tree['tree']:
-              if entry['type'] == 'tree':
-                  continue
-              name = entry['path']
-              relative = PurePosixPath(name)
-              target = root.joinpath(*relative.parts)
-              if name not in allowed or entry['mode'] != '100644' or entry['type'] != 'blob' or target.is_symlink():
-                  raise RuntimeError('Cambio fuera del alcance')
-              if name not in bases and target.exists():
-                  raise RuntimeError('Archivo nuevo ya existe: '+name)
-              value = get('blobs/'+entry['sha'])
-              if value['encoding'] != 'base64' or value['size'] > 200000:
-                  raise RuntimeError('Blob no permitido')
-              data = base64.b64decode(value['content'])
-              actual = hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
-              if actual != entry['sha']:
-                  raise RuntimeError('Blob alterado')
-              target.parent.mkdir(parents=True, exist_ok=True)
-              target.write_bytes(data)
+              if entry['type']=='tree': continue
+              name=entry['path']; target=root/name
+              if name not in allowed or entry['type']!='blob' or entry['mode']!='100644' or target.is_symlink():
+                  raise RuntimeError('Ruta no permitida')
+              if name not in bases and target.exists(): raise RuntimeError('Archivo nuevo ya existe: '+name)
+              value=get('blobs/'+entry['sha'])
+              if value['encoding']!='base64' or value['size']>200000: raise RuntimeError('Blob no permitido')
+              data=base64.b64decode(value['content'])
+              if hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()!=entry['sha']:
+                  raise RuntimeError('Identidad de blob incorrecta')
+              target.parent.mkdir(parents=True,exist_ok=True); target.write_bytes(data)
           (folder/'propuesta.json').write_text(json.dumps({'base':os.environ['GITHUB_SHA'],'tree':sha,'publica_codigo':False},indent=2))
           PY
-      - name: Validar propuesta con toda la suite Linux
+      - name: Probar toda la suite y el arranque BDA en Linux
         if: runner.os == 'Linux'
         run: |
           python -m pytest tests/ -q --junitxml=evidencia_auditoria/tests.xml
           python scripts/sync_sources.py --check
           python main.py --subject bda_sbd --prepare-only --raw-dir evidencia_auditoria/preparados
-      - name: Validar portal y auditoria estructural Windows
+      - name: Probar portal y auditoria estructural en Windows
         if: runner.os == 'Windows'
         run: python -m pytest tests/test_project_launcher.py tests/test_project_audit.py -q --junitxml=evidencia_auditoria/tests.xml
-      - name: Auditar los originales y artefactos publicados sin ejecutar modelos
+      - name: Mostrar todos los controles de integridad sin ejecutar modelos
         shell: bash
         run: |
-          python main.py --audit --json > evidencia_auditoria/integridad.json
+          result=0
+          python main.py --audit --json > evidencia_auditoria/integridad.json || result=$?
           cat evidencia_auditoria/integridad.json
+          exit "$result"
       - name: Abrir Streamlit con el resultado final conservado
         if: runner.os == 'Linux'
         shell: bash
@@ -130,26 +112,26 @@ jobs:
           import json
           from pathlib import Path
           from streamlit.testing.v1 import AppTest
-          app = AppTest.from_file('app/streamlit_app.py', default_timeout=60).run()
-          assert not app.exception, [str(e.value) for e in app.exception]
+          app=AppTest.from_file('app/streamlit_app.py',default_timeout=60).run()
+          assert not app.exception,[str(e.value) for e in app.exception]
           assert any('Informe conservado' in e.value for e in app.success)
-          assert not any(e.label == 'Evaluar test reservado una sola vez' for e in app.button)
+          assert not any(e.label=='Evaluar test reservado una sola vez' for e in app.button)
           Path('evidencia_auditoria/streamlit.json').write_text(json.dumps({'abre_modelo_publicado':True,'informe_final_conservado':True,'boton_reevaluacion_ausente':True}))
           PY
-      - name: Comprobar que nada congelado ha cambiado
+      - name: Verificar que los originales, modelo y resultados no cambian
         if: ${{ always() }}
         shell: bash
         run: |
           python - <<'PY'
-          import hashlib, json
+          import hashlib,json
           from pathlib import Path
           root=Path.cwd()
           before=json.loads((root/'evidencia_auditoria/inmutables_antes.json').read_text())
-          after={p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+          after={p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
                  for group in ['entrega_ml','data/capturas_oficiales','docs/evidencias_ml','docs/evidencias_bda']
                  for p in (root/group).rglob('*') if p.is_file()}
-          assert before == after, 'Los artefactos congelados han cambiado'
-          print('Originales, modelo, test y evidencias previas conservados:', len(before))
+          assert before==after,'Se modificaron artefactos congelados'
+          print('Artefactos conservados sin cambios:',len(before))
           PY
       - uses: actions/upload-artifact@v4
         if: ${{ always() }}
