@@ -18,12 +18,18 @@ PROVINCIAS = {"48": "Bizkaia", "20": "Gipuzkoa", "01": "Araba"}
 class MongoDBDataLoader:
     """Carga CSV/JSON sin borrar colecciones ni completar precios desconocidos."""
 
-    def __init__(self, db, allow_demo: bool = False):
+    def __init__(self, db, allow_demo: bool = False, municipality_catalog=None):
         self.db = db
         self.viviendas_col = db["viviendas"]
         self.municipios_col = db["municipios"]
         self.rechazos_col = db["rechazos_ingesta"]
         self.allow_demo = allow_demo
+        self.municipality_catalog = municipality_catalog
+
+    def _codigo_municipio(self, name):
+        """El catalogo completo se inyecta solo tras verificar la captura INE."""
+        catalog = getattr(self, "municipality_catalog", None)
+        return catalog.resolve(name) if catalog is not None else resolver_codigo_ine(name)
 
     @staticmethod
     def _leer_fichero(path: Path):
@@ -71,7 +77,7 @@ class MongoDBDataLoader:
         """Carga los indicadores por codigo INE sin modificar viviendas."""
         accepted = rejected = 0
         for row in rows:
-            code = resolver_codigo_ine(row.get("municipio", ""))
+            code = self._codigo_municipio(row.get("municipio", ""))
             origin = row.get("codigo_municipio")
             if not code or (origin and origin != code):
                 rejected += 1
@@ -83,7 +89,20 @@ class MongoDBDataLoader:
             for name in ("salario_medio_joven_mes", "poblacion_total", "paro_juvenil_pct"):
                 if name in clean:
                     clean[name] = numero_observado(clean[name])
-            self.municipios_col.update_one({"codigo_municipio": code}, {"$set": clean}, upsert=True)
+            # Actualizar subcampos evita borrar indicadores de otras fuentes.
+            # Un valor ausente solo se inicializa al crear el municipio.
+            fields = {}
+            for key, value in clean.items():
+                if isinstance(value, dict):
+                    fields.update({f"{key}.{name}": item for name, item in value.items()})
+                else:
+                    fields[key] = value
+            observed = {key: value for key, value in fields.items() if value is not None}
+            absent = {key: None for key, value in fields.items() if value is None}
+            update = {"$set": observed}
+            if absent:
+                update["$setOnInsert"] = absent
+            self.municipios_col.update_one({"codigo_municipio": code}, update, upsert=True)
             accepted += 1
         return accepted, rejected
 
@@ -109,7 +128,7 @@ class MongoDBDataLoader:
     def _normalizar_anuncio(self, ad: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         """No infiere precio, area, ascensor ni fianza a partir de su ausencia."""
         mun = primer_valor(ad.get("municipio"), ad.get("mun"))
-        code = resolver_codigo_ine(mun)
+        code = self._codigo_municipio(mun)
         supplied = primer_valor(ad.get("codigo_municipio"), ad.get("cod"))
         if not code or (supplied is not None and (not isinstance(supplied, str) or not re.fullmatch(r"[0-9]{5}", supplied) or supplied != code)):
             logger.warning("Registro %s: municipio/INE no reconocido o contradictorio", ad.get("id"))
@@ -124,10 +143,24 @@ class MongoDBDataLoader:
         area = numero_observado(primer_valor(ad.get("superficie_m2"), ad.get("m2")), minimo=0.01)
         source = ad.get("fuente") or "fuente_no_documentada"
         synthetic = booleano_observado(ad.get("es_sintetico"))
-        provenance = dict(ad.get("procedencia") or {})
+        provenance = ad.get("procedencia") or {}
+        try:
+            if isinstance(provenance, str):
+                provenance = json.loads(provenance)
+            if not isinstance(provenance, dict):
+                raise ValueError("Procedencia no es un objeto JSON")
+            provenance = dict(provenance)
+        except (ValueError, TypeError):
+            logger.warning("Registro %s: procedencia no valida", identity)
+            return None
+        record_type = ad.get("tipo_registro") or "anuncio"
+        if record_type not in {"anuncio", "promocion"}:
+            logger.warning("Registro %s: unidad de observacion no reconocida", identity)
+            return None
         provenance.setdefault("estado", "demo" if synthetic is True else "observado" if synthetic is False else "no_verificado")
         if ad.get("archivo_origen"):
-            provenance["archivo"] = ad["archivo_origen"]
+            provenance.setdefault("archivo", ad["archivo_origen"])
+            provenance["archivo_normalizado"] = ad["archivo_origen"]
         def feature(name):
             return primer_valor(caracteristicas.get(name), ad.get(name))
         operation = str(ad.get("tipo_operacion") or "desconocida").strip().lower()
@@ -141,6 +174,7 @@ class MongoDBDataLoader:
             "portal_origen": ad.get("portal_origen") or source,
             "url": ad.get("url"), "fecha_extraccion": ad.get("fecha_extraccion"),
             "es_sintetico": synthetic, "procedencia": provenance,
+            "tipo_registro": record_type, "lote_ingesta": ad.get("lote_ingesta"),
             "caracteristicas": {
                 **{name: numero_observado(feature(name), entero=True) for name in ("habitaciones", "banos", "fianza_meses", "distancia_transporte_m")},
                 "ascensor": booleano_observado(feature("ascensor")),

@@ -64,7 +64,8 @@ class HousingKafkaConsumer:
         self,
         max_messages: int = 10,
         timeout_seconds: float = 2.0,
-        on_message_callback: Optional[Callable[[HousingAd, int], None]] = None
+        on_message_callback: Optional[Callable[[HousingAd, int], None]] = None,
+        expected_batch_id: Optional[str] = None
     ) -> List[HousingAd]:
         """
         Consume hasta max_messages del tópico.
@@ -84,6 +85,8 @@ class HousingKafkaConsumer:
                         except (ValueError, TypeError, UnicodeDecodeError) as error:
                             logging.getLogger(__name__).warning('Evento invalido en %s:%s: %s', msg.partition, msg.offset, error)
                             continue
+                        if expected_batch_id is not None and ad.lote_ingesta != expected_batch_id:
+                            continue
                         # If persistence fails, do not commit the offset or suppress its error.
                         if on_message_callback:
                             on_message_callback(ad, len(received) + 1)
@@ -92,14 +95,17 @@ class HousingKafkaConsumer:
         else:
             # Modo broker en memoria
             if self._mock_broker:
-                for idx in range(max_messages):
-                    payload = self._mock_broker.poll(timeout_seconds=timeout_seconds)
+                deadline = time.monotonic() + timeout_seconds
+                while len(received) < max_messages and time.monotonic() < deadline:
+                    payload = self._mock_broker.poll(timeout_seconds=max(0.001, deadline - time.monotonic()))
                     if payload is None:
                         break
                     try:
                         ad = HousingAd(**payload)
                     except (ValueError, TypeError) as err:
                         logging.getLogger(__name__).warning("Mensaje simulado invalido: %s", err)
+                        continue
+                    if expected_batch_id is not None and ad.lote_ingesta != expected_batch_id:
                         continue
                     if on_message_callback:
                         on_message_callback(ad, len(received) + 1)

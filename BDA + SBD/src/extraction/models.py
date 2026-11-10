@@ -6,7 +6,7 @@ y campos de características detalladas (fianza, ascensor, planta, transporte).
 
 import re
 import unicodedata
-from typing import Optional, List, Dict, Any
+from typing import Optional, List, Dict, Any, Literal
 from pydantic import BaseModel, Field
 from datetime import datetime, timezone
 
@@ -101,6 +101,10 @@ class HousingAd(BaseModel):
         description="Fecha y hora de obtención en formato ISO 8601"
     )
     es_sintetico: bool = Field(False, description="Flag que identifica si el dato es de respaldo o en vivo")
+
+    tipo_registro: Literal["anuncio", "promocion"] = "anuncio"
+    procedencia: Dict[str, Any] = Field(default_factory=dict, description="Origen, fecha y huella del registro")
+    lote_ingesta: Optional[str] = Field(None, description="Identificador de la ejecucion; no modifica el ID de origen")
 
     def model_post_init(self, __context: Any) -> None:
         """Completa el INE conocido, sin inventar códigos municipales."""

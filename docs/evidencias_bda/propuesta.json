@@ -1,0 +1,24 @@
+{
+  "base_commit": "89e497c6c4220ef4d8d7add13e7d2325ebde357d",
+  "overlay_tree": "6046f23c962d92f37c38ac353fd3b08760f0a24a",
+  "patch_blobs": [
+    "b23d3c1956e6b100542b9c7443830376cf1a72ec",
+    "92af7fac9f108e52502d0bb9a52108110aa77ef6",
+    "bb927806cd24587ca0a89b580a20da2991d62ca0"
+  ],
+  "originales_restaurados": [
+    {
+      "archivo": "etxebide.csv",
+      "causa": "normalizacion CRLF a LF de Git",
+      "sha256_anterior": "2079c509efd43b07ed9af0c35ce5bae85415fa9937ba9e6d0d8f1daa7131565a",
+      "sha256_restaurado": "f6d867e1e7e940d7df48989dc6dd802ceba6f75987521cb0d9813dfe6f1d2537"
+    },
+    {
+      "archivo": "ovj_salario_2024.html",
+      "causa": "normalizacion CRLF a LF de Git",
+      "sha256_anterior": "7dd35eddb4d4deebd7841cd4dda0cfafd7ac0fe91aa06f9435f33ca0bebef028",
+      "sha256_restaurado": "ef8899a548fb273ae892223b29c6fdf85f3a8945202f77346eb1914c0a36d892"
+    }
+  ],
+  "modelo_ml_modificado": false
+}

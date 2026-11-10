@@ -1,215 +1,140 @@
-"""
-src/extraction/api_client.py - Cliente REST para la API de Vivienda de Open Data Euskadi (Visesa WS).
+"""Cliente REST Visesa con contratos comprobados y respaldo CSV oficial.
 
-Extrae información real sobre promociones de vivienda pública y protegida (VPO/Alquiler)
-en Euskadi con manejo de fallbacks oficiales y normalización al modelo HousingAd.
+Una promocion no equivale a una vivienda disponible. Los precios de locales,
+garajes o unidades en venta no se convierten en rentas mensuales.
 """
-
-import json
 import csv
-import os
-import requests
-from typing import List, Dict, Any, Optional
+import hashlib
+import json
 from datetime import datetime, timezone
-from .models import HousingAd, ExtractionResult
+from pathlib import Path
+from typing import Any, Dict, Optional
+from urllib.parse import urlparse
+
+import requests
+from .models import HousingAd, ExtractionResult, _normalizar_nombre_municipio
+from .normalization import numero_observado
 
 
 class OpenDataEuskadiHousingClient:
-    """Cliente para la API REST pública de promociones inmobiliarias del Gobierno Vasco (Visesa)."""
-
     DEFAULT_API_URL = "https://apps.visesa.eus/ws/promocion/filtro"
-    DEFAULT_CSV_FALLBACK_URL = (
-        "https://opendata.euskadi.eus/contenidos/ds_localizaciones/"
-        "promociones_etxebide/opendata/promociones.csv"
-    )
+    DEFAULT_CSV_FALLBACK_URL = "https://opendata.euskadi.eus/contenidos/ds_localizaciones/promociones_etxebide/opendata/promociones.csv"
 
     def __init__(self, api_url: Optional[str] = None, timeout_seconds: int = 15):
         self.api_url = api_url or self.DEFAULT_API_URL
         self.timeout_seconds = timeout_seconds
         self.session = requests.Session()
-        self.session.headers.update({
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-            "Accept": "application/json, text/plain, */*"
-        })
+        self.session.headers.update({"User-Agent": "IABD-Reto1/1.0 (academic public-data retrieval)", "Accept": "application/json"})
 
-    def _safe_get(self, url: str, **kwargs) -> requests.Response:
-        """Petición GET con soporte y fallback ante certificados SSL locales de la CA de Euskadi."""
+    def _safe_get(self, url, **kwargs):
+        """Mantiene la verificacion TLS; no oculta fallos de certificados."""
         kwargs.setdefault("timeout", self.timeout_seconds)
         return self.session.get(url, **kwargs)
 
-    def fetch_promotions(self) -> ExtractionResult:
-        """
-        Consulta el endpoint REST de promociones de vivienda protegida de Euskadi.
-        Retorna un ExtractionResult con objetos HousingAd validados.
-        """
-        errores: List[str] = []
-        ads: List[HousingAd] = []
+    @staticmethod
+    def provenance(response):
+        return {"estado": "respuesta_http", "url": response.url,
+                "fecha_captura": datetime.now(timezone.utc).isoformat(),
+                "sha256": hashlib.sha256(response.content).hexdigest()}
 
+    def parse_payload(self, data, procedencia=None):
+        """Admite el contrato publicado promociones y el contrato legado rows.
+
+        Un contrato desconocido genera un error explicito, no cero resultados
+        interpretados como una descarga correcta.
+        """
+        if not isinstance(data, dict):
+            raise ValueError("La respuesta Visesa debe ser un objeto JSON")
+        key = "promociones" if "promociones" in data else "rows"
+        if key not in data or not isinstance(data[key], list):
+            raise ValueError("Contrato Visesa desconocido: faltan promociones/rows")
+        ads, errors = [], []
+        for number, row in enumerate(data[key], 1):
+            try:
+                if not isinstance(row, dict):
+                    raise ValueError("Registro no es un objeto")
+                ad = self._parse_api_row(row)
+                if ad is None:
+                    raise ValueError("Falta identificador o municipio")
+                ad.procedencia = {**(procedencia or {"estado": "no_acreditada"}),
+                                  "fila_origen": number, "contrato": key,
+                                  "unidad_observacion": "promocion"}
+                if key == "promociones":
+                    ad.procedencia.update(modalidad_original=row.get("modalidad"),
+                                          regimen_original=row.get("regimen"),
+                                          estado_original=row.get("estado"),
+                                          identificador_original=str(row.get("id")))
+                ads.append(ad)
+            except (ValueError, TypeError) as error:
+                errors.append(f"Fila {number}: {error}")
+        return ExtractionResult(fuente="OpenDataEuskadi_Visesa", total_registros=len(ads), items=ads, errores=errors)
+
+    def fetch_promotions(self):
         try:
             response = self._safe_get(self.api_url)
             response.raise_for_status()
-            data = response.json()
-        except requests.exceptions.RequestException as e:
-            msg = f"Error en la petición HTTP a {self.api_url}: {e}"
-            errores.append(msg)
-            return self._fetch_csv_fallback(errores)
-        except json.JSONDecodeError as e:
-            msg = f"Error al decodificar la respuesta JSON de {self.api_url}: {e}"
-            errores.append(msg)
-            return ExtractionResult(fuente="OpenDataEuskadi_Visesa", total_registros=0, items=[], errores=errores)
-
-        rows = data.get("rows", [])
-        for row in rows:
-            try:
-                ad = self._parse_api_row(row)
-                if ad:
-                    ads.append(ad)
-            except Exception as ex:
-                errores.append(f"Error parseando registro {row.get('idContenido')}: {ex}")
-
-        return ExtractionResult(
-            fuente="OpenDataEuskadi_Visesa",
-            total_registros=len(ads),
-            items=ads,
-            errores=errores
-        )
+            return self.parse_payload(response.json(), self.provenance(response))
+        except (requests.RequestException, ValueError) as error:
+            return self._fetch_csv_fallback([f"Visesa: {error}"])
 
     def _parse_api_row(self, row: Dict[str, Any]) -> Optional[HousingAd]:
-        """Transforma una fila del WS de Visesa en un objeto HousingAd estandarizado."""
-        id_contenido = str(row.get("idContenido") or row.get("codigoInterno") or "")
-        if not id_contenido:
+        if "id" in row and "nombre_promocion" in row:
+            identifier = str(row.get("id") or "").strip()
+            municipality = str(row.get("municipio") or "").strip()
+            if not identifier or not municipality:
+                return None
+            mode = _normalizar_nombre_municipio(row.get("modalidad", ""))
+            operation = "alquiler" if mode == "alquiler" else ("compraventa" if mode in {"venta", "compra", "compraventa"} else "vpo")
+            link = str(row.get("link_informacion") or "").strip()
+            if urlparse(link).scheme not in {"https", "http"}:
+                link = self.api_url
+            # Las unidades anidadas mezclan viviendas, locales, garajes y trasteros.
+            # El contrato no declara una renta mensual por vivienda de la promocion.
+            return HousingAd(id=f"visesa_{identifier}", fuente="OpenDataEuskadi_Visesa",
+                             tipo_registro="promocion", tipo_operacion=operation,
+                             municipio=municipality, provincia=row.get("territorio"),
+                             titulo=row.get("nombre_promocion"), direccion=row.get("domicilio"),
+                             url=link, precio=None, superficie_m2=None, es_sintetico=False)
+
+        identifier = str(row.get("idContenido") or row.get("codigoInterno") or "")
+        municipality = str(row.get("poblacion") or row.get("municipio") or "").strip()
+        if not identifier or not municipality:
             return None
+        planned = str(row.get("fechaPrevista") or "").lower()
+        operation = "alquiler" if row.get("idTipoVenta") == 7 or "alquiler" in planned or "alokairu" in planned else ("compraventa" if "compra" in planned or "cv" in planned else "vpo")
+        value = next((row[k] for k in ("precioMinimo", "rentaMinima", "precioCompra", "precioAlquiler") if row.get(k) is not None), None)
+        rooms = numero_observado(row.get("numeroDormitorios", row.get("numeroDormitoriosMinimo")))
+        return HousingAd(id=f"visesa_{identifier}", fuente="OpenDataEuskadi_Visesa", tipo_registro="promocion",
+                         tipo_operacion=operation, municipio=municipality,
+                         direccion=row.get("direccion") or row.get("direccionPromocion"),
+                         precio=numero_observado(value), superficie_m2=numero_observado(row.get("superficie")),
+                         habitaciones=int(rooms) if rooms is not None and rooms.is_integer() else None,
+                         titulo=row.get("titulo"), descripcion=row.get("texto"),
+                         url=self.api_url, es_sintetico=False)
 
-        poblacion = row.get("poblacion") or row.get("municipio") or "Euskadi"
-
-        # Determinar régimen
-        tipo_venta = row.get("idTipoVenta")
-        fecha_prevista = str(row.get("fechaPrevista") or "").lower()
-        if tipo_venta == 7 or "alokairu" in fecha_prevista or "alquiler" in fecha_prevista:
-            tipo_operacion = "alquiler"
-        elif "compra" in fecha_prevista or "cv" in fecha_prevista:
-            tipo_operacion = "compraventa"
-        else:
-            tipo_operacion = "vpo"
-
-        # Precios
-        precio = None
-        if row.get("precioMinimo"):
-            try:
-                precio = float(row["precioMinimo"])
-            except (ValueError, TypeError):
-                pass
-        elif row.get("rentaMinima"):
-            try:
-                precio = float(row["rentaMinima"])
-            except (ValueError, TypeError):
-                pass
-        elif row.get("precioCompra"):
-            try:
-                precio = float(row["precioCompra"])
-            except (ValueError, TypeError):
-                pass
-        elif row.get("precioAlquiler"):
-            try:
-                precio = float(row["precioAlquiler"])
-            except (ValueError, TypeError):
-                pass
-
-        superficie = None
-        if row.get("superficie"):
-            try:
-                superficie = float(row["superficie"])
-            except (ValueError, TypeError):
-                pass
-
-        habitaciones = None
-        if row.get("numeroDormitorios"):
-            try:
-                habitaciones = int(row["numeroDormitorios"])
-            except (ValueError, TypeError):
-                pass
-        elif row.get("numeroDormitoriosMinimo"):
-            try:
-                habitaciones = int(row["numeroDormitoriosMinimo"])
-            except (ValueError, TypeError):
-                pass
-
-        url_detalle = f"https://www.visesa.euskadi.eus/webvis01-promocionesdetalle/es/?id={id_contenido}"
-
-        return HousingAd(
-            id=f"visesa_{id_contenido}",
-            fuente="OpenDataEuskadi_Visesa",
-            tipo_operacion=tipo_operacion,
-            municipio=poblacion.strip(),
-            direccion=row.get("direccion") or row.get("direccionPromocion"),
-            precio=precio,
-            superficie_m2=superficie,
-            habitaciones=habitaciones,
-            banos=None,
-            titulo=row.get("titulo"),
-            descripcion=row.get("texto"),
-            url=url_detalle,
-            fecha_extraccion=datetime.now(timezone.utc).isoformat(),
-            es_sintetico=False
-        )
-
-    def _fetch_csv_fallback(self, prev_errors: List[str]) -> ExtractionResult:
-        """Descarga el catálogo de promociones de Etxebide en CSV como respaldo oficial."""
-        errores = list(prev_errors)
-        ads: List[HousingAd] = []
+    def _fetch_csv_fallback(self, prev_errors):
+        from .source_snapshots import parse_etxebide_csv
+        errors = list(prev_errors)
         try:
-            resp = self._safe_get(self.DEFAULT_CSV_FALLBACK_URL)
-            resp.raise_for_status()
-            text = resp.content.decode("latin1", errors="replace")
-            reader = csv.DictReader(text.splitlines(), delimiter=";")
-            for row in reader:
-                id_prom = row.get("ID_PROM")
-                if not id_prom:
-                    continue
-                reg = (row.get("Reg Acceso") or "").lower()
-                op = "alquiler" if "alquiler" in reg else ("compraventa" if "compra" in reg else "vpo")
-                muni = row.get("Municipio") or "Euskadi"
-                prov = row.get("Territorio")
-                ubic = row.get("Ubicacion")
+            response = self._safe_get(self.DEFAULT_CSV_FALLBACK_URL)
+            response.raise_for_status()
+            ads, rejected = parse_etxebide_csv(response.content, self.provenance(response))
+            errors.extend(rejected)
+        except (requests.RequestException, ValueError) as error:
+            ads = []
+            errors.append(f"Etxebide CSV: {error}")
+        return ExtractionResult(fuente="OpenDataEuskadi_Etxebide_CSV", total_registros=len(ads), items=ads, errores=errors)
 
-                ads.append(HousingAd(
-                    id=f"etxebide_{id_prom}",
-                    fuente="OpenDataEuskadi_Etxebide_CSV",
-                    tipo_operacion=op,
-                    municipio=muni.strip(),
-                    provincia=prov,
-                    direccion=ubic,
-                    precio=None,
-                    superficie_m2=None,
-                    habitaciones=None,
-                    titulo=f"Promoción Etxebide {id_prom} - {row.get('Expediente', '')}",
-                    descripcion=f"Promotor: {row.get('Promotor', '')}. Tipología: {row.get('Tipologia', '')}",
-                    url=self.DEFAULT_CSV_FALLBACK_URL,
-                    fecha_extraccion=datetime.now(timezone.utc).isoformat(),
-                    es_sintetico=False
-                ))
-        except Exception as e:
-            errores.append(f"Error en descarga CSV fallback: {e}")
+    def save_to_json(self, result, filepath):
+        path = Path(filepath); path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(result.model_dump(), ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8")
 
-        return ExtractionResult(
-            fuente="OpenDataEuskadi_CSV_Fallback",
-            total_registros=len(ads),
-            items=ads,
-            errores=errores
-        )
-
-    def save_to_json(self, result: ExtractionResult, filepath: str) -> None:
-        """Guarda los resultados estructurados en un archivo JSON."""
-        os.makedirs(os.path.dirname(os.path.abspath(filepath)), exist_ok=True)
-        with open(filepath, "w", encoding="utf-8") as f:
-            json.dump(result.model_dump(), f, ensure_ascii=False, indent=2)
-
-    def save_to_csv(self, result: ExtractionResult, filepath: str) -> None:
-        """Guarda los resultados en un archivo CSV estándar con delimitador de coma."""
-        os.makedirs(os.path.dirname(os.path.abspath(filepath)), exist_ok=True)
-        fieldnames = list(HousingAd.model_fields)
-        with open(filepath, "w", encoding="utf-8", newline="") as f:
-            writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
+    def save_to_csv(self, result, filepath):
+        path = Path(filepath); path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open("w", encoding="utf-8", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=list(HousingAd.model_fields))
             writer.writeheader()
-            for item in result.items:
-                writer.writerow(item.to_dict())
+            for ad in result.items:
+                row = ad.to_dict()
+                row["procedencia"] = json.dumps(row["procedencia"], ensure_ascii=False)
+                writer.writerow(row)

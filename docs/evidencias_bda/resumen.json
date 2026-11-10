@@ -1,0 +1,1157 @@
+{
+  "run": "42875011179",
+  "commit_base": "89e497c6c4220ef4d8d7add13e7d2325ebde357d",
+  "propuesta_sha": "6046f23c962d92f37c38ac353fd3b08760f0a24a",
+  "datos": "capturas oficiales originales verificadas; no fixtures",
+  "servicios": {
+    "hdfs": "real",
+    "kafka": "real",
+    "mongodb": "real"
+  },
+  "lote_ingesta": "85ddd0cec50f4f8fb7179dd922197c64",
+  "enviados": 621,
+  "recibidos": 621,
+  "persistidos": 621,
+  "por_fuente": {
+    "OpenDataEuskadi_Visesa": 215,
+    "OpenDataEuskadi_Etxebide_CSV": 406
+  },
+  "municipios": 80,
+  "catalogo_ine_municipios": 252,
+  "promociones_por_municipio_y_fuente": [
+    {
+      "_id": {
+        "codigo_municipio": "01002",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "01002",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "01003",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "01009",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "01022",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "01036",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 7
+    },
+    {
+      "_id": {
+        "codigo_municipio": "01036",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 6
+    },
+    {
+      "_id": {
+        "codigo_municipio": "01042",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "01042",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "01043",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "01051",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "01058",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 5
+    },
+    {
+      "_id": {
+        "codigo_municipio": "01059",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 61
+    },
+    {
+      "_id": {
+        "codigo_municipio": "01059",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 42
+    },
+    {
+      "_id": {
+        "codigo_municipio": "01062",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "01901",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "01901",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20009",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 4
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20009",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20013",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20016",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20017",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20017",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20018",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20019",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 5
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20019",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20027",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20030",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 6
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20030",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20032",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20032",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20034",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20034",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20036",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20036",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20040",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 39
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20040",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 5
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20042",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20043",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20045",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 14
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20045",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 10
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20049",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20051",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 4
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20051",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20052",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20055",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 5
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20055",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 6
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20056",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20056",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20061",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20064",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20064",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20065",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20067",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20067",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20069",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 13
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20069",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 12
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20070",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20071",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 8
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20071",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20072",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 7
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20074",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 5
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20076",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20077",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20077",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20079",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 4
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20079",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 6
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20080",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20080",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "20902",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48003",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48011",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48011",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48013",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 9
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48013",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48015",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 6
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48015",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 7
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48016",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48017",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48017",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48020",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 44
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48020",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 25
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48027",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 4
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48027",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48029",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 8
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48029",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 4
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48032",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48032",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48034",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 4
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48044",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 6
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48044",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 4
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48045",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48046",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48046",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48054",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 7
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48054",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 7
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48057",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 4
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48065",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48065",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48070",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48071",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 13
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48071",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 5
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48072",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48072",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48077",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48078",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 5
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48078",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48080",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48082",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 7
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48082",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48083",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48083",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48084",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 9
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48084",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 4
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48085",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 4
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48085",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48086",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48086",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48093",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48095",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48095",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48901",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48901",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48902",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48902",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48903",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48903",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 1
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48904",
+        "fuente": "OpenDataEuskadi_Etxebide_CSV"
+      },
+      "registros_catalogo": 3
+    },
+    {
+      "_id": {
+        "codigo_municipio": "48904",
+        "fuente": "OpenDataEuskadi_Visesa"
+      },
+      "registros_catalogo": 2
+    }
+  ],
+  "rechazos_preparacion": [
+    {
+      "fuente": "OpenDataEuskadi_Visesa",
+      "id": "visesa_9806",
+      "municipio": "Abanto-Zierbena",
+      "codigo_fuente": null,
+      "motivo": "municipio_no_resuelto_o_codigo_contradictorio"
+    },
+    {
+      "fuente": "OpenDataEuskadi_Visesa",
+      "id": "visesa_65",
+      "municipio": "Abanto-Zierbena",
+      "codigo_fuente": null,
+      "motivo": "municipio_no_resuelto_o_codigo_contradictorio"
+    }
+  ],
+  "rechazos_ingesta": 0,
+  "procedencia_conservada": true,
+  "recarga_idempotente": true,
+  "contador_interes_conservado": true,
+  "salario_referencia": {
+    "indicador": "salario_neto_medio_juventud_asalariada",
+    "valor": 1564.0,
+    "unidad": "EUR/mes",
+    "periodo": "2024",
+    "territorio": "Euskadi",
+    "edad_min": 18,
+    "edad_max": 34,
+    "incluye_pagas_extra": true,
+    "es_salario_municipal": false,
+    "procedencia": {
+      "estado": "original_verificado",
+      "archivo": "ovj_salario_2024.html",
+      "sha256": "ef8899a548fb273ae892223b29c6fdf85f3a8945202f77346eb1914c0a36d892",
+      "url": "https://www.euskadi.eus/gobierno-vasco/-/noticia/2025/el-salario-neto-medio-juventud-asalariada-18-y-34-anos-2024-incluidas-pagas-extra-asciende-1-564-euros-mensuales-ligero-incremento-respecto-2023/",
+      "fecha_captura": "2026-11-10T14:37:20.620671+00:00",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741"
+    }
+  },
+  "salarios_municipales_inventados": false,
+  "originales": [
+    {
+      "archivo": "emal_catalogo.html",
+      "url_solicitada": "https://opendata.euskadi.eus/estadistica/tablas-estadisticas-de-la-estadistica-del-mercado-de-alquiler-emal-2016-2020-hasta-el-2-trimestre-de-2020/webopd00-dataset/es/",
+      "fecha_utc": "2026-11-10T14:37:17.351049+00:00",
+      "http_status": 200,
+      "url_final": "https://opendata.euskadi.eus/estadistica/tablas-estadisticas-de-la-estadistica-del-mercado-de-alquiler-emal-2016-2020-hasta-el-2-trimestre-de-2020/webopd00-dataset/es/",
+      "estado": "descargado",
+      "bytes": 164483,
+      "sha256": "0045c30a0efe49ee69792f7eaaa8491c6db4250a9f6fbb69c00fa541084c22b6"
+    },
+    {
+      "archivo": "emal_municipios.xlsx",
+      "url_solicitada": "https://opendata.euskadi.eus/contenidos/estadistica/122417_emal_tablas_estad/opendata/EMAL.-Barrios-Municipios.-2016-2026_es.xlsx",
+      "fecha_utc": "2026-11-10T14:37:18.098528+00:00",
+      "http_status": 200,
+      "url_final": "https://opendata.euskadi.eus/contenidos/estadistica/122417_emal_tablas_estad/opendata/EMAL.-Barrios-Municipios.-2016-2026_es.xlsx",
+      "estado": "descargado",
+      "bytes": 256980,
+      "sha256": "f4d27d4e8e9bd3688d4e7a454026a4a0884073dc73e3fc1c0da4891a1ad1af5c"
+    },
+    {
+      "archivo": "visesa.json",
+      "url_solicitada": "https://apps.visesa.eus/ws/promocion/filtro",
+      "fecha_utc": "2026-11-10T14:37:18.325207+00:00",
+      "http_status": 200,
+      "url_final": "https://apps.visesa.eus/ws/promocion/filtro",
+      "estado": "descargado",
+      "bytes": 1426128,
+      "sha256": "d12204dfb4f4b0d21cac38f32579129763c5f7617e1968864798e59fae112409"
+    },
+    {
+      "archivo": "etxebide.csv",
+      "url_solicitada": "https://opendata.euskadi.eus/contenidos/ds_localizaciones/promociones_etxebide/opendata/promociones.csv",
+      "fecha_utc": "2026-11-10T14:37:19.476012+00:00",
+      "http_status": 200,
+      "url_final": "https://opendata.euskadi.eus/contenidos/ds_localizaciones/promociones_etxebide/opendata/promociones.csv",
+      "estado": "descargado",
+      "bytes": 130681,
+      "sha256": "f6d867e1e7e940d7df48989dc6dd802ceba6f75987521cb0d9813dfe6f1d2537"
+    },
+    {
+      "archivo": "ine_2026.xlsx",
+      "url_solicitada": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx",
+      "fecha_utc": "2026-11-10T14:37:19.620907+00:00",
+      "http_status": 200,
+      "url_final": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx",
+      "estado": "descargado",
+      "bytes": 318222,
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741"
+    },
+    {
+      "archivo": "ovj_salario_2024.html",
+      "url_solicitada": "https://www.euskadi.eus/gobierno-vasco/-/noticia/2025/el-salario-neto-medio-juventud-asalariada-18-y-34-anos-2024-incluidas-pagas-extra-asciende-1-564-euros-mensuales-ligero-incremento-respecto-2023/",
+      "fecha_utc": "2026-11-10T14:37:20.620671+00:00",
+      "http_status": 200,
+      "url_final": "https://www.euskadi.eus/gobierno-vasco/-/noticia/2025/el-salario-neto-medio-juventud-asalariada-18-y-34-anos-2024-incluidas-pagas-extra-asciende-1-564-euros-mensuales-ligero-incremento-respecto-2023/",
+      "estado": "descargado",
+      "bytes": 47334,
+      "sha256": "ef8899a548fb273ae892223b29c6fdf85f3a8945202f77346eb1914c0a36d892"
+    }
+  ],
+  "hdfs": [
+    {
+      "local_path": "/tmp/pytest-of-runner/pytest-2/test_capturas_reales_atraviesa0/prepared/municipios_oficiales.json",
+      "hdfs_path": "/data/reto1/processed/20261110T182848_85ddd0ce/entradas/municipios_oficiales.json",
+      "file_size_bytes": 125453,
+      "checksum_sha256": "9d57d9e6bcbd34e50b976935e4ab565f4b2b9734fa470a5a493d7910025ee37e",
+      "modo": "webhdfs_live",
+      "exito": true,
+      "mensaje": "Fichero subido y confirmado en clúster HDFS.",
+      "timestamp": "2026-11-10T18:28:48.614124+00:00",
+      "clase": "processed",
+      "recuperacion_identica": true
+    },
+    {
+      "local_path": "/tmp/pytest-of-runner/pytest-2/test_capturas_reales_atraviesa0/prepared/vivienda_oficial.json",
+      "hdfs_path": "/data/reto1/processed/20261110T182848_85ddd0ce/entradas/vivienda_oficial.json",
+      "file_size_bytes": 985161,
+      "checksum_sha256": "6b24877ebd0470481c9e6035f1d8ed70fd9c4d02a44ac35a392ba7cd13493426",
+      "modo": "webhdfs_live",
+      "exito": true,
+      "mensaje": "Fichero subido y confirmado en clúster HDFS.",
+      "timestamp": "2026-11-10T18:28:48.674786+00:00",
+      "clase": "processed",
+      "recuperacion_identica": true
+    },
+    {
+      "local_path": "/home/runner/work/Reto-1/Reto-1/data/capturas_oficiales/emal_catalogo.html",
+      "hdfs_path": "/data/reto1/raw/20261110T182848_85ddd0ce/originales/emal_catalogo.html",
+      "file_size_bytes": 164483,
+      "checksum_sha256": "0045c30a0efe49ee69792f7eaaa8491c6db4250a9f6fbb69c00fa541084c22b6",
+      "modo": "webhdfs_live",
+      "exito": true,
+      "mensaje": "Fichero subido y confirmado en clúster HDFS.",
+      "timestamp": "2026-11-10T18:28:48.735726+00:00",
+      "clase": "raw",
+      "recuperacion_identica": true
+    },
+    {
+      "local_path": "/home/runner/work/Reto-1/Reto-1/data/capturas_oficiales/emal_municipios.xlsx",
+      "hdfs_path": "/data/reto1/raw/20261110T182848_85ddd0ce/originales/emal_municipios.xlsx",
+      "file_size_bytes": 256980,
+      "checksum_sha256": "f4d27d4e8e9bd3688d4e7a454026a4a0884073dc73e3fc1c0da4891a1ad1af5c",
+      "modo": "webhdfs_live",
+      "exito": true,
+      "mensaje": "Fichero subido y confirmado en clúster HDFS.",
+      "timestamp": "2026-11-10T18:28:48.775654+00:00",
+      "clase": "raw",
+      "recuperacion_identica": true
+    },
+    {
+      "local_path": "/home/runner/work/Reto-1/Reto-1/data/capturas_oficiales/etxebide.csv",
+      "hdfs_path": "/data/reto1/raw/20261110T182848_85ddd0ce/originales/etxebide.csv",
+      "file_size_bytes": 130681,
+      "checksum_sha256": "f6d867e1e7e940d7df48989dc6dd802ceba6f75987521cb0d9813dfe6f1d2537",
+      "modo": "webhdfs_live",
+      "exito": true,
+      "mensaje": "Fichero subido y confirmado en clúster HDFS.",
+      "timestamp": "2026-11-10T18:28:48.814878+00:00",
+      "clase": "raw",
+      "recuperacion_identica": true
+    },
+    {
+      "local_path": "/home/runner/work/Reto-1/Reto-1/data/capturas_oficiales/ine_2026.xlsx",
+      "hdfs_path": "/data/reto1/raw/20261110T182848_85ddd0ce/originales/ine_2026.xlsx",
+      "file_size_bytes": 318222,
+      "checksum_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "modo": "webhdfs_live",
+      "exito": true,
+      "mensaje": "Fichero subido y confirmado en clúster HDFS.",
+      "timestamp": "2026-11-10T18:28:49.251661+00:00",
+      "clase": "raw",
+      "recuperacion_identica": true
+    },
+    {
+      "local_path": "/home/runner/work/Reto-1/Reto-1/data/capturas_oficiales/ovj_salario_2024.html",
+      "hdfs_path": "/data/reto1/raw/20261110T182848_85ddd0ce/originales/ovj_salario_2024.html",
+      "file_size_bytes": 47334,
+      "checksum_sha256": "ef8899a548fb273ae892223b29c6fdf85f3a8945202f77346eb1914c0a36d892",
+      "modo": "webhdfs_live",
+      "exito": true,
+      "mensaje": "Fichero subido y confirmado en clúster HDFS.",
+      "timestamp": "2026-11-10T18:28:49.691552+00:00",
+      "clase": "raw",
+      "recuperacion_identica": true
+    },
+    {
+      "local_path": "/home/runner/work/Reto-1/Reto-1/data/capturas_oficiales/visesa.json",
+      "hdfs_path": "/data/reto1/raw/20261110T182848_85ddd0ce/originales/visesa.json",
+      "file_size_bytes": 1426128,
+      "checksum_sha256": "d12204dfb4f4b0d21cac38f32579129763c5f7617e1968864798e59fae112409",
+      "modo": "webhdfs_live",
+      "exito": true,
+      "mensaje": "Fichero subido y confirmado en clúster HDFS.",
+      "timestamp": "2026-11-10T18:28:49.738499+00:00",
+      "clase": "raw",
+      "recuperacion_identica": true
+    },
+    {
+      "local_path": "/home/runner/work/Reto-1/Reto-1/data/capturas_oficiales/manifest.json",
+      "hdfs_path": "/data/reto1/raw/20261110T182848_85ddd0ce/originales/manifest.json",
+      "file_size_bytes": 3452,
+      "checksum_sha256": "e2ab806ad763f106039694cecf8b4b0fa20ef8e53658ee9922e5a5e1820cf33c",
+      "modo": "webhdfs_live",
+      "exito": true,
+      "mensaje": "Fichero subido y confirmado en clúster HDFS.",
+      "timestamp": "2026-11-10T18:28:50.189233+00:00",
+      "clase": "raw",
+      "recuperacion_identica": true
+    },
+    {
+      "local_path": "/tmp/pytest-of-runner/pytest-2/test_capturas_reales_atraviesa0/processed/anuncios_normalizados.json",
+      "hdfs_path": "/data/reto1/processed/20261110T182848_85ddd0ce/anuncios_normalizados.json",
+      "file_size_bytes": 994580,
+      "checksum_sha256": "5aa3fc821e48a0f292e15628d544231f20fc0542463fc67e70d71218e6dd0411",
+      "modo": "webhdfs_live",
+      "exito": true,
+      "mensaje": "Fichero subido y confirmado en clúster HDFS.",
+      "timestamp": "2026-11-10T18:28:50.235879+00:00",
+      "clase": "processed",
+      "recuperacion_identica": true
+    }
+  ],
+  "limites": "Promociones no equivalen a anuncios de alquiler. Sin precios o salarios municipales observados no se calcula esfuerzo.",
+  "scraping_portales_validado": false,
+  "indicadores_mercado_libre_completos": false,
+  "pruebas": {
+    "tests.xml": 116,
+    "integracion.xml": 3
+  }
+}

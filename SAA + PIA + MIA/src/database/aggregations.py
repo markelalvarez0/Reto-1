@@ -11,6 +11,7 @@ class MongoHousingAggregations:
 
     def _filtro(self, alquiler=True):
         result = {'precio': {'$type': 'number', '$gt': 0}, 'codigo_municipio': {'$type': 'string', '$regex': r'^[0-9]{5}$'}}
+        result['tipo_registro'] = {'$ne': 'promocion'}
         if alquiler:
             result['tipo_operacion'] = 'alquiler'
         if not self.include_synthetic:

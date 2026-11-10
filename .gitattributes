@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Originales: preservar los bytes y SHA-256 de la captura, incluso CRLF.
+/data/capturas_oficiales/** -text -diff
