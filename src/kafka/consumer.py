@@ -7,6 +7,8 @@ gestiona errores de deserialización y registra los datos procesados en tiempo r
 
 import os
 import json
+import time
+import logging
 from typing import List, Dict, Any, Optional, Callable
 from src.extraction.models import HousingAd
 from .mock_broker import InMemoryKafkaBroker
@@ -51,12 +53,12 @@ class HousingKafkaConsumer:
                 bootstrap_servers=self.bootstrap_servers.split(","),
                 group_id=self.group_id,
                 auto_offset_reset="earliest",
-                enable_auto_commit=True,
+                enable_auto_commit=False,
                 consumer_timeout_ms=3000,
-                value_deserializer=lambda m: json.loads(m.decode("utf-8"))
+                value_deserializer=None
             )
-        except Exception:
-            self._real_consumer = None
+        except Exception as error:
+            raise ConnectionError("Kafka no disponible; la simulacion debe ser explicita") from error
 
     def consume_batch(
         self,
@@ -71,23 +73,22 @@ class HousingKafkaConsumer:
         received: List[HousingAd] = []
 
         if not self.simulation_mode and self._real_consumer:
-            try:
-                count = 0
-                for msg in self._real_consumer:
-                    payload = msg.value
-                    try:
-                        ad = HousingAd(**payload)
-                        received.append(ad)
-                        count += 1
+            deadline = time.monotonic() + timeout_seconds
+            while len(received) < max_messages and time.monotonic() < deadline:
+                batch = self._real_consumer.poll(timeout_ms=min(250, max(1, int((deadline - time.monotonic()) * 1000))), max_records=1)
+                for messages in batch.values():
+                    for msg in messages:
+                        try:
+                            payload = json.loads(msg.value.decode('utf-8'))
+                            ad = HousingAd(**payload)
+                        except (ValueError, TypeError, UnicodeDecodeError) as error:
+                            logging.getLogger(__name__).warning('Evento invalido en %s:%s: %s', msg.partition, msg.offset, error)
+                            continue
+                        # If persistence fails, do not commit the offset or suppress its error.
                         if on_message_callback:
-                            on_message_callback(ad, count)
-                    except Exception as err:
-                        print(f"[AVISO CONSUMIDOR] Mensaje descartado por esquema inválido: {err}")
-
-                    if count >= max_messages:
-                        break
-            except Exception as e:
-                print(f"[ERROR KAFKA CONSUMER] Error durante el consumo: {e}")
+                            on_message_callback(ad, len(received) + 1)
+                            self._real_consumer.commit()
+                        received.append(ad)
         else:
             # Modo broker en memoria
             if self._mock_broker:
@@ -97,11 +98,13 @@ class HousingKafkaConsumer:
                         break
                     try:
                         ad = HousingAd(**payload)
-                        received.append(ad)
-                        if on_message_callback:
-                            on_message_callback(ad, len(received))
-                    except Exception as err:
-                        print(f"[AVISO CONSUMIDOR] Mensaje simulado descartado: {err}")
+                    except (ValueError, TypeError) as err:
+                        logging.getLogger(__name__).warning("Mensaje simulado invalido: %s", err)
+                        continue
+                    if on_message_callback:
+                        on_message_callback(ad, len(received) + 1)
+                    received.append(ad)
+
 
         return received
 

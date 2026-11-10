@@ -16,7 +16,12 @@ import requests
 from bs4 import BeautifulSoup
 from typing import List, Dict, Any, Optional
 from datetime import datetime, timezone
-import random
+import hashlib
+import json
+import time
+from urllib.parse import urljoin, urlparse
+from urllib.robotparser import RobotFileParser
+from .normalization import numero_observado
 
 from src.extraction.models import HousingAd, ExtractionResult, resolver_codigo_ine
 
@@ -28,7 +33,7 @@ HEADERS = {
     "Accept-Language": "es-ES,es;q=0.9,eu;q=0.8,en;q=0.7",
 }
 
-# Catálogo representativo de anuncios reales de portales locales y generalistas de Euskadi
+# Fixtures docentes: NO son anuncios verificados y NO deben alimentar informes reales.
 PORTAL_SAMPLE_DATA = {
     "EnAlquiler": [
         {"id": "enalquiler_01", "mun": "Bilbao", "barrio": "Deusto", "dir": "Avenida Lehendakari Aguirre", "precio": 790.0, "m2": 65.0, "hab": 2, "ban": 1, "fianza": 1, "asc": True, "transp": 120},
@@ -70,59 +75,96 @@ PORTAL_SAMPLE_DATA = {
 class MultiPortalHousingScraper:
     """Scraper modular unificado para portales inmobiliarios vascos."""
 
-    def __init__(self, timeout: int = 10):
+    def __init__(self, timeout: int = 10, demo_mode: bool = False):
         self.timeout = timeout
+        self.demo_mode = demo_mode
+        self.errores = []
+        self._source_url = ""
         self.session = requests.Session()
         self.session.headers.update(HEADERS)
 
     def extraer_portal(self, nombre_portal: str, url: str) -> List[HousingAd]:
-        """Intenta extraer anuncios del portal vía web scraping, con fallback a anuncios verificados."""
-        anuncios = []
+        """Respeta robots.txt; un error de red no se convierte en datos reales."""
+        if self.demo_mode:
+            return self._obtener_catalogo_verificado(nombre_portal)
+        self._source_url = url
         try:
-            resp = self.session.get(url, timeout=self.timeout)
-            if resp.status_code == 200:
-                soup = BeautifulSoup(resp.text, "html.parser")
-                anuncios = self._parsear_html(nombre_portal, soup)
-        except Exception as e:
-            logger.info(f"Portal '{nombre_portal}' no accesible directamente ({e}). Activando catálogo verificado de mercado.")
-
-        if not anuncios:
-            anuncios = self._obtener_catalogo_verificado(nombre_portal)
-
-        return anuncios
+            origin = urlparse(url)
+            robots_url = f"{origin.scheme}://{origin.netloc}/robots.txt"
+            response = self.session.get(robots_url, timeout=self.timeout)
+            parser = RobotFileParser()
+            if response.status_code == 200:
+                parser.parse(response.text.splitlines())
+                if not parser.can_fetch(self.session.headers['User-Agent'], url):
+                    self.errores.append(f"{nombre_portal}: robots.txt no permite esta ruta")
+                    return []
+            elif response.status_code != 404:
+                self.errores.append(f"{nombre_portal}: robots.txt no verificable ({response.status_code})")
+                return []
+            time.sleep(1)
+            response = self.session.get(url, timeout=self.timeout)
+            response.raise_for_status()
+            result = self._parsear_html(nombre_portal, BeautifulSoup(response.text, 'html.parser'))
+            if not result:
+                self.errores.append(f"{nombre_portal}: sin anuncios estructurados verificables")
+            return result
+        except requests.RequestException as error:
+            self.errores.append(f"{nombre_portal}: {type(error).__name__}")
+            return []
 
     def _parsear_html(self, portal: str, soup: BeautifulSoup) -> List[HousingAd]:
-        """Parseo heurístico adaptativo para portales inmobiliarios estándar."""
-        anuncios = []
-        articulos = soup.find_all(["article", "div"], class_=lambda c: c and any(w in c.lower() for w in ["anuncio", "inmueble", "property", "listing", "item"]))
-        for i, art in enumerate(articulos[:15]):
-            texto = art.get_text(separator=" ", strip=True)
-            import re
-            precio_m = re.search(r"(\d{3,4})\s*€", texto)
-            precio = float(precio_m.group(1)) if precio_m else 750.0
-            
-            anuncios.append(HousingAd(
-                id=f"{portal.lower()}_scraped_{i}",
-                fuente=f"{portal}_Scraping",
-                portal_origen=portal,
-                tipo_operacion="alquiler",
-                municipio="Bilbao",
-                codigo_municipio="48020",
-                precio=precio,
-                superficie_m2=65.0,
-                habitaciones=2,
-                banos=1,
-                fianza_meses=1,
-                ascensor=True,
-                distancia_transporte_m=200,
-                titulo=f"Vivienda en alquiler en {portal}",
-                descripcion=texto[:200],
-                es_sintetico=False
-            ))
-        return anuncios
+        """Extrae JSON-LD publicado en HTML, sin inventar la localidad ni medidas."""
+        nodes = []
+        def collect(value):
+            if isinstance(value, list):
+                for item in value:
+                    collect(item)
+            elif isinstance(value, dict):
+                nodes.append(value)
+                for key in ('@graph', 'itemListElement', 'item', 'mainEntity', 'itemOffered'):
+                    if key in value:
+                        collect(value[key])
+        for script in soup.find_all('script', type='application/ld+json'):
+            try:
+                collect(json.loads(script.string or script.get_text()))
+            except (ValueError, TypeError):
+                continue
+        found = {}
+        for item in nodes:
+            address = item.get('address')
+            if not isinstance(address, dict):
+                continue
+            municipality = address.get('addressLocality')
+            code = resolver_codigo_ine(municipality)
+            offers = item.get('offers') or {}
+            if isinstance(offers, list):
+                offers = offers[0] if offers else {}
+            if not code or not isinstance(offers, dict):
+                continue
+            if offers.get('priceCurrency', 'EUR') != 'EUR':
+                continue
+            price = numero_observado(offers.get('price'), minimo=0.01)
+            detail = item.get('url') or offers.get('url')
+            if not detail or price is None:
+                continue
+            detail = urljoin(self._source_url, str(detail))
+            if urlparse(detail).scheme not in ('http', 'https'):
+                continue
+            floor = item.get('floorSize') or {}
+            area = numero_observado(floor.get('value'), minimo=0.01) if isinstance(floor, dict) and floor.get('unitCode', 'MTK') in ('MTK', 'm2') else None
+            identity = hashlib.sha256(detail.encode()).hexdigest()[:20]
+            found[detail] = HousingAd(
+                id=f'{portal.lower()}_{identity}', fuente=f'{portal}_Scraping', portal_origen=portal,
+                tipo_operacion='alquiler', municipio=municipality, codigo_municipio=code,
+                precio=price, superficie_m2=area,
+                habitaciones=numero_observado(item.get('numberOfRooms'), entero=True),
+                direccion=address.get('streetAddress'), titulo=item.get('name'),
+                descripcion=item.get('description'), url=detail, es_sintetico=False,
+            )
+        return list(found.values())
 
     def _obtener_catalogo_verificado(self, portal: str) -> List[HousingAd]:
-        """Genera objetos HousingAd estructurados con el código INE oficial."""
+        """Devuelve fixtures sinteticos. El nombre se mantiene por compatibilidad."""
         items = PORTAL_SAMPLE_DATA.get(portal, [])
         resultado = []
         for d in items:
@@ -148,8 +190,8 @@ class MultiPortalHousingScraper:
                 distancia_transporte_m=d.get("transp", 150),
                 titulo=f"Piso en alquiler en {d['mun']} ({d.get('barrio', '')})",
                 descripcion=f"Vivienda de {d['m2']} m² con {d['hab']} dormitorios en {d.get('dir')}. Ideal jóvenes y parejas.",
-                url=f"https://www.{portal.lower().replace('_', '')}.com/inmuebles/{d['id']}",
-                es_sintetico=False
+                url=None,
+                es_sintetico=True
             )
             resultado.append(ad)
         return resultado
@@ -172,5 +214,6 @@ class MultiPortalHousingScraper:
         return ExtractionResult(
             fuente="MultiPortal_Euskadi",
             total_registros=len(todos),
-            items=todos
+            items=todos,
+            errores=self.errores,
         )

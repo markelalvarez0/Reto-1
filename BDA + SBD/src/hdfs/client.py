@@ -57,15 +57,19 @@ class HDFSClient:
         if self.force_simulation:
             return False
         if self._is_live_cache is not None:
+            if not self._is_live_cache:
+                raise ConnectionError("HDFS no disponible; no se activa simulacion automaticamente")
             return self._is_live_cache
 
         test_url = f"{self.webhdfs_base_url}/?op=GETFILESTATUS&user.name={self.user}"
         try:
             resp = requests.get(test_url, timeout=2)
-            self._is_live_cache = (resp.status_code in (200, 401, 403, 404))
+            self._is_live_cache = (resp.status_code == 200)
         except requests.exceptions.RequestException:
             self._is_live_cache = False
 
+        if not self._is_live_cache:
+            raise ConnectionError("HDFS no disponible. Use simulation_mode=True solo en pruebas/demo.")
         return self._is_live_cache
 
     @staticmethod
@@ -141,8 +145,16 @@ class HDFSClient:
 
     # --- Métodos internos ---
     def _to_sim_path(self, hdfs_path: str) -> str:
-        clean = hdfs_path.lstrip("/").replace("/", os.sep)
-        return os.path.join(self.sim_storage, clean)
+        """Mapea rutas HDFS absolutas al almacen de demostracion sin escapar de el."""
+        from pathlib import Path, PurePosixPath
+        parsed = PurePosixPath(hdfs_path)
+        if not parsed.is_absolute() or '..' in parsed.parts:
+            raise ValueError("Ruta HDFS absoluta no valida")
+        base = Path(self.sim_storage).resolve()
+        target = (base / str(parsed).lstrip('/')).resolve()
+        if not target.is_relative_to(base):
+            raise ValueError("La ruta sale del almacen de simulacion")
+        return str(target)
 
     def _upload_simulation(
         self,

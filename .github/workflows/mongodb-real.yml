@@ -1,0 +1,45 @@
+name: Integracion MongoDB real
+"on":
+  push:
+    branches: [dev-jon, test, main]
+  pull_request:
+    branches: [test, main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mongodb:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      mongo:
+        image: mongo:7.0
+        ports: ['27017:27017']
+        options: >-
+          --health-cmd "mongosh --quiet --eval 'db.adminCommand({ping:1}).ok'"
+          --health-interval 10s --health-timeout 5s --health-retries 8
+    env:
+      MONGO_INTEGRATION_URI: mongodb://localhost:27017
+      EVIDENCE_DIR: test-results
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-ci.txt
+      - name: Suite de regresion y sincronizacion
+        run: |
+          python -m pytest tests/ -q
+          python scripts/sync_sources.py --check
+      - name: Integracion con servicio real
+        run: |
+          mkdir -p test-results
+          python -m pytest integration_tests/test_mongodb_live.py -q --junitxml=test-results/mongo-live.xml
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: evidencias-mongodb-real
+          path: test-results/
+          retention-days: 30

@@ -17,7 +17,7 @@ from src.database.consistency import MongoConsistencyManager
 def mongo_env():
     """Inicializa una base de datos de pruebas en memoria con mongomock."""
     mgr = MongoDBManager(force_mock=True, db_name="test_sbd_vivienda")
-    loader = MongoDBDataLoader(mgr.db)
+    loader = MongoDBDataLoader(mgr.db, allow_demo=True)
     raw_dir = Path(__file__).resolve().parent.parent / "data" / "raw"
     res = loader.cargar_datos_base(raw_dir)
     cleaner = MongoDataCleaner(mgr.db)
@@ -84,7 +84,7 @@ def test_mongo_advanced_queries(mongo_env):
 def test_mongo_aggregation_pipelines(mongo_env):
     """Verifica los 3 pipelines de agregación ($group, $lookup/$unwind, $facet)."""
     db = mongo_env["db"]
-    aggs = MongoHousingAggregations(db)
+    aggs = MongoHousingAggregations(db, include_synthetic=True)
 
     # Pipeline 1: Agrupación por municipio
     res_agg1 = aggs.pipeline_1_estadisticas_alquiler_por_municipio()
@@ -116,9 +116,9 @@ def test_mongo_index_optimizer(mongo_env):
     assert "indice_compuesto" in indices
 
     stats = opt.comparar_rendimiento_consulta("Bilbao", 850.0)
-    assert stats["sin_indice"]["stage"] == "COLLSCAN"
-    assert stats["con_indice"]["stage"] == "IXSCAN"
-    assert stats["con_indice"]["totalDocsExamined"] <= stats["sin_indice"]["totalDocsExamined"]
+    assert stats["estado"] == "NO_DISPONIBLE_EN_MOCK"
+    assert stats["sin_indice"] is None
+    assert stats["con_indice"] is None
 
 
 def test_mongo_atomic_consistency(mongo_env):

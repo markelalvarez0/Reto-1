@@ -1,190 +1,169 @@
-"""
-Módulo de carga e integración de datos multifuente en MongoDB.
-Integra datos de:
-- Portales inmobiliarios (Habitaclia, EnAlquiler, Inmobiliaria Chomon, Inmobiliaria Quorum, YaEncontre, Pisos.com, Milanuncios)
-- APIs públicas de vivienda protegida (Open Data Euskadi / Visesa)
-- Registro de Fianzas Bizilagun y Demandantes Etxebide
-- Sistema Estatal de Precios de Referencia MIVAU
-- Indicadores de Renta y Juventud (Eustat / Udalmap / OVJ / Lanbide)
-- Conectividad de Transporte (CTB Metro Bilbao, Euskotren, TUVISA, Dbus)
-
-Decisión de modelado:
-- Referencing en 'viviendas' -> 'municipios' mediante 'codigo_municipio' (Código INE de 5 dígitos).
-- Embedding en 'municipios' con indicadores socioeconómicos, programas de ayuda, contratos Bizilagun y transporte.
-"""
-
+"""Carga idempotente de datos observados. Los ejemplos requieren allow_demo=True."""
+import csv
+import hashlib
 import json
 import logging
 import re
 from pathlib import Path
-from typing import Dict, Any, List, Optional
+from typing import Any, Dict, List, Optional
 
 from src.extraction.models import resolver_codigo_ine
+from src.extraction.normalization import numero_observado, booleano_observado, primer_valor
 from src.extraction.multi_portal_scraper import MultiPortalHousingScraper
-from src.extraction.official_housing_sources import OfficialHousingClient
-from src.indicators.transport_client import TransportConnectivityClient
 
 logger = logging.getLogger(__name__)
+PROVINCIAS = {"48": "Bizkaia", "20": "Gipuzkoa", "01": "Araba"}
 
 
 class MongoDBDataLoader:
-    """Carga e integra datos en colecciones MongoDB respetando decisiones de modelado."""
+    """Carga CSV/JSON sin borrar colecciones ni completar precios desconocidos."""
 
-    def __init__(self, db):
+    def __init__(self, db, allow_demo: bool = False):
         self.db = db
         self.viviendas_col = db["viviendas"]
         self.municipios_col = db["municipios"]
+        self.rechazos_col = db["rechazos_ingesta"]
+        self.allow_demo = allow_demo
+
+    @staticmethod
+    def _leer_fichero(path: Path):
+        if path.suffix.lower() == ".csv":
+            with path.open(encoding="utf-8-sig", newline="") as stream:
+                sample = stream.read(8192); stream.seek(0)
+                delimiter = ";" if sample.splitlines() and sample.splitlines()[0].count(";") > sample.splitlines()[0].count(",") else ","
+                yield from csv.DictReader(stream, delimiter=delimiter)
+        else:
+            payload = json.loads(path.read_text(encoding="utf-8-sig"))
+            rows = payload.get("items", payload.get("registros", [])) if isinstance(payload, dict) else payload
+            if not isinstance(rows, list):
+                raise ValueError(f"{path.name}: se esperaba una lista de registros")
+            yield from rows
 
     def cargar_datos_base(self, data_raw_dir: Path) -> Dict[str, int]:
-        """
-        Lee datos extraídos de API, Scraping e Indicadores y los carga en MongoDB.
-        """
-        data_raw_dir = Path(data_raw_dir)
-        total_viviendas = 0
-        total_municipios = 0
+        """Lee vivienda_*.csv/json y municipios_*.csv/json. Demo nunca es implicita."""
+        root = Path(data_raw_dir)
+        counts = {"viviendas": 0, "municipios": 0, "rechazados": 0}
+        municipality_rows = []
+        housing_rows = []
+        for path in sorted(root.glob("*")):
+            if path.suffix.lower() not in {".csv", ".json"}:
+                continue
+            if not path.name.startswith(("vivienda_", "municipios_")):
+                continue
+            target = municipality_rows if path.name.startswith("municipios_") else housing_rows
+            for row in self._leer_fichero(path):
+                if not isinstance(row, dict):
+                    raise ValueError(f"Registro no tabular en {path.name}")
+                row = dict(row)
+                row["archivo_origen"] = path.name
+                target.append(row)
+        if self.allow_demo and not municipality_rows:
+            municipality_rows = list(self._generar_datos_municipios_base().values())
+        counts["municipios"], rejected = self.cargar_municipios(municipality_rows)
+        counts["rechazados"] += rejected
+        if self.allow_demo and not housing_rows:
+            housing_rows = self._generar_catalogo_multiportal_completo()
+        counts["viviendas"], rejected = self.cargar_anuncios(housing_rows)
+        counts["rechazados"] += rejected
+        return counts
 
-        # 1. Cargar Indicadores Municipales (Colección 'municipios' con embedding)
-        municipios_seed = self._generar_datos_municipios_base()
+    def cargar_municipios(self, rows):
+        """Carga los indicadores por codigo INE sin modificar viviendas."""
+        accepted = rejected = 0
+        for row in rows:
+            code = resolver_codigo_ine(row.get("municipio", ""))
+            origin = row.get("codigo_municipio")
+            if not code or (origin and origin != code):
+                rejected += 1
+                self._registrar_rechazo(row, "municipio_o_codigo_invalido")
+                continue
+            clean = {key: value for key, value in row.items() if key != "_id"}
+            clean["codigo_municipio"] = code
+            clean["es_sintetico"] = booleano_observado(row.get("es_sintetico"))
+            for name in ("salario_medio_joven_mes", "poblacion_total", "paro_juvenil_pct"):
+                if name in clean:
+                    clean[name] = numero_observado(clean[name])
+            self.municipios_col.update_one({"codigo_municipio": code}, {"$set": clean}, upsert=True)
+            accepted += 1
+        return accepted, rejected
 
-        # Enriquecer con Bizilagun, Etxebide, MIVAU y Transporte
-        try:
-            official_client = OfficialHousingClient()
-            transp_client = TransportConnectivityClient()
+    def _registrar_rechazo(self, row: Dict[str, Any], motivo: str) -> None:
+        """Registro estable de rechazo; el original permanece tambien en raw/HDFS."""
+        digest = hashlib.sha256(json.dumps(row, sort_keys=True, default=str, ensure_ascii=False).encode()).hexdigest()
+        self.rechazos_col.update_one({"huella": digest}, {"$set": {"motivo": motivo, "registro": row}}, upsert=True)
 
-            # Embedding Bizilagun
-            for b in official_client.obtener_contratos_bizilagun():
-                if b.municipio in municipios_seed:
-                    municipios_seed[b.municipio]["bizilagun_contratos_reales"] = b.model_dump()
-
-            # Embedding Etxebide
-            for e in official_client.obtener_demanda_etxebide():
-                if e.municipio in municipios_seed:
-                    municipios_seed[e.municipio]["etxebide_demanda_social"] = e.model_dump()
-
-            # Embedding MIVAU
-            for m in official_client.obtener_precios_mivau():
-                if m.municipio in municipios_seed:
-                    municipios_seed[m.municipio]["mivau_referencia_estatal"] = m.model_dump()
-
-            # Embedding Transporte
-            for t in transp_client.obtener_conectividad_todos():
-                if t.municipio in municipios_seed:
-                    municipios_seed[t.municipio]["conectividad_transporte"] = t.model_dump()
-
-        except Exception as e:
-            logger.warning(f"Error enriqueciendo datos municipales: {e}")
-
-        # Insertar municipios
-        self.municipios_col.delete_many({})
-        docs_municipios = list(municipios_seed.values())
-        if docs_municipios:
-            self.municipios_col.insert_many(docs_municipios)
-            total_municipios = len(docs_municipios)
-
-        # 2. Cargar Viviendas (API + MultiPortal Scraping) con Referencing hacia municipios
-        self.viviendas_col.delete_many({})
-        viviendas_docs = []
-
-        # A) Buscar ficheros en data/raw si existen
-        for f in data_raw_dir.glob("vivienda_*.json"):
-            try:
-                with open(f, "r", encoding="utf-8") as jf:
-                    data = json.load(jf)
-                    items = data.get("items", data) if isinstance(data, dict) else data
-                    for item in items:
-                        doc = self._normalizar_anuncio(item)
-                        if doc:
-                            viviendas_docs.append(doc)
-            except Exception as ex:
-                logger.warning(f"Error leyendo {f}: {ex}")
-
-        # B) Si no hay ficheros o son pocos, generar catálogo unificado completo de portales
-        if len(viviendas_docs) < 15:
-            viviendas_docs.extend(self._generar_catalogo_multiportal_completo())
-
-        if viviendas_docs:
-            self.viviendas_col.insert_many(viviendas_docs)
-            total_viviendas = len(viviendas_docs)
-
-        logger.info(f"Carga finalizada: {total_municipios} municipios y {total_viviendas} viviendas en MongoDB.")
-        return {"municipios": total_municipios, "viviendas": total_viviendas}
+    def cargar_anuncios(self, rows) -> tuple[int, int]:
+        """Persistencia compartida por carga de ficheros y consumidor Kafka."""
+        accepted = rejected = 0
+        for raw in rows:
+            doc = self._normalizar_anuncio(raw)
+            if doc is None:
+                self._registrar_rechazo(raw, "identidad_o_municipio_invalido")
+                rejected += 1
+                continue
+            key = {"fuente": doc["fuente"], "id_origen": doc["id_origen"]}
+            self.viviendas_col.update_one(key, {"$set": doc}, upsert=True)
+            accepted += 1
+        return accepted, rejected
 
     def _normalizar_anuncio(self, ad: Dict[str, Any]) -> Optional[Dict[str, Any]]:
-        """Normaliza un anuncio; devuelve None si su municipio no está verificado."""
-        mun = ad.get("municipio") or ad.get("mun")
-        codigo_calculado = resolver_codigo_ine(mun)
-        if codigo_calculado is None:
-            logger.warning("Anuncio %s descartado: municipio INE no reconocido (%r)", ad.get("id"), mun)
+        """No infiere precio, area, ascensor ni fianza a partir de su ausencia."""
+        mun = primer_valor(ad.get("municipio"), ad.get("mun"))
+        code = resolver_codigo_ine(mun)
+        supplied = primer_valor(ad.get("codigo_municipio"), ad.get("cod"))
+        if not code or (supplied is not None and (not isinstance(supplied, str) or not re.fullmatch(r"[0-9]{5}", supplied) or supplied != code)):
+            logger.warning("Registro %s: municipio/INE no reconocido o contradictorio", ad.get("id"))
             return None
-
-        codigo_origen = ad.get("codigo_municipio") or ad.get("cod")
-        if codigo_origen is not None:
-            if not isinstance(codigo_origen, str) or not re.fullmatch(r"\d{5}", codigo_origen):
-                logger.warning("Anuncio %s descartado: código INE inválido (%r)", ad.get("id"), codigo_origen)
-                return None
-            if codigo_origen != codigo_calculado:
-                logger.warning("Anuncio %s descartado: INE %s no coincide con %s", ad.get("id"), codigo_origen, mun)
-                return None
-
-        cod_ine = codigo_calculado
-        precio = float(ad.get("precio", 750.0) or 750.0)
-        sup = float(ad.get("superficie_m2") or ad.get("m2") or 65.0)
-        tipo_op = str(ad.get("tipo_operacion", "alquiler")).lower()
-        es_vpo = bool(ad.get("es_protegida", False) or tipo_op in ("vpo", "aroc") or "visesa" in str(ad.get("fuente", "")).lower())
-
-        caract = ad.get("caracteristicas", {})
-        if not isinstance(caract, dict):
-            caract = {}
-
+        identity = primer_valor(ad.get("id_origen"), ad.get("id"))
+        if identity is None:
+            return None
+        caracteristicas = ad.get("caracteristicas") or {}
+        if not isinstance(caracteristicas, dict):
+            caracteristicas = {}
+        price = numero_observado(ad.get("precio"), minimo=0.01)
+        area = numero_observado(primer_valor(ad.get("superficie_m2"), ad.get("m2")), minimo=0.01)
+        source = ad.get("fuente") or "fuente_no_documentada"
+        synthetic = booleano_observado(ad.get("es_sintetico"))
+        provenance = dict(ad.get("procedencia") or {})
+        provenance.setdefault("estado", "demo" if synthetic is True else "observado" if synthetic is False else "no_verificado")
+        if ad.get("archivo_origen"):
+            provenance["archivo"] = ad["archivo_origen"]
+        def feature(name):
+            return primer_valor(caracteristicas.get(name), ad.get(name))
+        operation = str(ad.get("tipo_operacion") or "desconocida").strip().lower()
         return {
-            "id_origen": str(ad.get("id") or ad.get("id_origen") or f"ad_{hash(mun + str(precio))}"),
-            "titulo": str(ad.get("titulo", f"Inmueble en {mun}")),
-            "municipio": mun,
-            "codigo_municipio": cod_ine,
-            "provincia": ad.get("provincia") or ("Bizkaia" if cod_ine.startswith("48") else ("Gipuzkoa" if cod_ine.startswith("20") else "Araba")),
-            "barrio": ad.get("barrio"),
-            "direccion": ad.get("direccion"),
-            "tipo_operacion": tipo_op,
-            "precio": precio,
-            "superficie_m2": sup,
-            "precio_m2": round(precio / sup, 2) if sup > 0 else 0.0,
-            "fuente": ad.get("fuente", "habitaclia"),
-            "portal_origen": ad.get("portal_origen", ad.get("fuente", "habitaclia")),
+            "id_origen": str(identity), "fuente": source,
+            "municipio": mun, "codigo_municipio": code,
+            "provincia": PROVINCIAS[code[:2]],
+            "titulo": ad.get("titulo"), "barrio": ad.get("barrio"), "direccion": ad.get("direccion"),
+            "tipo_operacion": operation, "precio": price, "superficie_m2": area,
+            "precio_m2": price / area if price is not None and area is not None else None,
+            "portal_origen": ad.get("portal_origen") or source,
+            "url": ad.get("url"), "fecha_extraccion": ad.get("fecha_extraccion"),
+            "es_sintetico": synthetic, "procedencia": provenance,
             "caracteristicas": {
-                "habitaciones": int(caract.get("habitaciones") or ad.get("habitaciones") or 2),
-                "banos": int(caract.get("banos") or ad.get("banos") or 1),
-                "ascensor": bool(caract.get("ascensor") or ad.get("ascensor") or True),
-                "fianza_meses": int(ad.get("fianza_meses") or caract.get("fianza_meses") or 1),
-                "distancia_transporte_m": int(ad.get("distancia_transporte_m") or 150)
+                **{name: numero_observado(feature(name), entero=True) for name in ("habitaciones", "banos", "fianza_meses", "distancia_transporte_m")},
+                "ascensor": booleano_observado(feature("ascensor")),
             },
-            "es_protegida": es_vpo
+            "es_protegida": booleano_observado(ad.get("es_protegida")) if "es_protegida" in ad else operation in {"vpo", "aroc"},
         }
 
     def _generar_catalogo_multiportal_completo(self) -> List[Dict[str, Any]]:
-        """Extrae el catálogo integrado de todos los portales inmobiliarios y VPO."""
-        multi_scraper = MultiPortalHousingScraper()
-        res = multi_scraper.extraer_todos_los_portales()
-        anuncios = []
-        for ad in res.items:
-            normalizado = self._normalizar_anuncio(ad.to_dict())
-            if normalizado is not None:
-                anuncios.append(normalizado)
-
-        # Añadir promociones VPO Visesa de referencia
-        vpo_seeds = [
-            {"id": "vpo_bilbao_01", "mun": "Bilbao", "cod": "48020", "precio": 450.0, "m2": 72.0, "titulo": "Promoción VPO Alokabide en Zorrotzaurre", "fuente": "OpenData_Visesa", "portal_origen": "Visesa", "es_protegida": True},
-            {"id": "vpo_vitoria_01", "mun": "Vitoria-Gasteiz", "cod": "01059", "precio": 380.0, "m2": 75.0, "titulo": "Alojamientos Dotacionales Salburua (boe-a)", "fuente": "OpenData_Visesa", "portal_origen": "Visesa", "es_protegida": True},
-            {"id": "vpo_donostia_01", "mun": "Donostia-San Sebastián", "cod": "20069", "precio": 520.0, "m2": 68.0, "titulo": "Promoción Txomin Enea VPO Alquiler", "fuente": "OpenData_Visesa", "portal_origen": "Visesa", "es_protegida": True},
-            {"id": "vpo_barakaldo_01", "mun": "Barakaldo", "cod": "48013", "precio": 420.0, "m2": 70.0, "titulo": "VPO Lutxana Parque Serralta", "fuente": "OpenData_Visesa", "portal_origen": "Visesa", "es_protegida": True},
-            {"id": "vpo_getxo_01", "mun": "Getxo", "cod": "48044", "precio": 480.0, "m2": 70.0, "titulo": "Promoción VPO Iturribarren Algorta", "fuente": "OpenData_Visesa", "portal_origen": "Visesa", "es_protegida": True},
-            {"id": "vpo_irun_01", "mun": "Irun", "cod": "20045", "precio": 410.0, "m2": 65.0, "titulo": "Promoción Oinaurre VPO Alquiler", "fuente": "OpenData_Visesa", "portal_origen": "Visesa", "es_protegida": True},
-        ]
-        for v in vpo_seeds:
-            normalizado = self._normalizar_anuncio(v)
-            if normalizado is not None:
-                anuncios.append(normalizado)
-
-        return anuncios
+        """Fixtures didacticos declarados como sinteticos, sin peticiones a portales."""
+        scraper = MultiPortalHousingScraper(demo_mode=True)
+        res = scraper.extraer_todos_los_portales()
+        rows = [ad.to_dict() for ad in res.items]
+        for identity, mun, code, price, area in [
+            ("vpo_bilbao_01", "Bilbao", "48020", 450, 72),
+            ("vpo_vitoria_01", "Vitoria-Gasteiz", "01059", 380, 75),
+            ("vpo_donostia_01", "Donostia-San Sebasti\u00e1n", "20069", 520, 68),
+            ("vpo_barakaldo_01", "Barakaldo", "48013", 420, 70),
+            ("vpo_getxo_01", "Getxo", "48044", 480, 70),
+            ("vpo_irun_01", "Irun", "20045", 410, 65),
+        ]:
+            rows.append({"id": identity, "mun": mun, "cod": code, "precio": price, "m2": area,
+                         "tipo_operacion": "alquiler", "fuente": "demo_vpo", "es_protegida": True, "es_sintetico": True})
+        return [doc for row in rows if (doc := self._normalizar_anuncio(row)) is not None]
 
     def _generar_datos_municipios_base(self) -> Dict[str, Dict[str, Any]]:
         """
@@ -225,4 +204,7 @@ class MongoDBDataLoader:
                 "nivel_tension_inmobiliaria": tension
             }
 
+        for doc in base.values():
+            doc["es_sintetico"] = True
+            doc["procedencia"] = {"estado": "demo", "fuente": "fixture_docente", "ano_referencia": 2025}
         return base

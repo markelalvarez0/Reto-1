@@ -9,7 +9,6 @@ import json
 import csv
 import os
 import requests
-import urllib3
 from typing import List, Dict, Any, Optional
 from datetime import datetime, timezone
 from .models import HousingAd, ExtractionResult
@@ -36,11 +35,7 @@ class OpenDataEuskadiHousingClient:
     def _safe_get(self, url: str, **kwargs) -> requests.Response:
         """Petición GET con soporte y fallback ante certificados SSL locales de la CA de Euskadi."""
         kwargs.setdefault("timeout", self.timeout_seconds)
-        try:
-            return self.session.get(url, **kwargs)
-        except requests.exceptions.SSLError:
-            urllib3.disable_warnings()
-            return self.session.get(url, verify=False, **kwargs)
+        return self.session.get(url, **kwargs)
 
     def fetch_promotions(self) -> ExtractionResult:
         """
@@ -212,11 +207,7 @@ class OpenDataEuskadiHousingClient:
     def save_to_csv(self, result: ExtractionResult, filepath: str) -> None:
         """Guarda los resultados en un archivo CSV estándar con delimitador de coma."""
         os.makedirs(os.path.dirname(os.path.abspath(filepath)), exist_ok=True)
-        fieldnames = [
-            "id", "fuente", "tipo_operacion", "municipio", "provincia", "barrio",
-            "direccion", "precio", "superficie_m2", "habitaciones", "banos",
-            "titulo", "descripcion", "url", "fecha_extraccion", "es_sintetico"
-        ]
+        fieldnames = list(HousingAd.model_fields)
         with open(filepath, "w", encoding="utf-8", newline="") as f:
             writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
             writer.writeheader()

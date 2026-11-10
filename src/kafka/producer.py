@@ -52,9 +52,8 @@ class HousingKafkaProducer:
                 retries=3,
                 request_timeout_ms=3000
             )
-        except Exception:
-            # Si el broker no está disponible, se activará el modo simulación
-            self._real_producer = None
+        except Exception as error:
+            raise ConnectionError("Kafka no disponible; la simulacion debe ser explicita") from error
 
     def publish_ad(self, ad: HousingAd) -> bool:
         """
@@ -62,12 +61,13 @@ class HousingKafkaProducer:
         El mensaje se serializa en JSON con la clave del municipio para particionado natural.
         """
         ad_payload = ad.model_dump()
-        key = ad.municipio or "EUSKADI"
+        key = ad.codigo_municipio or ad.municipio
 
         if not self.simulation_mode and self._real_producer:
             try:
                 future = self._real_producer.send(self.topic, key=key, value=ad_payload)
-                self._real_producer.flush()
+                future.get(timeout=10)
+                self._real_producer.flush(timeout=10)
                 return True
             except Exception as e:
                 print(f"[ERROR KAFKA PRODUCER] Fallo al publicar anuncio {ad.id}: {e}")

@@ -67,6 +67,9 @@ def test_catalogo_vpo_mantiene_municipio_y_superficie(monkeypatch):
     import src.database.data_loader as modulo_carga
 
     class ScraperVacio:
+        def __init__(self, **kwargs):
+            pass
+
         def extraer_todos_los_portales(self):
             return SimpleNamespace(items=[])
 
@@ -83,7 +86,7 @@ def test_catalogo_vpo_mantiene_municipio_y_superficie(monkeypatch):
 
 def test_multi_portal_housing_scraper():
     """Verifica que el scraper multiportal consolide anuncios con código INE y características reales."""
-    scraper = MultiPortalHousingScraper(timeout=2)
+    scraper = MultiPortalHousingScraper(timeout=2, demo_mode=True)
     resultado = scraper.extraer_todos_los_portales()
 
     assert resultado.total_registros >= 20
@@ -97,6 +100,7 @@ def test_multi_portal_housing_scraper():
     assert "Milanuncios" in portales_encontrados
 
     for ad in resultado.items:
+        assert ad.es_sintetico is True
         assert ad.codigo_municipio in INE_MUNICIPAL_CODES.values()
         assert ad.precio > 0
         assert ad.superficie_m2 > 0

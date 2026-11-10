@@ -1,151 +1,87 @@
-"""
-Módulo de limpieza, validación y transformación de datos en MongoDB usando PyMongo.
-Cumple con la rúbrica SBD RA1:
-- Tratamiento de nulos / valores ausentes
-- Eliminación de registros duplicados
-- Conversión y normalización de tipos/formatos
-- Enriquecimiento con campos calculados (precio_m2, categoria_accesibilidad)
-"""
-import logging
-from typing import Dict, Any
+"""Limpieza con PyMongo sin sustituir medidas ausentes por valores inventados."""
+from typing import Any, Dict
+from src.extraction.normalization import numero_observado, booleano_observado
 
-logger = logging.getLogger(__name__)
 
 class MongoDataCleaner:
-    """Ejecuta transformaciones y limpieza automatizada sobre colecciones MongoDB."""
-
+    """Deduplica por fuente/id, conserva nulos y calcula derivados en MongoDB."""
     def __init__(self, db):
         self.db = db
-        self.viviendas_col = db["viviendas"]
-        self.municipios_col = db["municipios"]
+        self.viviendas_col = db['viviendas']
+        self.municipios_col = db['municipios']
 
     def ejecutar_pipeline_limpieza(self) -> Dict[str, int]:
-        """Ejecuta todas las operaciones de limpieza y retorna resumen de impacto."""
-        logger.info("Iniciando pipeline de limpieza y transformación en MongoDB...")
-        
-        # Operación 1: Eliminación de duplicados
-        duplicados_eliminados = self._eliminar_duplicados()
-        
-        # Operación 2: Tratamiento de nulos / campos ausentes
-        nulos_tratados = self._tratar_nulos_y_ausentes()
-        
-        # Operación 3: Estandarización y casteo de tipos
-        tipos_corregidos = self._estandarizar_tipos_y_formatos()
-        
-        # Operación 4: Cálculo de campos derivados (precio_m2 y categoría accesibilidad)
-        campos_calculados = self._calcular_campos_derivados()
-
-        resumen = {
-            "duplicados_eliminados": duplicados_eliminados,
-            "nulos_tratados": nulos_tratados,
-            "tipos_corregidos": tipos_corregidos,
-            "campos_calculados": campos_calculados
+        return {
+            'duplicados_eliminados': self._eliminar_duplicados(),
+            'nulos_tratados': self._tratar_nulos_y_ausentes(),
+            'tipos_corregidos': self._estandarizar_tipos_y_formatos(),
+            'campos_calculados': self._calcular_campos_derivados(),
         }
-        logger.info(f"Limpieza finalizada con éxito: {resumen}")
-        return resumen
 
     def _eliminar_duplicados(self) -> int:
-        """Elimina documentos que tengan el mismo id_origen conservando el primero."""
-        seen = set()
-        ids_a_eliminar = []
-        for doc in self.viviendas_col.find({}, {"_id": 1, "id_origen": 1}):
-            id_orig = doc.get("id_origen")
-            if not id_orig:
-                continue
-            if id_orig in seen:
-                ids_a_eliminar.append(doc["_id"])
-            else:
-                seen.add(id_orig)
-
-        if ids_a_eliminar:
-            res = self.viviendas_col.delete_many({"_id": {"$in": ids_a_eliminar}})
-            return res.deleted_count
-        return 0
+        pipeline = [
+            {'$match': {'id_origen': {'$nin': [None, '']}}},
+            {'$sort': {'fecha_extraccion': -1, '_id': -1}},
+            {'$group': {'_id': {'fuente': '$fuente', 'id': '$id_origen'}, 'ids': {'$push': '$_id'}, 'n': {'$sum': 1}}},
+            {'$match': {'n': {'$gt': 1}}},
+        ]
+        ids = [oid for group in self.viviendas_col.aggregate(pipeline) for oid in group['ids'][1:]]
+        return self.viviendas_col.delete_many({'_id': {'$in': ids}}).deleted_count if ids else 0
 
     def _tratar_nulos_y_ausentes(self) -> int:
-        """Asigna valores coherentes por defecto a registros con datos incompletos."""
-        # 1. Asignar superficie por defecto si es nula o menor a 15 m2
-        res1 = self.viviendas_col.update_many(
-            {"$or": [{"superficie_m2": {"$exists": False}}, {"superficie_m2": None}, {"superficie_m2": {"$lt": 15.0}}]},
-            {"$set": {"superficie_m2": 60.0}}
-        )
-
-        # 2. Asignar características estructurales si faltan
-        res2 = self.viviendas_col.update_many(
-            {"caracteristicas": {"$exists": False}},
-            {"$set": {
-                "caracteristicas": {
-                    "habitaciones": 2,
-                    "banos": 1,
-                    "ascensor": True,
-                    "calefaccion": True,
-                    "garaje": False
-                }
-            }}
-        )
-        return res1.modified_count + res2.modified_count
+        total = 0
+        for field in ('precio', 'superficie_m2'):
+            total += self.viviendas_col.update_many({field: {'$exists': False}}, {'$set': {field: None}}).modified_count
+        total += self.viviendas_col.update_many(
+            {'$or': [{'caracteristicas': {'$exists': False}}, {'caracteristicas': None}]},
+            {'$set': {'caracteristicas': {}}},
+        ).modified_count
+        for field in ('habitaciones', 'banos', 'ascensor', 'fianza_meses', 'distancia_transporte_m'):
+            name = f'caracteristicas.{field}'
+            total += self.viviendas_col.update_many({name: {'$exists': False}}, {'$set': {name: None}}).modified_count
+        return total
 
     def _estandarizar_tipos_y_formatos(self) -> int:
-        """Asegura que precios y superficies sean numéricos de punto flotante."""
-        count = 0
+        total = 0
         for doc in self.viviendas_col.find():
-            precio_raw = doc.get("precio", 0.0)
-            sup_raw = doc.get("superficie_m2", 50.0)
-            tipo_raw = doc.get("tipo_operacion", "alquiler")
-            
-            try:
-                precio_clean = float(precio_raw)
-            except (ValueError, TypeError):
-                precio_clean = 650.0
-                
-            try:
-                sup_clean = float(sup_raw)
-            except (ValueError, TypeError):
-                sup_clean = 60.0
-
-            tipo_clean = str(tipo_raw).strip().lower()
-
-            self.viviendas_col.update_one(
-                {"_id": doc["_id"]},
-                {"$set": {
-                    "precio": precio_clean,
-                    "superficie_m2": sup_clean,
-                    "tipo_operacion": tipo_clean
-                }}
-            )
-            count += 1
-        return count
+            values = {
+                'precio': numero_observado(doc.get('precio'), minimo=0.01),
+                'superficie_m2': numero_observado(doc.get('superficie_m2'), minimo=0.01),
+                'tipo_operacion': str(doc.get('tipo_operacion') or 'desconocida').strip().lower(),
+            }
+            changes = {key: value for key, value in values.items() if doc.get(key) != value or type(doc.get(key)) is not type(value)}
+            original = dict(doc.get('valores_originales') or {})
+            for key in ('precio', 'superficie_m2'):
+                if key in changes and key not in original:
+                    original[key] = doc.get(key)
+            chars = doc.get('caracteristicas') or {}
+            for name in ('habitaciones', 'banos', 'fianza_meses', 'distancia_transporte_m'):
+                val = numero_observado(chars.get(name), entero=True)
+                if chars.get(name) != val:
+                    changes[f'caracteristicas.{name}'] = val
+            elev = booleano_observado(chars.get('ascensor'))
+            if chars.get('ascensor') != elev:
+                changes['caracteristicas.ascensor'] = elev
+            if changes:
+                changes['valores_originales'] = original
+                total += self.viviendas_col.update_one({'_id': doc['_id']}, {'$set': changes}).modified_count
+        return total
 
     def _calcular_campos_derivados(self) -> int:
-        """Calcula el precio/m2 y clasifica la vivienda según esfuerzo juvenil."""
-        count = 0
-        for doc in self.viviendas_col.find():
-            precio = float(doc.get("precio", 0.0))
-            sup = float(doc.get("superficie_m2", 1.0))
-            if sup <= 0:
-                sup = 1.0
-            precio_m2 = round(precio / sup, 2)
-
-            tipo_op = doc.get("tipo_operacion", "alquiler")
-            if tipo_op == "alquiler":
-                if precio <= 600.0:
-                    categoria = "MUY_ACCESIBLE"
-                elif precio <= 850.0:
-                    categoria = "ACCESIBLE_CON_GAZTELAGUN"
-                else:
-                    categoria = "TENSIONADO_EXCLUSIVO"
-            else:
-                if precio <= 160000.0:
-                    categoria = "COMPRA_PROTEGIDA_VPO"
-                else:
-                    categoria = "COMPRA_MERCADO_LIBRE"
-
-            self.viviendas_col.update_one(
-                {"_id": doc["_id"]},
-                {"$set": {
-                    "precio_m2": precio_m2,
-                    "categoria_accesibilidad": categoria
-                }}
-            )
-            count += 1
-        return count
+        """La aritmetica se ejecuta en MongoDB; las categorias no son derechos a ayudas."""
+        valid = {'$and': [{'$isNumber': '$precio'}, {'$gt': ['$precio', 0]}, {'$isNumber': '$superficie_m2'}, {'$gt': ['$superficie_m2', 0]}]}
+        price_valid = {'$and': [{'$isNumber': '$precio'}, {'$gt': ['$precio', 0]}]}
+        updates = [{'$set': {
+            'precio_m2': {'$cond': [valid, {'$divide': ['$precio', '$superficie_m2']}, None]},
+            'calidad.precio_valido': price_valid,
+            'calidad.superficie_valida': {'$and': [{'$isNumber': '$superficie_m2'}, {'$gt': ['$superficie_m2', 0]}]},
+            'categoria_accesibilidad': {'$switch': {
+                'branches': [
+                    {'case': {'$eq': [price_valid, False]}, 'then': 'SIN_DATOS'},
+                    {'case': {'$ne': ['$tipo_operacion', 'alquiler']}, 'then': 'NO_COMPARABLE_CON_ALQUILER'},
+                    {'case': {'$lte': ['$precio', 600]}, 'then': 'ALQUILER_HASTA_600'},
+                    {'case': {'$lte': ['$precio', 850]}, 'then': 'ALQUILER_600_850'},
+                ], 'default': 'ALQUILER_MAS_850',
+            }},
+        }}]
+        return self.viviendas_col.update_many({}, updates).modified_count
