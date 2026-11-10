@@ -2,26 +2,37 @@ name: BDA capturas oficiales de extremo a extremo
 
 "on":
   push:
-    branches: [dev-jon]
-    paths: ['.github/workflows/bda-candidate.yml']
+    branches: [dev-jon, test, main]
+    paths:
+      - '.github/workflows/bda-candidate.yml'
+      - 'src/extraction/**'
+      - 'src/database/**'
+      - 'src/hdfs/**'
+      - 'src/kafka/**'
+      - 'scripts/run_pipeline.py'
+      - 'scripts/sync_sources.py'
+      - 'BDA + SBD/main.py'
+      - 'tests/**'
+      - 'integration_tests/**'
+      - 'data/capturas_oficiales/**'
+      - 'infra/**'
+      - 'requirements*.txt'
+      - '.gitattributes'
+  pull_request:
+    branches: [dev-jon, test, main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  actions: read
 
 concurrency:
-  group: bda-capturas-dev-jon
-  cancel-in-progress: false
+  group: bda-verificacion-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  candidate:
-    if: ${{ github.ref == 'refs/heads/dev-jon' }}
+  integration:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    permissions:
-      contents: write
-      actions: read
     services:
       mongo:
         image: mongo:7.0
@@ -35,7 +46,6 @@ jobs:
       OPENBLAS_NUM_THREADS: '1'
       BDA_LIVE: '1'
       TRANSPORT_LIVE: '1'
-      BDA_CANDIDATE_TREE: '6046f23c962d92f37c38ac353fd3b08760f0a24a'
     steps:
       - uses: actions/checkout@v6
         with:
@@ -51,7 +61,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '11'
-      - name: Validar la base publicada
+      - name: Instalar dependencias con reintentos limitados
         run: |
           mkdir -p evidencia_bda_integracion
           installed=0
@@ -64,179 +74,47 @@ jobs:
           done
           test "$installed" = 1
           python -m pip check
-          python -m pytest tests/ -q --junitxml=evidencia_bda_integracion/base.xml
-          python scripts/sync_sources.py --check
-      - name: Recuperar los originales conservados sin recapturar
-        uses: actions/download-artifact@v4
-        with:
-          name: fuentes-oficiales-originales
-          run-id: 42835919323
-          github-token: ${{ github.token }}
-          path: recuperacion_originales
-      - name: Aplicar propuesta verificada solo en la copia temporal
-        env:
-          GH_READ_TOKEN: ${{ github.token }}
-        run: |
-          python - <<'PY'
-          import base64, hashlib, json, os, subprocess, sys
-          from pathlib import Path, PurePosixPath
-          from urllib.request import Request, urlopen
-          root = Path.cwd().resolve()
-          api = 'https://api.github.com/repos/markelalvarez0/Reto-1/git/'
-          headers = {'Authorization': 'Bearer '+os.environ['GH_READ_TOKEN'], 'Accept':'application/vnd.github+json'}
-          def get(path):
-              with urlopen(Request(api+path, headers=headers), timeout=30) as response:
-                  return json.load(response)
-          def blob(sha):
-              value = get('blobs/'+sha)
-              if value['encoding'] != 'base64' or value['size'] > 2_000_000:
-                  raise ValueError('Objeto no permitido')
-              data = base64.b64decode(value['content'])
-              actual = hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
-              if actual != sha: raise ValueError('Identidad de blob incorrecta')
-              return data
-          tree_sha = os.environ['BDA_CANDIDATE_TREE']
-          tree = get('trees/'+tree_sha+'?recursive=1')
-          if tree.get('truncated') or tree['sha'] != tree_sha: raise ValueError('Arbol incompleto')
-          allowed = {'src', 'scripts', 'tests', 'integration_tests', 'docs', 'BDA + SBD'}
-          for entry in tree['tree']:
-              if entry['type'] == 'tree': continue
-              relative = PurePosixPath(entry['path'])
-              target = root.joinpath(*relative.parts)
-              if (entry['type'] != 'blob' or entry['mode'] != '100644' or relative.is_absolute()
-                  or '..' in relative.parts or relative.parts[0] not in allowed
-                  or target.is_symlink() or not target.resolve().is_relative_to(root)):
-                  raise ValueError('Ruta no permitida')
-              target.parent.mkdir(parents=True, exist_ok=True)
-              target.write_bytes(blob(entry['sha']))
-          patch_shas = ['b23d3c1956e6b100542b9c7443830376cf1a72ec', '92af7fac9f108e52502d0bb9a52108110aa77ef6', 'bb927806cd24587ca0a89b580a20da2991d62ca0']
-          for index, patch_sha in enumerate(patch_shas):
-              patch = Path(os.environ['RUNNER_TEMP'])/f'apply_bda_candidate_{index}.py'
-              patch.write_bytes(blob(patch_sha))
-              subprocess.run([sys.executable, str(patch)], check=True)
-          attributes = root/'.gitattributes'
-          attributes.write_text(attributes.read_text(encoding='utf-8').replace('/data/capturas_oficiales/** -text', '/data/capturas_oficiales/** -text -diff'), encoding='utf-8')
-          doc = root/'docs/BDA_ESTADO.md'
-          text = doc.read_text(encoding='utf-8').replace('`HDFS_NAMENODE_URL`', '`HDFS_NAMENODE_HOST`, `HDFS_NAMENODE_PORT`, `HDFS_USER`')
-          text = text.replace(' y las opciones del cliente; consultar `.env.example` y `src/hdfs/client.py` para el nombre exacto de la variable HDFS', ' y las opciones del cliente; consultar `.env.example`')
-          text = text.replace('`/data/capturas_oficiales/** -text`', '`/data/capturas_oficiales/** -text -diff`')
-          doc.write_text(text, encoding='utf-8')
-          manifest = json.loads((root/'data/capturas_oficiales/manifest.json').read_text())
-          restoration = []
-          for record in manifest['fuentes']:
-              if record.get('estado') != 'descargado': continue
-              name = record['archivo']
-              if Path(name).name != name: raise ValueError('Nombre original no valido')
-              original = (root/'recuperacion_originales'/name).read_bytes()
-              if hashlib.sha256(original).hexdigest() != record['sha256']:
-                  raise ValueError('Artefacto de captura no coincide con su manifiesto')
-              target = root/'data/capturas_oficiales'/name
-              previous = target.read_bytes()
-              if previous != original:
-                  if name not in {'etxebide.csv','ovj_salario_2024.html'} or original.replace(b'\r\n', b'\n') != previous:
-                      raise ValueError('Diferencia de original no explicada: '+name)
-                  target.write_bytes(original)
-                  restoration.append({'archivo':name, 'causa':'normalizacion CRLF a LF de Git', 'sha256_anterior':hashlib.sha256(previous).hexdigest(), 'sha256_restaurado':record['sha256']})
-          evidence = {'base_commit':os.environ['GITHUB_SHA'], 'overlay_tree':tree_sha, 'patch_blobs':patch_shas,
-                      'originales_restaurados':restoration, 'modelo_ml_modificado':False}
-          (root/'evidencia_bda_integracion/propuesta.json').write_text(json.dumps(evidence,indent=2))
-          print(json.dumps(evidence,indent=2))
-          PY
-          python scripts/sync_sources.py
-          python scripts/sync_sources.py --check
-          git diff --check
-      - name: Ejecutar toda la suite con los adaptadores y originales corregidos
+          python -m pip freeze > evidencia_bda_integracion/entorno.txt
+      - name: Probar el codigo publicado y las capturas de un checkout limpio
         run: |
           python -m pytest tests/ -q --junitxml=evidencia_bda_integracion/tests.xml
-          python "BDA + SBD/main.py" --prepare-only --raw-dir evidencia_bda_integracion/entradas_verificadas
+          python scripts/sync_sources.py --check
+          python "BDA + SBD/main.py" --prepare-only --raw-dir "$RUNNER_TEMP/bda_prepared"
+          git diff --exit-code
       - name: Levantar HDFS real con distribucion verificada
         run: bash infra/start_hdfs_ci.sh
-      - name: Probar servicios reales y capturas oficiales de extremo a extremo
+      - name: Probar transporte y fuentes oficiales con los tres servicios reales
         run: |
           python -m pytest integration_tests/test_transport_live.py integration_tests/test_bda_sources_live.py -q -s --junitxml=evidencia_bda_integracion/integracion.xml
-      - name: Preparar evidencia y comprobar cambios antes de publicar
+      - name: Comprobar resultados sin publicar ni modificar ramas
         run: |
           python - <<'PY'
-          import hashlib, json, re, shutil, subprocess
+          import json, os
           from pathlib import Path
           import xml.etree.ElementTree as ET
-          root = Path.cwd()
-          source = root/'evidencia_bda_integracion'
-          report = json.loads((source/'resumen.json').read_text())
+          folder = Path('evidencia_bda_integracion')
+          report = json.loads((folder/'resumen.json').read_text(encoding='utf-8'))
           counts = {}
-          for name in ['tests.xml','integracion.xml']:
-              suites = ET.parse(source/name).getroot().findall('testsuite')
-              if not suites: raise ValueError('Falta informe de pruebas')
+          for name in ('tests.xml', 'integracion.xml'):
+              suites = ET.parse(folder/name).getroot().findall('testsuite')
+              if not suites:
+                  raise RuntimeError('No hay resultados de pytest')
               for suite in suites:
-                  if any(int(suite.get(key,'0')) for key in ['errors','failures','skipped']):
-                      raise ValueError('Pruebas no superadas completamente')
-              counts[name] = sum(int(s.get('tests','0')) for s in suites)
-          report['pruebas'] = counts
-          (source/'resumen.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
-          destination = root/'docs/evidencias_bda'
-          destination.mkdir(parents=True,exist_ok=True)
-          for name in ['base.xml','tests.xml','integracion.xml','resumen.json','propuesta.json']:
-              shutil.copy2(source/name, destination/name)
-          subprocess.run(['git','add','--','src','BDA + SBD/src','SAA + PIA + MIA/src','ainhoa/src',
-                          'scripts/run_pipeline.py','tests/test_bda_sources.py','integration_tests/test_bda_sources_live.py',
-                          'BDA + SBD/main.py','BDA + SBD/README.md','docs/BDA_ESTADO.md','docs/evidencias_bda',
-                          '.gitattributes','data/capturas_oficiales/etxebide.csv','data/capturas_oficiales/ovj_salario_2024.html'],check=True)
-          changed = subprocess.check_output(['git','diff','--cached','--name-only','-z']).decode().split('\0')
-          changed = [name for name in changed if name]
-          if not changed: raise ValueError('Nada que publicar')
-          exact = {'scripts/run_pipeline.py','tests/test_bda_sources.py','integration_tests/test_bda_sources_live.py',
-                   'BDA + SBD/main.py','BDA + SBD/README.md','docs/BDA_ESTADO.md','.gitattributes',
-                   'data/capturas_oficiales/etxebide.csv','data/capturas_oficiales/ovj_salario_2024.html'}
-          modules = {'extraction/api_client.py','extraction/models.py','extraction/source_snapshots.py',
-                     'database/data_loader.py','database/aggregations.py','kafka/consumer.py'}
-          prefixes = ['src/','BDA + SBD/src/','SAA + PIA + MIA/src/','ainhoa/src/']
-          for name in changed:
-              permitted = name in exact or name.startswith('docs/evidencias_bda/') or any(name == p+m for p in prefixes for m in modules)
-              if not permitted: raise ValueError('Cambio fuera del alcance: '+name)
-              data = subprocess.check_output(['git','show',':'+name])
-              if re.search(rb'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|ghp_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{60,}',data):
-                  raise ValueError('Posible secreto en '+name)
-          manifest = json.loads((root/'data/capturas_oficiales/manifest.json').read_text())
-          for record in manifest['fuentes']:
-              if record.get('estado') == 'descargado':
-                  staged = subprocess.check_output(['git','show',':data/capturas_oficiales/'+record['archivo']])
-                  assert hashlib.sha256(staged).hexdigest() == record['sha256'], record['archivo']
-          print(json.dumps({'archivos_preparados':changed,'pruebas':counts,'capturas_originales_verificadas_en_git':True},indent=2))
+                  if any(int(suite.get(k, '0')) for k in ('errors', 'failures', 'skipped')):
+                      raise RuntimeError('La validacion debe terminar sin fallos ni pruebas omitidas')
+              counts[name] = sum(int(s.get('tests', '0')) for s in suites)
+          report.update(pruebas=counts, commit_validado=os.environ['GITHUB_SHA'],
+                        checkout_limpio=True, propuesta_temporal=False,
+                        publica_codigo=False, reentrena_modelos=False)
+          (folder/'resumen.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
+          print(json.dumps({k: v for k, v in report.items() if k not in {'originales', 'hdfs', 'promociones_por_municipio_y_fuente', 'rechazos_preparacion'}}, ensure_ascii=False, indent=2))
           PY
-          git diff --cached --check
-          python scripts/sync_sources.py --check
-      - name: Publicar solo despues de superar pruebas sin sobrescribir cambios ajenos
-        env:
-          GH_PUSH_TOKEN: ${{ github.token }}
-        run: |
-          python - <<'PY'
-          import base64, json, os, subprocess
-          from urllib.request import Request, urlopen
-          repo='https://api.github.com/repos/markelalvarez0/Reto-1'
-          headers={'Authorization':'Bearer '+os.environ['GH_PUSH_TOKEN'],'Accept':'application/vnd.github+json'}
-          with urlopen(Request(repo+'/git/ref/heads/dev-jon',headers=headers),timeout=30) as response:
-              remote=json.load(response)['object']['sha']
-          if remote != os.environ['GITHUB_SHA']:
-              raise RuntimeError('La rama cambio durante la validacion; no publicar sobre cambios ajenos')
-          subprocess.run(['git','config','user.name','github-actions[bot]'],check=True)
-          subprocess.run(['git','config','user.email','41898282+github-actions[bot]@users.noreply.github.com'],check=True)
-          subprocess.run(['git','commit','-m','fix(bda): conservar originales y validar ingesta oficial con HDFS Kafka MongoDB reales'],check=True)
-          env=os.environ.copy()
-          auth=base64.b64encode(('x-access-token:'+os.environ['GH_PUSH_TOKEN']).encode()).decode()
-          env['GIT_CONFIG_COUNT']='1'
-          env['GIT_CONFIG_KEY_0']='http.https://github.com/.extraheader'
-          env['GIT_CONFIG_VALUE_0']='AUTHORIZATION: basic '+auth
-          subprocess.run(['git','push','origin','HEAD:refs/heads/dev-jon'],check=True,env=env)
-          sha=subprocess.check_output(['git','rev-parse','HEAD']).decode().strip()
-          from pathlib import Path
-          Path('evidencia_bda_integracion/publicacion.json').write_text(json.dumps({'commit':sha,'rama':'dev-jon','main_y_test_modificados':False},indent=2))
-          print('Publicacion verificada en dev-jon:',sha)
-          PY
+          git diff --exit-code
       - name: Conservar evidencias incluso ante fallos
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
-          name: evidencia-bda-capturas-reales
+          name: evidencia-bda-checkout-limpio
           path: |
             evidencia_bda_integracion/
             test-results/
