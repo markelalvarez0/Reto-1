@@ -43,6 +43,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-ci.txt
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -50,7 +54,15 @@ jobs:
       - name: Validar la base publicada
         run: |
           mkdir -p evidencia_bda_integracion
-          python -m pip install -q -r requirements-ci.txt
+          installed=0
+          for attempt in 1 2 3; do
+            if python -m pip install --retries 5 --timeout 60 -q -r requirements-ci.txt; then
+              installed=1
+              break
+            fi
+            if [ "$attempt" -lt 3 ]; then sleep 15; fi
+          done
+          test "$installed" = 1
           python -m pip check
           python -m pytest tests/ -q --junitxml=evidencia_bda_integracion/base.xml
           python scripts/sync_sources.py --check
@@ -101,9 +113,12 @@ jobs:
           patch = Path(os.environ['RUNNER_TEMP'])/'apply_bda_candidate.py'
           patch.write_bytes(blob(patch_sha))
           subprocess.run([sys.executable, str(patch)], check=True)
+          attributes = root/'.gitattributes'
+          attributes.write_text(attributes.read_text(encoding='utf-8').replace('/data/capturas_oficiales/** -text', '/data/capturas_oficiales/** -text -diff'), encoding='utf-8')
           doc = root/'docs/BDA_ESTADO.md'
           text = doc.read_text(encoding='utf-8').replace('`HDFS_NAMENODE_URL`', '`HDFS_NAMENODE_HOST`, `HDFS_NAMENODE_PORT`, `HDFS_USER`')
           text = text.replace(' y las opciones del cliente; consultar `.env.example` y `src/hdfs/client.py` para el nombre exacto de la variable HDFS', ' y las opciones del cliente; consultar `.env.example`')
+          text = text.replace('`/data/capturas_oficiales/** -text`', '`/data/capturas_oficiales/** -text -diff`')
           doc.write_text(text, encoding='utf-8')
           manifest = json.loads((root/'data/capturas_oficiales/manifest.json').read_text())
           restoration = []
