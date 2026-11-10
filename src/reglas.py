@@ -1,194 +1,107 @@
-"""
-src/reglas.py - Motor de reglas de negocio para el Reto MIA (Modelos de IA).
-Cumple con la rúbrica MIA RA5:
-- 6 o más reglas con prioridad estricta
-- Decisión de negocio clara
-- Justificación ("Por qué") económica y social
-- Regla de seguridad / Fallback por defecto
-"""
+"""Orientacion de vivienda: reglas trazables, nunca resoluciones administrativas.
 
-from typing import Dict, Any, List, Optional
-from dataclasses import dataclass
+Norma parametrizada: Orden de 5/6/2026, BOPV 15/6/2026, bases 2, 5 y 7.
+El modelo predice renta municipal, NO elegibilidad ni riesgo individual.
+"""
+from dataclasses import asdict, dataclass
+from datetime import date
+import math
+from typing import Any, Callable
+from src.extraction.models import resolver_codigo_ine
 
-@dataclass
+NORMA_URL = 'https://www.euskadi.eus/bopv2/datos/2026/06/2602608a.shtml'
+LIMITES_ANUALES = {'individual': 30000.0, 'familiar': 36764.0, 'numerosa': 39184.0}
+CAPITALES = {'48020', '20069', '01059'}
+DECISIONES = ('REVISION_DATOS', 'REVISION_NORMATIVA', 'ORIENTACION_PRIORITARIA',
+              'REVISION_REQUISITOS', 'BUSCAR_ALTERNATIVAS', 'PLANIFICAR_ENTRADA',
+              'CONSULTAR_GAZTELAGUN', 'INFORMACION_GENERAL')
+
+
+@dataclass(frozen=True)
 class DecisionNegocio:
     regla_id: str
     nombre_regla: str
     prioridad: int
     decision: str
     accion_recomendada: str
-    canal_notificacion: str
     justificacion_negocio: str
-    probabilidad_modelo: float
+    renta_estimada: float | None
+    esfuerzo_pct: float | None
+    ayuda_teorica_max: float | None = None
+    canal_notificacion: str = 'registro_local_n8n'
+    aviso: str = 'Orientativo. No concede ni deniega ayudas. Se requiere comprobacion administrativa.'
+    norma: str = NORMA_URL
+
+    def to_dict(self):
+        return asdict(self)
+
+
+@dataclass(frozen=True)
+class Regla:
+    id: str
+    prioridad: int
+    decision: str
+    motivo: str
+    accion: str
+    condicion: Callable[[dict], bool]
+
+
+def numero(value):
+    if isinstance(value, bool):
+        return None
+    try:
+        result = float(value)
+        return result if math.isfinite(result) else None
+    except (ValueError, TypeError):
+        return None
 
 
 class MotorReglasVivienda:
-    """Motor experto de decisión basado en la predicción probabilística del modelo y datos del joven."""
-
+    """Primera regla aplicable en prioridad descendente, como en la plantilla MIA."""
     def __init__(self):
         self.reglas = [
-            self._regla_1_riesgo_extremo,
-            self._regla_2_aprobacion_expres,
-            self._regla_3_fianza_vulnerable,
-            self._regla_4_alquiler_compartido,
-            self._regla_5_mercado_tensionado_vpo,
-            self._regla_6_seguridad_fallback
+            Regla('R_SEGURIDAD', 100, 'REVISION_DATOS', 'Faltan datos, hay valores imposibles o el modelo esta fuera de cobertura.', 'Abrir tarea de verificacion sin resolver derechos.', lambda c: c['invalido']),
+            Regla('R_NORMA', 95, 'REVISION_NORMATIVA', 'La convocatoria parametrizada solo cubre 2026.', 'Comprobar convocatoria vigente antes de orientar sobre ayudas.', lambda c: c['fecha'].year != 2026),
+            Regla('R_ESFUERZO_CRITICO', 90, 'ORIENTACION_PRIORITARIA', 'El coste declarado supera el 70% del ingreso neto disponible; es un umbral interno, no una norma legal.', 'Crear solicitud de asesoramiento prioritario, sin denegacion automatica.', lambda c: c['esfuerzo'] > 70),
+            Regla('R_REQUISITOS', 80, 'REVISION_REQUISITOS', 'Un requisito basico declarado requiere revision; ingreso anual computable no equivale a salario neto por doce.', 'Generar lista de requisitos que revisar con personal tecnico.', lambda c: c['requisito_no_cumplido']),
+            Regla('R_DOCUMENTACION', 75, 'REVISION_NORMATIVA', 'Faltan comprobaciones o hay excepciones territoriales/contractuales no resueltas.', 'Preparar checklist documental; revisar limite de renta y excepciones.', lambda c: not c['documentacion_completa'] or c['limite_pendiente']),
+            Regla('R_ALTERNATIVAS', 70, 'BUSCAR_ALTERNATIVAS', 'El coste supera el 40% del ingreso neto; comparar alternativas sin dar por concedida una ayuda.', 'Crear ficha de alternativas y presupuesto maximo orientativo.', lambda c: c['esfuerzo'] > 40),
+            Regla('R_ENTRADA', 60, 'PLANIFICAR_ENTRADA', 'El ahorro declarado no cubre la entrada estimada por el usuario.', 'Crear plan de ahorro para entrada; no ofrecer creditos ficticios.', lambda c: c['ahorros'] < c['entrada']),
+            Regla('R_GAZTELAGUN', 50, 'CONSULTAR_GAZTELAGUN', 'Comprobaciones basicas declaradas completas; la cuantia maxima es orientativa y esta sujeta a la resolucion oficial.', 'Generar checklist de solicitud Gaztelagun, nunca una concesion.', lambda c: c['esfuerzo'] > 30),
+            Regla('R_GENERAL', 0, 'INFORMACION_GENERAL', 'Caso sin alertas anteriores; la renta predicha es una media municipal, no una oferta individual.', 'Guardar una ficha informativa de presupuesto y limites del modelo.', lambda c: True),
         ]
 
-    def evaluar(self, caso: Dict[str, Any], prob_viable: float) -> DecisionNegocio:
-        """Evalúa un caso por orden de prioridad estricta hasta encontrar coincidencia."""
-        for regla_fn in self.reglas:
-            resultado = regla_fn(caso, prob_viable)
-            if resultado is not None:
-                return resultado
-        return self._regla_6_seguridad_fallback(caso, prob_viable)
-
-    # -------------------------------------------------------------
-    # REGLA 1 (Prioridad 1): Riesgo Extremo de Insolvencia
-    # -------------------------------------------------------------
-    def _regla_1_riesgo_extremo(self, caso: Dict[str, Any], p: float) -> Optional[DecisionNegocio]:
-        alquiler = float(caso.get("precio_alquiler", 800.0))
-        ingresos = max(float(caso.get("ingresos_mensuales", 1200.0)), 1.0)
-        deudas = float(caso.get("deudas_mensuales", 0.0))
-        comparte = caso.get("comparte_piso", "No")
-        alquiler_efectivo = alquiler / 2.0 if comparte == "Si" else alquiler
-        esfuerzo = (alquiler_efectivo + deudas) / ingresos
-
-        # Exclusión legal: Ingresos superiores al límite normativo de Gaztelagun (25.200 € brutos/año = ~2.100 € netos/mes)
-        if ingresos > 2100.0:
-            return DecisionNegocio(
-                regla_id="R1_SUPERACION_INGRESOS",
-                nombre_regla="Exclusión Legal por Superar el Límite Máximo de Ingresos Gaztelagun",
-                prioridad=1,
-                decision="DENEGADO_SUPERACION_INGRESOS",
-                accion_recomendada="Denegación automática de la subvención pública. El solicitante dispone de renta suficiente para el mercado libre sin subsidio.",
-                canal_notificacion="sede_electronica_resolucion",
-                justificacion_negocio=(
-                    f"Los ingresos declarados ({ingresos:.2f} €/mes) superan el tope legal de 2.100 € netos al mes "
-                    "(25.200 € brutos anuales) fijado por la normativa del Gobierno Vasco para el programa Gaztelagun."
-                ),
-                probabilidad_modelo=p
-            )
-
-        if p < 0.30 or esfuerzo > 0.70:
-            return DecisionNegocio(
-                regla_id="R1_RIESGO_EXTREMO",
-                nombre_regla="Prevención de Sobreendeudamiento Inasumible",
-                prioridad=1,
-                decision="DENEGADO_PROTECCION",
-                accion_recomendada="Derivar urgentemente al Servicio de Mediación de Alokabide y solicitar plaza en VPO de alquiler social.",
-                canal_notificacion="email_asesoramiento_social",
-                justificacion_negocio=(
-                    f"El esfuerzo financiero individual supera el umbral crítico del 70 % ({esfuerzo*100:.1f} %) o la probabilidad es muy baja ({p:.2f}). "
-                    "Conceder la ayuda en el mercado libre provocaría desahucio o insolvencia en menos de 6 meses."
-                ),
-                probabilidad_modelo=p
-            )
-        return None
-
-    # -------------------------------------------------------------
-    # REGLA 2 (Prioridad 2): Aprobación Directa Exprés
-    # -------------------------------------------------------------
-    def _regla_2_aprobacion_expres(self, caso: Dict[str, Any], p: float) -> Optional[DecisionNegocio]:
-        contrato = caso.get("tipo_contrato", "")
-        ahorros = float(caso.get("ahorros_disponibles", 0.0) or 0.0)
-
-        if p >= 0.72 and contrato == "Indefinido" and ahorros >= 1500.0:
-            return DecisionNegocio(
-                regla_id="R2_APROBACION_EXPRES",
-                nombre_regla="Concesión Exprés de Ayuda Gaztelagun",
-                prioridad=2,
-                decision="CONCESION_EXPRES_300EUR",
-                accion_recomendada="Emisión inmediata de la resolución favorable de ayuda Gaztelagun (hasta 300 €/mes) sin requerir documentación adicional.",
-                canal_notificacion="sms_y_sede_electronica",
-                justificacion_negocio=(
-                    f"Solicitud con solvencia contrastada (p={p:.2f}), estabilidad laboral indefinida y colchón de ahorros. "
-                    "Se tramita en 24 horas ahorrando un 85 % de coste burocrático de revisión."
-                ),
-                probabilidad_modelo=p
-            )
-        return None
-
-    # -------------------------------------------------------------
-    # REGLA 3 (Prioridad 3): Viable con Vulnerabilidad de Fianza
-    # -------------------------------------------------------------
-    def _regla_3_fianza_vulnerable(self, caso: Dict[str, Any], p: float) -> Optional[DecisionNegocio]:
-        ahorros = float(caso.get("ahorros_disponibles", 0.0) or 0.0)
-        alquiler = float(caso.get("precio_alquiler", 700.0))
-
-        if p >= 0.55 and ahorros < alquiler:
-            return DecisionNegocio(
-                regla_id="R3_FIANZA_VULNERABLE",
-                nombre_regla="Concesión con Microcrédito de Fianza Cero Interés",
-                prioridad=3,
-                decision="CONCESION_CON_ANTICIPO_FIANZA",
-                accion_recomendada="Aprobar ayuda mensual y activar microcrédito sin interés de hasta 1.000 € para depósito de fianza ante Bizilagun.",
-                canal_notificacion="email_concesion_condicionada",
-                justificacion_negocio=(
-                    f"El solicitante es solvente para el pago mensual (p={p:.2f}), pero carece de liquidez inmediata para los 2 meses de fianza legal. "
-                    "El microcrédito puente desbloquea la firma del contrato de arrendamiento."
-                ),
-                probabilidad_modelo=p
-            )
-        return None
-
-    # -------------------------------------------------------------
-    # REGLA 4 (Prioridad 4): Emancipación Colectiva / Piso Compartido
-    # -------------------------------------------------------------
-    def _regla_4_alquiler_compartido(self, caso: Dict[str, Any], p: float) -> Optional[DecisionNegocio]:
-        comparte = caso.get("comparte_piso", "No")
-
-        if p >= 0.50 and comparte == "Si":
-            return DecisionNegocio(
-                regla_id="R4_PISO_COMPARTIDO",
-                nombre_regla="Ayuda a la Co-Emancipación Juvenil",
-                prioridad=4,
-                decision="CONCESION_ALQUILER_COMPARTIDO",
-                accion_recomendada="Aprobar subvención proporcional para vivienda compartida y solicitar identificación de los cotitulares.",
-                canal_notificacion="email_tramitacion_compartida",
-                justificacion_negocio=(
-                    f"Al compartir los gastos de la vivienda, el esfuerzo real individual se reduce a la mitad. "
-                    "El modelo confirma viabilidad sostenible (p={p:.2f})."
-                ),
-                probabilidad_modelo=p
-            )
-        return None
-
-    # -------------------------------------------------------------
-    # REGLA 5 (Prioridad 5): Zona Tensionada con Mercado Inasumible
-    # -------------------------------------------------------------
-    def _regla_5_mercado_tensionado_vpo(self, caso: Dict[str, Any], p: float) -> Optional[DecisionNegocio]:
-        municipio = caso.get("municipio", "")
-        if municipio in ["Donostia-San Sebastián", "Bilbao"] and p < 0.60:
-            return DecisionNegocio(
-                regla_id="R5_ZONA_TENSIONADA_VPO",
-                nombre_regla="Derivación a Cupo Joven de VPO en Zonas Tensionadas",
-                prioridad=5,
-                decision="DERIVACION_CUPO_VPO",
-                accion_recomendada="Inscribir de oficio con preferencia en la próxima adjudicación de promociones públicas VPO de Alokabide en el municipio.",
-                canal_notificacion="carta_etxebide",
-                justificacion_negocio=(
-                    f"En {municipio} los alquileres superan la media autonómica. Aun con subsidio, el mercado libre es precario (p={p:.2f}). "
-                    "La solución eficiente y duradera es la adjudicación de vivienda de protección pública."
-                ),
-                probabilidad_modelo=p
-            )
-        return None
-
-    # -------------------------------------------------------------
-    # REGLA 6 (Prioridad 6): Regla de Seguridad / Fallback
-    # -------------------------------------------------------------
-    def _regla_6_seguridad_fallback(self, caso: Dict[str, Any], p: float) -> DecisionNegocio:
-        return DecisionNegocio(
-            regla_id="R6_SEGURIDAD_FALLBACK",
-            nombre_regla="Regla de Seguridad: Revisión Humana Individualizada",
-            prioridad=6,
-            decision="REVISION_MANUAL_TECNICO_SOCIAL",
-            accion_recomendada="Asignar expediente a un trabajador social comarcal para entrevista presencial y análisis pormenorizado.",
-            canal_notificacion="alerta_sistema_gestion_interna",
-            justificacion_negocio=(
-                f"Caso en franja de incertidumbre estadística (p={p:.2f}) que no cumple condiciones automáticas inequívocas. "
-                "La regla de seguridad previene denegaciones indebidas y asegura atención humana a casos singulares."
-            ),
-            probabilidad_modelo=p
-        )
+    def evaluar(self, caso: dict[str, Any], prob_viable=None, *, renta_estimada=None, fecha=None):
+        """prob_viable se ignora: la clasificacion sintetica no decide sobre personas."""
+        fecha = fecha or date.today()
+        income = numero(caso.get('ingresos_mensuales'))
+        rent = numero(caso.get('precio_alquiler', renta_estimada))
+        debt = numero(caso.get('deudas_mensuales'))
+        age = numero(caso.get('edad'))
+        annual = numero(caso.get('ingresos_anuales_computables'))
+        savings = numero(caso.get('ahorros_disponibles'))
+        entry = numero(caso.get('coste_entrada'))
+        estimate = numero(renta_estimada)
+        group = caso.get('unidad', 'individual')
+        invalid = any(v is None for v in (income, rent, debt, age, savings, entry))
+        invalid = invalid or (income is not None and income <= 0) or any(v is not None and v < 0 for v in (rent, debt, savings, entry))
+        invalid = invalid or (age is not None and (not age.is_integer() or age < 0 or age > 120))
+        invalid = invalid or group not in LIMITES_ANUALES or caso.get('modelo_en_cobertura') is not True
+        invalid = invalid or (renta_estimada is not None and (estimate is None or estimate <= 0))
+        effort = (rent + debt) / income * 100 if not invalid else None
+        code = resolver_codigo_ine(caso.get('municipio'))
+        # Unknown municipal classification is reviewed rather than assumed.
+        limit = 900 if code in CAPITALES else 800 if caso.get('municipio_grupo_800_verificado') is True else None
+        total_rent = numero(caso.get('renta_total_vivienda'))
+        pending_limit = limit is None or total_rent is None or total_rent > limit or caso.get('contrato_compartido') is True
+        document_fields = ('residencia_6_meses', 'vivienda_habitual_libre', 'contrato_titular', 'pagos_bancarios', 'sin_propiedad_disponible', 'sin_parentesco', 'sin_incompatibilidades')
+        missing = any(caso.get(k) is not True for k in document_fields) or annual is None
+        failed = (age is not None and not 18 <= age <= 35) or (annual is not None and not 3000 < annual <= LIMITES_ANUALES.get(group, 0))
+        failed = failed or any(caso.get(k) is False for k in document_fields)
+        context = {'invalido': invalid, 'fecha': fecha, 'esfuerzo': effort, 'requisito_no_cumplido': failed,
+                   'documentacion_completa': not missing, 'limite_pendiente': pending_limit,
+                   'ahorros': savings, 'entrada': entry}
+        rule = next(rule for rule in sorted(self.reglas, key=lambda r: -r.prioridad) if rule.condicion(context))
+        aid = min(300.0, 0.6 * rent) if rule.decision == 'CONSULTAR_GAZTELAGUN' else None
+        return DecisionNegocio(rule.id, rule.id, rule.prioridad, rule.decision, rule.accion, rule.motivo,
+                               estimate, effort, aid)

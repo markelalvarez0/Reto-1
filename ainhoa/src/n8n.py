@@ -1,61 +1,38 @@
-"""
-src/n8n.py - Cliente de integración de decisiones con n8n mediante Webhook.
-Cumple con la rúbrica MIA RA5:
-- Envía por webhook la decisión, probabilidad y datos del caso a n8n
-- Maneja respuestas y proporciona fallback para ejecución offline
-"""
-
+"""Envio real al webhook; nunca declara exito cuando la red falla."""
 import os
-import json
-import logging
-from typing import Dict, Any
+import uuid
+from urllib.parse import urlparse
+import requests
+from src.reglas import DECISIONES
 
-logger = logging.getLogger(__name__)
-
-DEFAULT_WEBHOOK_URL = os.getenv("N8N_WEBHOOK_URL", "http://localhost:5678/webhook/vivienda-decision")
 
 class N8NWebhookClient:
-    """Envía la decisión tomada a un flujo de automatización en n8n."""
+    def __init__(self, webhook_url=None, *, demo_mode=False, timeout=10):
+        self.webhook_url = webhook_url or os.getenv('N8N_WEBHOOK_URL', 'http://localhost:5678/webhook/vivienda-decision')
+        parsed = urlparse(self.webhook_url)
+        if parsed.scheme != 'https' and not (parsed.scheme == 'http' and parsed.hostname in {'localhost', '127.0.0.1', 'n8n'}):
+            raise ValueError('Webhook remoto debe usar HTTPS; HTTP solo para el servicio local')
+        self.demo_mode, self.timeout = demo_mode, timeout
 
-    def __init__(self, webhook_url: str = DEFAULT_WEBHOOK_URL):
-        self.webhook_url = webhook_url
-
-    def disparar_accion(self, decision_dict: Dict[str, Any], datos_solicitante: Dict[str, Any]) -> Dict[str, Any]:
-        """
-        Construye el payload y lo envía por HTTP POST al webhook de n8n.
-        Si n8n no está levantado localmente, genera una simulación exitosa con el payload exacto.
-        """
-        payload = {
-            "evento": "NUEVA_DECISION_EMANCIPACION_JUVENIL",
-            "decision": decision_dict,
-            "solicitante": datos_solicitante,
-            "origen": "Streamlit_App_Reto1_IABD"
-        }
-
+    def disparar_accion(self, decision_dict, datos_solicitante=None, *, event_id=None):
+        """Minimiza datos: no envia nombre, ingresos, domicilio, email ni perfil personal."""
+        decision = decision_dict.get('decision')
+        if decision not in DECISIONES:
+            raise ValueError('Decision no reconocida')
+        event_id = str(uuid.UUID(str(event_id))) if event_id else str(uuid.uuid4())
+        payload = {'event_id': event_id, 'decision': decision,
+                   'regla_id': decision_dict.get('regla_id'),
+                   'renta_estimada': decision_dict.get('renta_estimada'),
+                   'origen': 'Streamlit_Reto1', 'version': 1}
+        if self.demo_mode:
+            return {'estado': 'DEMO_NO_ENVIADO', 'payload_enviado': payload}
         try:
-            import requests
-            response = requests.post(self.webhook_url, json=payload, timeout=2.0)
-            if response.status_code in [200, 201]:
-                logger.info(f"Decisión enviada con éxito a n8n en {self.webhook_url}")
-                return {
-                    "estado": "ENVIADO_N8N",
-                    "codigo_http": response.status_code,
-                    "respuesta_n8n": response.json() if response.headers.get("content-type") == "application/json" else response.text,
-                    "payload_enviado": payload
-                }
-            else:
-                logger.warning(f"n8n respondió con código {response.status_code}")
-                return {
-                    "estado": "ERROR_N8N",
-                    "codigo_http": response.status_code,
-                    "payload_enviado": payload
-                }
-        except Exception as e:
-            logger.info(f"Servidor n8n no accesible en {self.webhook_url} ({e}). Simulación de recepción de webhook.")
-            return {
-                "estado": "SIMULADO_OFFLINE",
-                "mensaje": "Payload generado y validado con éxito. Listo para ser consumido por n8n en localhost:5678.",
-                "accion_disparada": decision_dict.get("accion_recomendada"),
-                "canal": decision_dict.get("canal_notificacion"),
-                "payload_enviado": payload
-            }
+            response = requests.post(self.webhook_url, json=payload, timeout=self.timeout,
+                                     headers={'Idempotency-Key': event_id})
+            response.raise_for_status()
+            ack = response.json()
+            if ack.get('event_id') != event_id or ack.get('persistido') is not True:
+                raise ValueError('Respuesta sin confirmacion de accion persistida')
+            return {'estado': 'ENVIADO_N8N', 'payload_enviado': payload, 'respuesta_n8n': ack}
+        except (requests.RequestException, ValueError) as error:
+            return {'estado': 'ERROR_N8N', 'payload_enviado': payload, 'error': str(error)}

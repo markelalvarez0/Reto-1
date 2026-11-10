@@ -128,51 +128,16 @@ def test_mlp_neural_network_activations(sample_dataset):
 
 
 def test_reglas_negocio_prioridad_y_fallback():
-    """Verifica las 6 reglas de negocio y el comportamiento de seguridad."""
-    motor = MotorReglasVivienda()
-
-    # R1: Riesgo extremo (esfuerzo > 50%)
-    caso_extremo = {"precio_alquiler": 1100.0, "ingresos_mensuales": 1000.0, "deudas_mensuales": 100.0}
-    dec1 = motor.evaluar(caso_extremo, prob_viable=0.15)
-    assert dec1.decision == "DENEGADO_PROTECCION"
-    assert dec1.prioridad == 1
-
-    # R2: Aprobación exprés
-    caso_excelente = {"tipo_contrato": "Indefinido", "ahorros_disponibles": 3000.0, "precio_alquiler": 600.0, "ingresos_mensuales": 1800.0}
-    dec2 = motor.evaluar(caso_excelente, prob_viable=0.85)
-    assert dec2.decision == "CONCESION_EXPRES_300EUR"
-    assert dec2.prioridad == 2
-
-    # R3: Fianza vulnerable (viable pero ahorros < alquiler)
-    caso_fianza = {"precio_alquiler": 700.0, "ingresos_mensuales": 1400.0, "ahorros_disponibles": 300.0}
-    dec3 = motor.evaluar(caso_fianza, prob_viable=0.62)
-    assert dec3.decision == "CONCESION_CON_ANTICIPO_FIANZA"
-    assert dec3.prioridad == 3
-
-    # R4: Piso compartido
-    caso_comparte = {"comparte_piso": "Si", "precio_alquiler": 800.0, "ingresos_mensuales": 1300.0, "ahorros_disponibles": 1500.0}
-    dec4 = motor.evaluar(caso_comparte, prob_viable=0.55)
-    assert dec4.decision == "CONCESION_ALQUILER_COMPARTIDO"
-    assert dec4.prioridad == 4
-
-    # R5: Donostia tensión
-    caso_donostia = {"municipio": "Donostia-San Sebastián", "precio_alquiler": 950.0, "ingresos_mensuales": 1400.0, "ahorros_disponibles": 1200.0}
-    dec5 = motor.evaluar(caso_donostia, prob_viable=0.45)
-    assert dec5.decision == "DERIVACION_CUPO_VPO"
-    assert dec5.prioridad == 5
-
-    # R6: Fallback de seguridad
-    caso_intermedio = {"municipio": "Vitoria-Gasteiz", "precio_alquiler": 700.0, "ingresos_mensuales": 1300.0, "ahorros_disponibles": 900.0}
-    dec6 = motor.evaluar(caso_intermedio, prob_viable=0.48)
-    assert dec6.decision == "REVISION_MANUAL_TECNICO_SOCIAL"
-    assert dec6.prioridad == 6
+    """El motor no transforma probabilidades sinteticas en concesiones."""
+    dec = MotorReglasVivienda().evaluar({}, prob_viable=0.99)
+    assert dec.decision == 'REVISION_DATOS'
+    assert dec.prioridad == 100
+    assert 'No concede' in dec.aviso
 
 
 def test_n8n_integration():
-    """Verifica que el cliente n8n genera y envía el payload correctamente."""
-    n8n = N8NWebhookClient()
-    mock_dec = {"decision": "CONCESION_EXPRES_300EUR", "accion_recomendada": "Aprobar", "canal_notificacion": "sms"}
-    mock_caso = {"solicitud_id": "TEST-1", "ingresos": 1500.0}
-    res = n8n.disparar_accion(mock_dec, mock_caso)
-    assert res["estado"] in ["ENVIADO_N8N", "SIMULADO_OFFLINE"]
-    assert "payload_enviado" in res
+    """La demo solo construye payloads; no simula una accion enviada."""
+    client = N8NWebhookClient(demo_mode=True)
+    res = client.disparar_accion({'decision': 'REVISION_DATOS'}, {'nombre': 'No transmitir'})
+    assert res['estado'] == 'DEMO_NO_ENVIADO'
+    assert 'nombre' not in str(res['payload_enviado'])

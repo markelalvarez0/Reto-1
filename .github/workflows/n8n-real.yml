@@ -1,0 +1,45 @@
+name: Integracion n8n real
+"on":
+  push:
+    branches: [dev-jon, test, main]
+    paths: ['n8n/**', 'src/n8n.py', 'src/reglas.py', 'scripts/action_server.py', 'integration_tests/check_n8n_live.py', '.github/workflows/n8n-real.yml']
+  pull_request:
+    branches: [test, main]
+permissions:
+  contents: read
+jobs:
+  n8n:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install requests pydantic
+      - name: Preparar workflow publicado en servicio local
+        run: |
+          mkdir -p data/acciones_n8n test-results
+          docker compose -f n8n/compose.yml run --rm n8n import:workflow --input=/workflow/flujo.json
+          docker compose -f n8n/compose.yml run --rm n8n publish:workflow --id=reto1Vivienda2026
+          docker compose -f n8n/compose.yml up -d
+          for i in $(seq 1 90); do
+            if curl -fsS http://localhost:5678/healthz >/dev/null; then break; fi
+            sleep 2
+          done
+          curl -fsS http://localhost:5678/healthz
+      - name: Comprobar ocho ramas y persistencia real
+        run: python integration_tests/check_n8n_live.py
+      - name: Recoger logs sin credenciales
+        if: ${{ always() }}
+        run: docker compose -f n8n/compose.yml logs --no-color > test-results/n8n-service.log
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: evidencias-n8n-real
+          path: test-results/
+          retention-days: 30
+      - if: ${{ always() }}
+        run: docker compose -f n8n/compose.yml down
