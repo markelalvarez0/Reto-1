@@ -1,0 +1,90 @@
+name: Auditoria de fuentes BDA
+
+"on":
+  push:
+    branches: [dev-jon]
+    paths: ['.github/workflows/bda-sources-audit.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validar version publicada antes de preparar adaptadores
+        run: |
+          mkdir -p evidencia_bda
+          python -m pip install -r requirements-ci.txt
+          python -m pytest tests/ -q --junitxml=evidencia_bda/base.xml
+          python scripts/sync_sources.py --check
+      - name: Inspeccionar originales sin modificarlos ni normalizarlos
+        run: |
+          python - <<'PY'
+          import csv, hashlib, io, json, re
+          from pathlib import Path
+          import openpyxl
+          from bs4 import BeautifulSoup
+
+          root = Path('data/capturas_oficiales')
+          manifest = json.loads((root/'manifest.json').read_text(encoding='utf-8'))
+          result = {'fuentes': [], 'datos_originales_modificados': False}
+          for source in manifest['fuentes']:
+              if source['estado'] != 'descargado':
+                  continue
+              path = root/source['archivo']
+              data = path.read_bytes()
+              assert hashlib.sha256(data).hexdigest() == source['sha256'], path
+              item = {'archivo': path.name, 'bytes': len(data), 'sha256': source['sha256']}
+              if path.name == 'visesa.json':
+                  payload = json.loads(data)
+                  item['claves'] = list(payload)
+                  rows = payload.get('promociones', [])
+                  item['registros'] = len(rows)
+                  item['campos'] = sorted(set().union(*(r.keys() for r in rows)))
+                  fields = ['id','municipio','territorio','modalidad','regimen','nombre_promocion','domicilio','mapa_coordenadas']
+                  item['muestra_promociones'] = [{k:r.get(k) for k in fields} for r in rows[:4]]
+                  item['municipios'] = sorted({str(r.get('municipio')) for r in rows})
+                  item['modalidades'] = sorted({str(r.get('modalidad')) for r in rows})
+                  item['campos_unidades'] = sorted(set().union(*(u.keys() for r in rows for u in (r.get('viviendas') or []) if isinstance(u,dict))))
+                  item['tipos_unidades'] = sorted({str(u.get('unidad_venta')) for r in rows for u in (r.get('viviendas') or []) if isinstance(u,dict)})
+              elif path.name == 'etxebide.csv':
+                  try:
+                      text = data.decode('utf-8-sig'); encoding = 'utf-8-sig'
+                  except UnicodeDecodeError:
+                      text = data.decode('iso-8859-1'); encoding = 'iso-8859-1'
+                  dialect = csv.Sniffer().sniff(text[:8192], delimiters=';,\t|')
+                  reader = csv.DictReader(io.StringIO(text), dialect=dialect)
+                  rows = list(reader)
+                  item.update(encoding=encoding, delimitador=dialect.delimiter, campos=reader.fieldnames, registros=len(rows), muestra=rows[:2])
+              elif path.name == 'ine_2026.xlsx':
+                  book = openpyxl.load_workbook(io.BytesIO(data), read_only=True, data_only=True)
+                  item['hojas'] = book.sheetnames
+                  sheet = book[book.sheetnames[0]]
+                  item['primeras_filas'] = list(sheet.iter_rows(min_row=1, max_row=5, values_only=True))
+                  item['filas_euskadi_muestra'] = [list(row) for row in sheet.iter_rows(values_only=True) if any(str(v).strip() in {'01','20','48'} for v in row[:3])][:8]
+                  book.close()
+              elif path.name == 'ovj_salario_2024.html':
+                  soup = BeautifulSoup(data, 'html.parser')
+                  for tag in soup(['script','style','nav','footer','header']): tag.decompose()
+                  paragraphs = [' '.join(t.stripped_strings) for t in soup.find_all(['h1','h2','h3','p'])]
+                  item['parrafos_relevantes'] = [p for p in paragraphs if re.search(r'1[. ]564|2024|34 a|neto|mensual',p,re.I)][:18]
+              result['fuentes'].append(item)
+          output = json.dumps(result, ensure_ascii=False, indent=2, default=str)
+          Path('evidencia_bda/contratos_fuentes.json').write_text(output,encoding='utf-8')
+          print(output)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: auditoria-contratos-bda
+          path: evidencia_bda/
+          retention-days: 30
