@@ -1,4 +1,4 @@
-name: Evaluacion final del modelo congelado
+name: Publicacion de evidencia final conservada
 
 "on":
   push:
@@ -14,8 +14,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  final:
-    if: ${{ github.run_attempt == 1 }}
+  publish:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -25,135 +24,101 @@ jobs:
       MPLBACKEND: Agg
       OMP_NUM_THREADS: '1'
       OPENBLAS_NUM_THREADS: '1'
-      STREAMLIT_BROWSER_GATHER_USAGE_STATS: 'false'
     steps:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - name: Impedir una segunda evaluacion publicada
-        run: |
-          test "$GITHUB_REF" = refs/heads/dev-jon
-          if [ -f docs/TEST_FINAL_EMAL.json ]; then
-            echo 'Ya existe evaluacion final: reutilizar el informe, no volver a puntuar.' >&2
-            exit 1
-          fi
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Instalar y ejecutar pruebas antes de publicar
+      - name: Validar codigo publicado antes de incorporar artefactos
         run: |
-          mkdir -p evidencia_final
+          mkdir -p evidencia_publicacion
           python -m pip install -r requirements-ci.txt
           python -m pip check
-          python -m pytest tests/ -q --junitxml=evidencia_final/tests.xml
+          python -m pytest tests/ -q --junitxml=evidencia_publicacion/tests.xml
           python scripts/sync_sources.py --check
-      - name: Recuperar la entrega ya validada, sin reentrenar
+      - name: Recuperar resultados finales conservados sin volver a puntuar
         uses: actions/download-artifact@v4
         with:
-          name: entrega-ml-validada
-          run-id: 42856972138
+          name: evaluacion-final-emal
+          run-id: 42858124305
           github-token: ${{ github.token }}
           path: .
-      - name: Evaluar desde Streamlit y comprobar reutilizacion del informe
+      - name: Verificar hashes, procedencia y privacidad sobre bytes originales
         run: |
           python - <<'PY'
-          import hashlib, json, os
+          import hashlib, json, re
           from pathlib import Path
-          from streamlit.testing.v1 import AppTest
           root = Path.cwd()
           out = root/'entrega_ml'
-          os.environ['RETO1_ARTIFACT_DIR'] = str(out)
-          selection = json.loads((out/'models/selection.json').read_text())
-          expected_model = 'd6f05d11fa6002de53ecaff671b697bd901f63f946b87cc7484701aea76c210a'
-          expected_test = 'f1520fc0580fee119b031252538961e5d62eee68db6a0783c3a5384bc5a65011'
-          assert selection['sha256_modelo'] == expected_model
-          assert selection['sha256_test'] == expected_test
-          assert hashlib.sha256((out/'models/best_model.joblib').read_bytes()).hexdigest() == expected_model
-          assert hashlib.sha256((out/'data/test.csv').read_bytes()).hexdigest() == expected_test
-          report = out/'resultados/test_final.json'
-          assert not report.exists()
-          app = AppTest.from_file(str(root/'app/streamlit_app.py'), default_timeout=60).run()
-          assert not app.exception, [str(e.value) for e in app.exception]
-          button = [b for b in app.button if b.key == 'evaluate_holdout']
-          assert len(button) == 1
-          button[0].click().run()
-          assert not app.exception, [str(e.value) for e in app.exception]
-          data = report.read_bytes()
-          initial_mtime = report.stat().st_mtime_ns
-          result = json.loads(data)
+          result = json.loads((out/'resultados/test_final.json').read_text())
+          assert result == json.loads((root/'docs/TEST_FINAL_EMAL.json').read_text())
           assert result['evaluaciones'] == 1 and result['n_test'] == 92
-          assert result['sha256_modelo'] == expected_model and result['sha256_test'] == expected_test
-          app.run()
-          assert not app.exception, [str(e.value) for e in app.exception]
-          assert report.read_bytes() == data and report.stat().st_mtime_ns == initial_mtime
-          assert not any(b.key == 'evaluate_holdout' for b in app.button)
-          (root/'docs/TEST_FINAL_EMAL.json').write_bytes(data)
-          evidence = {'run': os.environ['GITHUB_RUN_ID'], 'commit_evaluado': os.environ['GITHUB_SHA'],
-                      'evaluado_desde_streamlit': True, 'reapertura_sin_reevaluacion': True,
-                      'modelo_modificado': False, 'test': result}
-          (root/'evidencia_final/evaluacion.json').write_text(json.dumps(evidence, indent=2))
-          print(json.dumps(evidence, indent=2))
-          PY
-      - name: Preparar solo artefactos revisables y manifiesto
-        run: |
-          python - <<'PY'
-          import hashlib, json, re, shutil
-          from pathlib import Path
-          root = Path.cwd()
-          evidence = root/'docs/evidencias_ml'
-          evidence.mkdir(parents=True, exist_ok=True)
-          for name in ['notebooks.json','streamlit-n8n.json','capturas.json','entorno.txt']:
-              source = root/'evidencia_entrega'/name
-              if source.exists(): shutil.copy2(source, evidence/name)
-          shutil.copytree(root/'evidencia_entrega/capturas', evidence/'capturas', dirs_exist_ok=True)
-          shutil.copy2(root/'evidencia_final/evaluacion.json', evidence/'evaluacion_final.json')
-          shutil.copy2(root/'evidencia_final/tests.xml', evidence/'tests.xml')
+          assert result['sha256_modelo'] == 'd6f05d11fa6002de53ecaff671b697bd901f63f946b87cc7484701aea76c210a'
+          assert result['sha256_test'] == 'f1520fc0580fee119b031252538961e5d62eee68db6a0783c3a5384bc5a65011'
+          for name,key in [('models/best_model.joblib','sha256_modelo'),('data/test.csv','sha256_test')]:
+              assert hashlib.sha256((out/name).read_bytes()).hexdigest() == result[key]
+          origin = json.loads((root/'evidencia_final/evaluacion.json').read_text())
+          assert origin['run'] == '42858124305' and origin['modelo_modificado'] is False
+          assert origin['reapertura_sin_reevaluacion'] is True
+          capture = json.loads((root/'data/capturas_oficiales/manifest.json').read_text())
+          for source in capture['fuentes']:
+              if source['estado'] == 'descargado':
+                  data = (root/'data/capturas_oficiales'/source['archivo']).read_bytes()
+                  assert hashlib.sha256(data).hexdigest() == source['sha256'], source['archivo']
           files = []
-          roots = ['entrega_ml','data/capturas_oficiales','docs/evidencias_ml']
           banned = {'.env','.git','.venv','__pycache__','.ipynb_checkpoints'}
-          for folder in roots:
+          pattern = rb'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|ghp_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{60,}'
+          for folder in ['entrega_ml','data/capturas_oficiales','docs/evidencias_ml']:
               for path in sorted((root/folder).rglob('*')):
                   if not path.is_file(): continue
                   if path.is_symlink() or any(part in banned for part in path.relative_to(root).parts):
                       raise ValueError('Archivo no permitido: '+str(path))
-                  if path.stat().st_size > 16_000_000:
-                      raise ValueError('Artefacto demasiado grande: '+str(path))
-                  if path.suffix.lower() in {'.ttf','.otf','.woff','.woff2'}:
-                      raise ValueError('No incluir ficheros de fuentes')
+                  if path.stat().st_size > 16_000_000 or path.suffix.lower() in {'.ttf','.otf','.woff','.woff2'}:
+                      raise ValueError('Archivo no publicable: '+str(path))
                   data = path.read_bytes()
-                  if path.suffix in {'.json','.txt','.md','.yaml','.yml','.csv','.ipynb'}:
-                      text = data.decode('utf-8',errors='strict')
-                      if re.search(r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|ghp_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{60,}',text):
-                          raise ValueError('Posible secreto: '+str(path))
+                  if re.search(pattern, data):
+                      raise ValueError('Posible secreto: '+str(path))
                   files.append({'archivo':str(path.relative_to(root)), 'sha256':hashlib.sha256(data).hexdigest()})
-          (evidence/'manifest.json').write_text(json.dumps(files, indent=2))
-          print('Archivos de evidencia comprobados:',len(files))
+          (root/'docs/evidencias_ml/manifest.json').write_text(json.dumps(files,indent=2))
+          (root/'evidencia_publicacion/reutilizacion.json').write_text(json.dumps({
+              'run_original':'42858124305','test_reevaluado':False,
+              'originales_modificados':False,'archivos_verificados':len(files),'resultado':result},indent=2))
+          print(json.dumps(result,indent=2))
+          print('El test NO se ha reevaluado; originales conservados byte a byte.')
           PY
-      - name: Publicar evidencias en dev-jon sin sobrescribir cambios ajenos
+      - name: Publicar solo la evidencia en dev-jon con avance seguro
         env:
           GH_PUSH_TOKEN: ${{ github.token }}
         run: |
+          test "$GITHUB_REF" = refs/heads/dev-jon
           current=$(git ls-remote origin refs/heads/dev-jon | cut -f1)
           if [ "$current" != "$GITHUB_SHA" ]; then
-            echo 'La rama ha avanzado. No se publica ni fuerza; las evidencias se conservan como artefacto.' >&2
+            echo 'La rama ha avanzado. Se conserva el artefacto, sin forzar ni sobrescribir cambios.' >&2
             exit 1
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -f entrega_ml data/capturas_oficiales docs/TEST_FINAL_EMAL.json docs/evidencias_ml
-          git diff --cached --check
-          git commit -m 'data(ml): conservar modelo congelado, test final y evidencias verificadas'
-          auth=$(printf 'x-access-token:%s' "$GH_PUSH_TOKEN" | base64 -w 0)
-          echo "::add-mask::$auth"
-          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $auth" push origin HEAD:refs/heads/dev-jon
-          git rev-parse HEAD > evidencia_final/commit_publicado.txt
-      - name: Conservar resultados finales incluso si la publicacion falla
+          # Los originales publicos se conservan, incluso sus espacios y codificacion.
+          git diff --cached --check -- docs/TEST_FINAL_EMAL.json 'docs/evidencias_ml/*.json'
+          if git diff --cached --quiet; then
+            echo 'Los mismos artefactos ya estan publicados; no se crea un commit vacio.'
+          else
+            git commit -m 'data(ml): conservar modelo, test final unico, fuentes y capturas verificadas'
+            auth=$(printf 'x-access-token:%s' "$GH_PUSH_TOKEN" | base64 -w 0)
+            echo "::add-mask::$auth"
+            git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $auth" push origin HEAD:refs/heads/dev-jon
+          fi
+          git rev-parse HEAD > evidencia_publicacion/commit_publicado.txt
+      - name: Conservar entrega y evidencia de publicacion
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
-          name: evaluacion-final-emal
+          name: entrega-ml-final
           path: |
-            evidencia_final/
+            evidencia_publicacion/
             docs/TEST_FINAL_EMAL.json
             docs/evidencias_ml/
             entrega_ml/
