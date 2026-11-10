@@ -1,0 +1,4 @@
+# Dependencias de la suite existente; no sustituye el entorno final de ML.
+-r requirements.txt
+pymongo>=4.6,<5
+mongomock>=4.1,<5
