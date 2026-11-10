@@ -29,7 +29,7 @@ jobs:
           mkdir -p reproducible/wheels
           git archive --format=zip HEAD -o reproducible/codigo.zip
           git rev-parse HEAD > reproducible/commit.txt
-          python -m pip download --only-binary=:all: --platform manylinux2014_x86_64 --platform manylinux_2_28_x86_64 --python-version 313 --implementation cp --abi cp313 --dest reproducible/wheels -r requirements-ci.txt 'mlflow>=2.17,<3' 'streamlit>=1.40,<2'
+          python -m pip download --only-binary=:all: --platform manylinux2014_x86_64 --platform manylinux_2_28_x86_64 --python-version 313 --implementation cp --abi cp313 --dest reproducible/wheels -r requirements-ci.txt 'mlflow>=2.17,<3' 'streamlit>=1.40,<2' 'numpy>=2.1,<2.4' 'scikit-learn>=1.7,<1.8' 'imbalanced-learn>=0.14,<0.15' 'xgboost-cpu>=3.1,<4' 'shap>=0.49,<0.51' 'openpyxl>=3.1,<4' 'nbformat>=5,<6' 'nbclient>=0.10,<1' 'ipykernel>=6,<8'
           cd reproducible
           sha256sum codigo.zip wheels/* > SHA256SUMS
       - name: Conservar codigo y dependencias publicas
