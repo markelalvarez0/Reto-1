@@ -12,8 +12,13 @@ equivalentes a un scraping vigente de alquileres. Ver
 El informe corregido se genera con `python main.py --pdf`; lee métricas,
 diccionario, figuras y documentos verificados, sin deserializar el modelo.
 Produce Markdown, PDF paginado y manifiesto de fuentes en `data/informe_entrega/`.
-Los generadores históricos ahora delegan en él. El PDF maestro antiguo sigue
-siendo un documento histórico, no el informe vigente.
+Los generadores históricos ahora delegan en él. El PDF maestro adjunto original
+es contexto histórico y no debe confundirse con el informe vigente.
+
+CI remoto del incremento **1c7c45e**: [BDA 43008668473](https://github.com/markelalvarez0/Reto-1/actions/runs/43008668473)
+y [n8n 43008668600](https://github.com/markelalvarez0/Reto-1/actions/runs/43008668600),
+ambos **Success**. Los cuatro PDF versionados contienen ahora el informe corregido
+de 24 páginas. No se confunden con el PDF histórico adjunto de la conversación.
 
 ## Objetivo confirmado
 
@@ -92,11 +97,11 @@ no medias de todos los contratos de cada provincia.
 
 | Asignatura | Evidencia utilizable | Pendiente para cerrar toda la entrega |
 |---|---|---|
-| BDA | Capturas oficiales, preparación con rechazo explícito, recorrido HDFS/Kafka/MongoDB documentado en `docs/evidencias_bda`. | Muestra vigente de alquiler libre obtenida por scraping y demostración final del recorrido completo. El HTML OVJ es extracción de un indicador, no scraping de anuncios. |
-| SBD | Modelado, limpieza, consultas, agregaciones e índices; pruebas con mongod real; nueva comparación EMAL/OVJ. | Incorporar el resultado territorial al paquete final y demostrarlo junto al recorrido BDA. |
-| SAA | EDA, cinco familias, MLP y experimentos, SHAP y test único conservado. | Conciliar los documentos históricos. El MLP entregado usa sklearn; los ejercicios nuevos muestran Keras. No cambiar el ganador después de ver test para fingir otra validación. |
-| PIA | Pipeline estándar, MLflow, artefacto completo, notebooks y Streamlit; portal y auditoría actualizados. | PDF corregido, documentación conjunta y comprobación de portabilidad completa. |
-| MIA | Reglas y n8n con acciones locales e idempotencia, pruebas documentadas. | Ensayo final del caso de negocio y defensa; las acciones de prueba no tramitan ayudas reales. |
+| BDA | Capturas oficiales y vistas municipales verificadas en HDFS/Kafka/MongoDB reales, con recarga idempotente y CI correcto en 1c7c45e. | Muestra vigente de alquiler libre obtenida por scraping. El HTML OVJ no equivale a anuncios. |
+| SBD | Modelado, limpieza, consultas, agregaciones e índices con mongod real; comparación EMAL/OVJ y transporte de vistas incluidos en evidencias. | Ensayo de la demostración y defensa. Las consultas de anuncios se prueban con fixtures identificados. |
+| SAA | EDA, cinco familias, MLP y experimentos, SHAP y test único conservado. Contraste docente documentado. | Defensa individual. sklearn no se presenta como Keras; no se cambia el ganador mirando test. |
+| PIA | Pipeline, MLflow, notebooks, Streamlit y PDF corregido desde artefactos verificados. Capturas y prueba de reapertura actuales. | Validación de la versión nueva en Windows si se entrega para esa plataforma. |
+| MIA | Ocho ramas n8n y recorrido Streamlit → consentimiento → ficha local, con persistencia e idempotencia reales. | Ensayo humano final. Ninguna prueba tramita ayudas ni comunica con personas. |
 
 Los 33 tests históricos fueron ampliados en `dev-jon`; contar tests no sustituye
 revisar qué prueban. Los avisos de convergencia de mini-tests no son resultados de
@@ -104,7 +109,7 @@ entrenamiento de entrega. Los originales, los artefactos ML y el test final
 permanecen conservados byte a byte.
 
 Se ha preparado [defensa de 15 minutos y preguntas](DEFENSA.md). Permanecen
-pendientes el scraping autorizado de anuncios individuales, el CI remoto del
-incremento y el ensayo humano. La integración en test/main espera validación
+pendientes el scraping autorizado de anuncios individuales y el ensayo humano.
+La integración en test/main espera validación
 integral, como autorizó el usuario. Las cifras históricas de la tabla anterior
 deben leerse junto a esta actualización, no como trabajo aún sin implementar.

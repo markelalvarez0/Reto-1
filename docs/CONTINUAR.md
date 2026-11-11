@@ -2,6 +2,17 @@
 
 ## Incremento actual desde f107a0a
 
+Publicado en **1c7c45e404247e242f82099943dcf97bce277655** en origin/dev-jon.
+El push disparó [CI BDA 43008668473](https://github.com/markelalvarez0/Reto-1/actions/runs/43008668473);
+su estado debe comprobarse por separado de las pruebas locales de abajo.
+El [CI n8n 43008668600](https://github.com/markelalvarez0/Reto-1/actions/runs/43008668600)
+terminó **Success** para 1c7c45e; se comprobó en su página pública.
+El CI BDA **43008668473 también terminó Success** para ese mismo commit.
+Las comprobaciones del workflow exigen las pruebas municipales y transporte,
+resultados no vacíos y ninguna omisión. No se descargaron sus logs privados.
+Los cuatro PDF versionados se sustituyeron por el informe corregido de 24 páginas;
+el adjunto maestro anterior permanece como referencia histórica del traspaso.
+
 Se comprobó GitHub antes de editar: dev-jon seguía en
 f107a0a0d001390299d55b8b92936899926fb72a; main/test en 6e279a4.
 Se conservó la corrección UTF-8 y se trabajó en dev-jon con identidad local.
@@ -52,7 +63,7 @@ commit de publicación de este incremento.
   pero no se dispone de API para dispatch/logs autenticados. Git HTTPS sí funciona.
 - La herramienta de borradores sigue devolviendo INVALID_ARGUMENT; no se afirma
   haber guardado nuevos permisos. No pasar secretos en chat ni repetir tokens.
-- Esperar y revisar el CI del commit nuevo; no confundir el timeout anterior ni
+- CI BDA y n8n del commit 1c7c45e correctos; no confundir el timeout anterior ni
   las pruebas locales con esa ejecución. Integrar en test/main solo tras validación
   integral, sin force-push ni scripts de publicación automática.
 - Ensayo humano y preguntas individuales. El PDF declara el scraping pendiente.

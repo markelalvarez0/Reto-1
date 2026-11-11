@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/markelalvarez0/Reto-1/actions/runs/43008668473",
+  "commit": "1c7c45e404247e242f82099943dcf97bce277655",
+  "estado_observado": "Success",
+  "fuente": "pagina publica de GitHub Actions; no acceso a logs privados",
+  "comprobaciones_workflow": "suites no vacias, sin fallos/errores/skips; prueba municipal y transporte exigidos; hashes de exportaciones verificados"
+}

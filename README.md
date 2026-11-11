@@ -19,8 +19,12 @@ pruebas con MongoDB real y cinco del recorrido HDFS/Kafka/MongoDB, sin skips.
 El recorrido transportó 621 registros oficiales y cinco vistas municipales;
 no acredita scraping de anuncios individuales. Ver [evidencias actuales](docs/evidencias_2026-11-11/)
 y [contraste con enunciados y ejercicios](docs/CONTRASTE_DOCENTE.md).
+El commit `1c7c45e` superó los CI remotos de
+[BDA](https://github.com/markelalvarez0/Reto-1/actions/runs/43008668473) y
+[n8n](https://github.com/markelalvarez0/Reto-1/actions/runs/43008668600).
 
-`python main.py --pdf` genera el informe vigente, figuras conservadas y manifiesto
+El [PDF vigente versionado](Entrega_Reto1_IABD_Documentacion.pdf) sustituye los
+cuatro PDF anteriores. `python main.py --pdf` genera el informe, figuras conservadas y manifiesto
 de fuentes en `data/informe_entrega/`, sin ejecutar el modelo. Las entradas
 históricas de generación delegan en este mismo generador.
 [Guion de defensa de 15 minutos](docs/DEFENSA.md).
@@ -192,6 +196,6 @@ Los resultados heredados de `best_model.json`, `mlruns_data.json` y gráficos an
 Las pruebas reales de la continuación acreditan las capturas oficiales y las
 vistas municipales por HDFS → Kafka → MongoDB. Los mensajes de promociones y las
 vistas agregadas conservan tipos diferentes. Quedan el scraping verificable de
-anuncios individuales, la comprobación del nuevo CI remoto, el ensayo humano y
+anuncios individuales, el ensayo humano y
 la integración final en `test`/`main`. La red actual bloquea los portales; no se
 declara cumplimiento integral ni se sustituye una muestra ausente por datos ficticios.

@@ -91,6 +91,6 @@ El comando de la raiz `python main.py --subject bda_sbd --pipeline` delega en el
 
 La validacion usa Hadoop, Apache Kafka y MongoDB temporales en GitHub Actions. Comprueba los originales, el transporte, la persistencia, los recuentos, las uniones municipales y una recarga idempotente. No modifica el modelo ML ni vuelve a evaluar su test reservado.
 
-Esto **no acredita todavia** una muestra vigente de alquiler libre obtenida por scraping, la descarga verificada de todos los indicadores Udalmap, el dashboard final ni el cumplimiento completo de la rubrica de BDA/SBD. Los scrapers y clientes antiguos que no intervienen en este recorrido requieren su propia revision, incluido el cliente OVJ heredado con constantes. No deben usarse sus salidas historicas como evidencia observada.
+Esto **no acredita todavia** una muestra vigente de alquiler libre obtenida por scraping ni la descarga verificada de todos los indicadores Udalmap. Los scrapers y clientes antiguos que no intervienen en este recorrido requieren su propia revision, incluido el cliente OVJ heredado con constantes. No deben usarse sus salidas historicas como evidencia observada. La comparación actual emplea EMAL y OVJ verificados, no esas constantes.
 
-El mapa historico no se abre automaticamente como si contuviera estos resultados. La entrega cartografica y los indicadores de mercado libre se cerraran por separado con datos y unidades comprobados.
+El mapa histórico no se abre como si contuviera estos resultados. El visor territorial actual está comprobado con resultados de MongoDB real y muestra promociones localizadas, no ofertas disponibles. Permanecen pendientes los indicadores de mercado libre basados en anuncios individuales.

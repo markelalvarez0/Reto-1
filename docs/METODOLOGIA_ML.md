@@ -6,6 +6,12 @@ Predecir la renta media municipal de nuevos contratos de alquiler del siguiente 
 
 ## Reproduccion
 
+**Modelo publicado y test cerrados:** para abrir la entrega use
+`python main.py --subject saa_pia_mia`; para el informe use `python main.py --pdf`.
+No ejecutar la captura ni el entrenamiento siguientes para abrir la app,
+generar figuras o modificar documentación. Son reproducción del procedimiento
+en una salida nueva, no autorización para reseleccionar mirando el test observado.
+
 Desde la raiz, instalar `requirements-ci.txt`, ejecutar `python scripts/capture_sources.py` y `python scripts/train_official.py`. Abrir `streamlit run app/streamlit_app.py`. Los tres notebooks `.ipynb` explican las mismas etapas con pandas, sklearn, XGBoost, matplotlib, MLflow y SHAP. Los scripts homonimos se mantienen como entradas equivalentes. Python comprobable: 3.12/3.13.
 
 ## Datos y division
