@@ -10,4 +10,8 @@ if str(ROOT) not in sys.path:
 from scripts.run_pipeline import main
 
 if __name__ == "__main__":
+    # Mantener UTF-8 tambien al capturar la salida en Windows.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8")
     main()
