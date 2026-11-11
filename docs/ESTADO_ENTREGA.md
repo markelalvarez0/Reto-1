@@ -1,5 +1,20 @@
 # Estado de entrega y comprobación por asignatura
 
+## Actualización del 11 de noviembre de 2026
+
+Se conserva la decisión del modelo y el test único. La continuación aporta
+129 pruebas unitarias, siete pruebas de MongoDB real y cinco pruebas de
+HDFS/Kafka/MongoDB sin omisiones. Se transportaron tanto 621 promociones
+oficiales como cinco vistas municipales verificadas. Las ejecuciones no son
+equivalentes a un scraping vigente de alquileres. Ver
+[evidencias locales](evidencias_2026-11-11/) y [contraste docente](CONTRASTE_DOCENTE.md).
+
+El informe corregido se genera con `python main.py --pdf`; lee métricas,
+diccionario, figuras y documentos verificados, sin deserializar el modelo.
+Produce Markdown, PDF paginado y manifiesto de fuentes en `data/informe_entrega/`.
+Los generadores históricos ahora delegan en él. El PDF maestro antiguo sigue
+siendo un documento histórico, no el informe vigente.
+
 ## Objetivo confirmado
 
 Estimar alquileres con datos observados y orientar al joven mediante reglas. El
@@ -88,7 +103,8 @@ revisar qué prueban. Los avisos de convergencia de mini-tests no son resultados
 entrenamiento de entrega. Los originales, los artefactos ML y el test final
 permanecen conservados byte a byte.
 
-El PDF maestro y los generadores históricos contienen afirmaciones obsoletas.
-El portal evita producirlos como si fueran la entrega vigente. Hasta su
-regeneración, utilizar este documento, `METODOLOGIA_ML.md`, `BDA_ESTADO.md` y las
-evidencias enlazadas en el README.
+Se ha preparado [defensa de 15 minutos y preguntas](DEFENSA.md). Permanecen
+pendientes el scraping autorizado de anuncios individuales, el CI remoto del
+incremento y el ensayo humano. La integración en test/main espera validación
+integral, como autorizó el usuario. Las cifras históricas de la tabla anterior
+deben leerse junto a esta actualización, no como trabajo aún sin implementar.

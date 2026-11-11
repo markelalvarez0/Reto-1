@@ -1,4 +1,66 @@
-# Punto de reanudación · 10 de noviembre de 2026
+# Continuación · 11 de noviembre de 2026
+
+## Incremento actual desde f107a0a
+
+Se comprobó GitHub antes de editar: dev-jon seguía en
+f107a0a0d001390299d55b8b92936899926fb72a; main/test en 6e279a4.
+Se conservó la corrección UTF-8 y se trabajó en dev-jon con identidad local.
+No se sustituyeron archivos por el ZIP adjunto ni se reentrenó el modelo.
+
+- La ejecución 42999928204 terminó **cancelada por timeout de 30 minutos**,
+  según su página pública. La API está bloqueada, no se obtuvieron logs privados.
+- Workflow bda-candidate ampliado: URI explícitas, prueba municipal, exportación
+  real, auditoría, transporte de vistas y validación XML sin skips ni suites vacías.
+- Nuevo scripts/transport_municipal.py: manifiesto → HDFS processed → recuperación
+  idéntica → Kafka → MongoDB vistas_municipales → commit de offsets. Recarga por
+  archivo/huella sin duplicados. No convierte agregados en anuncios.
+- Hadoop lean oficial, SHA512 conservada, descarga acotada y reutilización solo
+  tras verificar archivo. Se probó en esta máquina con Java 11/HDFS reales.
+- n8n usa imagen oficial de Docker Hub, misma versión; el receptor Compose se
+  excluye del proxy de Internet. Se verificaron ocho ramas y formulario con
+  consentimiento, confirmación e idempotencia. Solo acciones locales de prueba.
+- main.py --pdf genera informe vigente desde artefactos verificados, Markdown,
+  figuras y manifiesto; los generadores históricos delegan en él. Se comprobó
+  extracción de texto y una página renderizada, sin fragmentos cortados.
+- Contraste de los PDF, README docente y ambos ZIP en docs/CONTRASTE_DOCENTE.md.
+  MLP sklearn y clientes de transporte distintos de los ejemplos: el enunciado
+  no fija esas bibliotecas. No se cambia la selección observando test.
+- Guion de defensa de 15 minutos y capturas actuales de ambos visores.
+
+Validación de este incremento local, previa al commit:
+
+1. 129 passed en tests/, cinco avisos conocidos; sin errores ni skips.
+2. 7 passed con MongoDB real (seis anteriores + una municipal).
+3. 5 passed con HDFS/Kafka/MongoDB reales, incluidas capturas y recarga de vistas.
+4. 621 registros transportados y persistidos; 2 rechazos de los 623 originales.
+5. 18 municipios comparados, 768 observaciones; cinco vistas transportadas.
+6. Ocho ramas n8n; AppTest formulario → seguridad → consentimiento → ficha real,
+   repetición sin cambios. Las dos apps abren en AppTest y Chromium sin excepciones.
+7. Auditoría: seis originales, 88 artefactos ML y test único intactos; copias iguales.
+
+Evidencias: docs/evidencias_2026-11-11/. El resumen indica cambios locales antes
+del commit; **no afirma checkout limpio ni CI remoto**. El manifiesto de código
+permite identificar los archivos probados. Consultar git log de dev-jon para el
+commit de publicación de este incremento.
+
+## Pendientes que bloquean declarar la entrega integral
+
+- Scraping de anuncios individuales: CONNECT a www.habitaclia.com y www.pisos.com
+  devuelve 403 de la red. Habilitar esos dominios en ajustes, comprobar robots y
+  condiciones y recién entonces capturar. No se inventaron registros.
+- api.github.com devuelve Forbidden. La web pública permite consultar estados,
+  pero no se dispone de API para dispatch/logs autenticados. Git HTTPS sí funciona.
+- La herramienta de borradores sigue devolviendo INVALID_ARGUMENT; no se afirma
+  haber guardado nuevos permisos. No pasar secretos en chat ni repetir tokens.
+- Esperar y revisar el CI del commit nuevo; no confundir el timeout anterior ni
+  las pruebas locales con esa ejecución. Integrar en test/main solo tras validación
+  integral, sin force-push ni scripts de publicación automática.
+- Ensayo humano y preguntas individuales. El PDF declara el scraping pendiente.
+
+El resto del checkpoint se conserva como historial; las tareas terminadas arriba
+prevalecen sobre la lista antigua de pendientes.
+
+# Historial · punto de reanudación del 10 de noviembre de 2026
 
 El usuario ha pedido pausar hasta mañana. Continuar desde este checkpoint,
 sin reiniciar la auditoría ni volver a entrenar el modelo conservado.

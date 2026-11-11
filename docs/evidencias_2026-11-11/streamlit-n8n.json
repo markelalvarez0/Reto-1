@@ -1,0 +1,10 @@
+{
+  "modo": "AppTest con modelo conservado y n8n real",
+  "perfil": "fixture incompleto para rama de seguridad, sin personas reales",
+  "consentimiento_obligatorio": true,
+  "persistencia_confirmada": true,
+  "repeticion_sin_duplicados": true,
+  "event_id": "1bcdcea0-9c9d-42a4-8257-d5316bf3baa3",
+  "accion": "revision_datos",
+  "test_reevaluado": false
+}

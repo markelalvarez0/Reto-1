@@ -20,14 +20,14 @@ def main(argv=None):
     action = parser.add_mutually_exclusive_group()
     action.add_argument('--test', action='store_true', help='Ejecutar toda la suite tests/')
     action.add_argument('--audit', action='store_true', help='Verificar integridad sin ejecutar modelos')
-    action.add_argument('--pdf', action='store_true', help='Consultar el estado del informe de entrega')
+    action.add_argument('--pdf', action='store_true', help='Generar informe desde artefactos verificados sin ejecutar el modelo')
     args, extra = parser.parse_known_args(argv)
     if args.test:
         return run(['-m', 'pytest', 'tests', *extra])
     if args.audit:
         return run([ROOT / 'scripts/audit_project.py', *extra])
     if args.pdf:
-        parser.error('El PDF histórico contiene resultados obsoletos. Consulte docs/ESTADO_ENTREGA.md.')
+        return run([ROOT / 'scripts/build_delivery_report.py', *extra])
     if args.subject in BDA_SUBJECTS:
         if '--visual' in extra:
             if '--pipeline' in extra:

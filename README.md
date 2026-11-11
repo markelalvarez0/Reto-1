@@ -2,6 +2,29 @@
 
 Proyecto interdisciplinar del Curso de Especialización en Inteligencia Artificial y Big Data, IABD 2026–27.
 
+![Visor territorial ejecutado con resultados de MongoDB real](docs/evidencias_2026-11-11/territorio.png)
+
+## Qué hemos construido
+
+Una herramienta de orientación para comparar rentas municipales observadas,
+estimar la referencia del siguiente trimestre y explicar reglas al usuario.
+Es una IA débil de aprendizaje supervisado de regresión, especializada en EMAL;
+no infiere solvencia individual. pandas prepara las tablas, sklearn compone el
+preprocesado y los modelos, XGBoost aporta una familia de comparación, MLflow
+registra experimentos y SHAP describe contribuciones sin causalidad. Streamlit
+presenta referencias y n8n crea fichas locales tras consentimiento.
+
+En la continuación del 11 de noviembre se verificaron **129 pruebas**, siete
+pruebas con MongoDB real y cinco del recorrido HDFS/Kafka/MongoDB, sin skips.
+El recorrido transportó 621 registros oficiales y cinco vistas municipales;
+no acredita scraping de anuncios individuales. Ver [evidencias actuales](docs/evidencias_2026-11-11/)
+y [contraste con enunciados y ejercicios](docs/CONTRASTE_DOCENTE.md).
+
+`python main.py --pdf` genera el informe vigente, figuras conservadas y manifiesto
+de fuentes en `data/informe_entrega/`, sin ejecutar el modelo. Las entradas
+históricas de generación delegan en este mismo generador.
+[Guion de defensa de 15 minutos](docs/DEFENSA.md).
+
 **Acceso y comparación territorial actualizados:** consultar [estado por asignatura y comandos](docs/ESTADO_ENTREGA.md).
 `python main.py --audit --json` verifica la integridad sin ejecutar el modelo.
 `python main.py --subject saa_pia_mia` abre directamente la aplicación conservada.
@@ -82,6 +105,24 @@ Selección en validación: **MLP de dos capas**, MAE **24,20 EUR**, frente a **2
 
 SMOTE se aplica únicamente a una clasificación auxiliar de subida trimestral observada, nunca a la renta continua. La comparación sin/con balanceo conserva su resultado aunque no mejore F1. SHAP se calcula en validación con fondo de entrenamiento y no se interpreta causalmente.
 
+Campos del conjunto de entrenamiento (601 filas; porcentajes medidos, no imputados):
+
+| Campo | Significado | Tipo | Nulos train |
+|---|---|---|---:|
+| codigo_municipio | Código INE | categórica | 0 % |
+| municipio / provincia | Territorio y denominación | categórica | 0 % |
+| anio / trimestre / periodo | Tiempo de observación | entero | 0 % |
+| renta_media_eur | Objetivo mensual agregado | real | 0 % |
+| numero_contratos | Contratos del trimestre, sin usar el contemporáneo como entrada | real | 0 % |
+| renta_lag1 | Renta un trimestre antes | real | 4,16 % |
+| renta_lag4 | Renta cuatro trimestres antes | real | 13,64 % |
+| contratos_lag1 | Contratos un trimestre antes | real | 3,00 % |
+
+Los once objetivos no publicados se excluyen antes de construir el conjunto
+supervisado. Los retardos faltan por construcción o ausencia de publicación;
+la imputación se ajusta dentro de train/folds. El MLP conservado usa sklearn,
+con base y tres experimentos; no se presenta como Keras.
+
 Documentación: [metodología](docs/METODOLOGIA_ML.md) y [evidencia de validación previa al test](docs/EVIDENCIA_ML_VALIDACION.md). Las referencias a un test reservado en esa evidencia describen el estado anterior a la evaluación final registrada arriba.
 
 ## Organización
@@ -148,4 +189,9 @@ Las acciones locales generan fichas o listas de comprobación distintas. **No en
 
 Los resultados heredados de `best_model.json`, `mlruns_data.json` y gráficos antiguos no sustituyen los artefactos nuevos ni deben presentarse como evidencia de datos reales. Los README y PDF históricos de cada bloque necesitan conciliación final con el código actualizado.
 
-Pasar pruebas unitarias o probar servicios con fixtures no demuestra por sí solo que todas las fuentes reales atraviesen el pipeline completo. Ya se conservan la evaluación única del test, las capturas y los notebooks ejecutados del bloque ML. Queda cerrar el recorrido Big Data con los originales reales, los indicadores y el mapa, la documentación académica coherente, la portabilidad del entorno y la integración validada en las ramas previstas por `AGENTS.md`.
+Las pruebas reales de la continuación acreditan las capturas oficiales y las
+vistas municipales por HDFS → Kafka → MongoDB. Los mensajes de promociones y las
+vistas agregadas conservan tipos diferentes. Quedan el scraping verificable de
+anuncios individuales, la comprobación del nuevo CI remoto, el ensayo humano y
+la integración final en `test`/`main`. La red actual bloquea los portales; no se
+declara cumplimiento integral ni se sustituye una muestra ausente por datos ficticios.

@@ -7,7 +7,7 @@ services:
       - ../scripts/action_server.py:/app/action_server.py:ro
       - ../data/acciones_n8n:/salida
   n8n:
-    image: docker.n8n.io/n8nio/n8n:2.47.3
+    image: n8nio/n8n:2.47.3
     ports: ['127.0.0.1:5678:5678']
     volumes:
       - n8n_data:/home/node/.n8n
@@ -17,6 +17,9 @@ services:
       N8N_VERSION_NOTIFICATIONS_ENABLED: 'false'
       N8N_SECURE_COOKIE: 'false'
       N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: 'true'
+      # El receptor pertenece a esta red Compose, no al proxy de Internet.
+      NO_PROXY: '${NO_PROXY:-localhost,127.0.0.1},acciones,n8n'
+      no_proxy: '${no_proxy:-localhost,127.0.0.1},acciones,n8n'
     depends_on: [acciones]
 volumes:
   n8n_data:

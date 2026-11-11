@@ -1,3 +1,9 @@
+# Documento histórico — no utilizar como informe de resultados vigente
+
+Este texto conserva contexto anterior con métricas sintéticas, salarios no observados y un ganador obsoleto. No acredita la entrega actual. El informe vigente se genera con `python main.py --pdf` desde artefactos verificados; consultar [estado de entrega](docs/ESTADO_ENTREGA.md), [metodología](docs/METODOLOGIA_ML.md) y [defensa](docs/DEFENSA.md).
+
+---
+
 # DOCUMENTO MAESTRO DE CONTEXTO TÉCNICO Y ARQUITECTURA
 ## Proyecto: Reto 1 — Acceso a la Vivienda para Jóvenes en Euskadi
 ### Curso de Especialización en Inteligencia Artificial y Big Data (IABD 2026-27)

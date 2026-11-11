@@ -37,8 +37,13 @@ def test_full_suite_and_exit_status(monkeypatch):
     assert calls == [["-m", "pytest", "tests", "-q"]]
 
 
-def test_training_and_historical_pdf_are_not_implicit():
+def test_training_is_not_implicit():
     with pytest.raises(SystemExit):
         launcher.main(["--subject", "saa", "--pipeline"])
-    with pytest.raises(SystemExit):
-        launcher.main(["--pdf"])
+
+
+def test_pdf_uses_verified_report_generator(monkeypatch):
+    calls = []
+    monkeypatch.setattr(launcher, 'run', lambda command: calls.append(command) or 0)
+    assert launcher.main(['--pdf']) == 0
+    assert calls == [[ROOT / 'scripts/build_delivery_report.py']]

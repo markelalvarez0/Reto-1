@@ -1,0 +1,62 @@
+{
+  "base_remota": "f107a0a0d001390299d55b8b92936899926fb72a",
+  "validacion": "local previa al commit; no CI remoto",
+  "archivos": [
+    {
+      "archivo": ".github/workflows/bda-candidate.yml",
+      "sha256": "12bb3d7336f9820d314ea8251ddd5da4edade647299db6f105f8e62e7a7f4626"
+    },
+    {
+      "archivo": "infra/start_hdfs_ci.sh",
+      "sha256": "5a4fec8a3370ea275d55427caa1c8e55b8b8c1ea2b98234a47047f703b6c2ccf"
+    },
+    {
+      "archivo": "scripts/transport_municipal.py",
+      "sha256": "4b7218171bbcebe438fffa5a216642b078815d1915f47f8a4c46486748c44336"
+    },
+    {
+      "archivo": "scripts/analyze_municipal.py",
+      "sha256": "6ec2425fbfbe853297e783134dcff109a91bc8aa3c1990673e4e72cfc46d870e"
+    },
+    {
+      "archivo": "src/municipal_analysis.py",
+      "sha256": "d14744456fb6bc741f909a59b1b828ee29ca8b8035fe36291fe4332f24e7da31"
+    },
+    {
+      "archivo": "scripts/build_delivery_report.py",
+      "sha256": "1c96b3835bc00ac119d3c1a826b035d79989399c08fec60ce9d30e4fa8864a60"
+    },
+    {
+      "archivo": "scripts/build_master_pdf.py",
+      "sha256": "d778f1b5439cf39a9812e94bf349d060e69c9e6b4c8aca556004d2f566483253"
+    },
+    {
+      "archivo": "scripts/generate_delivery_pdf.py",
+      "sha256": "d778f1b5439cf39a9812e94bf349d060e69c9e6b4c8aca556004d2f566483253"
+    },
+    {
+      "archivo": "main.py",
+      "sha256": "74125e8473b9826284a53fdca1fca31f3d9a23e7255718a4a47e36c1e5f39408"
+    },
+    {
+      "archivo": "n8n/compose.yml",
+      "sha256": "a8aef187beb86c79d3662e8af43b405349435f0208d65a773c1f79a0dab2276e"
+    },
+    {
+      "archivo": "integration_tests/test_municipal_transport_live.py",
+      "sha256": "403aee76f270b9b29453877ac3638a8d7fcf62deadb95fbb0424149bbeca6561"
+    },
+    {
+      "archivo": "tests/test_municipal_transport.py",
+      "sha256": "463e6228815dda5dc7b6f4d252dea10a1ffdc062305a2f5411b2e6bb1e2e43f0"
+    },
+    {
+      "archivo": "tests/test_project_launcher.py",
+      "sha256": "c46a92aa488477aeba145f3ba2d1677d8c7e5c45bd778bcdf8b7d1e23ecc79e5"
+    },
+    {
+      "archivo": "tests/test_delivery_report.py",
+      "sha256": "b552cd392546af5ba8796524816d3cddcddc9e4f6e8c53b6795467ada3c7c0f6"
+    }
+  ]
+}

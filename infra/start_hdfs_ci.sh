@@ -8,8 +8,11 @@ if [ -e "$HADOOP_HOME/dfs/name" ]; then
   echo 'No se formatea un almacen existente' >&2; exit 1
 fi
 mkdir -p "$HADOOP_HOME"
-curl -fL --retry 3 https://archive.apache.org/dist/hadoop/common/hadoop-3.4.2/hadoop-3.4.2.tar.gz -o "$RUNNER_TEMP/hadoop.tar.gz"
-curl -fL --retry 3 https://archive.apache.org/dist/hadoop/common/hadoop-3.4.2/hadoop-3.4.2.tar.gz.sha512 -o "$RUNNER_TEMP/hadoop.sha512"
+# La distribucion lean oficial conserva HDFS; omite conectores cloud ajenos a
+# esta prueba. Descarga acotada: una conexion lenta no debe agotar todo el job.
+archive=https://archive.apache.org/dist/hadoop/common/hadoop-3.4.2/hadoop-3.4.2-lean.tar.gz
+curl -fL --connect-timeout 20 --max-time 30 --retry 2 "$archive.sha512" -o "$RUNNER_TEMP/hadoop.sha512"
+verify_archive() {
 python - <<'PY'
 import hashlib,os,re
 from pathlib import Path
@@ -19,6 +22,12 @@ with (root/'hadoop.tar.gz').open('rb') as stream:
 expected=re.findall(r'\b[0-9a-fA-F]{128}\b',(root/'hadoop.sha512').read_text())
 assert h.hexdigest() in [s.lower() for s in expected], 'SHA512 incorrecto'
 PY
+}
+# Reusar solamente un archivo cuya SHA512 oficial se haya vuelto a comprobar.
+if ! verify_archive 2>/dev/null; then
+  curl -fL --connect-timeout 20 --max-time 600 --speed-limit 100000 --speed-time 60 --retry 2 --retry-max-time 720 "$archive" -o "$RUNNER_TEMP/hadoop.tar.gz"
+  verify_archive
+fi
 tar -xzf "$RUNNER_TEMP/hadoop.tar.gz" -C "$HADOOP_HOME" --strip-components=1
 cat > "$HADOOP_HOME/etc/hadoop/core-site.xml" <<EOF
 <configuration><property><name>fs.defaultFS</name><value>hdfs://127.0.0.1:9000</value></property><property><name>hadoop.tmp.dir</name><value>$HADOOP_HOME/tmp</value></property></configuration>

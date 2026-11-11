@@ -1,5 +1,34 @@
 # BDA: ingesta trazable y transporte de las capturas oficiales
 
+## Continuación validada el 11 de noviembre de 2026
+
+En esta máquina se ejecutaron cinco pruebas end-to-end sin skips con Hadoop
+3.4.2 lean (SHA512 oficial), Java 11, Kafka 3.9.1 y MongoDB 7.0.
+La preparación volvió a aceptar 621 registros (215 Visesa y 406 Etxebide),
+rechazando dos de los 623 originales por municipio ambiguo. Llegaron y se
+persistieron los 621, con procedencia y recarga idempotente.
+Ver [XML](evidencias_2026-11-11/integracion.xml) y
+[resumen local](evidencias_2026-11-11/bda-resumen.json).
+
+El análisis territorial se exportó con MongoDB real y se transportaron sus cinco
+vistas por separado. `scripts/transport_municipal.py` verifica el manifiesto,
+almacena procesados en HDFS, recupera y compara bytes, publica lo recuperado en
+Kafka y persiste en `vistas_municipales` antes de confirmar offsets.
+La identidad `(archivo, sha256)` permite reentrega sin duplicar. Los mensajes son
+vistas agregadas, no HousingAd ni viviendas nuevas. Una nueva huella conserva
+otra versión. La prueba repite todo el transporte y comprueba cinco documentos.
+
+```bash
+python scripts/analyze_municipal.py --output-dir evidencia_bda_integracion/municipal
+python scripts/transport_municipal.py --input-dir evidencia_bda_integracion/municipal --report evidencia_bda_integracion/transporte_municipal.json
+```
+
+MONGO_URI debe seleccionar el mismo servidor para ambos comandos. El workflow
+registra MONGO_INTEGRATION_URI para la prueba municipal, exporta las vistas,
+ejecuta la auditoría y rechaza XML vacíos, errores, fallos, skips y ausencia de
+las pruebas municipales. Archiva los resultados y sus huellas. Esta validación
+local precede al commit; no se presenta como un CI remoto de checkout limpio.
+
 ## Alcance de esta correccion
 
 Este recorrido usa los originales conservados en `data/capturas_oficiales/`, no anuncios inventados. Integra los catalogos de promociones de Visesa y Etxebide, el nomenclator INE y el contexto salarial publicado por el OVJ. **Una promocion no equivale a una vivienda disponible ni a un anuncio individual de alquiler.**
