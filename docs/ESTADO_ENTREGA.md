@@ -8,8 +8,11 @@ HTML y fallos de acceso; las cinco pruebas de servicios se repitieron sin skips.
 El intento real produjo cero anuncios por CONNECT 403. Consultar
 [captura y límites](SCRAPING.md) y [evidencias](evidencias_scraping_2026-11-11/).
 Los selectores no se declaran validados con páginas actuales inaccesibles.
+El [CI BDA 43011875465](https://github.com/markelalvarez0/Reto-1/actions/runs/43011875465)
+terminó Success para `a15756c`, sin convertir las pruebas con fixtures en una
+captura vigente de mercado.
 
-Se conserva la decisión del modelo y el test único. La continuación aporta
+Se conserva la decisión del modelo y el test único. El incremento anterior aportó
 129 pruebas unitarias, siete pruebas de MongoDB real y cinco pruebas de
 HDFS/Kafka/MongoDB sin omisiones. Se transportaron tanto 621 promociones
 oficiales como cinco vistas municipales verificadas. Las ejecuciones no son

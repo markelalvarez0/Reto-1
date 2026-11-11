@@ -2,6 +2,12 @@
 
 ## Incremento posterior: adquisición trazable de anuncios
 
+Publicado en **a15756c** en origin/dev-jon. La validación remota del código
+corresponde a [BDA 43011875465](https://github.com/markelalvarez0/Reto-1/actions/runs/43011875465),
+separada de los CI anteriores y de las pruebas locales.
+Terminó **Success**, comprobado en su página pública; valida el código de
+captura con fixtures y el transporte con servicios, no scraping remoto vigente.
+
 Base 8685bbe, remota y local sin cambios ajenos al reanudar. La red sigue con
 política restringida, aplicada, sin los dominios de los portales; el borrador
 continúa inaccesible (INVALID_ARGUMENT). No se reemplazó una lista desconocida.
@@ -25,8 +31,8 @@ continúa inaccesible (INVALID_ARGUMENT). No se reemplazó una lista desconocida
   como fixture para comprobar su almacenamiento; no lo cuenta como anuncio.
 
 Evidencias nuevas: `docs/evidencias_scraping_2026-11-11/`. Instrucciones y límites
-en `docs/SCRAPING.md`. El CI de 1c7c45e acredita el incremento anterior; hay que
-comprobar por separado la ejecución que dispare este nuevo código.
+en `docs/SCRAPING.md`. El CI de 1c7c45e acredita el incremento anterior; el CI
+43011875465 de a15756c acredita por separado este código.
 
 **Siguiente requisito externo:** habilitar www.habitaclia.com y www.pisos.com en
 los ajustes de red. Después revisar condiciones/robots, capturar HTML vigente,

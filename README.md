@@ -12,6 +12,8 @@ bloqueada por la red y no se presenta como requisito completado.
 El incremento de adquisición supera **153 pruebas** y cinco de servicios reales;
 el [intento actual](docs/evidencias_scraping_2026-11-11/intento_real.json) registra
 cero anuncios y el bloqueo, sin fabricar un lote válido.
+El código de adquisición `a15756c` superó el
+[CI BDA 43011875465](https://github.com/markelalvarez0/Reto-1/actions/runs/43011875465).
 
 Una herramienta de orientación para comparar rentas municipales observadas,
 estimar la referencia del siguiente trimestre y explicar reglas al usuario.
@@ -21,7 +23,7 @@ preprocesado y los modelos, XGBoost aporta una familia de comparación, MLflow
 registra experimentos y SHAP describe contribuciones sin causalidad. Streamlit
 presenta referencias y n8n crea fichas locales tras consentimiento.
 
-En la continuación del 11 de noviembre se verificaron **129 pruebas**, siete
+En el primer incremento del 11 de noviembre se verificaron **129 pruebas**, siete
 pruebas con MongoDB real y cinco del recorrido HDFS/Kafka/MongoDB, sin skips.
 El recorrido transportó 621 registros oficiales y cinco vistas municipales;
 no acredita scraping de anuncios individuales. Ver [evidencias actuales](docs/evidencias_2026-11-11/)
