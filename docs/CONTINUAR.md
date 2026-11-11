@@ -10,7 +10,7 @@ terminó **Success** para 1c7c45e; se comprobó en su página pública.
 El CI BDA **43008668473 también terminó Success** para ese mismo commit.
 Las comprobaciones del workflow exigen las pruebas municipales y transporte,
 resultados no vacíos y ninguna omisión. No se descargaron sus logs privados.
-Los cuatro PDF versionados se sustituyeron por el informe corregido de 24 páginas;
+Los cuatro PDF versionados se sustituyeron por el informe corregido paginado;
 el adjunto maestro anterior permanece como referencia histórica del traspaso.
 
 Se comprobó GitHub antes de editar: dev-jon seguía en

@@ -18,7 +18,7 @@ es contexto histórico y no debe confundirse con el informe vigente.
 CI remoto del incremento **1c7c45e**: [BDA 43008668473](https://github.com/markelalvarez0/Reto-1/actions/runs/43008668473)
 y [n8n 43008668600](https://github.com/markelalvarez0/Reto-1/actions/runs/43008668600),
 ambos **Success**. Los cuatro PDF versionados contienen ahora el informe corregido
-de 24 páginas. No se confunden con el PDF histórico adjunto de la conversación.
+paginado. No se confunden con el PDF histórico adjunto de la conversación.
 
 ## Objetivo confirmado
 
