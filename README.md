@@ -6,6 +6,13 @@ Proyecto interdisciplinar del Curso de Especialización en Inteligencia Artifici
 
 ## Qué hemos construido
 
+La continuación incorpora una [captura trazable de anuncios](docs/SCRAPING.md),
+con robots y TLS obligatorios. Sus pruebas usan fixtures; la captura real sigue
+bloqueada por la red y no se presenta como requisito completado.
+El incremento de adquisición supera **153 pruebas** y cinco de servicios reales;
+el [intento actual](docs/evidencias_scraping_2026-11-11/intento_real.json) registra
+cero anuncios y el bloqueo, sin fabricar un lote válido.
+
 Una herramienta de orientación para comparar rentas municipales observadas,
 estimar la referencia del siguiente trimestre y explicar reglas al usuario.
 Es una IA débil de aprendizaje supervisado de regresión, especializada en EMAL;

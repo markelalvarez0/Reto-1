@@ -1,0 +1,35 @@
+{
+  "fecha_utc": "2026-11-11T11:18:03.794015+00:00",
+  "estado": "incompleta",
+  "portales": {
+    "habitaclia": {
+      "registros": 0,
+      "errores": [
+        "Fallo al raspar https://www.habitaclia.com/alquiler-bilbao.htm (Bilbao): HTTPSConnectionPool(host='www.habitaclia.com', port=443): Max retries exceeded with url: /robots.txt (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+      ],
+      "listados_solicitados": [
+        "https://www.habitaclia.com/alquiler-bilbao.htm",
+        "https://www.habitaclia.com/alquiler-donostia_san_sebastian.htm",
+        "https://www.habitaclia.com/alquiler-vitoria_gasteiz.htm"
+      ]
+    },
+    "pisos": {
+      "registros": 0,
+      "errores": [
+        "Fallo al raspar https://www.pisos.com/alquiler/viviendas-bilbao/ (Bilbao): HTTPSConnectionPool(host='www.pisos.com', port=443): Max retries exceeded with url: /robots.txt (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+      ],
+      "listados_solicitados": [
+        "https://www.pisos.com/alquiler/viviendas-bilbao/",
+        "https://www.pisos.com/alquiler/viviendas-donostia_san_sebastian/",
+        "https://www.pisos.com/alquiler/viviendas-vitoria_gasteiz/"
+      ]
+    }
+  },
+  "registros_unicos": 0,
+  "limites": [
+    "Muestra de listados, no censo ni garantía de disponibilidad.",
+    "Los selectores requieren validación con HTML vigente.",
+    "Revisar condiciones de uso antes de ejecutar; robots no equivale a licencia.",
+    "No modifica fuentes oficiales ni el modelo o su test."
+  ]
+}

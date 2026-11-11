@@ -37,6 +37,10 @@ def test_capturas_reales_atraviesan_todo_el_pipeline(tmp_path):
     database, topic = 'reto1_bda_ci_' + token, 'reto1_bda_ci_' + token
     manager = MongoDBManager(db_name=database, force_mock=False)
     try:
+        # Fixture adicional de almacenamiento: NO es una captura de un portal.
+        extra = tmp_path / 'prepared/sources/fixture_integridad.html'
+        extra.parent.mkdir(parents=True)
+        extra.write_bytes(b'<html>fixture declarado\r\n</html>\r\n')
         result = run_pipeline(tmp_path / 'prepared', tmp_path / 'processed', snapshot_dir=snapshot,
                               db_name=database, topic=topic, interval_seconds=0.005)
         assert result['modo'] == 'real'
@@ -48,6 +52,7 @@ def test_capturas_reales_atraviesan_todo_el_pipeline(tmp_path):
         assert all(item['recuperacion_identica'] and item['modo'] == 'webhdfs_live' for item in result['hdfs'])
         originals_in_hdfs = {Path(item['original_local']).name for item in result['hdfs'] if item['clase'] == 'raw'}
         assert set(sources) | {'manifest.json'} <= originals_in_hdfs
+        assert 'fixture_integridad.html' in originals_in_hdfs
         documents = list(manager.db.viviendas.find({}, {'_id': 0}))
         assert len(documents) == result['registros_persistidos']
         codes = {doc['codigo_municipio'] for doc in documents}
@@ -78,7 +83,8 @@ def test_capturas_reales_atraviesan_todo_el_pipeline(tmp_path):
         report = {
             'run': os.getenv('GITHUB_RUN_ID'), 'commit_base': os.getenv('GITHUB_SHA'),
             'propuesta_sha': os.getenv('BDA_CANDIDATE_TREE'),
-            'datos': 'capturas oficiales originales verificadas; no fixtures',
+            'datos': 'registros de capturas oficiales verificados; HTML auxiliar etiquetado como fixture',
+            'archivos_auxiliares_fixture': ['fixture_integridad.html; solo prueba almacenamiento, no anuncios'],
             'servicios': result['servicios'], 'lote_ingesta': result['lote_ingesta'],
             'enviados': result['anuncios_publicados'], 'recibidos': result['anuncios_recibidos'],
             'persistidos': result['registros_persistidos'], 'por_fuente': result['por_fuente'],

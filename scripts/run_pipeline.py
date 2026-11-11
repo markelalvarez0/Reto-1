@@ -20,6 +20,7 @@ if str(ROOT) not in sys.path:
 from src.extraction.api_client import OpenDataEuskadiHousingClient
 from src.extraction.models import HousingAd
 from src.extraction.source_snapshots import prepare_snapshot, verify_snapshot
+from src.extraction.scraping_http import verify_scraped_record
 from src.database.mongo_client import MongoDBManager
 from src.database.data_loader import MongoDBDataLoader
 from src.database.cleaning import MongoDataCleaner
@@ -88,6 +89,8 @@ def run_pipeline(raw_dir, output_dir, demo=False, fetch=False, *, snapshot_dir=N
                     rejected += 1; continue
                 seen.add(key)
                 values = {**normalized, **normalized["caracteristicas"], "id": normalized["id_origen"], "lote_ingesta": batch}
+                if not demo and values['fuente'] in {'Habitaclia_Scraping', 'PisosCom_Scraping'}:
+                    verify_scraped_record(values, raw_dir / 'sources')
                 if values.get("fecha_extraccion") is None:
                     values.pop("fecha_extraccion", None)
                 validated.append(HousingAd(**{key: value for key, value in values.items() if key in HousingAd.model_fields}))
@@ -102,8 +105,8 @@ def run_pipeline(raw_dir, output_dir, demo=False, fetch=False, *, snapshot_dir=N
             sources = verify_snapshot(snapshot_dir)
             storage.extend((Path(snapshot_dir) / name, "raw", "originales/" + name) for name in sorted(sources))
             storage.append((Path(snapshot_dir) / "manifest.json", "raw", "originales/manifest.json"))
-        else:
-            storage.extend((path, "raw", "originales/" + path.name) for path in sorted((raw_dir / "sources").glob("*")) if path.is_file())
+        # También conservar HTML/robots cuando conviven con la captura oficial.
+        storage.extend((path, "raw", "originales/" + path.name) for path in sorted((raw_dir / "sources").glob("*")) if path.is_file())
         storage.append((normalized_path, "processed", normalized_path.name))
         hdfs = HDFSClient(simulation_mode=demo, simulation_storage_dir=str(output_dir / "hdfs_demo"))
         storage_evidence = []

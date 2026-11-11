@@ -9,7 +9,6 @@ import json
 import csv
 import os
 import requests
-import urllib3
 from typing import Dict, Any, List, Optional
 from datetime import datetime, timezone
 from .models import MunicipalIndicatorValue, IndicatorMetadata, IndicatorsDataset
@@ -67,13 +66,11 @@ class UdalmapClient:
         })
 
     def _safe_get(self, url: str, **kwargs) -> requests.Response:
-        """Petición GET con soporte y fallback ante certificados SSL locales de la CA de Euskadi."""
+        """Usa la confianza TLS configurada; un certificado invalido detiene la descarga."""
         kwargs.setdefault("timeout", self.timeout)
-        try:
-            return self.session.get(url, **kwargs)
-        except requests.exceptions.SSLError:
-            urllib3.disable_warnings()
-            return self.session.get(url, verify=False, **kwargs)
+        if kwargs.pop('verify', True) is not True:
+            raise ValueError('Configure la CA de confianza; no desactive TLS')
+        return self.session.get(url, verify=True, **kwargs)
 
     def fetch_all_target_indicators(self, filter_municipalities: Optional[List[str]] = None) -> IndicatorsDataset:
         """

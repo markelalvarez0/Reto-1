@@ -1,5 +1,38 @@
 # Continuación · 11 de noviembre de 2026
 
+## Incremento posterior: adquisición trazable de anuncios
+
+Base 8685bbe, remota y local sin cambios ajenos al reanudar. La red sigue con
+política restringida, aplicada, sin los dominios de los portales; el borrador
+continúa inaccesible (INVALID_ARGUMENT). No se reemplazó una lista desconocida.
+
+- `scripts/capture_rentals.py` prepara lotes nuevos, con estado completo/parcial
+  y salida distinta de cero cuando falta alguna captura. El intento actual
+  produjo cero anuncios y dos bloqueos CONNECT 403. No generó un JSON ingerible.
+- Ambos scrapers usan `src/extraction/scraping_http.py`: HTTPS verificado,
+  User-Agent académico, robots previos, pausas y redirecciones controladas.
+  Robots desconocidos/denegados o HTML sin anuncios no equivalen a éxito.
+- Se conservan bytes, URL, fecha, estado, tamaño y SHA-256 de robots y listados.
+  El pipeline revalida esos originales antes de ingerir y los conserva en HDFS
+  también cuando acompaña capturas oficiales. Un original alterado detiene la carga.
+- Corregidos céntimos, unidades temporales, IDs dependientes de la hora y el
+  municipio asumido del target. Se excluyen tipos no residenciales evidentes.
+  Son selectores probados con fixtures; su vigencia requiere HTML real accesible.
+- Eliminado también el fallback TLS inseguro de Udalmap. No se volvió a descargar
+  ni modificar ninguna de las seis capturas oficiales o los 88 artefactos ML.
+- 153 pruebas de tests/ superadas, cinco avisos conocidos. Cinco pruebas de
+  servicios reales superadas. El caso de fuentes añade un HTML auxiliar declarado
+  como fixture para comprobar su almacenamiento; no lo cuenta como anuncio.
+
+Evidencias nuevas: `docs/evidencias_scraping_2026-11-11/`. Instrucciones y límites
+en `docs/SCRAPING.md`. El CI de 1c7c45e acredita el incremento anterior; hay que
+comprobar por separado la ejecución que dispare este nuevo código.
+
+**Siguiente requisito externo:** habilitar www.habitaclia.com y www.pisos.com en
+los ajustes de red. Después revisar condiciones/robots, capturar HTML vigente,
+contrastar selectores y transportar anuncios observados. No se elude el bloqueo
+ni se inventa una muestra. La promoción a test/main sigue esperando esa validación.
+
 ## Incremento actual desde f107a0a
 
 Publicado en **1c7c45e404247e242f82099943dcf97bce277655** en origin/dev-jon.

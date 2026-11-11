@@ -2,6 +2,13 @@
 
 ## Actualización del 11 de noviembre de 2026
 
+La adquisición de anuncios tiene ahora un CLI trazable y comprobaciones de
+robots/TLS/originales antes de ingerir. Sus 153 pruebas incluyen fixtures de
+HTML y fallos de acceso; las cinco pruebas de servicios se repitieron sin skips.
+El intento real produjo cero anuncios por CONNECT 403. Consultar
+[captura y límites](SCRAPING.md) y [evidencias](evidencias_scraping_2026-11-11/).
+Los selectores no se declaran validados con páginas actuales inaccesibles.
+
 Se conserva la decisión del modelo y el test único. La continuación aporta
 129 pruebas unitarias, siete pruebas de MongoDB real y cinco pruebas de
 HDFS/Kafka/MongoDB sin omisiones. Se transportaron tanto 621 promociones

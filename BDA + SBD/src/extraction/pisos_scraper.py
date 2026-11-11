@@ -11,12 +11,13 @@ import re
 import json
 import csv
 import os
+import hashlib
 import requests
-import urllib3
 from bs4 import BeautifulSoup
 from typing import List, Dict, Any, Optional
 from datetime import datetime, timezone
-from .models import HousingAd, ExtractionResult
+from .models import HousingAd, ExtractionResult, resolver_codigo_ine
+from .scraping_http import ScrapingHTTP, observed_municipality, euro_price, residential_title, USER_AGENT
 
 
 class PisosComScraper:
@@ -49,28 +50,24 @@ class PisosComScraper:
         }
     ]
 
-    def __init__(self, request_delay_seconds: float = 1.5, timeout_seconds: int = 12):
+    def __init__(self, request_delay_seconds: float = 1.5, timeout_seconds: int = 12, *, archive_dir='data/scraping/sources'):
         self.delay = request_delay_seconds
         self.timeout = timeout_seconds
         self.session = requests.Session()
         self.session.headers.update({
-            "User-Agent": (
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-            ),
+            "User-Agent": USER_AGENT,
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
             "Accept-Language": "es-ES,es;q=0.9,eu;q=0.8,en;q=0.7",
             "Referer": "https://www.pisos.com/"
         })
+        self.http = ScrapingHTTP(self.session, 'www.pisos.com', delay=self.delay,
+                                 timeout=self.timeout, archive_dir=archive_dir)
 
     def _safe_get(self, url: str, **kwargs) -> requests.Response:
-        """Petición GET con soporte y fallback ante certificados SSL locales de la CA de Euskadi."""
-        kwargs.setdefault("timeout", self.timeout)
-        try:
-            return self.session.get(url, **kwargs)
-        except requests.exceptions.SSLError:
-            urllib3.disable_warnings()
-            return self.session.get(url, verify=False, **kwargs)
+        """Robots y TLS obligatorios; no permite anular la politica de captura."""
+        if kwargs:
+            raise ValueError('No se admiten opciones que alteren la captura verificada')
+        return self.http.get(url)
 
     def scrape_targets(
         self,
@@ -96,6 +93,8 @@ class PisosComScraper:
                 all_ads.extend(ads)
             except Exception as e:
                 errores.append(f"Fallo al raspar {url} ({muni}): {e}")
+                if self.http.robots is None or self.http.stopped:
+                    break
 
             time.sleep(self.delay)
 
@@ -132,9 +131,11 @@ class PisosComScraper:
                 break
 
             ad = self._extract_card_data(card, municipio, provincia, tipo_operacion, idx, url)
-            if ad:
+            if ad and ad.codigo_municipio and ad.precio is not None:
+                ad.procedencia = self.http.last_capture.copy()
                 results.append(ad)
-
+        if not results:
+            raise ValueError('HTML sin anuncios interpretables; no se acredita una captura de mercado')
         return results
 
     def _extract_card_data(
@@ -166,8 +167,10 @@ class PisosComScraper:
             match_id = re.search(r"(\d+)(?:_[a-z0-9]+)?\.html?", href)
             data_id = f"pisos_{match_id.group(1)}" if match_id else None
 
-        if not data_id:
-            data_id = f"pisos_{municipio.lower()}_{index}_{int(time.time())}"
+        if not data_id and href:
+            data_id = 'pisos_' + hashlib.sha256(full_url.encode()).hexdigest()[:24]
+        elif not data_id:
+            return None
         elif not str(data_id).startswith("pisos_"):
             data_id = f"pisos_{data_id}"
 
@@ -175,13 +178,7 @@ class PisosComScraper:
         price_tag = card.find(class_=re.compile(r"ad-preview__price|price|p-price"))
         if price_tag:
             price_text = price_tag.get_text(strip=True)
-            match_price = re.search(r"([\d\.]+)\s*€", price_text)
-            if match_price:
-                try:
-                    num_clean = match_price.group(1).replace(".", "").replace(",", ".")
-                    precio = float(num_clean)
-                except ValueError:
-                    precio = None
+            precio = euro_price(price_text)
 
         card_text = card.get_text(" ", strip=True)
 
@@ -211,11 +208,14 @@ class PisosComScraper:
 
         barrio_tag = card.find(class_=re.compile(r"location|zone|ad-preview__location"))
         barrio = barrio_tag.get_text(strip=True) if barrio_tag else None
+        municipio = observed_municipality(barrio)
+        code = resolver_codigo_ine(municipio)
+        provincia = {'01': 'Araba', '20': 'Gipuzkoa', '48': 'Bizkaia'}.get(code[:2]) if code else None
 
         desc_tag = card.find(class_=re.compile(r"description|desc"))
         descripcion = desc_tag.get_text(strip=True) if desc_tag else None
 
-        if not titulo and not precio:
+        if not residential_title(titulo):
             return None
 
         return HousingAd(

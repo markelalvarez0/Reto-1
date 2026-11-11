@@ -1,0 +1,38 @@
+{
+  "base": "8685bbe1c3fb19a08c274982bd0ed653d60dc20e",
+  "validacion": "local previa al commit; fixtures de scraping separados del intento real bloqueado",
+  "archivos": [
+    {
+      "archivo": "src/extraction/scraping_http.py",
+      "sha256": "af4a5bc41deb8c0e8246c57382f821a3b4cd909f35bf68edb104befb7e848f05"
+    },
+    {
+      "archivo": "src/extraction/scraper.py",
+      "sha256": "07a0f6a9e02924822edfa7d355ab2caaec76b0db9b9d1aec2a05244a4770b2b5"
+    },
+    {
+      "archivo": "src/extraction/pisos_scraper.py",
+      "sha256": "36f8bc2525f4f96dcb0ceb559cabb525eb48ebbc2600021cb766ca1e261fd74f"
+    },
+    {
+      "archivo": "src/indicators/udalmap_client.py",
+      "sha256": "4b0ac695a670c39fad717dbd0ae237934cd7e250811ecdda467841c848af1185"
+    },
+    {
+      "archivo": "scripts/capture_rentals.py",
+      "sha256": "e9da6d47ce5c57d379339531814eb6ee2943c9d190abe5afa010fbca3815ad2c"
+    },
+    {
+      "archivo": "scripts/run_pipeline.py",
+      "sha256": "a3ec99f16b2d989489328fc1900535e4380c1fe1af3a6a31e642c81b8ec48e11"
+    },
+    {
+      "archivo": "tests/test_scraping_capture.py",
+      "sha256": "3bf3cb7571e465ebe4e209acf3c19df09ff6819e8f648bd395429465ce9dea8b"
+    },
+    {
+      "archivo": "integration_tests/test_bda_sources_live.py",
+      "sha256": "0468660bfbf460dda9c080087c5f4582fd8db61fc03341cc03a94086d8302701"
+    }
+  ]
+}

@@ -10,12 +10,13 @@ import re
 import json
 import csv
 import os
+import hashlib
 import requests
-import urllib3
 from bs4 import BeautifulSoup
 from typing import List, Dict, Any, Optional
 from datetime import datetime, timezone
 from .models import HousingAd, ExtractionResult
+from .scraping_http import ScrapingHTTP, observed_municipality, euro_price, residential_title, USER_AGENT
 
 
 class HabitacliaScraper:
@@ -28,27 +29,23 @@ class HabitacliaScraper:
         {"municipio": "Bilbao", "tipo": "compraventa", "url": "https://www.habitaclia.com/comprar-vivienda-en-bilbao/"}
     ]
 
-    def __init__(self, request_delay_seconds: float = 1.5, timeout_seconds: int = 12):
+    def __init__(self, request_delay_seconds: float = 1.5, timeout_seconds: int = 12, *, archive_dir='data/scraping/sources'):
         self.delay = request_delay_seconds
         self.timeout = timeout_seconds
         self.session = requests.Session()
         self.session.headers.update({
-            "User-Agent": (
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-            ),
+            "User-Agent": USER_AGENT,
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
             "Accept-Language": "es-ES,es;q=0.9,eu;q=0.8,en;q=0.7"
         })
+        self.http = ScrapingHTTP(self.session, 'www.habitaclia.com', delay=self.delay,
+                                 timeout=self.timeout, archive_dir=archive_dir)
 
     def _safe_get(self, url: str, **kwargs) -> requests.Response:
-        """Petición GET con soporte y fallback ante certificados SSL locales de la CA de Euskadi."""
-        kwargs.setdefault("timeout", self.timeout)
-        try:
-            return self.session.get(url, **kwargs)
-        except requests.exceptions.SSLError:
-            urllib3.disable_warnings()
-            return self.session.get(url, verify=False, **kwargs)
+        """Robots y TLS obligatorios; no permite anular la politica de captura."""
+        if kwargs:
+            raise ValueError('No se admiten opciones que alteren la captura verificada')
+        return self.http.get(url)
 
     def scrape_targets(self, targets: Optional[List[Dict[str, str]]] = None, max_items_per_target: int = 20) -> ExtractionResult:
         """
@@ -69,6 +66,8 @@ class HabitacliaScraper:
                 all_ads.extend(ads)
             except Exception as e:
                 errores.append(f"Fallo al raspar {url} ({muni}): {e}")
+                if self.http.robots is None or self.http.stopped:
+                    break  # No repetir el mismo bloqueo de robots para cada municipio.
 
             time.sleep(self.delay)
 
@@ -97,9 +96,11 @@ class HabitacliaScraper:
                 break
 
             ad = self._extract_article_data(art, municipio, tipo_operacion, idx, url)
-            if ad:
+            if ad and ad.codigo_municipio and ad.precio is not None:
+                ad.procedencia = self.http.last_capture.copy()
                 results.append(ad)
-
+        if not results:
+            raise ValueError('HTML sin anuncios interpretables; no se acredita una captura de mercado')
         return results
 
     def _extract_article_data(self, article, municipio: str, tipo_operacion: str, index: int, source_url: str) -> Optional[HousingAd]:
@@ -113,20 +114,14 @@ class HabitacliaScraper:
         data_id = article.get("data-id") or article.get("id")
         if not data_id and href:
             match_id = re.search(r"(\d+)\.htm", href)
-            data_id = match_id.group(1) if match_id else f"art_{index}"
+            data_id = match_id.group(1) if match_id else hashlib.sha256(full_url.encode()).hexdigest()[:24]
         elif not data_id:
-            data_id = f"{municipio.lower()}_{index}_{int(time.time())}"
+            return None  # Sin identidad de origen no se fabrica una dependiente de la hora.
 
         precio = None
         price_tag = article.find(class_=re.compile(r"font-2|price|precio"))
         if price_tag:
-            price_match = re.search(r"([\d\.]+)\s*€", price_tag.get_text(strip=True))
-            if price_match:
-                try:
-                    clean_num = price_match.group(1).replace(".", "").replace(",", ".")
-                    precio = float(clean_num)
-                except ValueError:
-                    precio = None
+            precio = euro_price(price_tag.get_text(' ', strip=True))
 
         superficie_m2 = None
         habitaciones = None
@@ -158,11 +153,12 @@ class HabitacliaScraper:
 
         loc_tag = article.find(class_=re.compile(r"location|ubicacion|zone"))
         barrio = loc_tag.get_text(strip=True) if loc_tag else None
+        municipio = observed_municipality(barrio)
 
         desc_tag = article.find("p")
         descripcion = desc_tag.get_text(strip=True) if desc_tag else None
 
-        if not titulo and not precio:
+        if not residential_title(titulo):
             return None
 
         clean_id = f"habitaclia_{data_id}" if not str(data_id).startswith("habitaclia_") else str(data_id)
