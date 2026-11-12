@@ -105,6 +105,30 @@ jobs:
           python scripts/analyze_municipal.py --db-name "reto1_municipal_ci_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}" --output-dir evidencia_bda_integracion/municipal
           python scripts/transport_municipal.py --input-dir evidencia_bda_integracion/municipal --db-name "reto1_municipal_ci_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}" --report evidencia_bda_integracion/transporte_municipal.json
           python scripts/audit_project.py
+      - name: Transportar y contrastar la muestra archivada de anuncios reales
+        run: |
+          python - <<'PY'
+          import os, shutil
+          from pathlib import Path
+          shutil.copytree('data/capturas_anuncios/2026-11-12', Path(os.environ['RUNNER_TEMP'])/'anuncios_archivados')
+          PY
+          python scripts/run_pipeline.py --snapshot-dir data/capturas_oficiales --raw-dir "$RUNNER_TEMP/anuncios_archivados" --output-dir evidencia_bda_integracion/pipeline_anuncios --db-name "reto1_anuncios_ci_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}"
+          python scripts/analyze_rental_sample.py --capture-dir data/capturas_anuncios/2026-11-12 --pipeline-dir evidencia_bda_integracion/pipeline_anuncios --db-name "reto1_anuncios_ci_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}" --output-dir evidencia_bda_integracion/anuncios
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path('evidencia_bda_integracion')
+          pipeline = json.loads((root/'pipeline_anuncios/manifest.json').read_text())
+          sample = json.loads((root/'anuncios/resumen.json').read_text())
+          assert pipeline['por_tipo_registro'] == {'promocion': 621, 'anuncio': 17}
+          assert pipeline['anuncios_publicados'] == pipeline['anuncios_recibidos'] == pipeline['registros_persistidos'] == 638
+          assert sample['reentrega'] == {'antes': 638, 'despues': 638, 'duplicados_nuevos': 0}
+          assert sample['consultas']['alquileres_bilbao'] == 6
+          assert sample['consultas']['senal_temporal_en_array'] == 3
+          assert len(sample['comparativa']) == 3 and sample['atomicidad']['contador_final'] == 100
+          PY
+          python scripts/audit_project.py
+          git diff --exit-code
       - name: Comprobar resultados sin publicar ni modificar ramas
         run: |
           python - <<'PY'

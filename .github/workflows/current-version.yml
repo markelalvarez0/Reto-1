@@ -45,14 +45,18 @@ jobs:
           uv run --no-sync python main.py --subject bda_sbd --prepare-only --raw-dir test-results/preparados
           uv run --no-sync python main.py --pdf
           uv run --no-sync python - <<'PY'
-          import json
+          import json, os
           from pathlib import Path
           from streamlit.testing.v1 import AppTest
           app = AppTest.from_file('app/streamlit_app.py', default_timeout=60).run()
           assert not app.exception, [str(e.value) for e in app.exception]
           assert any('Informe conservado' in e.value for e in app.success)
           assert not any(e.label == 'Evaluar test reservado una sola vez' for e in app.button)
-          Path('test-results/app.json').write_text(json.dumps({'abre': True, 'test_reevaluado': False}), encoding='utf-8')
+          os.environ['RETO1_ANALYSIS_DIR'] = str(Path('docs/evidencias_entrega_2026-11-12/municipal').resolve())
+          territory = AppTest.from_file('app/territorio.py', default_timeout=60).run()
+          assert not territory.exception and not territory.error
+          assert len(territory.dataframe) >= 5
+          Path('test-results/app.json').write_text(json.dumps({'abre': True, 'visor_anuncios': True, 'test_reevaluado': False}), encoding='utf-8')
           PY
           git diff --exit-code
       - uses: actions/upload-artifact@v4

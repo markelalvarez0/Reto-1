@@ -20,6 +20,17 @@ PDF y AppTest del modelo conservado. MongoDB real [43241628598](https://github.c
 también terminó Success. Esta evidencia valida ese commit; el incremento posterior
 de consultas requiere su propio CI.
 
+[Transporte HDFS/Kafka 43241628792](https://github.com/markelalvarez0/Reto-1/actions/runs/43241628792)
+terminó Success para 4bf7b28. El BDA 43241628549 quedó cancelado por un push
+posterior; no se considera éxito. La ampliación de consultas se publicó en
+**bd448cd** con 159 pruebas locales y 12 integraciones reales correctas.
+
+El CI BDA se amplía además para reproducir los 17 anuncios archivados con
+servicios reales y contrastar 638 documentos, reentrega, consultas y atomicidad;
+no consulta los portales ni usa fixtures como anuncios. La matriz Linux/Windows
+abre también el visor desde las evidencias municipales y de anuncios archivadas.
+Se protegen esos bytes de conversión de finales de línea con `.gitattributes`.
+
 ## Incremento actual: anuncios reales y comprobación del lote
 
 Base remota comprobada: `dev-jon` en c5fdd5d, `test`/`main` en 6e279a4.

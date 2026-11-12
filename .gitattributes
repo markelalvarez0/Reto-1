@@ -9,3 +9,4 @@
 /entrega_ml/** -text -diff
 /docs/evidencias_ml/** -text -diff
 /docs/TEST_FINAL_EMAL.json -text -diff
+/docs/evidencias_entrega_2026-11-12/** -text -diff
