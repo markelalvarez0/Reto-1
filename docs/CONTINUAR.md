@@ -1,3 +1,32 @@
+# Cierre de rúbricas validado · 12 de noviembre de 2026
+
+Código publicado en **7b4f272** e integrado por avance rápido en test/main,
+sin conflictos. Se repitieron 168 pruebas en test antes de promover; se volvió
+a dev-jon. Este último checkpoint añade evidencia y documentación del cierre.
+
+CI correctos (Success) del código 7b4f272:
+- Windows/Linux 43252801342: 168 pruebas, integridad, preparación BDA, PDF y apps.
+- MongoDB real 43252801027.
+- BDA 43252801000: servicios reales, promociones/anuncios y nuevo transporte API
+  con reentrega de tres estadísticas monetarias, sin duplicados.
+- n8n 43252444254 del cambio cd2dcdb, cuyos archivos MIA/n8n siguen idénticos en
+  7b4f272. Ocho ramas verificadas; AppTest local adicional con R_REFERENCIA y
+  ficha real que conserva la predicción y regla, con consentimiento e idempotencia.
+
+Evidencia local: 168 pruebas, cinco avisos conocidos, 12 integraciones sin skips,
+dos transportes reales de API y nuevas capturas de Chromium. API, modelo y test
+se mantienen separados. No se entrenó, reseleccionó o reevaluó el holdout.
+
+Los cinco puntos autorizados están atendidos técnicamente en CIERRE_RUBRICA.md:
+regla que utiliza la predicción, README completo, API con precios monetarios,
+explicaciones conceptuales/diferencias de clase y guion de ensayo en pareja con
+preguntas individuales. Solo permanece el ensayo oral humano cronometrado y la
+valoración docente de los indicadores de novedad; no se garantiza una nota.
+
+El historial siguiente conserva los estados previos, no pendientes vigentes.
+
+---
+
 # Cierre de la revisión de rúbricas · 12 de noviembre de 2026
 
 La revisión posterior al cierre 5151943 detectó un vínculo débil entre predicción

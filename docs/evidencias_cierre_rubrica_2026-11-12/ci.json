@@ -1,0 +1,55 @@
+{
+  "codigo": "7b4f272",
+  "n8n_codigo": "cd2dcdb (mismos archivos MIA/n8n en 7b4f272)",
+  "runs": [
+    {
+      "id": 43252801342,
+      "url": "https://github.com/markelalvarez0/Reto-1/actions/runs/43252801342",
+      "jobs": [
+        {
+          "name": "current (ubuntu-latest)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "current (windows-latest)",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 43252801027,
+      "url": "https://github.com/markelalvarez0/Reto-1/actions/runs/43252801027",
+      "jobs": [
+        {
+          "name": "mongodb",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 43252801000,
+      "url": "https://github.com/markelalvarez0/Reto-1/actions/runs/43252801000",
+      "jobs": [
+        {
+          "name": "integration",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 43252444254,
+      "url": "https://github.com/markelalvarez0/Reto-1/actions/runs/43252444254",
+      "jobs": [
+        {
+          "name": "n8n",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ]
+}

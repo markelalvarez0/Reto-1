@@ -1,5 +1,10 @@
 # Reto 1 · De la referencia de alquiler a la orientación explicable
 
+Cierre de rúbricas: **168 pruebas**, 12 integraciones reales y CI Windows/Linux,
+MongoDB y BDA correctos. Nueva regla de referencia y API JSON EMAL acreditadas.
+El código se integró en test/main; guion oral y preguntas preparados. El ensayo
+humano sigue pendiente. Detalle en docs/CIERRE_RUBRICA.md desde la raíz.
+
 ![Caso de demostración: referencia predicha y orientación](../docs/evidencias_cierre_rubrica_2026-11-12/caso.png)
 
 Captura real de Streamlit con un perfil inventado de prueba; no es un expediente personal.
