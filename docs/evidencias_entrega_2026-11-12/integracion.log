@@ -1,0 +1,75 @@
+....F......                                                              [100%]
+=================================== FAILURES ===================================
+___________________ test_municipal_views_cross_real_services ___________________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-3/test_municipal_views_cross_rea0')
+
+    def test_municipal_views_cross_real_services(tmp_path):
+        database = 'reto1_municipal_transport_' + uuid.uuid4().hex
+        manager = MongoDBManager(db_name=database)
+        try:
+            subprocess.run([sys.executable, str(ROOT / 'scripts/analyze_municipal.py'),
+                            '--db-name', database, '--output-dir', str(tmp_path)], cwd=ROOT, check=True)
+            for _ in range(2):
+>               report = transport(tmp_path, manager.db)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+integration_tests/test_municipal_transport_live.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/transport_municipal.py:58: in transport
+    uploaded = hdfs.upload_file(str(source), target)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/hdfs/client.py:95: in upload_file
+    if self.is_live_cluster_available():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <src.hdfs.client.HDFSClient object at 0x7fdf2962b710>
+
+    def is_live_cluster_available(self) -> bool:
+        """Comprueba si el NameNode de HDFS responde vía WebHDFS."""
+        if self.force_simulation:
+            return False
+        if self._is_live_cache is not None:
+            if not self._is_live_cache:
+                raise ConnectionError("HDFS no disponible; no se activa simulacion automaticamente")
+            return self._is_live_cache
+    
+        test_url = f"{self.webhdfs_base_url}/?op=GETFILESTATUS&user.name={self.user}"
+        try:
+            resp = requests.get(test_url, timeout=2)
+            self._is_live_cache = (resp.status_code == 200)
+        except requests.exceptions.RequestException:
+            self._is_live_cache = False
+    
+        if not self._is_live_cache:
+>           raise ConnectionError("HDFS no disponible. Use simulation_mode=True solo en pruebas/demo.")
+E           ConnectionError: HDFS no disponible. Use simulation_mode=True solo en pruebas/demo.
+
+src/hdfs/client.py:72: ConnectionError
+----------------------------- Captured stdout call -----------------------------
+{"municipios": 18, "motor": "MongoDB", "periodo": "2024 T4", "salidas": "/tmp/pytest-of-agent/pytest-3/test_municipal_views_cross_rea0"}
+------------------------------ Captured log call -------------------------------
+ERROR    kafka.conn:conn.py:402 Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]> returned error 111. Disconnecting.
+ERROR    kafka.conn:conn.py:673 <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+ERROR    kafka.conn:conn.py:402 Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]> returned error 111. Disconnecting.
+ERROR    kafka.conn:conn.py:673 <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+ERROR    kafka.conn:conn.py:402 Connect attempt to <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]> returned error 111. Disconnecting.
+ERROR    kafka.conn:conn.py:673 <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+WARNING  kafka.client:client_async.py:330 Node 1 connection failed -- refreshing metadata
+ERROR    kafka.conn:conn.py:402 Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]> returned error 111. Disconnecting.
+ERROR    kafka.conn:conn.py:673 <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+ERROR    kafka.conn:conn.py:402 Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]> returned error 111. Disconnecting.
+ERROR    kafka.conn:conn.py:673 <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+ERROR    kafka.conn:conn.py:402 Connect attempt to <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]> returned error 111. Disconnecting.
+ERROR    kafka.conn:conn.py:673 <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+WARNING  kafka.client:client_async.py:330 Node coordinator-1 connection failed -- refreshing metadata
+WARNING  kafka.coordinator:base.py:770 Marking the coordinator dead (node coordinator-1) for group municipal-b53d2be5be704189b228c8259a825bb6: Node Disconnected.
+ERROR    kafka.conn:conn.py:402 Connect attempt to <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]> returned error 111. Disconnecting.
+ERROR    kafka.conn:conn.py:673 <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+WARNING  kafka.client:client_async.py:330 Node 1 connection failed -- refreshing metadata
+WARNING  kafka.coordinator:base.py:770 Marking the coordinator dead (node coordinator-1) for group municipal-b53d2be5be704189b228c8259a825bb6: Node Disconnected.
+ERROR    kafka.consumer.fetcher:future.py:77 Fetch to node 1 failed: Cancelled: <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>
+=========================== short test summary info ============================
+FAILED integration_tests/test_municipal_transport_live.py::test_municipal_views_cross_real_services
+1 failed, 10 passed in 34.08s

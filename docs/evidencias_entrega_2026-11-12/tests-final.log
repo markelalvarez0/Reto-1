@@ -1,0 +1,23 @@
+........................................................................ [ 45%]
+........................................................................ [ 90%]
+...............                                                          [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/mlflow/utils/pydantic_utils.py:33
+  /workspace/Reto-1/.venv/lib/python3.12/site-packages/mlflow/utils/pydantic_utils.py:33: PydanticDeprecatedSince212: Using `@model_validator` with mode='after' on a classmethod is deprecated. Instead, use an instance method. See the documentation at https://pydantic.dev/docs/validation/2.14/concepts/validators/#model-after-validator. Deprecated in Pydantic V2.12 to be removed in V3.0.
+    return pydantic_model_validator(mode=mode)(func)
+
+.venv/lib/python3.12/site-packages/mlflow/gateway/config.py:454
+  /workspace/Reto-1/.venv/lib/python3.12/site-packages/mlflow/gateway/config.py:454: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/
+    class Route(ConfigModel):
+
+tests/test_ml_pipeline.py::test_all_five_models_execution
+  /workspace/Reto-1/.venv/lib/python3.12/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=10).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+    warnings.warn(
+
+tests/test_ml_pipeline.py::test_mlp_neural_network_activations
+tests/test_ml_pipeline.py::test_mlp_neural_network_activations
+  /workspace/Reto-1/.venv/lib/python3.12/site-packages/sklearn/neural_network/_multilayer_perceptron.py:781: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+159 passed, 5 warnings in 17.16s

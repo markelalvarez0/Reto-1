@@ -4,3 +4,8 @@
 # Originales: preservar los bytes y SHA-256 de la captura, incluso CRLF.
 /data/capturas_oficiales/** -text -diff
 /data/capturas_anuncios/** -text -diff
+
+# Artefactos sellados: Windows debe recuperar los mismos bytes, también en CSV/JSON.
+/entrega_ml/** -text -diff
+/docs/evidencias_ml/** -text -diff
+/docs/TEST_FINAL_EMAL.json -text -diff

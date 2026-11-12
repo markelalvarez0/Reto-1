@@ -1,5 +1,19 @@
 # Continuación · 12 de noviembre de 2026
 
+## Verificación remota del primer incremento
+
+Publicado **1aad2c0a13ef9b158c6c3885a0346132551ca344**.
+[CI actual 43241144554](https://github.com/markelalvarez0/Reto-1/actions/runs/43241144554):
+Linux Success; Windows falló en integridad antes de ejecutar la suite. El checkout
+convirtió finales de línea de artefactos ML sellados. Corrección: `.gitattributes`
+con `-text -diff` para entrega_ml/, docs/evidencias_ml/ y TEST_FINAL_EMAL.json.
+No se modificaron sus bytes, manifiestos ni hashes. No cuenta como Windows validado.
+
+La descarga histórica de Hadoop resultó lenta localmente; la descarga oficial desde
+`downloads.apache.org` completó 488 MB en unos 21 segundos y verificó la misma SHA512.
+El script prefiere ahora esa distribución oficial y conserva el archivo Apache como
+alternativa si la versión ya no está publicada allí, con esperas/velocidad acotadas.
+
 ## Incremento actual: anuncios reales y comprobación del lote
 
 Base remota comprobada: `dev-jon` en c5fdd5d, `test`/`main` en 6e279a4.

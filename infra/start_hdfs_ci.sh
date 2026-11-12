@@ -10,8 +10,18 @@ fi
 mkdir -p "$HADOOP_HOME"
 # La distribucion lean oficial conserva HDFS; omite conectores cloud ajenos a
 # esta prueba. Descarga acotada: una conexion lenta no debe agotar todo el job.
-archive=https://archive.apache.org/dist/hadoop/common/hadoop-3.4.2/hadoop-3.4.2-lean.tar.gz
-curl -fL --connect-timeout 20 --max-time 30 --retry 2 "$archive.sha512" -o "$RUNNER_TEMP/hadoop.sha512"
+# El archivo histórico fue demasiado lento en la validación local. Preferir
+# distribución vigente oficial; recurrir al archivo solo si ya se retiró de ella.
+archive_path=hadoop/common/hadoop-3.4.2/hadoop-3.4.2-lean.tar.gz
+checksum_found=0
+for mirror in https://downloads.apache.org https://archive.apache.org/dist; do
+  archive="$mirror/$archive_path"
+  if curl -fL --connect-timeout 20 --max-time 30 --retry 1 "$archive.sha512" -o "$RUNNER_TEMP/hadoop.sha512"; then
+    checksum_found=1
+    break
+  fi
+done
+test "$checksum_found" = 1
 verify_archive() {
 python - <<'PY'
 import hashlib,os,re
@@ -25,7 +35,7 @@ PY
 }
 # Reusar solamente un archivo cuya SHA512 oficial se haya vuelto a comprobar.
 if ! verify_archive 2>/dev/null; then
-  curl -fL --connect-timeout 20 --max-time 600 --speed-limit 100000 --speed-time 60 --retry 2 --retry-max-time 720 "$archive" -o "$RUNNER_TEMP/hadoop.tar.gz"
+  curl -fL --connect-timeout 20 --max-time 300 --speed-limit 1000000 --speed-time 30 --retry 1 --retry-max-time 360 "$archive" -o "$RUNNER_TEMP/hadoop.tar.gz"
   verify_archive
 fi
 tar -xzf "$RUNNER_TEMP/hadoop.tar.gz" -C "$HADOOP_HOME" --strip-components=1

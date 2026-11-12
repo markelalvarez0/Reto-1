@@ -1,0 +1,23 @@
+{
+  "base": "c5fdd5d7581ab221609120f53426ede690589743",
+  "implementacion": "1aad2c0",
+  "datos": "originales oficiales y muestra archivada del 12-11-2026; fixtures solo en los casos declarados",
+  "tests": {
+    "passed": 159,
+    "warnings": 5,
+    "skipped": 0
+  },
+  "integracion": {
+    "passed": 12,
+    "skipped": 0
+  },
+  "n8n_ramas": 8,
+  "holdout_reevaluado": false,
+  "modelos_reentrenados": false,
+  "reentrega_total": {
+    "antes": 638,
+    "despues": 638
+  },
+  "salidas_no_disponibles": [],
+  "ensayo_humano": "pendiente"
+}
