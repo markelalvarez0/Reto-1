@@ -21,7 +21,7 @@
   },
   {
     "archivo": "scripts/capture_emal_api.py",
-    "sha256": "8f3de6c61d82cd1baa363ab691d10977250ff13f31d6b1aec2816635f0f66948"
+    "sha256": "7b608e303e5c03165c2a27d9f969829b99eafda26cda563d10c5f12de1b5489b"
   },
   {
     "archivo": "scripts/transport_rent_api.py",

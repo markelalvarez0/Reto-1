@@ -57,7 +57,7 @@ def capture(folder):
 
 def verified(folder):
     """Reinterpreta los bytes de API antes de transportar: falla ante alteraciones."""
-    folder=Path(folder);entries=json.loads((folder/'manifest.json').read_text())
+    folder=Path(folder);entries=json.loads((folder/'manifest.json').read_text(encoding='utf-8'))
     if {e['archivo'] for e in entries} != {'visor.html',*(c+'.json' for c in MUNICIPALITIES)} or len(entries)!=4:
         raise ValueError('Manifiesto incompleto')
     rows=[]
@@ -71,7 +71,7 @@ def verified(folder):
             if e['parametros']!=expected or not e['url'].startswith(API+'?'):
                 raise ValueError('Filtros API distintos de los declarados')
             rows.append({**parse(json.loads(raw),code),'procedencia':e})
-    if rows!=json.loads((folder/'rentas_api.json').read_text()):
+    if rows!=json.loads((folder/'rentas_api.json').read_text(encoding='utf-8')):
         raise ValueError('Normalizados distintos de los originales')
     return rows
 
