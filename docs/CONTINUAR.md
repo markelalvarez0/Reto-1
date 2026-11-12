@@ -1,3 +1,44 @@
+# Cierre técnico · 12 de noviembre de 2026
+
+## Estado remoto confirmado tras la validación integral
+
+**a623ece8f0ae7f0229381a32e60f104abc858eee** quedó publicado y validado;
+se integró por avance rápido en `test` y `main`, sin conflictos, sin force-push
+y conservando la historia del compañero. Se ejecutaron de nuevo 159 pruebas en
+la rama `test` antes de promover a `main`. Después se volvió a `dev-jon`.
+`git ls-remote` confirmó las tres referencias iguales. Este checkpoint final
+añade documentación y PDF; no modifica el código validado ni los artefactos ML.
+
+CI remoto del código a623ece, todos **Success**:
+
+- [Versión actual Linux y Windows 43242707545](https://github.com/markelalvarez0/Reto-1/actions/runs/43242707545):
+  uv.lock, 159 pruebas en cada sistema, integridad, preparación BDA, PDF,
+  apertura del modelo y visor territorial con la muestra archivada.
+- [BDA 43242707927](https://github.com/markelalvarez0/Reto-1/actions/runs/43242707927):
+  159 pruebas, cinco integraciones sin omisiones, vistas municipales y recorrido
+  adicional de 621 promociones + 17 anuncios archivados con servicios reales.
+  Confirmados 638 recibidos/persistidos, reentrega sin duplicados, consultas y
+  atomicidad de 100 operaciones sobre copia aislada. No es scraping en vivo en CI.
+- [MongoDB 43242707429](https://github.com/markelalvarez0/Reto-1/actions/runs/43242707429):
+  regresión e integración con servidor real.
+
+Evidencia local separada: **159 pruebas y 12 integraciones**, ocho ramas n8n,
+formulario con consentimiento y ficha persistida, ambas aplicaciones en Chromium.
+Los fallos iniciales de HDFS y Windows están conservados, y se distinguen de
+las repeticiones correctas. El manifiesto `codigo_validado.json` identifica el
+árbol probado localmente; los workflows ampliados se acreditan por el CI a623ece.
+
+La captura de anuncios y el transporte ya están acreditados. No reabrir la
+selección ni el test ML. Solo queda el **ensayo oral humano cronometrado y las
+respuestas individuales**, con guion en `docs/DEFENSA.md`; no lo sustituye una
+prueba de software. La muestra es histórica desde su fecha: no garantiza
+ofertas disponibles, uso habitual ni representatividad del mercado.
+
+Los siguientes apartados conservan la evolución y los fallos de la sesión;
+no prevalecen sus antiguos pendientes de red, scraping o promoción.
+
+---
+
 # Continuación · 12 de noviembre de 2026
 
 ## Verificación remota del primer incremento

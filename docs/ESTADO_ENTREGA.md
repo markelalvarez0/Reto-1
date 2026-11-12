@@ -13,6 +13,10 @@ Resultados, consultas, índices y límites: [RESULTADOS_ANUNCIOS.md](RESULTADOS_
 El visor territorial incorpora la muestra archivada, precios y superficies.
 Las menciones al bloqueo de red del 11 de noviembre que siguen son históricas;
 en esta máquina ambos robots responden HTTP 200 y la API GitHub funciona.
+Validación local final: **159 pruebas y 12 integraciones reales**, sin omisiones.
+El código a623ece pasó el CI BDA 43242707927 (incluido el lote archivado),
+MongoDB 43242707429 y Windows/Linux 43242707545, con ambas aplicaciones.
+Se integró normalmente en test/main y se volvió a dev-jon; ver CONTINUAR.md.
 El modelo y su test único permanecen intactos. No se han usado los anuncios
 para entrenar ni reevaluar el holdout.
 
@@ -127,7 +131,7 @@ no medias de todos los contratos de cada provincia.
 | BDA | Capturas oficiales y vistas municipales verificadas en HDFS/Kafka/MongoDB reales, con recarga idempotente y CI correcto en 1c7c45e. | Muestra de 17 anuncios archivada el 12 de noviembre y transportada con servicios reales; mezcla de modalidades documentada. Ensayo de defensa pendiente. |
 | SBD | Modelado, limpieza, consultas, agregaciones e índices con mongod real; comparación EMAL/OVJ y transporte de vistas incluidos en evidencias. | Ensayo de la demostración y defensa. Las consultas de anuncios se prueban con fixtures identificados. |
 | SAA | EDA, cinco familias, MLP y experimentos, SHAP y test único conservado. Contraste docente documentado. | Defensa individual. sklearn no se presenta como Keras; no se cambia el ganador mirando test. |
-| PIA | Pipeline, MLflow, notebooks, Streamlit y PDF corregido desde artefactos verificados. Capturas y prueba de reapertura actuales. | Validación de la versión nueva en Windows si se entrega para esa plataforma. |
+| PIA | Pipeline, MLflow, notebooks, Streamlit y PDF corregido desde artefactos verificados. Capturas y prueba de reapertura actuales. | Windows y Linux validados para suite, preparación, PDF y ambas apps. Los servicios HDFS/Kafka/MongoDB se validaron en Linux. |
 | MIA | Ocho ramas n8n y recorrido Streamlit → consentimiento → ficha local, con persistencia e idempotencia reales. | Ensayo humano final. Ninguna prueba tramita ayudas ni comunica con personas. |
 
 Los 33 tests históricos fueron ampliados en `dev-jon`; contar tests no sustituye
@@ -136,6 +140,5 @@ entrenamiento de entrega. Los originales, los artefactos ML y el test final
 permanecen conservados byte a byte.
 
 Se ha preparado [defensa de 15 minutos y preguntas](DEFENSA.md). Permanece pendiente el ensayo humano; la captura de anuncios está acreditada en la actualización del 12 de noviembre.
-La integración en test/main espera validación
-integral, como autorizó el usuario. Las cifras históricas de la tabla anterior
+La integración técnica en test/main se completó tras la validación de a623ece. Las cifras históricas de la tabla anterior
 deben leerse junto a esta actualización, no como trabajo aún sin implementar.

@@ -124,7 +124,7 @@ Se han verificado ocho ramas de acción con n8n real. La prueba conjunta de Stre
 
 ## Abrir la aplicación ya preparada
 
-Ejecutar desde la **raíz del repositorio**, no desde una carpeta académica aislada. Entorno comprobado: Python 3.12 en Linux. Windows aún requiere validación de instalación.
+Ejecutar desde la **raíz del repositorio**, no desde una carpeta académica aislada. Entorno comprobado: Python 3.12 en Linux. La revisión a623ece pasó en Linux y Windows con instalación desde uv.lock, 159 pruebas, generación de PDF y ambas aplicaciones.
 
 ```bash
 python -m pip install -r requirements-ci.txt
@@ -142,7 +142,7 @@ Se conservan **99 pruebas superadas, cero fallos, cero errores y cero omitidas**
 
 Las [capturas de interfaz](../docs/evidencias_ml/capturas/) se obtuvieron con Chromium sobre Streamlit y MLflow en ejecución. Los datos originales, modelos, métricas y notebooks están en Git, no solamente en artefactos temporales de Actions.
 
-Quedan por conciliar los PDF y documentos históricos, la distribución independiente por asignaturas, la portabilidad de rutas de artefactos de MLflow y la validación de Windows. Además, el cierre global exige terminar las comprobaciones y entregables del bloque BDA + SBD y promover las ramas según el protocolo acordado.
+El cierre del 12 de noviembre actualiza los cuatro PDF, acredita 17 anuncios por HDFS/Kafka/MongoDB y valida Windows/Linux; el código se integró en test/main. El repositorio se entrega como conjunto y las entradas se ejecutan desde su raíz. Las rutas históricas de artefactos MLflow pueden requerir adaptación al mover su visor; la app carga el modelo independiente conservado. El ensayo oral individual sigue pendiente.
 
 No se atribuyen ahorros de costes, reducciones de plazos administrativos, prevención de desahucios ni integración con organismos públicos: no existen mediciones que sostengan esas afirmaciones en este proyecto.
 

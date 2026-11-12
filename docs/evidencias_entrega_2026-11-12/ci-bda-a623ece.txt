@@ -1,0 +1,9 @@
+Extracto del job 131267372822 del run 43242707927, conclusion success.
+Datos: capturas oficiales y 17 anuncios archivados; no scraping en vivo en CI.
+2026-11-12T15:00:03.0623235Z 159 passed, 5 warnings in 18.30s
+2026-11-12T15:01:29.8987521Z 5 passed in 35.00s
+2026-11-12T15:01:55.4833658Z   "anuncios_recibidos": 638,
+2026-11-12T15:01:55.4834083Z   "registros_persistidos": 638,
+2026-11-12T15:01:57.2838548Z     "duplicados_nuevos": 0
+2026-11-12T15:01:57.2839933Z     "contador_final": 100,
+2026-11-12T15:01:57.2842509Z     "senal_temporal_en_array": 3,

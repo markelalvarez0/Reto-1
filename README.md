@@ -41,7 +41,10 @@ históricas de generación delegan en este mismo generador.
 `python main.py --subject saa_pia_mia` abre directamente la aplicación conservada.
 El análisis territorial usa MongoDB, rentas EMAL y un escenario salarial OVJ del mismo año.
 
-**Versión de trabajo: `dev-jon`.** `main` y `test` no deben confundirse con la versión en desarrollo. La entrega global sigue pendiente de la revisión final de los dos bloques y de su integración verificada.
+**Cierre técnico del 12 de noviembre:** código validado e integrado en `test` y `main`;
+se trabaja de nuevo en `dev-jon`. [CI y checkpoint final](docs/CONTINUAR.md).
+159 pruebas y 12 integraciones locales, ocho ramas n8n y CI Linux/Windows correctos.
+El ensayo oral individual sigue pendiente.
 
 ## Resultado publicado del bloque ML
 
@@ -161,7 +164,7 @@ ainhoa/                      Copia académica heredada
 
 ## Abrir y comprobar el bloque ML ya preparado
 
-Entorno validado: **Python 3.12 en Linux**, con versiones efectivas registradas en `docs/evidencias_ml/entorno.txt`. La ejecución completa en Windows todavía no está verificada. Utilizar un entorno virtual y ejecutar desde la raíz del repositorio.
+Entorno validado: **Python 3.12 en Linux**, con versiones efectivas registradas en `docs/evidencias_ml/entorno.txt`. La revisión a623ece superó suite, preparación, PDF y ambas apps en Windows y Linux; los servicios Big Data se comprobaron en Linux. Utilizar un entorno virtual y ejecutar desde la raíz del repositorio.
 
 ```bash
 python -m pip install -r requirements-ci.txt
@@ -198,8 +201,8 @@ Las acciones locales generan fichas o listas de comprobación distintas. **No en
 
 ## Evaluación y límites de entrega
 
-Los resultados heredados de `best_model.json`, `mlruns_data.json` y gráficos antiguos no sustituyen los artefactos nuevos ni deben presentarse como evidencia de datos reales. Los README y PDF históricos de cada bloque necesitan conciliación final con el código actualizado.
+Los resultados heredados de `best_model.json`, `mlruns_data.json` y gráficos antiguos no sustituyen los artefactos nuevos ni deben presentarse como evidencia de datos reales. Los README vigentes y los cuatro PDF se han actualizado con los artefactos conservados y la muestra archivada. Los resultados históricos se mantienen identificados por su fecha.
 
 Las pruebas reales de la continuación acreditan las capturas oficiales y las
 vistas municipales por HDFS → Kafka → MongoDB. Los mensajes de promociones y las
-vistas agregadas conservan tipos diferentes. La muestra verificable de anuncios individuales está conservada. El ensayo humano y el estado de integración final se detallan en `docs/CONTINUAR.md`. No se afirma representatividad del mercado ni disponibilidad de las ofertas.
+vistas agregadas conservan tipos diferentes. La muestra verificable de anuncios individuales está conservada. La integración en test/main está completada; el ensayo humano sigue pendiente, según `docs/CONTINUAR.md`. No se afirma representatividad del mercado ni disponibilidad de las ofertas.
