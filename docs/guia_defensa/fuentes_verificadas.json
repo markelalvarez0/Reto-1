@@ -36,8 +36,8 @@
     },
     {
       "archivo": "README.md",
-      "bytes": 21306,
-      "sha256": "e71533fc63fd7955f69f879ca369babb2498c01254a8ba3fc85d9a29fc3995d9"
+      "bytes": 21568,
+      "sha256": "877ce8a40beec512c295b0698ac04dcc802e610b9e46be520e68f8dc785d391a"
     },
     {
       "archivo": "app/streamlit_app.py",
@@ -71,8 +71,8 @@
     },
     {
       "archivo": "docs/DEFENSA.md",
-      "bytes": 8303,
-      "sha256": "4ad2c8c513a5dc22539e55527a324c578f9bfa47128f165c040f89a84f5ff8b5"
+      "bytes": 5009,
+      "sha256": "cbe2f18b9319800d5cd7fc21323f4a900d2f7c117fa49eee920b5c14c1e2019b"
     },
     {
       "archivo": "docs/ESTADO_ENTREGA.md",

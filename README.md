@@ -47,11 +47,14 @@ históricas de generación delegan en este mismo generador.
 
 Para estudiar y preparar la exposición en pareja: [manual completo en PDF](docs/guia_defensa/Manual_completo_Reto1.pdf),
 [versión editable Word](docs/guia_defensa/Manual_completo_Reto1.docx),
-[presentación de doce diapositivas](docs/guia_defensa/Presentacion_15_minutos.pdf) y
+[presentación BDA + SBD](docs/guia_defensa/Presentacion_BDA_SBD.pdf),
+[presentación SAA + PIA + MIA de 15 minutos](docs/guia_defensa/Presentacion_SAA_PIA_MIA.pdf) y
 [guía rápida del día de la defensa](docs/guia_defensa/Guia_rapida_defensa.pdf).
 El [paquete descargable](docs/guia_defensa/Paquete_estudio_y_defensa.zip) incluye también versiones HTML autónomas.
 Explica fundamentos, decisiones, gráficas, servicios, diferencias con clase, 45 preguntas y qué entregar;
 es material de apoyo y no sustituye al proyecto ni a las bases de datos.
+Son dos materiales de exposición independientes: el límite de 15 minutos está fijado
+en el enunciado de SAA/PIA/MIA; el de BDA/SBD exige demostración sin especificar duración.
 
 **Acceso y comparación territorial actualizados:** consultar [estado por asignatura y comandos](docs/ESTADO_ENTREGA.md).
 `python main.py --audit --json` verifica la integridad sin ejecutar el modelo.

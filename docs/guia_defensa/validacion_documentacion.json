@@ -4,13 +4,15 @@
   "modelo_publicado_reentrenado": false,
   "test_publicado_reevaluado": false,
   "docx": {
-    "tablas": 25,
+    "tablas": 26,
     "imagenes": 12
   },
   "fuentes_verificadas": 86,
   "pdf_paginas": {
     "Manual_completo_Reto1": 66,
     "Guia_rapida_defensa": 3,
+    "Presentacion_BDA_SBD": 10,
+    "Presentacion_SAA_PIA_MIA": 12,
     "Presentacion_15_minutos": 12
   },
   "indice_pdf_correcto": 39,
@@ -23,7 +25,7 @@
       "emptyLinks": 0,
       "brokenAnchors": [],
       "slides": [],
-      "tables": 25,
+      "tables": 26,
       "chapters": 40,
       "errors": []
     },
@@ -40,9 +42,92 @@
       "errors": []
     },
     {
-      "name": "Presentacion_15_minutos",
-      "title": "Presentación 15 minutos · Reto 1",
-      "images": 3,
+      "name": "Presentacion_BDA_SBD",
+      "title": "Presentación BDA + SBD · Reto 1",
+      "images": 1,
+      "brokenImages": [],
+      "emptyLinks": 0,
+      "brokenAnchors": [],
+      "slides": [
+        {
+          "number": 1,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 2,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 3,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 4,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 5,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 6,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 7,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 8,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 9,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 10,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        }
+      ],
+      "tables": 0,
+      "chapters": 0,
+      "errors": []
+    },
+    {
+      "name": "Presentacion_SAA_PIA_MIA",
+      "title": "Presentación SAA + PIA + MIA · Reto 1",
+      "images": 2,
       "brokenImages": [],
       "emptyLinks": 0,
       "brokenAnchors": [],
@@ -195,38 +280,58 @@
   "documentos": [
     {
       "archivo": "Guia_rapida_defensa.html",
-      "bytes": 8349,
-      "sha256": "2bfe69e85314386a0b79126e4db02bbcacf8e881fba1580333814c155b3f903e"
+      "bytes": 8806,
+      "sha256": "6aa778c3fa2ca570db1d5b51586b32c7c813bcba2eb74279cb82bf8a119cc296"
     },
     {
       "archivo": "Guia_rapida_defensa.pdf",
-      "bytes": 92917,
-      "sha256": "aafdd049422183cbacb03c8f5fe72a3aff60528e6bb42caef814c625f0cba0a2"
+      "bytes": 93132,
+      "sha256": "4d3f43c8100a2f568f812c5395c430fa377e9714989046628db203de3b802479"
     },
     {
       "archivo": "Manual_completo_Reto1.docx",
-      "bytes": 698745,
-      "sha256": "b19fab378adb00adba444d22c5faf0a035567cf15e9dd112aa68575a08c5fbaa"
+      "bytes": 699070,
+      "sha256": "051bd7919359efad4df14dd0a17c4d80b3cfddf24a211ed957fee41ade90b60b"
     },
     {
       "archivo": "Manual_completo_Reto1.html",
-      "bytes": 1137966,
-      "sha256": "989c01263b6d8594ba5ce57d5b38a4a14700ebbbb74385d753a8f7da9cc70c17"
+      "bytes": 1139320,
+      "sha256": "0ce2b8299383d55b989459fce81eba9b3f9a155afd8cc15a55312127147b824a"
     },
     {
       "archivo": "Manual_completo_Reto1.pdf",
-      "bytes": 1608094,
-      "sha256": "4ab0c65c4cd7790d75ef84ae9901e4099ffcf05365efa6f4384dfe4a5bcffd80"
+      "bytes": 1620454,
+      "sha256": "79d55fe09ab2801546b721d2feb35e67f8b62dd6f9c7fff72859f1b9eee8f2cf"
     },
     {
       "archivo": "Presentacion_15_minutos.html",
-      "bytes": 292475,
-      "sha256": "bd61500d191f7556cd347733e8caeb928b107bc341d77465bf93d3060ccc21f3"
+      "bytes": 227028,
+      "sha256": "77fd637b86ad881842213ceb9578df40307d0b61279d12022bd2ffab12a2230d"
     },
     {
       "archivo": "Presentacion_15_minutos.pdf",
-      "bytes": 288949,
-      "sha256": "7dc845abcc6fc7f6144c0d7bbe1ae98c8ac40d0e32fa71e88967a941abc2d19e"
+      "bytes": 236821,
+      "sha256": "fb3bb0812931c8d589de4535e76806cb3b5c1421a56e17dd63cceb46f19d7a54"
+    },
+    {
+      "archivo": "Presentacion_BDA_SBD.html",
+      "bytes": 90341,
+      "sha256": "d57509fae1ad8f417152da4d872c329107561a941911c00e5009ca94403d1491"
+    },
+    {
+      "archivo": "Presentacion_BDA_SBD.pdf",
+      "bytes": 158105,
+      "sha256": "11f5aa5b47ec5cba385fe3d1b3f1192feae29a96ae4e3b1e2380b993f77312e9"
+    },
+    {
+      "archivo": "Presentacion_SAA_PIA_MIA.html",
+      "bytes": 227028,
+      "sha256": "77fd637b86ad881842213ceb9578df40307d0b61279d12022bd2ffab12a2230d"
+    },
+    {
+      "archivo": "Presentacion_SAA_PIA_MIA.pdf",
+      "bytes": 236821,
+      "sha256": "fb3bb0812931c8d589de4535e76806cb3b5c1421a56e17dd63cceb46f19d7a54"
     }
   ]
 }

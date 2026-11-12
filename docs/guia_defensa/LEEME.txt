@@ -7,16 +7,20 @@ Referencia técnica: commit 2778774 del proyecto.
    comandos, entrega, exposición y 45 preguntas con respuestas.
 2. Manual_completo_Reto1.docx: copia editable en Word. Si el índice no aparece
    actualizado, pulsar sobre él y elegir Actualizar tabla en Word.
-3. Presentacion_15_minutos.pdf: doce diapositivas en formato panorámico,
-   con tiempos y reparto propuesto entre persona A y persona B.
-4. Guia_rapida_defensa.pdf: tres páginas para el día de la exposición.
-5. Los tres HTML son autónomos, con imágenes incorporadas. Pueden leerse en
+3. Presentacion_BDA_SBD.pdf: diez diapositivas independientes sobre captura,
+   HDFS, Kafka, MongoDB e indicadores. El PDF docente no fija duración.
+4. Presentacion_SAA_PIA_MIA.pdf: doce diapositivas para los 15 minutos del
+   enunciado IA, con reparto propuesto entre persona A y persona B.
+5. Presentacion_15_minutos.pdf es una copia idéntica de la presentación IA
+   para mantener enlaces anteriores; no es una tercera presentación distinta.
+6. Guia_rapida_defensa.pdf: lista de control para las dos exposiciones.
+7. Los HTML son autónomos, con imágenes incorporadas. Pueden leerse en
    navegador sin instalar el proyecto. Los enlaces al código requieren red.
-6. fuentes_verificadas.json registra archivos, tamaños y huellas consultados.
-7. validacion_documentacion.json conserva las comprobaciones del material.
+8. fuentes_verificadas.json registra archivos, tamaños y huellas consultados.
+9. validacion_documentacion.json conserva las comprobaciones del material.
 
-Orden recomendado: estudiar manual; practicar preguntas; ensayar la presentación
-con cronómetro; usar guía rápida para preparar el equipo. Ambas personas deben
+Orden recomendado: estudiar manual; practicar preguntas; ensayar cada presentación
+por separado y cronometrar la de IA; usar guía rápida. Ambas personas deben
 entender todos los bloques, aunque se repartan los minutos. Completar nombres
 según la autoría real; el reparto propuesto no asigna contribuciones históricas.
 

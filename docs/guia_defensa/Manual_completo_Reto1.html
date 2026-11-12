@@ -5,7 +5,7 @@ main{max-width:960px;margin:24px auto;background:white;padding:48px 58px;box-sha
 h1,h2,h3{color:#16324f;line-height:1.22;break-after:avoid}h1{font-size:23pt;margin:0 0 20px}h2{font-size:15pt;margin-top:26px}h3{font-size:12pt;margin-top:22px}
 p{orphans:3;widows:3}a{color:#176b89;text-decoration:none;overflow-wrap:anywhere}table{width:100%;border-collapse:collapse;margin:16px 0;font-size:9pt;line-height:1.4;table-layout:auto}th{background:#edf4f8;color:#16324f;text-align:left}td,th{padding:8px 9px;border:1px solid #d7e0e8;vertical-align:top;overflow-wrap:anywhere}thead{display:table-header-group}tr{break-inside:avoid}pre{font-family:"DejaVu Sans Mono",monospace;font-size:8.5pt;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f4f7;border-left:3px solid #22768c;padding:12px;break-inside:avoid}code{font-size:.92em}img{max-width:100%;max-height:215mm;object-fit:contain;display:block;margin:15px auto}em{color:#536575;font-size:.93em}li{margin:5px 0}.qa{break-inside:avoid}.chapter{break-before:page;margin-top:60px}.cover{padding:85px 0 70px;min-height:245mm}.cover h1{font-size:40pt;max-width:650px}.eyebrow{color:#197c83;text-transform:uppercase;letter-spacing:2px;font-size:11pt;font-weight:bold}.lead{font-size:16pt;color:#496276;max-width:650px}.badge{display:inline-block;border:1px solid #abc8d3;padding:8px 14px;border-radius:4px;margin:4px;font-size:10pt}.toc ol{columns:2;column-gap:35px;padding-left:22px}.toc li{font-size:10pt;margin:9px 0;break-inside:avoid}.source{font-size:9pt}.screen-tools{position:sticky;top:0;background:#16324f;color:white;padding:10px 16px;text-align:right;z-index:2}.screen-tools button{padding:6px 12px;cursor:pointer;border:0;border-radius:3px}.small{font-size:9pt}
 @media print{body{background:white;font-size:10pt;line-height:1.46}main{padding:0;margin:0;max-width:none;box-shadow:none}.screen-tools{display:none}.chapter{margin:0}.cover{min-height:240mm}.toc ol{columns:1}table{font-size:8.4pt}td,th{padding:6px 7px}a{color:#245c77}img{max-height:185mm}}
-@media print{p{margin:0 0 9px}h2{margin-top:20px}h3{margin-top:17px}table{margin:12px 0}body{line-height:1.42}.source{font-size:8pt;line-height:1.3;margin:4px 0}#cap-3 img{max-height:75mm}#cap-27{font-size:9.8pt}}.tocpage{font-weight:bold;color:#176b89;white-space:nowrap;margin-left:14px}.toc li{display:flex;justify-content:space-between;gap:10px}.toc ol{list-style:none;padding-left:0}@media print{#cap-26,#cap-27{font-size:9.2pt;line-height:1.32}#cap-26 td,#cap-26 th,#cap-27 td,#cap-27 th{padding:5px 7px}}</style></head><body><div class="screen-tools"><button onclick="window.print()">Imprimir o guardar PDF</button></div><main><section class="cover"><p class="eyebrow">Reto 1 · Vivienda joven en Euskadi</p><h1>Entender, demostrar<br>y defender el proyecto</h1><p class="lead">Manual completo para los dos integrantes: fundamentos, decisiones, gráficas, datos, servicios, presentación y entrega.</p><p><span class="badge">BDA</span><span class="badge">SBD</span><span class="badge">SAA</span><span class="badge">PIA</span><span class="badge">MIA</span></p><p>12 de noviembre de 2026 · Versión técnica de referencia 2778774</p><p class="small">Material basado en código y evidencias conservadas. No se ha vuelto a entrenar el modelo ni a evaluar el test. Reparto de exposición propuesto; autoría y nombres se completan según el trabajo real de la pareja.</p></section><section class="toc chapter"><h1>Índice de estudio</h1><ol><li><a href="#cap-0">01 · Cómo estudiar y usar este material</a><span class="tocpage">4</span></li><li><a href="#cap-1">02 · Problema, usuario y alcance de la IA</a><span class="tocpage">5</span></li><li><a href="#cap-2">03 · Los datos: unidades que nunca se deben mezclar</a><span class="tocpage">6</span></li><li><a href="#cap-3">04 · Arquitectura y recorrido completo</a><span class="tocpage">7</span></li><li><a href="#cap-4">05 · Fuentes oficiales y API: qué se obtiene y por qué</a><span class="tocpage">8</span></li><li><a href="#cap-5">06 · Scraping: proceso, campos y límites</a><span class="tocpage">10</span></li><li><a href="#cap-6">07 · Trazabilidad, normalización y formatos</a><span class="tocpage">11</span></li><li><a href="#cap-7">08 · HDFS: almacenamiento y recuperación verificable</a><span class="tocpage">12</span></li><li><a href="#cap-8">09 · Kafka: eventos, offsets y recarga sin duplicados</a><span class="tocpage">13</span></li><li><a href="#cap-9">10 · MongoDB: modelo documental y limpieza</a><span class="tocpage">14</span></li><li><a href="#cap-10">11 · Consultas, agregaciones, índices y atomicidad</a><span class="tocpage">16</span></li><li><a href="#cap-11">12 · Indicadores y conclusiones territoriales</a><span class="tocpage">18</span></li><li><a href="#cap-12">13 · Dataset ML: campos, retardos y exclusiones</a><span class="tocpage">20</span></li><li><a href="#cap-13">14 · Particiones temporales y prevención de fuga</a><span class="tocpage">21</span></li><li><a href="#cap-14">15 · Las cinco gráficas EDA, explicadas una a una</a><span class="tocpage">22</span></li><li><a href="#cap-15">15.1 · Barras: diferencias entre municipios</a><span class="tocpage">23</span></li><li><a href="#cap-16">15.2 · Histograma: distribución del objetivo</a><span class="tocpage">24</span></li><li><a href="#cap-17">15.3 · Boxplot: dispersión y valores extremos</a><span class="tocpage">25</span></li><li><a href="#cap-18">15.4 · Dispersión: persistencia temporal</a><span class="tocpage">26</span></li><li><a href="#cap-19">15.5 · Heatmap: relaciones entre variables numéricas</a><span class="tocpage">27</span></li><li><a href="#cap-20">16 · Pipeline y familias de modelos: por qué cada pieza</a><span class="tocpage">28</span></li><li><a href="#cap-21">17 · MLP: base y tres experimentos razonados</a><span class="tocpage">29</span></li><li><a href="#cap-22">18 · Métricas, comparación y elección del ganador</a><span class="tocpage">30</span></li><li><a href="#cap-23">19 · SHAP, SMOTE y test final: interpretar sin exagerar</a><span class="tocpage">32</span></li><li><a href="#cap-24">20 · MLflow, SQLite y artefactos del modelo</a><span class="tocpage">35</span></li><li><a href="#cap-25">21 · Streamlit: qué hace cada pantalla</a><span class="tocpage">37</span></li><li><a href="#cap-26">22 · Reglas MIA: prioridades, motivos y parámetros</a><span class="tocpage">39</span></li><li><a href="#cap-27">23 · De la predicción a n8n: prueba y acción real</a><span class="tocpage">40</span></li><li><a href="#cap-28">24 · Herramientas utilizadas y relación con clase</a><span class="tocpage">41</span></li><li><a href="#cap-29">25 · Preparar el ordenador sin volver a entrenar</a><span class="tocpage">43</span></li><li><a href="#cap-30">26 · Demostración técnica y plan ante fallos</a><span class="tocpage">45</span></li><li><a href="#cap-31">27 · Qué entregar: paquete y comprobaciones</a><span class="tocpage">47</span></li><li><a href="#cap-32">28 · Correspondencia con las cinco asignaturas</a><span class="tocpage">49</span></li><li><a href="#cap-33">29 · Guion de 15 minutos, con reparto y transiciones</a><span class="tocpage">50</span></li><li><a href="#cap-34">30 · Banco de 45 preguntas con respuesta y evidencia</a><span class="tocpage">52</span></li><li><a href="#cap-35">31 · Límites, errores de discurso y próximos pasos</a><span class="tocpage">58</span></li><li><a href="#cap-36">32 · Glosario y mapa de fuentes</a><span class="tocpage">60</span></li><li><a href="#cap-37">Anexo A · Ejemplos de código para explicar el recorrido</a><span class="tocpage">62</span></li><li><a href="#cap-38">Anexo B · Organización, Git y evidencia automatizada</a><span class="tocpage">65</span></li></ol></section><section class="chapter" id="cap-0"><h1>01 · Cómo estudiar y usar este material</h1><p>Este manual sirve para que las dos personas puedan explicar, localizar y demostrar la entrega. Se ha contrastado con la versión técnica 2778774 del repositorio, los dos enunciados de evaluación, el README orientativo y los ejercicios aportados. Fecha de referencia: 12 de noviembre de 2026. Los números publicados se leen de sus artefactos; este documento no entrena modelos ni reevalúa el test.</p>
+@media print{p{margin:0 0 9px}h2{margin-top:20px}h3{margin-top:17px}table{margin:12px 0}body{line-height:1.42}.source{font-size:8pt;line-height:1.3;margin:4px 0}#cap-3 img{max-height:75mm}#cap-27{font-size:9.8pt}}.tocpage{font-weight:bold;color:#176b89;white-space:nowrap;margin-left:14px}.toc li{display:flex;justify-content:space-between;gap:10px}.toc ol{list-style:none;padding-left:0}@media print{#cap-26,#cap-27{font-size:9.2pt;line-height:1.32}#cap-26 td,#cap-26 th,#cap-27 td,#cap-27 th{padding:5px 7px}}</style></head><body><div class="screen-tools"><button onclick="window.print()">Imprimir o guardar PDF</button></div><main><section class="cover"><p class="eyebrow">Reto 1 · Vivienda joven en Euskadi</p><h1>Entender, demostrar<br>y defender el proyecto</h1><p class="lead">Manual completo para los dos integrantes: fundamentos, decisiones, gráficas, datos, servicios, presentación y entrega.</p><p><span class="badge">BDA</span><span class="badge">SBD</span><span class="badge">SAA</span><span class="badge">PIA</span><span class="badge">MIA</span></p><p>12 de noviembre de 2026 · Versión técnica de referencia 2778774</p><p class="small">Material basado en código y evidencias conservadas. No se ha vuelto a entrenar el modelo ni a evaluar el test. Reparto de exposición propuesto; autoría y nombres se completan según el trabajo real de la pareja.</p></section><section class="toc chapter"><h1>Índice de estudio</h1><ol><li><a href="#cap-0">01 · Cómo estudiar y usar este material</a><span class="tocpage">4</span></li><li><a href="#cap-1">02 · Problema, usuario y alcance de la IA</a><span class="tocpage">5</span></li><li><a href="#cap-2">03 · Los datos: unidades que nunca se deben mezclar</a><span class="tocpage">6</span></li><li><a href="#cap-3">04 · Arquitectura y recorrido completo</a><span class="tocpage">7</span></li><li><a href="#cap-4">05 · Fuentes oficiales y API: qué se obtiene y por qué</a><span class="tocpage">8</span></li><li><a href="#cap-5">06 · Scraping: proceso, campos y límites</a><span class="tocpage">10</span></li><li><a href="#cap-6">07 · Trazabilidad, normalización y formatos</a><span class="tocpage">11</span></li><li><a href="#cap-7">08 · HDFS: almacenamiento y recuperación verificable</a><span class="tocpage">12</span></li><li><a href="#cap-8">09 · Kafka: eventos, offsets y recarga sin duplicados</a><span class="tocpage">13</span></li><li><a href="#cap-9">10 · MongoDB: modelo documental y limpieza</a><span class="tocpage">14</span></li><li><a href="#cap-10">11 · Consultas, agregaciones, índices y atomicidad</a><span class="tocpage">16</span></li><li><a href="#cap-11">12 · Indicadores y conclusiones territoriales</a><span class="tocpage">18</span></li><li><a href="#cap-12">13 · Dataset ML: campos, retardos y exclusiones</a><span class="tocpage">20</span></li><li><a href="#cap-13">14 · Particiones temporales y prevención de fuga</a><span class="tocpage">21</span></li><li><a href="#cap-14">15 · Las cinco gráficas EDA, explicadas una a una</a><span class="tocpage">22</span></li><li><a href="#cap-15">15.1 · Barras: diferencias entre municipios</a><span class="tocpage">23</span></li><li><a href="#cap-16">15.2 · Histograma: distribución del objetivo</a><span class="tocpage">24</span></li><li><a href="#cap-17">15.3 · Boxplot: dispersión y valores extremos</a><span class="tocpage">25</span></li><li><a href="#cap-18">15.4 · Dispersión: persistencia temporal</a><span class="tocpage">26</span></li><li><a href="#cap-19">15.5 · Heatmap: relaciones entre variables numéricas</a><span class="tocpage">27</span></li><li><a href="#cap-20">16 · Pipeline y familias de modelos: por qué cada pieza</a><span class="tocpage">28</span></li><li><a href="#cap-21">17 · MLP: base y tres experimentos razonados</a><span class="tocpage">29</span></li><li><a href="#cap-22">18 · Métricas, comparación y elección del ganador</a><span class="tocpage">30</span></li><li><a href="#cap-23">19 · SHAP, SMOTE y test final: interpretar sin exagerar</a><span class="tocpage">32</span></li><li><a href="#cap-24">20 · MLflow, SQLite y artefactos del modelo</a><span class="tocpage">35</span></li><li><a href="#cap-25">21 · Streamlit: qué hace cada pantalla</a><span class="tocpage">37</span></li><li><a href="#cap-26">22 · Reglas MIA: prioridades, motivos y parámetros</a><span class="tocpage">39</span></li><li><a href="#cap-27">23 · De la predicción a n8n: prueba y acción real</a><span class="tocpage">40</span></li><li><a href="#cap-28">24 · Herramientas utilizadas y relación con clase</a><span class="tocpage">41</span></li><li><a href="#cap-29">25 · Preparar el ordenador sin volver a entrenar</a><span class="tocpage">43</span></li><li><a href="#cap-30">26 · Demostración técnica y plan ante fallos</a><span class="tocpage">45</span></li><li><a href="#cap-31">27 · Qué entregar: paquete y comprobaciones</a><span class="tocpage">47</span></li><li><a href="#cap-32">28 · Correspondencia con las cinco asignaturas</a><span class="tocpage">49</span></li><li><a href="#cap-33">29 · Dos presentaciones: guion y reparto por bloque</a><span class="tocpage">50</span></li><li><a href="#cap-34">30 · Banco de 45 preguntas con respuesta y evidencia</a><span class="tocpage">52</span></li><li><a href="#cap-35">31 · Límites, errores de discurso y próximos pasos</a><span class="tocpage">58</span></li><li><a href="#cap-36">32 · Glosario y mapa de fuentes</a><span class="tocpage">60</span></li><li><a href="#cap-37">Anexo A · Ejemplos de código para explicar el recorrido</a><span class="tocpage">62</span></li><li><a href="#cap-38">Anexo B · Organización, Git y evidencia automatizada</a><span class="tocpage">65</span></li></ol></section><section class="chapter" id="cap-0"><h1>01 · Cómo estudiar y usar este material</h1><p>Este manual sirve para que las dos personas puedan explicar, localizar y demostrar la entrega. Se ha contrastado con la versión técnica 2778774 del repositorio, los dos enunciados de evaluación, el README orientativo y los ejercicios aportados. Fecha de referencia: 12 de noviembre de 2026. Los números publicados se leen de sus artefactos; este documento no entrena modelos ni reevalúa el test.</p>
 <p><strong>Idea que debéis poder explicar en veinte segundos:</strong> recogemos referencias reales de vivienda en Euskadi, conservamos su procedencia, las transportamos y analizamos con HDFS, Kafka y MongoDB; además, un modelo estima una renta media municipal y unas reglas convierten esa referencia y un perfil declarado en una orientación que n8n registra.</p>
 <h3>Orden de lectura recomendado</h3>
 <ol>
@@ -16,7 +16,7 @@ p{orphans:3;widows:3}a{color:#176b89;text-decoration:none;overflow-wrap:anywhere
 <li>Preparar el ordenador con 25–26 y revisar la entrega con 27–28.</li>
 <li>Ensayar los capítulos 29–31 con cronómetro y responder las preguntas alternando quién enseña el código.</li>
 </ol>
-<p><strong>Material complementario:</strong> la presentación contiene doce diapositivas para una exposición conjunta de 15 minutos. La guía rápida es una lista de control para el día de la defensa. Este manual contiene las explicaciones y respuestas; no se debe leer entero durante la exposición.</p>
+<p><strong>Material complementario:</strong> hay dos presentaciones independientes: BDA + SBD (diez diapositivas; duración no fijada en su PDF) y SAA + PIA + MIA (doce diapositivas para los 15 minutos de su enunciado). La guía rápida es una lista de control para el día de la defensa. Este manual contiene las explicaciones y respuestas; no se debe leer entero durante la exposición.</p>
 <h3>Cómo responder en la defensa</h3>
 <p>Usad cuatro pasos: qué problema resuelve una pieza; cómo lo hace; dónde se comprueba; qué límite tiene. Ejemplo: «El índice evita revisar toda la colección para esa consulta. Con explain examinamos 638 frente a 4 documentos. Está en el JSON de evidencia. Los dos tiempos fueron 0 ms, así que no medimos una aceleración temporal».</p>
 <p>La defensa escrita y las pruebas técnicas no sustituyen las respuestas personales. Ambas personas deben entender todo el recorrido, aunque se repartan los minutos. No se adjudican autorías retrospectivas que no consten en Git.</p>
@@ -1186,7 +1186,7 @@ docker compose -f n8n/compose.yml up -d
 <p>No copiar las direcciones privadas 10.22.87.215 de clase sin comprobar acceso y puertos. No ejecutar el script CI de HDFS contra un almacén existente: está diseñado para un clúster efímero y contiene formato inicial con guardas. En Windows, los servicios Big Data requieren entorno preparado —por ejemplo Linux/WSL o el clúster docente—; las pruebas de apps en Windows no acreditan que Hadoop esté instalado allí.</p>
 <h3>Lo que no hace falta ejecutar</h3>
 <p>No ejecutar train_official.py, no borrar test_final.json y no recapturar portales para abrir la entrega. La opción --demo no prueba servicios reales. Generar documentación o mostrar métricas conservadas no requiere entrenar.</p>
-<p class="source"><strong>Dónde comprobarlo:</strong> <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/main.py">main.py</a> · <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/.env.example">.env.example</a> · <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/n8n/compose.yml">n8n/compose.yml</a> · <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/infra/start_hdfs_ci.sh">infra/start_hdfs_ci.sh</a> · <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/README.md">README.md</a>.</p></section><section class="chapter" id="cap-30"><h1>26 · Demostración técnica y plan ante fallos</h1><p>La exposición debe mostrar un recorrido corto y verificable. La preparación completa y las recargas se ensayan antes; no se dedica la mayor parte de los 15 minutos a instalar servicios.</p>
+<p class="source"><strong>Dónde comprobarlo:</strong> <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/main.py">main.py</a> · <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/.env.example">.env.example</a> · <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/n8n/compose.yml">n8n/compose.yml</a> · <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/infra/start_hdfs_ci.sh">infra/start_hdfs_ci.sh</a> · <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/README.md">README.md</a>.</p></section><section class="chapter" id="cap-30"><h1>26 · Demostración técnica y plan ante fallos</h1><p>Cada exposición debe mostrar su recorrido específico: captura y análisis en BDA/SBD; modelo, decisión y acción en SAA/PIA/MIA. La preparación y las recargas se ensayan antes. El límite escrito de 15 minutos corresponde al bloque de IA, no se atribuye a BDA/SBD.</p>
 <h3>Verificación previa sin efectos sobre el modelo</h3>
 <pre><code class="language-bash">uv run --no-sync python main.py --audit --json
 uv run --no-sync python scripts/sync_sources.py --check
@@ -1274,7 +1274,7 @@ uv run --no-sync python scripts/transport_municipal.py --input-dir work/ensayo/m
 <li>Evidencias de HDFS y MongoDB y comandos para reconstruir el recorrido en servicios preparados.</li>
 <li>Notebooks con salidas conservadas, modelo completo, particiones, MLflow y resultados finales.</li>
 <li>Workflow n8n y configuración para su demostración local.</li>
-<li>Presentación y guion de 15 minutos, con material alternativo si falla la red.</li>
+<li>Dos presentaciones: BDA + SBD y SAA + PIA + MIA; el guion de 15 minutos corresponde al segundo bloque, con material alternativo si falla la red.</li>
 </ol>
 <p>El ZIP de esta guía contiene material de estudio y presentación. <strong>No sustituye al repositorio completo ni contiene por sí solo la base MongoDB o los datos de HDFS.</strong> Un archivo de código tampoco equivale a entregar una base de datos en ejecución.</p>
 <h3>Archivos y carpetas que deben estar accesibles</h3>
@@ -1423,103 +1423,150 @@ uv run --no-sync python scripts/transport_municipal.py --input-dir work/ensayo/m
 </tbody>
 </table>
 <h3>Aspectos que siguen siendo humanos</h3>
-<p>La exposición conjunta se corta a los 15 minutos. Después cada alumno responde tres preguntas, una de SAA, una de PIA y una de MIA. El indicador individual pesa 5 %, 15 % y 15 % respectivamente. Los dos deben poder navegar el código y justificar su respuesta.</p>
+<p>En el bloque SAA + PIA + MIA, la exposición conjunta se corta a los 15 minutos. El PDF de BDA + SBD exige demostración, sin fijar ese límite. En el bloque de IA, después cada alumno responde tres preguntas, una de SAA, una de PIA y una de MIA. El indicador individual pesa 5 %, 15 % y 15 % respectivamente. Los dos deben poder navegar el código y justificar su respuesta.</p>
 <p>El nivel máximo por novedad en SAA y por acción distinta de lo visto en clase en MIA depende de todo lo impartido, no solo de los ZIP aportados. No se asegura un diez por tener más archivos, usar SHAP o implementar una ficha. El requisito base y la valoración máxima son cuestiones distintas.</p>
-<p class="source"><strong>Dónde comprobarlo:</strong> <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/docs/CIERRE_RUBRICA.md">docs/CIERRE_RUBRICA.md</a> · <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/docs/CONTRASTE_DOCENTE.md">docs/CONTRASTE_DOCENTE.md</a> · <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/docs/DEFENSA.md">docs/DEFENSA.md</a>.</p></section><section class="chapter" id="cap-33"><h1>29 · Guion de 15 minutos, con reparto y transiciones</h1><p>Reparto propuesto para ensayar, sin atribuir autoría histórica: persona A explica datos y servicios; persona B explica análisis y ML; A retoma la automatización; ambas cierran. Debe adaptarse a vuestra comprensión real. Ensayar también intercambiando bloques.</p>
+<p class="source"><strong>Dónde comprobarlo:</strong> <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/docs/CIERRE_RUBRICA.md">docs/CIERRE_RUBRICA.md</a> · <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/docs/CONTRASTE_DOCENTE.md">docs/CONTRASTE_DOCENTE.md</a> · <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/docs/DEFENSA.md">docs/DEFENSA.md</a>.</p></section><section class="chapter" id="cap-33"><h1>29 · Dos presentaciones: guion y reparto por bloque</h1><p>El proyecto comparte repositorio y contexto, pero los materiales de exposición se separan en <strong>BDA + SBD</strong> y <strong>SAA + PIA + MIA</strong>. El primer PDF pide una demostración del sistema y justificación de decisiones técnicas; no fija duración. El segundo sí establece 15 minutos por pareja y tres preguntas individuales por alumno, una de cada asignatura de IA. Esta separación de materiales no determina por sí sola fechas o turnos docentes.</p>
+<h3>Presentación BDA + SBD: diez diapositivas</h3>
+<table>
+<thead>
+<tr>
+<th>Orden</th>
+<th>Persona propuesta</th>
+<th>Qué explicar y enseñar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Problema</td>
+<td>A</td>
+<td>Pregunta de emancipación y escenario cuantificado.</td>
+</tr>
+<tr>
+<td>2. Fuentes y unidades</td>
+<td>A</td>
+<td>API monetaria, HTML, promociones, INE y OVJ; distinguir sus unidades.</td>
+</tr>
+<tr>
+<td>3. Arquitectura</td>
+<td>A</td>
+<td>Captura → normalización → HDFS → Kafka → MongoDB → vistas.</td>
+</tr>
+<tr>
+<td>4. Transporte</td>
+<td>A</td>
+<td>Recuperación idéntica; 638 registros; API separada; persistencia antes del offset.</td>
+</tr>
+<tr>
+<td>5. Modelado y limpieza</td>
+<td>B</td>
+<td>Colecciones, referencias, embedding, nulos, duplicados y tipos.</td>
+</tr>
+<tr>
+<td>6. Consultas y agregaciones</td>
+<td>B</td>
+<td>Cinco consultas; tres pipelines y sus etapas; salidas para representar.</td>
+</tr>
+<tr>
+<td>7. Índice y consistencia</td>
+<td>B</td>
+<td>Explain 638/4, ambos tiempos 0 ms; atomicidad sobre copia aislada.</td>
+</tr>
+<tr>
+<td>8. Comparación territorial</td>
+<td>B</td>
+<td>Tres capitales, salario autonómico 2024 y resultados de MongoDB.</td>
+</tr>
+<tr>
+<td>9. Demostración y entrega</td>
+<td>A</td>
+<td>Visor, informe de transporte y reentrega; originales, código y datos en servicios.</td>
+</tr>
+<tr>
+<td>10. Límites</td>
+<td>Ambas</td>
+<td>Muestra pequeña, promociones no disponibles y esfuerzo de escenario.</td>
+</tr>
+</tbody>
+</table>
+<p>La duración se ajusta a lo que indique el profesorado de BDA/SBD. Este documento no inventa un límite oficial. Llevar abierto el visor territorial, JSON API, HTML, manifiestos, resumen de transporte, consultas y explain. No consumir esta exposición con modelos ML o n8n.</p>
+<h3>Presentación SAA + PIA + MIA: doce diapositivas y 15 minutos</h3>
 <table>
 <thead>
 <tr>
 <th>Tiempo</th>
-<th>Quién</th>
-<th>Diapositiva y evidencia</th>
-<th>Frase y transición</th>
+<th>Persona propuesta</th>
+<th>Diapositiva y demostración</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>0:00–1:00</td>
 <td>A</td>
-<td>1–2: problema y dato Bilbao</td>
-<td>«Queremos comparar referencias verificables, no resolver derechos». Pasar a arquitectura.</td>
+<td>1. Problema de negocio, usuario, objetivo continuo y límite.</td>
 </tr>
 <tr>
 <td>1:00–2:00</td>
 <td>A</td>
-<td>3: dos recorridos</td>
-<td>«HDFS conserva, Kafka transporta y MongoDB analiza; el modelo usa EMAL».</td>
+<td>2. Dataset: 768 filas, 19 municipios y 601/75/92.</td>
 </tr>
 <tr>
-<td>2:00–3:15</td>
+<td>2:00–3:00</td>
 <td>A</td>
-<td>4: fuentes y unidades</td>
-<td>Abrir un JSON de API y un HTML archivado. «Promoción, anuncio y agregado no son lo mismo».</td>
+<td>3. EDA: cinco gráficos, nulos y persistencia.</td>
 </tr>
 <tr>
-<td>3:15–4:30</td>
+<td>3:00–4:00</td>
 <td>A</td>
-<td>5: HDFS/Kafka/MongoDB</td>
-<td>Mostrar recuperación e informe 638; explicar persistencia antes del offset.</td>
+<td>4. Pipeline, objeto guardado y MLflow.</td>
 </tr>
 <tr>
-<td>4:30–5:30</td>
+<td>4:00–5:30</td>
 <td>A</td>
-<td>6: SBD</td>
-<td>Enseñar explain 638/4 y mencionar atomicidad de copia. Ceder a B.</td>
+<td>5. Cinco familias y MLP base más tres experimentos.</td>
 </tr>
 <tr>
-<td>5:30–6:45</td>
+<td>5:30–7:00</td>
 <td>B</td>
-<td>7: comparación territorial</td>
-<td>Vitoria/Bilbao/Donostia con salario regional de 2024; distinguir muestra 2026.</td>
+<td>6. Comparación, ganador y diferencia pequeña frente a persistencia.</td>
 </tr>
 <tr>
-<td>6:45–8:00</td>
+<td>7:00–8:30</td>
 <td>B</td>
-<td>8: dataset y EDA</td>
-<td>601/75/92, lag1, persistencia y preprocesado dentro de train.</td>
+<td>7. SHAP de validación, métricas y test conservado.</td>
 </tr>
 <tr>
-<td>8:00–9:30</td>
+<td>8:30–10:00</td>
 <td>B</td>
-<td>9: modelos y MLP</td>
-<td>Nueve regresores; menor MAE y mejora pequeña frente a baseline.</td>
+<td>8. Caso nuevo en Streamlit; leer periodo y referencia.</td>
 </tr>
 <tr>
-<td>9:30–10:45</td>
+<td>10:00–11:15</td>
 <td>B</td>
-<td>10: explicación y test</td>
-<td>SHAP val; test leído, no repetido; R² no es exactitud.</td>
+<td>9. Reglas, prioridades y contrafactual 600/1600 identificado como prueba.</td>
 </tr>
 <tr>
-<td>10:45–12:30</td>
-<td>B → A</td>
-<td>11: caso nuevo</td>
-<td>Mostrar periodo, referencia, regla y dos esfuerzos; distinguir prueba 600/1600 del modelo real.</td>
-</tr>
-<tr>
-<td>12:30–14:00</td>
+<td>11:15–13:00</td>
 <td>A</td>
-<td>11: n8n</td>
-<td>Consentimiento, ficha y reentrega UUID; «acción local, no concesión».</td>
+<td>10. Consentimiento, webhook, ramas y ficha local.</td>
+</tr>
+<tr>
+<td>13:00–14:00</td>
+<td>A</td>
+<td>11. Recorrido y repetición del mismo UUID sin duplicados.</td>
 </tr>
 <tr>
 <td>14:00–15:00</td>
 <td>Ambas</td>
-<td>12: límites y cierre</td>
-<td>Cada persona explica un límite y señala dónde reproducir el proyecto.</td>
+<td>12. Diferencias con clase, límites y cierre.</td>
 </tr>
 </tbody>
 </table>
-<h3>Qué llevar abierto</h3>
-<p>Las dos apps, la presentación, un JSON API, un HTML archivado, resumen de transporte, explain, src/reglas.py y la ficha n8n. MLflow puede estar abierto en otra pestaña, pero no debe consumir minutos buscando experimentos.</p>
-<h3>Texto de apertura sugerido</h3>
-<p>«Nuestro proyecto responde a la dificultad de comparar vivienda e ingresos con datos de distinta procedencia. En Bilbao, una renta media de 930,31 euros frente al salario juvenil autonómico de 1.564 supone un escenario del 59,48 %. Recogemos y analizamos referencias verificables y usamos una predicción municipal para orientar un caso. No concedemos ayudas ni garantizamos disponibilidad».</p>
-<h3>Texto de cierre sugerido</h3>
-<p>«Hemos conectado recogida, almacenamiento, eventos, análisis y una orientación explicable. Conservamos qué se obtuvo y cómo se calculó. La muestra no representa todo el mercado y el modelo estima agregados, por lo que la decisión final requiere información individual y revisión humana».</p>
-<h3>Si vais retrasados</h3>
-<p>No eliminar la conclusión ni exceder 15 minutos. Resumir la tabla de modelos en ganador, baseline y límite; no enumerar todos los hiperparámetros. Mostrar una consulta y una etapa de pipeline en lugar de leer todo el código. Si n8n no responde tras un intento razonable, enseñar la ficha conservada y explicarlo.</p>
-<h3>Ensayo recomendado</h3>
-<p>Primera vuelta: 20 minutos con pausas para dudas. Segunda: 15 minutos sin detener reloj. Tercera: cambiar quién responde preguntas fuera de su bloque. Registrar duración, un fallo observado y una mejora; una práctica oral no se acredita por ejecutar pytest.</p>
+<p>No dedicar este tiempo a explicar HDFS o Kafka en detalle: pertenecen al otro material. Llevar abierto Streamlit del modelo, MLflow o su captura, comparativa, src/reglas.py, n8n y la ficha. Ambas personas deben entender todo, aunque se repartan minutos. El reparto propuesto no acredita autoría histórica.</p>
+<h3>Aperturas adaptadas</h3>
+<p><strong>BDA/SBD:</strong> «Recogemos datos reales de vivienda y contexto salarial, conservamos su procedencia y los llevamos hasta MongoDB para comparar municipios con indicadores verificables».</p>
+<p><strong>SAA/PIA/MIA:</strong> «Aprendemos una renta media municipal a partir de EMAL y la usamos como referencia de orientación. Mostraremos cómo se transforma en una decisión explicable y una ficha local, sin resolver derechos administrativos».</p>
+<h3>Cierre y ensayo</h3>
+<p>En BDA/SBD, concluir con lo que los indicadores permiten decir sobre municipios. En IA, concluir con la utilidad y límites de la predicción y las reglas. Ensayar cada presentación por separado y alternar preguntas fuera del bloque asignado. Para IA hacer una vuelta de 15 minutos sin detener el reloj; si n8n falla, mostrar evidencia conservada con su fecha. No entrenar ni repetir el test para defender.</p>
 <p class="source"><strong>Dónde comprobarlo:</strong> <a href="https://github.com/markelalvarez0/Reto-1/blob/2778774b906724e85e9a29712e1f603cf5fa86bf/docs/DEFENSA.md">docs/DEFENSA.md</a>.</p></section><section class="chapter" id="cap-34"><h1>30 · Banco de 45 preguntas con respuesta y evidencia</h1><p>Practicad sin memorizar frases de forma mecánica. La respuesta debe ir acompañada del archivo que la acredita y un límite. Las siguientes preguntas cubren preparación adicional; el enunciado de SAA/PIA/MIA fija tres preguntas individuales por alumno, una de cada asignatura.</p>
 <div class="qa"><h3>1. SAA · ¿Por qué regresión supervisada y no clasificación?</h3>
 <p>La etiqueta observada es renta media en euros; no una categoría de viabilidad. Se aprende de entradas y objetivos históricos. Enseñar TARGET y FEATURES.</p>

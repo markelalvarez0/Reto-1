@@ -6,7 +6,7 @@ h1,h2,h3{color:#16324f;line-height:1.22;break-after:avoid}h1{font-size:23pt;marg
 p{orphans:3;widows:3}a{color:#176b89;text-decoration:none;overflow-wrap:anywhere}table{width:100%;border-collapse:collapse;margin:16px 0;font-size:9pt;line-height:1.4;table-layout:auto}th{background:#edf4f8;color:#16324f;text-align:left}td,th{padding:8px 9px;border:1px solid #d7e0e8;vertical-align:top;overflow-wrap:anywhere}thead{display:table-header-group}tr{break-inside:avoid}pre{font-family:"DejaVu Sans Mono",monospace;font-size:8.5pt;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f4f7;border-left:3px solid #22768c;padding:12px;break-inside:avoid}code{font-size:.92em}img{max-width:100%;max-height:215mm;object-fit:contain;display:block;margin:15px auto}em{color:#536575;font-size:.93em}li{margin:5px 0}.chapter{break-before:page;margin-top:60px}.cover{padding:85px 0 70px;min-height:245mm}.cover h1{font-size:40pt;max-width:650px}.eyebrow{color:#197c83;text-transform:uppercase;letter-spacing:2px;font-size:11pt;font-weight:bold}.lead{font-size:16pt;color:#496276;max-width:650px}.badge{display:inline-block;border:1px solid #abc8d3;padding:8px 14px;border-radius:4px;margin:4px;font-size:10pt}.toc ol{columns:2;column-gap:35px;padding-left:22px}.toc li{font-size:10pt;margin:9px 0;break-inside:avoid}.source{font-size:9pt}.screen-tools{position:sticky;top:0;background:#16324f;color:white;padding:10px 16px;text-align:right;z-index:2}.screen-tools button{padding:6px 12px;cursor:pointer;border:0;border-radius:3px}.small{font-size:9pt}
 @media print{body{background:white;font-size:10pt;line-height:1.46}main{padding:0;margin:0;max-width:none;box-shadow:none}.screen-tools{display:none}.chapter{margin:0}.cover{min-height:240mm}.toc ol{columns:1}table{font-size:8.4pt}td,th{padding:6px 7px}a{color:#245c77}img{max-height:185mm}}
 </style><main><h1>Guía rápida · Día de la defensa</h1>
-<p><strong>Objetivo:</strong> demostrar el recorrido y explicar sus límites en 15 minutos. Versión técnica de referencia: 2778774. Ambos integrantes deben saber responder sobre todo el proyecto.</p>
+<p><strong>Dos exposiciones:</strong> BDA + SBD por un lado; SAA + PIA + MIA por otro. Los 15 minutos escritos corresponden solo al bloque de IA; el PDF de BDA/SBD no fija duración. Versión técnica de referencia: 2778774. Ambos integrantes deben saber responder sobre todo el proyecto.</p>
 <h2>Diez cifras que conviene recordar</h2>
 <table>
 <thead>
@@ -78,58 +78,51 @@ uv run --no-sync python main.py --subject saa_pia_mia --server.port 8501
 <li>[ ] Ambos integrantes conocen el recorrido y han ensayado con cronómetro.</li>
 <li>[ ] Enlace, commit y permisos del repositorio revisados.</li>
 </ul>
-<h2>Reparto del tiempo</h2>
+<h2>Dos materiales distintos</h2>
+<p><strong>BDA + SBD:</strong> diez diapositivas. Fuentes → HDFS/Kafka/MongoDB → modelado y limpieza → consultas, índices y atomicidad → indicadores y conclusiones. Abrir visor territorial, capturas, transporte y explain. Duración según indique el docente.</p>
+<p><strong>SAA + PIA + MIA:</strong> doce diapositivas, 15 minutos:</p>
 <table>
 <thead>
 <tr>
 <th>Minutos</th>
-<th>Persona</th>
+<th>Persona propuesta</th>
 <th>Contenido</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0–2</td>
+<td>0–3</td>
 <td>A</td>
-<td>Problema y arquitectura.</td>
+<td>Negocio, dataset y EDA.</td>
 </tr>
 <tr>
-<td>2–4:30</td>
+<td>3–5:30</td>
 <td>A</td>
-<td>Fuentes, unidades, HDFS/Kafka/MongoDB.</td>
+<td>Pipeline, MLflow, cinco familias y cuatro MLP.</td>
 </tr>
 <tr>
-<td>4:30–5:30</td>
-<td>A</td>
-<td>Consultas, índice y atomicidad.</td>
-</tr>
-<tr>
-<td>5:30–8</td>
+<td>5:30–8:30</td>
 <td>B</td>
-<td>Territorio, dataset, EDA y tiempo.</td>
+<td>Comparación, SHAP y test conservado.</td>
 </tr>
 <tr>
-<td>8–10:45</td>
+<td>8:30–11:15</td>
 <td>B</td>
-<td>Modelos, baseline, SHAP y test.</td>
+<td>Caso nuevo, reglas y dos esfuerzos.</td>
 </tr>
 <tr>
-<td>10:45–12:30</td>
-<td>B → A</td>
-<td>Caso, referencia y regla.</td>
-</tr>
-<tr>
-<td>12:30–14</td>
+<td>11:15–14</td>
 <td>A</td>
-<td>Consentimiento, n8n y ficha.</td>
+<td>Consentimiento, n8n, ficha y reentrega.</td>
 </tr>
 <tr>
 <td>14–15</td>
 <td>Ambas</td>
-<td>Límites y cierre.</td>
+<td>Diferencias con clase y límites.</td>
 </tr>
 </tbody>
 </table>
+<p>El caso siguiente se utiliza en la presentación de IA. No mezclar las dos agendas en una única exposición de 15 minutos.</p>
 <h2>Caso preparado: datos inventados de demostración</h2>
 <p>25 años; ingreso mensual 1.500 €; ingreso anual computable 18.000 €; pago y renta total 500 €; deuda cero; ahorro 2.000 €; entrada 1.000 €; unidad individual; contrato no compartido; siete comprobaciones documentales marcadas como declaradas. Elegir un municipio cubierto y leer la referencia real del modelo. La decisión depende del valor, de la fecha y de las prioridades.</p>
 <p>El caso completo conservado obtuvo referencia 857,8253 €, esfuerzo declarado 33,33 % y de referencia 57,1884 %, con R_REFERENCIA. No prometer ese valor para todos los municipios. Contrafactual separado del motor: referencia 600 € → CONSULTAR_GAZTELAGUN; 1.600 € → BUSCAR_ALTERNATIVAS. Esos dos importes son valores de prueba, no predicciones del modelo.</p>
