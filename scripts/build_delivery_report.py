@@ -73,6 +73,7 @@ def build(output):
          'sobre test ni ajusta hiperparámetros. Las reaperturas de la app reutilizan el informe sellado.'),
         ('Resultados municipales y límites', read('docs/ESTADO_ENTREGA.md')),
         ('Contratos BDA y evidencia', read('docs/BDA_ESTADO.md')),
+        ('Muestra de anuncios y conclusiones', read('docs/RESULTADOS_ANUNCIOS.md')),
         ('Reglas y automatización local',
          'Prioridad descendente; primera regla aplicable. Seguridad: datos inválidos o fuera de cobertura → revisión. '
          'Después se revisan vigencia normativa, esfuerzo crítico, requisitos, documentación, alternativas, '
@@ -86,6 +87,7 @@ def build(output):
         ('Reproducción y defensa', read('docs/DEFENSA.md')),
         ('Apéndice: agregaciones municipales completas',
          'Código canónico completo; no se recorta para ajustar a una página.\n\n' + read('src/municipal_analysis.py')),
+        ('Apéndice: agregaciones de anuncios completas', read('src/database/aggregations.py')),
     ]
     output = Path(output)
     output.mkdir(parents=True, exist_ok=True)
@@ -120,6 +122,10 @@ def build(output):
             ('test_real_predicho.png', 'Figura conservada de la única evaluación final; no se recalcula.')]]
         figures += [(ROOT / 'docs/evidencias_ml/capturas' / name, 'Captura histórica conservada del bloque ML; no nueva ejecución.') for name in
                     ('mlflow-experimentos.png', 'streamlit-formulario.png', 'streamlit-modelos.png')]
+        figures += [(ROOT / 'docs/evidencias_entrega_2026-11-12' / name, caption) for name, caption in [
+            ('muestra_anuncios.png', '17 identidades de portal del 12 de noviembre; mezcla de modalidades y muestra de conveniencia.'),
+            ('territorio.png', 'Captura de Chromium del visor con EMAL y la muestra archivada; no búsqueda en tiempo real.'),
+            ('modelo.png', 'Aplicación abierta con el test conservado; no se reevalúa el holdout.')]]
         for path, caption in figures:
             sources.append(path)
             fig = plt.figure(figsize=(8.27, 11.69))

@@ -1,0 +1,126 @@
+{
+  "fecha_utc": "2026-11-12T14:47:28.726762+00:00",
+  "motor": "MongoDB",
+  "anuncios": 17,
+  "por_fuente": {
+    "Habitaclia_Scraping": 9,
+    "PisosCom_Scraping": 8
+  },
+  "por_municipio_ine": {
+    "48020": 6,
+    "20069": 6,
+    "01059": 5
+  },
+  "condiciones_publicadas": {
+    "temporal": 3,
+    "empresas": 2
+  },
+  "nulos": {
+    "precio": 0,
+    "superficie_m2": 0,
+    "habitaciones": 0,
+    "banos": 0,
+    "descripcion": 9
+  },
+  "revision_html": [
+    {
+      "archivo": "listado_a9d548e1182c47b794c8604dd0a50b05.bin",
+      "tarjetas": 29,
+      "sin_tipo_o_identidad_residencial": 0,
+      "sin_precio_o_municipio": 0,
+      "seleccionados": 3
+    },
+    {
+      "archivo": "listado_3695b3718fa34cc985ce221fff6fdf13.bin",
+      "tarjetas": 29,
+      "sin_tipo_o_identidad_residencial": 1,
+      "sin_precio_o_municipio": 0,
+      "seleccionados": 3
+    },
+    {
+      "archivo": "listado_c67ab944df9e47ae8a90c931983f2d4b.bin",
+      "tarjetas": 5,
+      "sin_tipo_o_identidad_residencial": 0,
+      "sin_precio_o_municipio": 0,
+      "seleccionados": 3
+    },
+    {
+      "archivo": "listado_d6996453b4364070a0cd14fa0c7f5308.bin",
+      "tarjetas": 33,
+      "sin_tipo_o_identidad_residencial": 0,
+      "sin_precio_o_municipio": 0,
+      "seleccionados": 3
+    },
+    {
+      "archivo": "listado_ee26ffb6e34f4e70a358fd732d8eabd4.bin",
+      "tarjetas": 32,
+      "sin_tipo_o_identidad_residencial": 0,
+      "sin_precio_o_municipio": 9,
+      "seleccionados": 3
+    },
+    {
+      "archivo": "listado_23917c28e70e4d37acd5438d1cf6909f.bin",
+      "tarjetas": 2,
+      "sin_tipo_o_identidad_residencial": 0,
+      "sin_precio_o_municipio": 0,
+      "seleccionados": 2
+    }
+  ],
+  "comparativa": [
+    {
+      "municipio": "Vitoria - Gasteiz",
+      "total_anuncios": 5,
+      "precio_medio": 1604.4,
+      "precio_minimo": 750.0,
+      "precio_maximo": 3150.0,
+      "superficie_media": 95.8,
+      "precio_m2_medio": 16.60464105653721,
+      "codigo_municipio": "01059"
+    },
+    {
+      "municipio": "Donostia - San Sebastián",
+      "total_anuncios": 6,
+      "precio_medio": 2108.3333333333335,
+      "precio_minimo": 1350.0,
+      "precio_maximo": 2500.0,
+      "superficie_media": 86.0,
+      "precio_m2_medio": 25.698646960274868,
+      "codigo_municipio": "20069"
+    },
+    {
+      "municipio": "Bilbao",
+      "total_anuncios": 6,
+      "precio_medio": 2316.6666666666665,
+      "precio_minimo": 1200.0,
+      "precio_maximo": 4500.0,
+      "superficie_media": 105.5,
+      "precio_m2_medio": 21.35638434326977,
+      "codigo_municipio": "48020"
+    }
+  ],
+  "reentrega": {
+    "antes": 638,
+    "despues": 638,
+    "duplicados_nuevos": 0
+  },
+  "atomicidad": {
+    "datos": "copia aislada de un anuncio observado; operaciones de prueba",
+    "operaciones": 100,
+    "contador_final": 100,
+    "coleccion_original_modificada": false
+  },
+  "consultas": {
+    "alquileres_bilbao": 6,
+    "precio_hasta_750": 1,
+    "bilbao_hasta_2000_y_55m2": 4,
+    "dos_habitaciones_y_ascensor": 0,
+    "programa_gaztelagun_publicado": 0
+  },
+  "limites": [
+    "Muestra de conveniencia de 17 identidades de portal; no viviendas únicas.",
+    "Anuncios mensuales con modalidades mezcladas; no equivalen a contratos EMAL ni a vivienda habitual.",
+    "La ausencia de señales textuales no acredita disponibilidad o ausencia de restricciones.",
+    "No hay salarios municipales observados: esfuerzo y asequibilidad personal permanecen nulos.",
+    "Las consultas sin resultados son resultados válidos, no datos que haya que rellenar."
+  ]
+}

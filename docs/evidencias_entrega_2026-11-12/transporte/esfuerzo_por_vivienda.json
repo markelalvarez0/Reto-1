@@ -1,0 +1,359 @@
+[
+  {
+    "fuente": "PisosCom_Scraping",
+    "id_origen": "pisos_69207346253.109800",
+    "codigo_municipio": "01059",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "Vitoria - Gasteiz",
+    "precio": 750.0,
+    "precio_m2": 12.5,
+    "titulo": "Piso en calle de los Herrán, 12",
+    "url": "https://www.pisos.com/alquilar/piso-desemparados_judimendi_santa_lucia01004-69207346253_109800/",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  },
+  {
+    "fuente": "Habitaclia_Scraping",
+    "id_origen": "habitaclia_a071fd89fac6e56db1c82540",
+    "codigo_municipio": "01059",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "Vitoria - Gasteiz",
+    "precio": 1057.0,
+    "precio_m2": 11.744444444444444,
+    "titulo": "Piso con ascensor en alquiler en Tarragona",
+    "url": "https://www.habitaclia.com/alquiler/planta-intermedia/tarragona/lakua-bizkarra/vitoria-gasteiz/051d6c9e-2239-47dd-9548-9d1ac4b707ba/d",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  },
+  {
+    "fuente": "Habitaclia_Scraping",
+    "id_origen": "habitaclia_c0f284f7d936e9e47372d44b",
+    "codigo_municipio": "48020",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "Bilbao",
+    "precio": 1200.0,
+    "precio_m2": 13.793103448275861,
+    "titulo": "Piso con balcón en alquiler en Francisco Durrio Eskultorearen Kalea",
+    "url": "https://www.habitaclia.com/alquiler/planta-intermedia/francisco-durrio-eskultorearen-kalea/deusto/bilbao/ca894199-55ef-4d0a-b77c-ebd941e46cc6/d",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  },
+  {
+    "fuente": "Habitaclia_Scraping",
+    "id_origen": "habitaclia_6c1ead1839f2dbf91954d965",
+    "codigo_municipio": "20069",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "Donostia - San Sebastián",
+    "precio": 1350.0,
+    "precio_m2": 16.071428571428573,
+    "titulo": "Piso con balcón en alquiler en Arroka Kalea",
+    "url": "https://www.habitaclia.com/alquiler/planta-intermedia/arroka-kalea/centro/donostia-san-sebastian/4b92a7c9-b88b-492c-8731-42b6b0948160/d",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  },
+  {
+    "fuente": "Habitaclia_Scraping",
+    "id_origen": "habitaclia_4a9593dafc26039afeccc9ad",
+    "codigo_municipio": "01059",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "Vitoria - Gasteiz",
+    "precio": 1415.0,
+    "precio_m2": 21.76923076923077,
+    "titulo": "Piso en alquiler en Uleta Kalea",
+    "url": "https://www.habitaclia.com/alquiler/planta-intermedia/uleta-kalea/mendizorrotza-armentia/vitoria-gasteiz/65491b0a-a203-49fc-a138-6269763cd399/d",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  },
+  {
+    "fuente": "Habitaclia_Scraping",
+    "id_origen": "habitaclia_3e700fba066b5b2664458015",
+    "codigo_municipio": "48020",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "Bilbao",
+    "precio": 1600.0,
+    "precio_m2": 16.0,
+    "titulo": "Piso con ascensor en alquiler en Begoña - Santutxu",
+    "url": "https://www.habitaclia.com/alquiler/planta-intermedia/begona-santutxu/bilbao/3c3db526-76db-4fc2-8de8-4a7763b6fba3/d",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  },
+  {
+    "fuente": "Habitaclia_Scraping",
+    "id_origen": "habitaclia_ca3576d05e55cc36ef2a2413",
+    "codigo_municipio": "01059",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "Vitoria - Gasteiz",
+    "precio": 1650.0,
+    "precio_m2": 19.41176470588235,
+    "titulo": "Piso en alquiler en Uleta Kalea",
+    "url": "https://www.habitaclia.com/alquiler/planta-intermedia/uleta-kalea/mendizorrotza-armentia/vitoria-gasteiz/865436fc-51d9-4415-8b2c-03f1ea36058d/d",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  },
+  {
+    "fuente": "Habitaclia_Scraping",
+    "id_origen": "habitaclia_edb742b802731e1f27476253",
+    "codigo_municipio": "48020",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "Bilbao",
+    "precio": 1800.0,
+    "precio_m2": 18.94736842105263,
+    "titulo": "Piso con ascensor en alquiler en Carretera, Carrera Basurtu-Kastrexana",
+    "url": "https://www.habitaclia.com/alquiler/planta-intermedia/carretera-carrera-basurtu-kastrexana/basurtu-zorrotza/bilbao/5188e11f-301e-4419-b98f-dbad239a2ced/d",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  },
+  {
+    "fuente": "PisosCom_Scraping",
+    "id_origen": "pisos_66754691449.101800",
+    "codigo_municipio": "48020",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "Bilbao",
+    "precio": 1800.0,
+    "precio_m2": 26.865671641791046,
+    "titulo": "Piso en Casco Viejo - Zazpi Kaleak",
+    "url": "https://www.pisos.com/alquilar/piso-casco_viejo_zazpi_kaleak48005-66754691449_101800/",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  },
+  {
+    "fuente": "Habitaclia_Scraping",
+    "id_origen": "habitaclia_cc73e0067ef88ff7c4ebdef4",
+    "codigo_municipio": "20069",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "Donostia - San Sebastián",
+    "precio": 2000.0,
+    "precio_m2": 23.25581395348837,
+    "titulo": "Apartamento con ascensor en alquiler en Gros",
+    "url": "https://www.habitaclia.com/alquiler/apartamento/gros/donostia-san-sebastian/c1b2eae8-dcd7-411d-8f19-5251de49875d/d",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  },
+  {
+    "fuente": "PisosCom_Scraping",
+    "id_origen": "pisos_66712117256.100500",
+    "codigo_municipio": "20069",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "San Sebastián - Donostia",
+    "precio": 2000.0,
+    "precio_m2": 16.666666666666668,
+    "titulo": "Dúplex en Camino de Illarra, 95",
+    "url": "https://www.pisos.com/alquilar/duplex-ibaeta_igeldo20018-66712117256_100500/",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  },
+  {
+    "fuente": "Habitaclia_Scraping",
+    "id_origen": "habitaclia_e7411f41666673560ab86fc7",
+    "codigo_municipio": "20069",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "Donostia - San Sebastián",
+    "precio": 2300.0,
+    "precio_m2": 30.666666666666668,
+    "titulo": "Apartamento con ascensor en alquiler en San Juan",
+    "url": "https://www.habitaclia.com/alquiler/apartamento/san-juan/parte-vieja/donostia-san-sebastian/0cd9ef3c-42ee-4c0f-a11e-4964cc7ed65a/d",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  },
+  {
+    "fuente": "PisosCom_Scraping",
+    "id_origen": "pisos_63359188396.102200",
+    "codigo_municipio": "20069",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "San Sebastián - Donostia",
+    "precio": 2500.0,
+    "precio_m2": 29.069767441860463,
+    "titulo": "Piso en calle Beatriz Infantaren Kalea",
+    "url": "https://www.pisos.com/alquilar/piso-antiguo_ondarreta20008-63359188396_102200/",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  },
+  {
+    "fuente": "PisosCom_Scraping",
+    "id_origen": "pisos_65060819588.100500",
+    "codigo_municipio": "20069",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "San Sebastián - Donostia",
+    "precio": 2500.0,
+    "precio_m2": 38.46153846153846,
+    "titulo": "Piso en calle de Azpeitia",
+    "url": "https://www.pisos.com/alquilar/piso-amara_berri20010-65060819588_100500/",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  },
+  {
+    "fuente": "PisosCom_Scraping",
+    "id_origen": "pisos_65024584153.101800",
+    "codigo_municipio": "48020",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "Bilbao",
+    "precio": 3000.0,
+    "precio_m2": 25.423728813559322,
+    "titulo": "Apartamento en Abando Hurtado de Amézaga",
+    "url": "https://www.pisos.com/alquilar/apartamento-abando_hurtado_de_amezaga48008-65024584153_101800/",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  },
+  {
+    "fuente": "PisosCom_Scraping",
+    "id_origen": "pisos_69252976604.106100",
+    "codigo_municipio": "01059",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "Vitoria - Gasteiz",
+    "precio": 3150.0,
+    "precio_m2": 17.59776536312849,
+    "titulo": "Piso en Lovaina",
+    "url": "https://www.pisos.com/alquilar/piso-lovaina01008-69252976604_106100/",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  },
+  {
+    "fuente": "PisosCom_Scraping",
+    "id_origen": "pisos_69206740834.101800",
+    "codigo_municipio": "48020",
+    "es_protegida": false,
+    "es_sintetico": false,
+    "municipio": "Bilbao",
+    "precio": 4500.0,
+    "precio_m2": 27.10843373493976,
+    "titulo": "Piso en Abando Hurtado de Amézaga",
+    "url": "https://www.pisos.com/alquilar/piso-abando_hurtado_de_amezaga48008-69206740834_101800/",
+    "tasa_esfuerzo_pct": null,
+    "procedencia_salario": {
+      "archivo": "ine_2026.xlsx",
+      "catalogo_ine_sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "estado": "original_verificado",
+      "fecha_captura": "2026-11-10T14:37:19.620907+00:00",
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741",
+      "url": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx"
+    }
+  }
+]

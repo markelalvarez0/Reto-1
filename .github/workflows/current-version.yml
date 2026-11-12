@@ -1,0 +1,63 @@
+name: Version actual Linux y Windows sin reentrenar
+"on":
+  push:
+    branches: [dev-jon, test, main]
+  pull_request:
+    branches: [test, main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: version-actual-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  current:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    env:
+      PYTHONUTF8: '1'
+      MPLBACKEND: Agg
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      STREAMLIT_BROWSER_GATHER_USAGE_STATS: 'false'
+    steps:
+      - run: git config --global core.autocrlf false
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.13.6'
+          python-version: '3.12'
+      - name: Instalar desde el lockfile
+        run: uv sync --locked --extra dev
+      - name: Validar el checkout actual sin recuperar artefactos historicos
+        shell: bash
+        run: |
+          mkdir -p test-results
+          uv run --no-sync python scripts/audit_project.py
+          uv run --no-sync python scripts/sync_sources.py --check
+          uv run --no-sync python -m pytest tests/ -q --junitxml=test-results/actual.xml
+          uv run --no-sync python main.py --subject bda_sbd --prepare-only --raw-dir test-results/preparados
+          uv run --no-sync python main.py --pdf
+          uv run --no-sync python - <<'PY'
+          import json
+          from pathlib import Path
+          from streamlit.testing.v1 import AppTest
+          app = AppTest.from_file('app/streamlit_app.py', default_timeout=60).run()
+          assert not app.exception, [str(e.value) for e in app.exception]
+          assert any('Informe conservado' in e.value for e in app.success)
+          assert not any(e.label == 'Evaluar test reservado una sola vez' for e in app.button)
+          Path('test-results/app.json').write_text(json.dumps({'abre': True, 'test_reevaluado': False}), encoding='utf-8')
+          PY
+          git diff --exit-code
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: version-actual-${{ matrix.os }}
+          path: test-results/
+          retention-days: 30

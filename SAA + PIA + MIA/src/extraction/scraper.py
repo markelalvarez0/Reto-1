@@ -16,16 +16,16 @@ from bs4 import BeautifulSoup
 from typing import List, Dict, Any, Optional
 from datetime import datetime, timezone
 from .models import HousingAd, ExtractionResult
-from .scraping_http import ScrapingHTTP, observed_municipality, euro_price, residential_title, USER_AGENT
+from .scraping_http import ScrapingHTTP, observed_municipality, euro_price, residential_title, USER_AGENT, published_rental_conditions
 
 
 class HabitacliaScraper:
     """Scraper para portales inmobiliarios enfocado en el mercado residencial de Euskadi."""
 
     DEFAULT_TARGETS = [
-        {"municipio": "Bilbao", "tipo": "alquiler", "url": "https://www.habitaclia.com/alquiler-bilbao.htm"},
-        {"municipio": "Donostia-San Sebastián", "tipo": "alquiler", "url": "https://www.habitaclia.com/alquiler-donostia_san_sebastian.htm"},
-        {"municipio": "Vitoria-Gasteiz", "tipo": "alquiler", "url": "https://www.habitaclia.com/alquiler-vitoria_gasteiz.htm"},
+        {"municipio": "Bilbao", "tipo": "alquiler", "url": "https://www.habitaclia.com/alquiler/viviendas/bizkaia-provincia/bilbao/s"},
+        {"municipio": "Donostia-San Sebastián", "tipo": "alquiler", "url": "https://www.habitaclia.com/alquiler/viviendas/gipuzkoa-provincia/donostia-san-sebastian/s"},
+        {"municipio": "Vitoria-Gasteiz", "tipo": "alquiler", "url": "https://www.habitaclia.com/alquiler/viviendas/araba-alava-provincia/vitoria-gasteiz/s"},
         {"municipio": "Bilbao", "tipo": "compraventa", "url": "https://www.habitaclia.com/comprar-vivienda-en-bilbao/"}
     ]
 
@@ -98,6 +98,7 @@ class HabitacliaScraper:
             ad = self._extract_article_data(art, municipio, tipo_operacion, idx, url)
             if ad and ad.codigo_municipio and ad.precio is not None:
                 ad.procedencia = self.http.last_capture.copy()
+                ad.procedencia['condiciones_publicadas'] = published_rental_conditions(ad)
                 results.append(ad)
         if not results:
             raise ValueError('HTML sin anuncios interpretables; no se acredita una captura de mercado')
@@ -106,7 +107,7 @@ class HabitacliaScraper:
     def _extract_article_data(self, article, municipio: str, tipo_operacion: str, index: int, source_url: str) -> Optional[HousingAd]:
         """Extrae los campos individuales de un elemento HTML de anuncio."""
         title_tag = article.find(["h2", "h3"])
-        link_tag = article.find("a", href=True)
+        link_tag = (title_tag.find("a", href=True) if title_tag else None) or article.find("a", href=True)
         titulo = title_tag.get_text(strip=True) if title_tag else None
         href = link_tag["href"] if link_tag else None
         full_url = href if (href and href.startswith("http")) else (f"https://www.habitaclia.com{href}" if href else source_url)
@@ -120,6 +121,8 @@ class HabitacliaScraper:
 
         precio = None
         price_tag = article.find(class_=re.compile(r"font-2|price|precio"))
+        if price_tag is None:
+            price_tag = article.select_one('span.text-display-4')
         if price_tag:
             precio = euro_price(price_tag.get_text(' ', strip=True))
 
@@ -130,7 +133,7 @@ class HabitacliaScraper:
         features_tag = article.find(class_=re.compile(r"feature|details|info"))
         text_content = (features_tag.get_text(" ", strip=True) if features_tag else "") + " " + article.get_text(" ", strip=True)
 
-        sup_match = re.search(r"(\d+(?:[\.,]\d+)?)\s*m2", text_content, re.IGNORECASE)
+        sup_match = re.search(r"(\d+(?:[\.,]\d+)?)\s*m[2²]", text_content, re.IGNORECASE)
         if sup_match:
             try:
                 superficie_m2 = float(sup_match.group(1).replace(",", "."))
@@ -152,10 +155,12 @@ class HabitacliaScraper:
                 pass
 
         loc_tag = article.find(class_=re.compile(r"location|ubicacion|zone"))
+        if loc_tag is None:
+            loc_tag = article.select_one('p span.truncate')
         barrio = loc_tag.get_text(strip=True) if loc_tag else None
         municipio = observed_municipality(barrio)
 
-        desc_tag = article.find("p")
+        desc_tag = article.find(class_=re.compile(r'description|descripcion'))
         descripcion = desc_tag.get_text(strip=True) if desc_tag else None
 
         if not residential_title(titulo):

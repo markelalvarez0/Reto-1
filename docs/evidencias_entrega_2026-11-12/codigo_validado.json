@@ -1,0 +1,54 @@
+[
+  {
+    "archivo": "app/territorio.py",
+    "sha256": "cf9ef51567944b9f058c94993a09f47f3a8e88cf2d68b050aab4ecbf8f344521"
+  },
+  {
+    "archivo": "src/database/queries.py",
+    "sha256": "fbf170af504f553465f3f093d844f682b625b2e9556628595aa99fe52888d2d9"
+  },
+  {
+    "archivo": "src/extraction/models.py",
+    "sha256": "2fe99c32a7bd81bb5bbd57651c26ad8b78ae5233c3094bc5026d3711f07cd6a1"
+  },
+  {
+    "archivo": "src/extraction/scraping_http.py",
+    "sha256": "058b0887027ee22cde518ef9ca60734f8abac292e37275ce4f8bd4c59b8c4f2f"
+  },
+  {
+    "archivo": "src/extraction/scraper.py",
+    "sha256": "c295a86adf5a10d749044fbc82dbceaca3e9f0c6fa4bb6181957412bed87893e"
+  },
+  {
+    "archivo": "src/extraction/pisos_scraper.py",
+    "sha256": "f3c2a5b9a906459594ec277509602e4c38a3d5b32af4cf18b0aeaa927ec0066d"
+  },
+  {
+    "archivo": "scripts/capture_rentals.py",
+    "sha256": "eb13b12aea6835d608ada672cc8439a692f0dbb703a7e6c93f0926284ae4d9a6"
+  },
+  {
+    "archivo": "scripts/analyze_rental_sample.py",
+    "sha256": "10c08547a7afb7dbf103fd5fe4d6a168c9ee31f32598e3c473b11bd211d49e2e"
+  },
+  {
+    "archivo": "scripts/audit_project.py",
+    "sha256": "a405714b89dbb62cdf13cff72c5251cf8b85d0662258cdf9cb028b0dd3d95599"
+  },
+  {
+    "archivo": "scripts/build_delivery_report.py",
+    "sha256": "dbd7da20ae575252b0f31b06d517330aad189ac431d89e74762b960d7453f448"
+  },
+  {
+    "archivo": "tests/test_scraping_capture.py",
+    "sha256": "97116f8a12f8697ed495526a7be0740a5ff43d62e3a7f7e5e763746025aca3ba"
+  },
+  {
+    "archivo": "integration_tests/test_mongodb_live.py",
+    "sha256": "82f67a674fb480084921dbbbce9bef93b5d2d47fe10fcd08b0f735d5cc8e6d3d"
+  },
+  {
+    "archivo": ".github/workflows/current-version.yml",
+    "sha256": "7f8051205cd24ad194541cbdd502cae4b819b159e8a657f65ea6e11ce1056983"
+  }
+]

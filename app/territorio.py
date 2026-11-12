@@ -58,3 +58,40 @@ with st.expander('Fuentes, unidades y límites'):
     for note in meta['limites']:
         st.write(note)
     st.json(meta['fuentes'])
+
+st.divider()
+st.header('Muestra archivada de anuncios de alquiler')
+sample_folder = Path(os.getenv('RETO1_RENTALS_DIR', str(ROOT / 'docs/evidencias_entrega_2026-11-12/anuncios')))
+try:
+    sample_manifest = json.loads((sample_folder / 'manifest.json').read_text(encoding='utf-8'))
+    entries = sample_manifest['resultados']
+    if {item['archivo'] for item in entries} != {'resumen.json', 'consultas.json', 'explain.json', 'anuncios.json'}:
+        raise ValueError('El manifiesto no contiene los resultados esperados')
+    for item in entries:
+        name = item['archivo']
+        path = sample_folder / name
+        if Path(name).name != name or path.is_symlink() or hashlib.sha256(path.read_bytes()).hexdigest() != item['sha256']:
+            raise ValueError('Resultado de anuncios alterado: ' + name)
+    sample = json.loads((sample_folder / 'resumen.json').read_text(encoding='utf-8'))
+    ads = pd.DataFrame(json.loads((sample_folder / 'anuncios.json').read_text(encoding='utf-8')))
+    if sample['motor'] != 'MongoDB':
+        raise ValueError('La muestra no acredita MongoDB real')
+except FileNotFoundError:
+    st.info('La muestra de anuncios aún no está disponible en esta copia.')
+except (OSError, ValueError, KeyError) as exc:
+    st.error('No se puede verificar la muestra de anuncios: ' + str(exc))
+else:
+    st.caption(f"Captura archivada del 12 de noviembre de 2026 · {sample['anuncios']} identidades de anuncio en dos portales. No es una búsqueda en tiempo real.")
+    st.warning('La muestra mezcla modalidades de alquiler y no acredita disponibilidad. Sus precios pedidos no son rentas de contratos EMAL ni una estimación representativa del mercado.')
+    comparison_ads = pd.DataFrame(sample['comparativa'])
+    st.dataframe(comparison_ads, hide_index=True)
+    st.bar_chart(comparison_ads.set_index('municipio')[['precio_medio', 'precio_minimo', 'precio_maximo']], stack=False)
+    st.scatter_chart(ads, x='superficie_m2', y='precio', color='fuente')
+    ads['condiciones_publicadas'] = ads.procedencia.map(lambda p: ', '.join(p.get('condiciones_publicadas', [])) or 'No determinadas en el listado')
+    st.dataframe(ads[['fuente', 'municipio', 'titulo', 'precio', 'superficie_m2', 'condiciones_publicadas', 'url']], hide_index=True)
+    st.caption('Las señales de temporalidad o destinatarios proceden del texto publicado. Su ausencia no demuestra que el alquiler admita uso habitual.')
+    st.download_button('Descargar la muestra (CSV)', ads.drop(columns=['procedencia']).to_csv(index=False).encode('utf-8-sig'), 'muestra_anuncios.csv', 'text/csv')
+    with st.expander('Cobertura y validación de la muestra'):
+        st.json({k: sample[k] for k in ('por_fuente', 'nulos', 'reentrega', 'atomicidad', 'consultas')})
+        for note in sample['limites']:
+            st.write(note)

@@ -18,6 +18,7 @@ INE_MUNICIPAL_CODES = {
     "Donostia / San Sebastián": "20069",
     "Donostia": "20069",
     "San Sebastián": "20069",
+    "San Sebastián - Donostia": "20069",
     "Vitoria-Gasteiz": "01059",
     "Vitoria": "01059",
     "Getxo": "48044",

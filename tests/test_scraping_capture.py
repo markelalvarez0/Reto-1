@@ -167,3 +167,49 @@ def test_html_without_ads_is_not_a_success(cls, tmp_path, monkeypatch):
     monkeypatch.setattr('src.extraction.scraping_http.time.sleep', lambda seconds: None)
     result = scraper.scrape_targets([cls.DEFAULT_TARGETS[0]])
     assert not result.items and result.errores
+
+
+@pytest.mark.parametrize('location,code', [
+    ('Lovaina (Vitoria - Gasteiz)', '01059'),
+    ('Parte Vieja (San Sebastián - Donostia)', '20069'),
+    ('Abando (Distrito Abando. Bilbao)', '48020'),
+    ('Distrito Bilbao (Municipio desconocido)', None),
+])
+def test_current_published_location_format(location, code):
+    from src.extraction.scraping_http import observed_municipality
+    from src.extraction.models import resolver_codigo_ine
+    assert resolver_codigo_ine(observed_municipality(location)) == code
+
+
+def test_habitaclia_current_markup_uses_property_link_not_agency():
+    card = BeautifulSoup('''<article><span class="text-display-4">1.250,50 €/mes</span>
+        <a href="/inmobiliaria/fixture/">Agencia fixture</a>
+        <h3><a href="/alquiler/viviendas/fixture-id/d">Piso con ascensor</a></h3>
+        <p><span class="truncate">Centro, Bilbao</span></p>
+        <div aria-label="Características del anuncio">72 m² 2 hab. 1 baño</div></article>''', 'html.parser').article
+    ad = HabitacliaScraper()._extract_article_data(card, 'Vitoria', 'alquiler', 0, 'https://www.habitaclia.com/listado')
+    assert ad.url.endswith('/alquiler/viviendas/fixture-id/d')
+    assert ad.codigo_municipio == '48020' and ad.precio == 1250.5
+    assert ad.superficie_m2 == 72 and ad.habitaciones == 2
+    assert ad.descripcion is None  # La ubicación no es una descripción.
+
+
+def test_pisos_current_markup_selects_whole_card_and_retains_conditions(tmp_path, monkeypatch):
+    # Fixture estructural explícito, no un anuncio real ni una captura del portal.
+    html = '''<div class="ad-preview" id="fixture-1">
+        <div class="ad-preview__top"><a href="/foto/">Foto</a></div>
+        <div class="ad-preview__info"><div class="ad-preview__price"><span>950 €</span><span>/mes</span></div>
+        <a class="ad-preview__title" href="/alquilar/fixture-1/">Piso en Centro</a>
+        <p class="ad-preview__subtitle">Centro (San Sebastián - Donostia)</p>
+        <div class="ad-preview__description">Alquiler temporal para estudiantes. 60 m² 2 habs.</div></div></div>'''.encode()
+    scraper = PisosComScraper(archive_dir=tmp_path)
+    scraper.session.get = Mock(side_effect=[response(b'User-agent: *\nAllow: /\n'), response(html, content_type='text/html')])
+    monkeypatch.setattr('src.extraction.scraping_http.time.sleep', lambda seconds: None)
+    ads = scraper._scrape_page('https://www.pisos.com/alquiler/fixture/', 'Bilbao', 'Bizkaia', 'alquiler', 3)
+    assert len(ads) == 1  # Nunca un anuncio por cada subelemento __info / __price.
+    ad = ads[0]
+    assert ad.codigo_municipio == '20069' and ad.provincia == 'Gipuzkoa'
+    assert ad.url == 'https://www.pisos.com/alquilar/fixture-1/'
+    assert ad.precio == 950 and ad.superficie_m2 == 60
+    assert ad.procedencia['condiciones_publicadas'] == ['temporal', 'estudiantes']
+    verify_scraped_record(ad.to_dict(), tmp_path)

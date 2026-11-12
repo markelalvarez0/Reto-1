@@ -1,0 +1,12 @@
+{
+  "archivo": "listado_3695b3718fa34cc985ce221fff6fdf13.bin",
+  "url": "https://www.habitaclia.com/alquiler/viviendas/gipuzkoa-provincia/donostia-san-sebastian/s",
+  "http_status": 200,
+  "fecha_utc": "2026-11-12T14:33:14.842200+00:00",
+  "sha256": "fb87602b7d61bdc5f642f91a15be365cf1c0fddbb7e7a9f1139210e425977180",
+  "bytes": 1152326,
+  "clase": "listado",
+  "user_agent": "Reto1AcademicBot/1.0",
+  "tls_verificado": true,
+  "content_type": "text/html; charset=utf-8"
+}

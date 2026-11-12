@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "controles": [
+    {
+      "control": "originales",
+      "ok": true,
+      "detalle": {
+        "archivos_verificados": 6
+      }
+    },
+    {
+      "control": "artefactos_ml",
+      "ok": true,
+      "detalle": {
+        "archivos_verificados": 88
+      }
+    },
+    {
+      "control": "test_sellado",
+      "ok": true,
+      "detalle": {
+        "modelo": "MLP_2_capas",
+        "evaluaciones": 1,
+        "modelo_ejecutado": false
+      }
+    },
+    {
+      "control": "copias_academicas",
+      "ok": true,
+      "detalle": "Tres copias académicas coinciden con src/"
+    },
+    {
+      "control": "captura_anuncios",
+      "ok": true,
+      "detalle": {
+        "archivos_verificados": 22
+      }
+    }
+  ],
+  "alcance": "Integridad local. No acredita servicios activos, scraping vigente ni cumplimiento completo de rúbricas."
+}

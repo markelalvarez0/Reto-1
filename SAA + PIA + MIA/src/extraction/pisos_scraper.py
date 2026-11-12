@@ -17,7 +17,7 @@ from bs4 import BeautifulSoup
 from typing import List, Dict, Any, Optional
 from datetime import datetime, timezone
 from .models import HousingAd, ExtractionResult, resolver_codigo_ine
-from .scraping_http import ScrapingHTTP, observed_municipality, euro_price, residential_title, USER_AGENT
+from .scraping_http import ScrapingHTTP, observed_municipality, euro_price, residential_title, USER_AGENT, published_rental_conditions
 
 
 class PisosComScraper:
@@ -121,7 +121,10 @@ class PisosComScraper:
 
         soup = BeautifulSoup(resp.content, "html.parser")
 
-        cards = soup.find_all(class_=re.compile(r"ad-preview|row\s+clearfix|grid__item"))
+        # Seleccionar tarjetas completas, no sus decenas de subelementos __price, etc.
+        cards = soup.select('div.ad-preview')
+        if not cards:
+            cards = soup.find_all(class_=re.compile(r"row\s+clearfix|grid__item"))
         if not cards:
             cards = soup.find_all("article")
 
@@ -133,6 +136,7 @@ class PisosComScraper:
             ad = self._extract_card_data(card, municipio, provincia, tipo_operacion, idx, url)
             if ad and ad.codigo_municipio and ad.precio is not None:
                 ad.procedencia = self.http.last_capture.copy()
+                ad.procedencia['condiciones_publicadas'] = published_rental_conditions(ad)
                 results.append(ad)
         if not results:
             raise ValueError('HTML sin anuncios interpretables; no se acredita una captura de mercado')
@@ -149,7 +153,7 @@ class PisosComScraper:
     ) -> Optional[HousingAd]:
         """Extrae los atributos estructurados desde un elemento HTML de anuncio."""
         title_tag = card.find(class_=re.compile(r"ad-preview__title|title")) or card.find(["h2", "h3"])
-        link_tag = card.find("a", href=True)
+        link_tag = card.select_one('a.ad-preview__title[href]') or card.find("a", href=True)
         titulo = title_tag.get_text(strip=True) if title_tag else None
         href = link_tag["href"] if link_tag else None
 
@@ -177,7 +181,7 @@ class PisosComScraper:
         precio = None
         price_tag = card.find(class_=re.compile(r"ad-preview__price|price|p-price"))
         if price_tag:
-            price_text = price_tag.get_text(strip=True)
+            price_text = price_tag.get_text(' ', strip=True)
             precio = euro_price(price_text)
 
         card_text = card.get_text(" ", strip=True)
@@ -206,7 +210,7 @@ class PisosComScraper:
             except ValueError:
                 banos = None
 
-        barrio_tag = card.find(class_=re.compile(r"location|zone|ad-preview__location"))
+        barrio_tag = card.select_one('.ad-preview__subtitle') or card.find(class_=re.compile(r"location|zone|ad-preview__location"))
         barrio = barrio_tag.get_text(strip=True) if barrio_tag else None
         municipio = observed_municipality(barrio)
         code = resolver_codigo_ine(municipio)

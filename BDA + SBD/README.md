@@ -1,5 +1,10 @@
 # Reto 1 · BDA + SBD · Vivienda joven en Euskadi
 
+Actualización del 12 de noviembre de 2026: [17 anuncios archivados](../docs/RESULTADOS_ANUNCIOS.md)
+de dos portales y tres capitales, transportados con HDFS/Kafka/MongoDB reales
+junto con 621 promociones. El visor muestra ambos conjuntos con sus unidades
+y límites. [Evidencias de la versión actual](../docs/evidencias_entrega_2026-11-12/).
+
 ## Pregunta y limites
 
 El proyecto estudia que informacion verificable puede aportar la ingesta de datos publicos a la orientacion sobre vivienda juvenil. **No concede ayudas ni demuestra que una persona pueda independizarse a partir de una media municipal.**

@@ -1,0 +1,78 @@
+{
+  "alquileres_bilbao": [
+    {
+      "id_origen": "habitaclia_c0f284f7d936e9e47372d44b",
+      "municipio": "Bilbao",
+      "precio": 1200.0,
+      "superficie_m2": 87.0,
+      "titulo": "Piso con balcón en alquiler en Francisco Durrio Eskultorearen Kalea"
+    },
+    {
+      "id_origen": "habitaclia_3e700fba066b5b2664458015",
+      "municipio": "Bilbao",
+      "precio": 1600.0,
+      "superficie_m2": 100.0,
+      "titulo": "Piso con ascensor en alquiler en Begoña - Santutxu"
+    },
+    {
+      "id_origen": "habitaclia_edb742b802731e1f27476253",
+      "municipio": "Bilbao",
+      "precio": 1800.0,
+      "superficie_m2": 95.0,
+      "titulo": "Piso con ascensor en alquiler en Carretera, Carrera Basurtu-Kastrexana"
+    },
+    {
+      "id_origen": "pisos_66754691449.101800",
+      "municipio": "Bilbao",
+      "precio": 1800.0,
+      "superficie_m2": 67.0,
+      "titulo": "Piso en Casco Viejo - Zazpi Kaleak"
+    },
+    {
+      "id_origen": "pisos_65024584153.101800",
+      "municipio": "Bilbao",
+      "precio": 3000.0,
+      "superficie_m2": 118.0,
+      "titulo": "Apartamento en Abando Hurtado de Amézaga"
+    },
+    {
+      "id_origen": "pisos_69206740834.101800",
+      "municipio": "Bilbao",
+      "precio": 4500.0,
+      "superficie_m2": 166.0,
+      "titulo": "Piso en Abando Hurtado de Amézaga"
+    }
+  ],
+  "precio_hasta_750": [
+    {
+      "municipio": "Vitoria - Gasteiz",
+      "precio": 750.0,
+      "titulo": "Piso en calle de los Herrán, 12",
+      "categoria_accesibilidad": "ALQUILER_600_850"
+    }
+  ],
+  "bilbao_hasta_2000_y_55m2": [
+    {
+      "precio": 1200.0,
+      "superficie_m2": 87.0,
+      "titulo": "Piso con balcón en alquiler en Francisco Durrio Eskultorearen Kalea"
+    },
+    {
+      "precio": 1600.0,
+      "superficie_m2": 100.0,
+      "titulo": "Piso con ascensor en alquiler en Begoña - Santutxu"
+    },
+    {
+      "precio": 1800.0,
+      "superficie_m2": 95.0,
+      "titulo": "Piso con ascensor en alquiler en Carretera, Carrera Basurtu-Kastrexana"
+    },
+    {
+      "precio": 1800.0,
+      "superficie_m2": 67.0,
+      "titulo": "Piso en Casco Viejo - Zazpi Kaleak"
+    }
+  ],
+  "dos_habitaciones_y_ascensor": [],
+  "programa_gaztelagun_publicado": []
+}

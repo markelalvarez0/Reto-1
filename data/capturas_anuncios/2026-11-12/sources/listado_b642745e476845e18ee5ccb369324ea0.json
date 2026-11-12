@@ -1,0 +1,12 @@
+{
+  "archivo": "listado_b642745e476845e18ee5ccb369324ea0.bin",
+  "url": "https://www.pisos.com/alquiler/viviendas-vitoria_gasteiz/",
+  "http_status": 301,
+  "fecha_utc": "2026-11-12T14:33:25.664240+00:00",
+  "sha256": "536f89e7a9bf2bf5f966ca05b2a1f62ec5245381f77dd0b5ac4907be769235b1",
+  "bytes": 165,
+  "clase": "listado",
+  "user_agent": "Reto1AcademicBot/1.0",
+  "tls_verificado": true,
+  "content_type": "text/html; charset=utf-8"
+}

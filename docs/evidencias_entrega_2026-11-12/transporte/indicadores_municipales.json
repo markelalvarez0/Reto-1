@@ -1,0 +1,32 @@
+[
+  {
+    "municipio": "Vitoria - Gasteiz",
+    "total_anuncios": 5,
+    "precio_medio": 1604.4,
+    "precio_m2_medio": 16.60464105653721,
+    "esfuerzo_medio_pct": null,
+    "anuncios_con_salario": 0,
+    "codigo_municipio": "01059",
+    "porcentaje_asequibles": null
+  },
+  {
+    "municipio": "Donostia - San Sebastián",
+    "total_anuncios": 6,
+    "precio_medio": 2108.3333333333335,
+    "precio_m2_medio": 25.698646960274868,
+    "esfuerzo_medio_pct": null,
+    "anuncios_con_salario": 0,
+    "codigo_municipio": "20069",
+    "porcentaje_asequibles": null
+  },
+  {
+    "municipio": "Bilbao",
+    "total_anuncios": 6,
+    "precio_medio": 2316.6666666666665,
+    "precio_m2_medio": 21.35638434326977,
+    "esfuerzo_medio_pct": null,
+    "anuncios_con_salario": 0,
+    "codigo_municipio": "48020",
+    "porcentaje_asequibles": null
+  }
+]

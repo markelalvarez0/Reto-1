@@ -1,3 +1,81 @@
+# Continuación · 12 de noviembre de 2026
+
+## Incremento actual: anuncios reales y comprobación del lote
+
+Base remota comprobada: `dev-jon` en c5fdd5d, `test`/`main` en 6e279a4.
+No existía checkout en el entorno nuevo: se clonó `dev-jon`, sin worktree,
+sin cambios ajenos locales y con dev.branch configurada solo localmente.
+El entorno nuevo está operativo y la política efectiva está aplicada en modo
+sin lista restrictiva. Los robots de ambos portales y api.github.com responden
+200. No se reutilizó el borrador pendiente del entorno anterior ni se eludió TLS,
+robots, proxy, CAPTCHA o autenticación.
+
+- Captura final: **17 identidades de anuncio**, 9 Habitaclia y 8 Pisos.com,
+  en Bilbao (6), Donostia (6), Vitoria (5). Tres por listado como máximo.
+  Originales y normalizados: `data/capturas_anuncios/2026-11-12/`, 22 archivos
+  verificados por el nuevo quinto control de `scripts/audit_project.py`.
+- Antes se conservó un intento con URLs antiguas 404 y HTML sin interpretar;
+  se corrigieron rutas, enlace de vivienda frente al de agencia, tarjetas
+  completas frente a subelementos, localización bilingüe/paréntesis y m².
+  Los fixtures estructurales nuevos están identificados como sintéticos.
+- Tres señales de temporalidad y dos de empresas (solapables); ausencia de
+  señal no acredita uso habitual. Las nueve descripciones ausentes de Habitaclia
+  quedan nulas; no se reutiliza su ubicación como descripción.
+- Recorrido completo **real**: 31 archivos recuperados idénticos de HDFS,
+  638 mensajes publicados/recibidos y 638 registros persistidos: 621 promociones
+  oficiales y 17 anuncios. Dos rechazos de Abanto en la preparación oficial,
+  cero rechazos adicionales de transporte. Segunda carga completa en la misma
+  base mantiene 638. Reentrega de los 17 también conserva el recuento.
+- Consultas corregidas: antes la consulta Bilbao mezclaba 9 promociones con
+  6 anuncios. Ahora las consultas de anuncios excluyen promociones/simulaciones
+  y precios no positivos. Resultados 6/1/4/0/0 documentados sin rellenar ceros.
+- Explain real: COLLSCAN 638 documentos frente a IXSCAN 4, cuatro resultados
+  iguales, ambos 0 ms; no se afirma una aceleración temporal medible.
+- Atomicidad: 100 incrementos concurrentes en una copia aislada de un anuncio;
+  contador 100, sin modificar el contador original ni representar demanda real.
+- `scripts/analyze_rental_sample.py` reinterpreta los HTML archivados offline,
+  contrasta los campos con MongoDB y exporta informe, consultas, explain y huellas.
+- El visor territorial añade comparación y dispersión de la muestra verificada,
+  tabla de condiciones y CSV. No mezcla precios de anuncios de 2026 con salario
+  OVJ de 2024 ni con contratos EMAL. Informe/PDF y defensa actualizados.
+- Añadido CI de la versión actual en Linux/Windows con uv.lock, 159 pruebas,
+  integridad, preparación BDA, PDF y AppTest del modelo congelado. No recupera
+  artefactos históricos ni ejecuta entrenamiento o evaluación del holdout.
+
+## Validación en esta máquina
+
+- 159 passed en tests/, cinco avisos conocidos, sin skips.
+- 12 passed en integración HDFS/Kafka/MongoDB, sin skips.
+- Primer intento de integración: 10 passed y 1 fallo al dejar de responder HDFS.
+  Reiniciados NameNode/DataNode en sesiones supervisadas, sin reformatear;
+  repetición de 11 pruebas correcta y suite final ampliada a 12 correcta.
+- n8n 2.47.3 real: ocho ramas con persistencia e idempotencia. AppTest del
+  formulario con ceros → R_SEGURIDAD → consentimiento → ficha local, repetición
+  del UUID. Es un caso de prueba, no un expediente ni comunicación externa.
+- AppTest territorial: cinco tablas y cero excepciones/errores.
+- Chromium/Playwright sobre las dos aplicaciones reales; capturas conservadas.
+- Auditoría: seis originales oficiales, 88 artefactos ML, test único y 22 archivos
+  de la captura intactos; copias académicas sincronizadas.
+- Los servicios son temporales de esta máquina: MongoDB 27018, Kafka 9092,
+  HDFS 9870/9864, n8n 5678. Comprobar estado al reanudar; no asumir persistencia.
+
+Evidencias: `docs/evidencias_entrega_2026-11-12/`. Los XML y los informes locales
+validan este árbol de trabajo; no se etiquetan como CI remoto. No se ha entrenado,
+reseleccionado ni reevaluado el test del modelo conservado.
+
+## Próximo cierre
+
+Subir el commit a dev-jon y comprobar el CI de esa revisión, incluido Windows.
+Promover normalmente a test/main solo después de las validaciones de la versión
+actual, conservando el trabajo remoto. Volver a dev-jon. El ensayo oral humano
+cronometrado y las respuestas individuales siguen pendientes: el guion y el
+recorrido técnico no sustituyen la intervención del alumnado.
+
+La documentación siguiente es el historial anterior. Sus bloqueos de red y el
+scraping pendiente fueron superados en el incremento descrito arriba.
+
+---
+
 # Continuación · 11 de noviembre de 2026
 
 ## Incremento posterior: adquisición trazable de anuncios

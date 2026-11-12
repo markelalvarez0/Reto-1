@@ -1,0 +1,130 @@
+{
+  "fuentes": [
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/informe.json",
+      "sha256": "f6b3f039a0c2bfdb4d525a5d5798df858fb31860ec0a24db507bd85c1322c84d"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/vivienda_scraping.json",
+      "sha256": "d5cce8d4fd8001e126a63088ba2602b0e03ab5b241db0ff2fe2e5d4848a72f52"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/listado_b642745e476845e18ee5ccb369324ea0.bin",
+      "sha256": "536f89e7a9bf2bf5f966ca05b2a1f62ec5245381f77dd0b5ac4907be769235b1"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/listado_b642745e476845e18ee5ccb369324ea0.json",
+      "sha256": "21b409c08f12a4a414a769aebfe6b37ebe11428b3c489a46d858e4c2b99e55bb"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/listado_d6996453b4364070a0cd14fa0c7f5308.json",
+      "sha256": "9290dda86196d0a399de23342e981373a0b15d856def557868e0492993508e0b"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/listado_3695b3718fa34cc985ce221fff6fdf13.json",
+      "sha256": "6215dae74506f56a14ba35b0804bdf0f9810f444de3f19f8e3984d879bcbeb7d"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/robots_b41068e693ce4eec8a1a48684edc6bdb.json",
+      "sha256": "847c5e43b5727949708bae5bc1e9c95eb20b65d529788b055a1806f2a8b902f3"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/robots_b41068e693ce4eec8a1a48684edc6bdb.bin",
+      "sha256": "1121c0c43b2ffa3a82cbaaf0dca58614c50144ee21d04ff33dd9d4845dc13508"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/listado_c67ab944df9e47ae8a90c931983f2d4b.json",
+      "sha256": "959f5ffad5c129b0b3e92743318ff5c9bbe422c18063045c3d1b2ff5fc34ff47"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/listado_23917c28e70e4d37acd5438d1cf6909f.json",
+      "sha256": "2d1d142cf1046d664828354fa685690d757d239d12d5848bb0b527e11cb21540"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/listado_d6996453b4364070a0cd14fa0c7f5308.bin",
+      "sha256": "891b4f20c62960130961e3c0818c806be0378b148bec13ce49d9136d59afc1d8"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/listado_1cf35aeb8dc44b30ac6eced7fd801bdb.bin",
+      "sha256": "d802e2f8bb0b6e55b516660c8f95be235bd01faa6cb1bf6c0bff91c62180be0b"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/listado_ee26ffb6e34f4e70a358fd732d8eabd4.bin",
+      "sha256": "f92ab713ce44829f5c0618e1027ae6f1645262a0d7beb718053043eaf4699a8b"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/listado_1cf35aeb8dc44b30ac6eced7fd801bdb.json",
+      "sha256": "4a0c3baf3ac7a56901cb95fb75e0ff464dcfbaa3d1bd2ef4b1691f553aed7404"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/listado_c67ab944df9e47ae8a90c931983f2d4b.bin",
+      "sha256": "d0f78d487b4e4530c0516a5b2e92d0bbddadb9914ceab600786e1988f07edfa7"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/listado_23917c28e70e4d37acd5438d1cf6909f.bin",
+      "sha256": "b8e0626b36f6a17a4d2cef490f7f5d15aa86f41aadb89c3220eeea8fc99d1ae7"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/listado_a9d548e1182c47b794c8604dd0a50b05.json",
+      "sha256": "c06ff0a4d0fe4ae74115f571a3e9977f229229ba0944a66ad4a5715ab06498d5"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/robots_65db46a9018d42c69599ac113c41b975.bin",
+      "sha256": "76e4793160ff467f91863b64744ad18d862df71cb8ae6294be803353e7fffefe"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/listado_ee26ffb6e34f4e70a358fd732d8eabd4.json",
+      "sha256": "cb9981917297e3f4809ad43f16a7c8404ee993cbca8d8210b19f7d0ced7813c9"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/listado_3695b3718fa34cc985ce221fff6fdf13.bin",
+      "sha256": "fb87602b7d61bdc5f642f91a15be365cf1c0fddbb7e7a9f1139210e425977180"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/robots_65db46a9018d42c69599ac113c41b975.json",
+      "sha256": "32fef6fa7aa67359d1015e568030c5c7aee837626ff09ecdb537fbb47bf8b22b"
+    },
+    {
+      "archivo": "data/capturas_anuncios/2026-11-12/sources/listado_a9d548e1182c47b794c8604dd0a50b05.bin",
+      "sha256": "c2ff0a45ad9f23cd0d337a549955ecce94a307d94a07c10e056e24e6e2db10c5"
+    },
+    {
+      "archivo": "data/bda/con_scraping/manifest.json",
+      "sha256": "e0ff1c1c45acbdc03fa78bb67f5d0c570f955a541369676f6d30844ec59896cf"
+    },
+    {
+      "archivo": "data/bda/con_scraping/estadisticas_por_municipio.json",
+      "sha256": "f4576512843f65bafb69353e868ec2e6e3e6c113c9a8fee11d1bbaafa5014a62"
+    },
+    {
+      "archivo": "data/bda/con_scraping/indicadores_municipales.json",
+      "sha256": "55b474b873176abcdfaa8a9580142febba01e56995d4f3f84d28de0bad55becc"
+    },
+    {
+      "archivo": "data/bda/con_scraping/distribuciones.json",
+      "sha256": "be26e0978e11e4ad976ecc1e05ad56695ac67f2afed00ef93cc45a989c06046e"
+    },
+    {
+      "archivo": "data/bda/con_scraping/esfuerzo_por_vivienda.json",
+      "sha256": "65d65aff05d46a6040c012226cca4b01bbccb6a1f2cfacdf4ed46aa7c620c6e8"
+    }
+  ],
+  "resultados": [
+    {
+      "archivo": "resumen.json",
+      "sha256": "4de3f112f2b653bb4ff9330650457e38ed6d57a7589edbdaabf608a0acf7636f"
+    },
+    {
+      "archivo": "consultas.json",
+      "sha256": "2f77e1002b5bb99bb100eac984d5947ca22f0977766e6289d6d58f3e2e35f9c9"
+    },
+    {
+      "archivo": "explain.json",
+      "sha256": "e7e917b995c529c9314764572375d807bd5f39bac92308cb0e80f9e799825117"
+    },
+    {
+      "archivo": "anuncios.json",
+      "sha256": "d5cce8d4fd8001e126a63088ba2602b0e03ab5b241db0ff2fe2e5d4848a72f52"
+    }
+  ]
+}

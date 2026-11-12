@@ -1,5 +1,22 @@
 # BDA: ingesta trazable y transporte de las capturas oficiales
 
+## Actualización · 12 de noviembre de 2026
+
+La captura de anuncios está acreditada con **17 identidades de dos portales**
+(9 Habitaclia y 8 Pisos.com), conservadas con robots, HTML y SHA-256 en
+`data/capturas_anuncios/2026-11-12/`. Se han transportado por HDFS → Kafka → MongoDB
+junto con 621 registros de promociones: **638 registros**, sin confundir sus unidades.
+La muestra cubre las tres capitales y mezcla condiciones de alquiler; no es
+representativa ni acredita disponibilidad o uso habitual.
+
+Resultados, consultas, índices y límites: [RESULTADOS_ANUNCIOS.md](RESULTADOS_ANUNCIOS.md).
+El visor territorial incorpora la muestra archivada, precios y superficies.
+Las menciones al bloqueo de red del 11 de noviembre que siguen son históricas;
+en esta máquina ambos robots responden HTTP 200 y la API GitHub funciona.
+El modelo y su test único permanecen intactos. No se han usado los anuncios
+para entrenar ni reevaluar el holdout.
+
+
 ## Continuación validada el 11 de noviembre de 2026
 
 En esta máquina se ejecutaron cinco pruebas end-to-end sin skips con Hadoop
@@ -91,6 +108,6 @@ El comando de la raiz `python main.py --subject bda_sbd --pipeline` delega en el
 
 La validacion usa Hadoop, Apache Kafka y MongoDB temporales en GitHub Actions. Comprueba los originales, el transporte, la persistencia, los recuentos, las uniones municipales y una recarga idempotente. No modifica el modelo ML ni vuelve a evaluar su test reservado.
 
-Esto **no acredita todavia** una muestra vigente de alquiler libre obtenida por scraping ni la descarga verificada de todos los indicadores Udalmap. Los scrapers y clientes antiguos que no intervienen en este recorrido requieren su propia revision, incluido el cliente OVJ heredado con constantes. No deben usarse sus salidas historicas como evidencia observada. La comparación actual emplea EMAL y OVJ verificados, no esas constantes.
+Esa ejecución histórica no acreditaba anuncios. La muestra del 12 de noviembre sí aporta 17 anuncios; no acredita la descarga de todos los indicadores Udalmap. Los scrapers y clientes antiguos que no intervienen en este recorrido requieren su propia revision, incluido el cliente OVJ heredado con constantes. No deben usarse sus salidas historicas como evidencia observada. La comparación actual emplea EMAL y OVJ verificados, no esas constantes.
 
-El mapa histórico no se abre como si contuviera estos resultados. El visor territorial actual está comprobado con resultados de MongoDB real y muestra promociones localizadas, no ofertas disponibles. Permanecen pendientes los indicadores de mercado libre basados en anuncios individuales.
+El mapa histórico no se abre como si contuviera estos resultados. El visor territorial actual está comprobado con resultados de MongoDB real y muestra promociones localizadas, no ofertas disponibles. El incremento del 12 de noviembre añade indicadores de la muestra de anuncios; no representan el conjunto del mercado libre.

@@ -1,0 +1,32 @@
+[
+  {
+    "municipio": "Vitoria - Gasteiz",
+    "total_anuncios": 5,
+    "precio_medio": 1604.4,
+    "precio_minimo": 750.0,
+    "precio_maximo": 3150.0,
+    "superficie_media": 95.8,
+    "precio_m2_medio": 16.60464105653721,
+    "codigo_municipio": "01059"
+  },
+  {
+    "municipio": "Donostia - San Sebastián",
+    "total_anuncios": 6,
+    "precio_medio": 2108.3333333333335,
+    "precio_minimo": 1350.0,
+    "precio_maximo": 2500.0,
+    "superficie_media": 86.0,
+    "precio_m2_medio": 25.698646960274868,
+    "codigo_municipio": "20069"
+  },
+  {
+    "municipio": "Bilbao",
+    "total_anuncios": 6,
+    "precio_medio": 2316.6666666666665,
+    "precio_minimo": 1200.0,
+    "precio_maximo": 4500.0,
+    "superficie_media": 105.5,
+    "precio_m2_medio": 21.35638434326977,
+    "codigo_municipio": "48020"
+  }
+]

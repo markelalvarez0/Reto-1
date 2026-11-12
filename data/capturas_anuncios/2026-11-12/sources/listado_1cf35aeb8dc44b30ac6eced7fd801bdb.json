@@ -1,0 +1,12 @@
+{
+  "archivo": "listado_1cf35aeb8dc44b30ac6eced7fd801bdb.bin",
+  "url": "https://www.pisos.com/alquiler/viviendas-donostia_san_sebastian/",
+  "http_status": 301,
+  "fecha_utc": "2026-11-12T14:33:22.183286+00:00",
+  "sha256": "d802e2f8bb0b6e55b516660c8f95be235bd01faa6cb1bf6c0bff91c62180be0b",
+  "bytes": 160,
+  "clase": "listado",
+  "user_agent": "Reto1AcademicBot/1.0",
+  "tls_verificado": true,
+  "content_type": "text/html; charset=utf-8"
+}

@@ -1,0 +1,12 @@
+{
+  "archivo": "robots_b41068e693ce4eec8a1a48684edc6bdb.bin",
+  "url": "https://www.habitaclia.com/robots.txt",
+  "http_status": 200,
+  "fecha_utc": "2026-11-12T14:33:11.709346+00:00",
+  "sha256": "1121c0c43b2ffa3a82cbaaf0dca58614c50144ee21d04ff33dd9d4845dc13508",
+  "bytes": 1826,
+  "clase": "robots",
+  "user_agent": "Reto1AcademicBot/1.0",
+  "tls_verificado": true,
+  "content_type": "text/plain; charset=UTF-8"
+}

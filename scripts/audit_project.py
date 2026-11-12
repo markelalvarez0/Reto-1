@@ -76,6 +76,9 @@ def audit(root=ROOT):
         return "Tres copias académicas coinciden con src/"
 
     check("copias_academicas", mirrors)
+    check("captura_anuncios", lambda: verify_files(
+        {"archivo": "data/capturas_anuncios/" + e["archivo"], "sha256": e["sha256"]}
+        for e in read("data/capturas_anuncios/manifest.json")))
     return {"ok": all(item["ok"] for item in checks), "controles": checks,
             "alcance": "Integridad local. No acredita servicios activos, scraping vigente ni cumplimiento completo de rúbricas."}
 

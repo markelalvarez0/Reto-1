@@ -1,0 +1,24 @@
+{
+  "politica": "unrestricted, enforced; observations_current=true",
+  "robots_ambos": "HTTP 200; originales en data/capturas_anuncios",
+  "api_github": "HTTP 200",
+  "avisos_consultados": [
+    "https://www.habitaclia.com/hab_cliente/legal_aviso.asp",
+    "https://www.pisos.com/avisolegal"
+  ],
+  "avisos_sha256": [
+    {
+      "fuente": "habitaclia.legal.html",
+      "fecha_utc": "2026-11-12",
+      "sha256": "3b630d56f397587897542a967944c8dadd39aafa2340024e6019444e5f9430da",
+      "bytes": 106475
+    },
+    {
+      "fuente": "pisos.legal.html",
+      "fecha_utc": "2026-11-12",
+      "sha256": "91643d645b3e4645854e92f75f40a29edfa0db6d3d034e1815c69e0a7190016c",
+      "bytes": 212361
+    }
+  ],
+  "limitacion": "Robots no equivale a licencia; muestra académica sin explotación comercial."
+}

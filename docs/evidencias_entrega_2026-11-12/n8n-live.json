@@ -1,0 +1,175 @@
+{
+  "motor": "n8n real",
+  "datos": "fixtures sin datos personales",
+  "ramas": 8,
+  "resultados": [
+    {
+      "estado": "ENVIADO_N8N",
+      "payload_enviado": {
+        "event_id": "0689136d-846b-4088-b527-88fa869974f5",
+        "decision": "REVISION_DATOS",
+        "regla_id": "CI",
+        "renta_estimada": 700,
+        "origen": "Streamlit_Reto1",
+        "version": 1
+      },
+      "respuesta_n8n": {
+        "event_id": "0689136d-846b-4088-b527-88fa869974f5",
+        "decision": "REVISION_DATOS",
+        "accion": "revision_datos",
+        "persistido": true,
+        "fecha_utc": "2026-11-12T14:40:49.037338+00:00",
+        "huella": "c4fe08e0549c977dc7d2289276e5ce1a6139eca49046bd33206fc85ad39da315",
+        "documento": "Comprobar campos ausentes y cobertura del modelo.",
+        "resolucion_administrativa": false
+      }
+    },
+    {
+      "estado": "ENVIADO_N8N",
+      "payload_enviado": {
+        "event_id": "b0cfafc4-fa0f-4cde-a2df-9d448562fd34",
+        "decision": "REVISION_NORMATIVA",
+        "regla_id": "CI",
+        "renta_estimada": 700,
+        "origen": "Streamlit_Reto1",
+        "version": 1
+      },
+      "respuesta_n8n": {
+        "event_id": "b0cfafc4-fa0f-4cde-a2df-9d448562fd34",
+        "decision": "REVISION_NORMATIVA",
+        "accion": "revision_normativa",
+        "persistido": true,
+        "fecha_utc": "2026-11-12T14:40:49.242489+00:00",
+        "huella": "e1d36e63c1ad6c44382e70ea05bab60ce9778848637c7d91257af13fe7acf41c",
+        "documento": "Verificar convocatoria, excepciones y documentacion.",
+        "resolucion_administrativa": false
+      }
+    },
+    {
+      "estado": "ENVIADO_N8N",
+      "payload_enviado": {
+        "event_id": "ae88f320-93ee-4519-a9e1-f2d148887b32",
+        "decision": "ORIENTACION_PRIORITARIA",
+        "regla_id": "CI",
+        "renta_estimada": 700,
+        "origen": "Streamlit_Reto1",
+        "version": 1
+      },
+      "respuesta_n8n": {
+        "event_id": "ae88f320-93ee-4519-a9e1-f2d148887b32",
+        "decision": "ORIENTACION_PRIORITARIA",
+        "accion": "cita_prioritaria",
+        "persistido": true,
+        "fecha_utc": "2026-11-12T14:40:49.377141+00:00",
+        "huella": "c468f267b1878d8f61f079ba3c90ad3abe1cba33dc66ed4e907dad7600969abc",
+        "documento": "Solicitud interna de atencion prioritaria: pendiente de asignacion humana.",
+        "resolucion_administrativa": false
+      }
+    },
+    {
+      "estado": "ENVIADO_N8N",
+      "payload_enviado": {
+        "event_id": "cccfda57-2e39-4833-bcd9-8b66353913ff",
+        "decision": "REVISION_REQUISITOS",
+        "regla_id": "CI",
+        "renta_estimada": 700,
+        "origen": "Streamlit_Reto1",
+        "version": 1
+      },
+      "respuesta_n8n": {
+        "event_id": "cccfda57-2e39-4833-bcd9-8b66353913ff",
+        "decision": "REVISION_REQUISITOS",
+        "accion": "checklist_requisitos",
+        "persistido": true,
+        "fecha_utc": "2026-11-12T14:40:49.531616+00:00",
+        "huella": "faa54293f2ca118bbcc90abb19a8437f3f7d3807f7baa6296f279c4bc9ecfed8",
+        "documento": "Checklist: edad, renta computable, residencia, titularidad e incompatibilidades.",
+        "resolucion_administrativa": false
+      }
+    },
+    {
+      "estado": "ENVIADO_N8N",
+      "payload_enviado": {
+        "event_id": "9ae23a2a-4eab-48a4-9b87-c62d91b821e4",
+        "decision": "BUSCAR_ALTERNATIVAS",
+        "regla_id": "CI",
+        "renta_estimada": 700,
+        "origen": "Streamlit_Reto1",
+        "version": 1
+      },
+      "respuesta_n8n": {
+        "event_id": "9ae23a2a-4eab-48a4-9b87-c62d91b821e4",
+        "decision": "BUSCAR_ALTERNATIVAS",
+        "accion": "ficha_alternativas",
+        "persistido": true,
+        "fecha_utc": "2026-11-12T14:40:49.675450+00:00",
+        "huella": "48d41cfe88cd57fd0d051aebd5e767c62f2f2357ca0884c9844856ba666e8821",
+        "documento": "Comparar municipios y presupuesto; no asumir subvenciones concedidas.",
+        "resolucion_administrativa": false
+      }
+    },
+    {
+      "estado": "ENVIADO_N8N",
+      "payload_enviado": {
+        "event_id": "0b05ed89-77f2-4261-bb19-7cd899d9bce0",
+        "decision": "PLANIFICAR_ENTRADA",
+        "regla_id": "CI",
+        "renta_estimada": 700,
+        "origen": "Streamlit_Reto1",
+        "version": 1
+      },
+      "respuesta_n8n": {
+        "event_id": "0b05ed89-77f2-4261-bb19-7cd899d9bce0",
+        "decision": "PLANIFICAR_ENTRADA",
+        "accion": "plan_entrada",
+        "persistido": true,
+        "fecha_utc": "2026-11-12T14:40:49.819213+00:00",
+        "huella": "222ae13d99b0920607e4dc1a44f12ae7d9b9687772fa0b2b471f8025a31668b2",
+        "documento": "Revisar fianza y gastos de entrada declarados antes de contratar.",
+        "resolucion_administrativa": false
+      }
+    },
+    {
+      "estado": "ENVIADO_N8N",
+      "payload_enviado": {
+        "event_id": "f6e49479-2c42-41bf-8334-248dd8e1b732",
+        "decision": "CONSULTAR_GAZTELAGUN",
+        "regla_id": "CI",
+        "renta_estimada": 700,
+        "origen": "Streamlit_Reto1",
+        "version": 1
+      },
+      "respuesta_n8n": {
+        "event_id": "f6e49479-2c42-41bf-8334-248dd8e1b732",
+        "decision": "CONSULTAR_GAZTELAGUN",
+        "accion": "checklist_gaztelagun",
+        "persistido": true,
+        "fecha_utc": "2026-11-12T14:40:50.016488+00:00",
+        "huella": "16da6cc69c173051337dfbb79ea821a236a0b2d448ec64118841cf9d72b275b1",
+        "documento": "Preparar solicitud para revision administrativa, sin concesion automatica.",
+        "resolucion_administrativa": false
+      }
+    },
+    {
+      "estado": "ENVIADO_N8N",
+      "payload_enviado": {
+        "event_id": "bf440e6c-19b4-4d6d-915f-20235732e460",
+        "decision": "INFORMACION_GENERAL",
+        "regla_id": "CI",
+        "renta_estimada": 700,
+        "origen": "Streamlit_Reto1",
+        "version": 1
+      },
+      "respuesta_n8n": {
+        "event_id": "bf440e6c-19b4-4d6d-915f-20235732e460",
+        "decision": "INFORMACION_GENERAL",
+        "accion": "ficha_informativa",
+        "persistido": true,
+        "fecha_utc": "2026-11-12T14:40:50.173664+00:00",
+        "huella": "093365b4c61a4e9b574e60db65f61ae620869af7ccb7175a3688866138f7d80d",
+        "documento": "Presupuesto orientativo; prediccion municipal no es oferta de vivienda.",
+        "resolucion_administrativa": false
+      }
+    }
+  ]
+}

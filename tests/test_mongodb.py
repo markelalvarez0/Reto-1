@@ -53,7 +53,7 @@ def test_mongo_data_loader_structure(mongo_env):
 def test_mongo_advanced_queries(mongo_env):
     """Verifica la ejecución de las 5 consultas analíticas."""
     db = mongo_env["db"]
-    queries = MongoHousingQueries(db)
+    queries = MongoHousingQueries(db, include_synthetic=True)
     
     # Q1: Igualdad
     q1 = queries.consulta_1_alquileres_en_municipio("Bilbao")

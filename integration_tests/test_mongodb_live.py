@@ -11,6 +11,7 @@ from src.database.cleaning import MongoDataCleaner
 from src.database.aggregations import MongoHousingAggregations
 from src.database.indexes import MongoIndexOptimizer
 from src.database.consistency import MongoConsistencyManager
+from src.database.queries import MongoHousingQueries
 
 
 @pytest.fixture
@@ -93,3 +94,22 @@ def test_nulos_reales_no_se_transforman_en_asequibilidad(db):
     db.viviendas.insert_one({'id_origen': 'nulo', 'fuente': 'ci', 'tipo_operacion': 'alquiler', 'precio': 'sin precio'})
     MongoDataCleaner(db).ejecutar_pipeline_limpieza()
     assert db.viviendas.find_one()['categoria_accesibilidad'] == 'SIN_DATOS'
+
+
+def test_consultas_separan_anuncios_de_promociones_y_fixtures(db):
+    base = {'municipio': 'Bilbao', 'tipo_operacion': 'alquiler', 'precio': 700,
+            'superficie_m2': 60, 'es_sintetico': False, 'tipo_registro': 'anuncio',
+            'caracteristicas': {'habitaciones': 2, 'ascensor': True}}
+    # Todos son fixtures declarados; es_sintetico=False ejercita el filtro de producción.
+    db.viviendas.insert_many([
+        {**base, 'id_origen': 'observado_fixture'},
+        {**base, 'id_origen': 'promocion_fixture', 'tipo_registro': 'promocion'},
+        {**base, 'id_origen': 'demo_fixture', 'es_sintetico': True},
+        {**base, 'id_origen': 'sin_precio_fixture', 'precio': None},
+    ])
+    queries = MongoHousingQueries(db)
+    for result in (queries.consulta_1_alquileres_en_municipio(),
+                   queries.consulta_2_alquileres_asequibles_jovenes(),
+                   queries.consulta_3_condiciones_combinadas(),
+                   queries.consulta_4_campos_anidados_confort()):
+        assert len(result) == 1

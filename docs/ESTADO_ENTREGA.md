@@ -1,5 +1,22 @@
 # Estado de entrega y comprobación por asignatura
 
+## Actualización · 12 de noviembre de 2026
+
+La captura de anuncios está acreditada con **17 identidades de dos portales**
+(9 Habitaclia y 8 Pisos.com), conservadas con robots, HTML y SHA-256 en
+`data/capturas_anuncios/2026-11-12/`. Se han transportado por HDFS → Kafka → MongoDB
+junto con 621 registros de promociones: **638 registros**, sin confundir sus unidades.
+La muestra cubre las tres capitales y mezcla condiciones de alquiler; no es
+representativa ni acredita disponibilidad o uso habitual.
+
+Resultados, consultas, índices y límites: [RESULTADOS_ANUNCIOS.md](RESULTADOS_ANUNCIOS.md).
+El visor territorial incorpora la muestra archivada, precios y superficies.
+Las menciones al bloqueo de red del 11 de noviembre que siguen son históricas;
+en esta máquina ambos robots responden HTTP 200 y la API GitHub funciona.
+El modelo y su test único permanecen intactos. No se han usado los anuncios
+para entrenar ni reevaluar el holdout.
+
+
 ## Actualización del 11 de noviembre de 2026
 
 La adquisición de anuncios tiene ahora un CLI trazable y comprobaciones de
@@ -107,7 +124,7 @@ no medias de todos los contratos de cada provincia.
 
 | Asignatura | Evidencia utilizable | Pendiente para cerrar toda la entrega |
 |---|---|---|
-| BDA | Capturas oficiales y vistas municipales verificadas en HDFS/Kafka/MongoDB reales, con recarga idempotente y CI correcto en 1c7c45e. | Muestra vigente de alquiler libre obtenida por scraping. El HTML OVJ no equivale a anuncios. |
+| BDA | Capturas oficiales y vistas municipales verificadas en HDFS/Kafka/MongoDB reales, con recarga idempotente y CI correcto en 1c7c45e. | Muestra de 17 anuncios archivada el 12 de noviembre y transportada con servicios reales; mezcla de modalidades documentada. Ensayo de defensa pendiente. |
 | SBD | Modelado, limpieza, consultas, agregaciones e índices con mongod real; comparación EMAL/OVJ y transporte de vistas incluidos en evidencias. | Ensayo de la demostración y defensa. Las consultas de anuncios se prueban con fixtures identificados. |
 | SAA | EDA, cinco familias, MLP y experimentos, SHAP y test único conservado. Contraste docente documentado. | Defensa individual. sklearn no se presenta como Keras; no se cambia el ganador mirando test. |
 | PIA | Pipeline, MLflow, notebooks, Streamlit y PDF corregido desde artefactos verificados. Capturas y prueba de reapertura actuales. | Validación de la versión nueva en Windows si se entrega para esa plataforma. |
@@ -118,8 +135,7 @@ revisar qué prueban. Los avisos de convergencia de mini-tests no son resultados
 entrenamiento de entrega. Los originales, los artefactos ML y el test final
 permanecen conservados byte a byte.
 
-Se ha preparado [defensa de 15 minutos y preguntas](DEFENSA.md). Permanecen
-pendientes el scraping autorizado de anuncios individuales y el ensayo humano.
+Se ha preparado [defensa de 15 minutos y preguntas](DEFENSA.md). Permanece pendiente el ensayo humano; la captura de anuncios está acreditada en la actualización del 12 de noviembre.
 La integración en test/main espera validación
 integral, como autorizó el usuario. Las cifras históricas de la tabla anterior
 deben leerse junto a esta actualización, no como trabajo aún sin implementar.

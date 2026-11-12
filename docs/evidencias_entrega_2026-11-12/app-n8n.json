@@ -1,0 +1,21 @@
+{
+  "datos": "formulario de prueba con ceros; no expediente real",
+  "consentimiento_obligatorio": true,
+  "accion_persistida": true,
+  "repeticion_uuid": "f7a980c5-e5de-4222-8bed-159d4f63c49c",
+  "decision": {
+    "regla_id": "R_SEGURIDAD",
+    "nombre_regla": "R_SEGURIDAD",
+    "prioridad": 100,
+    "decision": "REVISION_DATOS",
+    "accion_recomendada": "Abrir tarea de verificacion sin resolver derechos.",
+    "justificacion_negocio": "Faltan datos, hay valores imposibles o el modelo esta fuera de cobertura.",
+    "renta_estimada": 857.8253293014686,
+    "esfuerzo_pct": null,
+    "ayuda_teorica_max": null,
+    "canal_notificacion": "registro_local_n8n",
+    "aviso": "Orientativo. No concede ni deniega ayudas. Se requiere comprobacion administrativa.",
+    "norma": "https://www.euskadi.eus/bopv2/datos/2026/06/2602608a.shtml"
+  },
+  "comunicaciones_externas": false
+}

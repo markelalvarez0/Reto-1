@@ -1,0 +1,345 @@
+{
+  "estado": "MEDIDO_EN_MONGODB",
+  "consulta": {
+    "municipio": "Bilbao",
+    "tipo_operacion": "alquiler",
+    "precio": {
+      "$gt": 0,
+      "$lte": 2000
+    }
+  },
+  "sin_indice": {
+    "stage": "COLLSCAN",
+    "stages": [
+      "COLLSCAN"
+    ],
+    "totalDocsExamined": 638,
+    "totalKeysExamined": 0,
+    "nReturned": 4,
+    "executionTimeMillis": 0,
+    "explain": {
+      "explainVersion": "1",
+      "queryPlanner": {
+        "namespace": "reto1_entrega_20261112.viviendas",
+        "indexFilterSet": false,
+        "parsedQuery": {
+          "$and": [
+            {
+              "municipio": {
+                "$eq": "Bilbao"
+              }
+            },
+            {
+              "tipo_operacion": {
+                "$eq": "alquiler"
+              }
+            },
+            {
+              "precio": {
+                "$lte": 2000
+              }
+            },
+            {
+              "precio": {
+                "$gt": 0
+              }
+            }
+          ]
+        },
+        "queryHash": "9FD83D03",
+        "planCacheKey": "4F69C8AB",
+        "optimizationTimeMillis": 0,
+        "maxIndexedOrSolutionsReached": false,
+        "maxIndexedAndSolutionsReached": false,
+        "maxScansToExplodeReached": false,
+        "winningPlan": {
+          "stage": "COLLSCAN",
+          "filter": {
+            "$and": [
+              {
+                "municipio": {
+                  "$eq": "Bilbao"
+                }
+              },
+              {
+                "tipo_operacion": {
+                  "$eq": "alquiler"
+                }
+              },
+              {
+                "precio": {
+                  "$lte": 2000
+                }
+              },
+              {
+                "precio": {
+                  "$gt": 0
+                }
+              }
+            ]
+          },
+          "direction": "forward"
+        },
+        "rejectedPlans": []
+      },
+      "executionStats": {
+        "executionSuccess": true,
+        "nReturned": 4,
+        "executionTimeMillis": 0,
+        "totalKeysExamined": 0,
+        "totalDocsExamined": 638,
+        "executionStages": {
+          "stage": "COLLSCAN",
+          "filter": {
+            "$and": [
+              {
+                "municipio": {
+                  "$eq": "Bilbao"
+                }
+              },
+              {
+                "tipo_operacion": {
+                  "$eq": "alquiler"
+                }
+              },
+              {
+                "precio": {
+                  "$lte": 2000
+                }
+              },
+              {
+                "precio": {
+                  "$gt": 0
+                }
+              }
+            ]
+          },
+          "nReturned": 4,
+          "executionTimeMillisEstimate": 0,
+          "works": 639,
+          "advanced": 4,
+          "needTime": 634,
+          "needYield": 0,
+          "saveState": 0,
+          "restoreState": 0,
+          "isEOF": 1,
+          "direction": "forward",
+          "docsExamined": 638
+        }
+      },
+      "command": {
+        "find": "viviendas",
+        "filter": {
+          "municipio": "Bilbao",
+          "tipo_operacion": "alquiler",
+          "precio": {
+            "$gt": 0,
+            "$lte": 2000
+          }
+        },
+        "hint": {
+          "$natural": 1
+        },
+        "$db": "reto1_entrega_20261112"
+      },
+      "serverInfo": {
+        "host": "3411fa354f85",
+        "port": 27017,
+        "version": "7.0.48",
+        "gitVersion": "6937736f0539a5d4c8edb2970255b9369cb385a5"
+      },
+      "serverParameters": {
+        "internalQueryFacetBufferSizeBytes": 104857600,
+        "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+        "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+        "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+        "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+        "internalQueryProhibitBlockingMergeOnMongoS": 0,
+        "internalQueryMaxAddToSetBytes": 104857600,
+        "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+        "internalQueryFrameworkControl": "forceClassicEngine"
+      },
+      "ok": 1.0
+    }
+  },
+  "con_indice": {
+    "stage": "IXSCAN",
+    "stages": [
+      "FETCH",
+      "IXSCAN"
+    ],
+    "totalDocsExamined": 4,
+    "totalKeysExamined": 4,
+    "nReturned": 4,
+    "executionTimeMillis": 0,
+    "explain": {
+      "explainVersion": "1",
+      "queryPlanner": {
+        "namespace": "reto1_entrega_20261112.viviendas",
+        "indexFilterSet": false,
+        "parsedQuery": {
+          "$and": [
+            {
+              "municipio": {
+                "$eq": "Bilbao"
+              }
+            },
+            {
+              "tipo_operacion": {
+                "$eq": "alquiler"
+              }
+            },
+            {
+              "precio": {
+                "$lte": 2000
+              }
+            },
+            {
+              "precio": {
+                "$gt": 0
+              }
+            }
+          ]
+        },
+        "queryHash": "9FD83D03",
+        "planCacheKey": "4F69C8AB",
+        "optimizationTimeMillis": 0,
+        "maxIndexedOrSolutionsReached": false,
+        "maxIndexedAndSolutionsReached": false,
+        "maxScansToExplodeReached": false,
+        "winningPlan": {
+          "stage": "FETCH",
+          "inputStage": {
+            "stage": "IXSCAN",
+            "keyPattern": {
+              "municipio": 1,
+              "tipo_operacion": 1,
+              "precio": 1
+            },
+            "indexName": "idx_municipio_operacion_precio",
+            "isMultiKey": false,
+            "multiKeyPaths": {
+              "municipio": [],
+              "tipo_operacion": [],
+              "precio": []
+            },
+            "isUnique": false,
+            "isSparse": false,
+            "isPartial": false,
+            "indexVersion": 2,
+            "direction": "forward",
+            "indexBounds": {
+              "municipio": [
+                "[\"Bilbao\", \"Bilbao\"]"
+              ],
+              "tipo_operacion": [
+                "[\"alquiler\", \"alquiler\"]"
+              ],
+              "precio": [
+                "(0, 2000]"
+              ]
+            }
+          }
+        },
+        "rejectedPlans": []
+      },
+      "executionStats": {
+        "executionSuccess": true,
+        "nReturned": 4,
+        "executionTimeMillis": 0,
+        "totalKeysExamined": 4,
+        "totalDocsExamined": 4,
+        "executionStages": {
+          "stage": "FETCH",
+          "nReturned": 4,
+          "executionTimeMillisEstimate": 0,
+          "works": 5,
+          "advanced": 4,
+          "needTime": 0,
+          "needYield": 0,
+          "saveState": 0,
+          "restoreState": 0,
+          "isEOF": 1,
+          "docsExamined": 4,
+          "alreadyHasObj": 0,
+          "inputStage": {
+            "stage": "IXSCAN",
+            "nReturned": 4,
+            "executionTimeMillisEstimate": 0,
+            "works": 5,
+            "advanced": 4,
+            "needTime": 0,
+            "needYield": 0,
+            "saveState": 0,
+            "restoreState": 0,
+            "isEOF": 1,
+            "keyPattern": {
+              "municipio": 1,
+              "tipo_operacion": 1,
+              "precio": 1
+            },
+            "indexName": "idx_municipio_operacion_precio",
+            "isMultiKey": false,
+            "multiKeyPaths": {
+              "municipio": [],
+              "tipo_operacion": [],
+              "precio": []
+            },
+            "isUnique": false,
+            "isSparse": false,
+            "isPartial": false,
+            "indexVersion": 2,
+            "direction": "forward",
+            "indexBounds": {
+              "municipio": [
+                "[\"Bilbao\", \"Bilbao\"]"
+              ],
+              "tipo_operacion": [
+                "[\"alquiler\", \"alquiler\"]"
+              ],
+              "precio": [
+                "(0, 2000]"
+              ]
+            },
+            "keysExamined": 4,
+            "seeks": 1,
+            "dupsTested": 0,
+            "dupsDropped": 0
+          }
+        }
+      },
+      "command": {
+        "find": "viviendas",
+        "filter": {
+          "municipio": "Bilbao",
+          "tipo_operacion": "alquiler",
+          "precio": {
+            "$gt": 0,
+            "$lte": 2000
+          }
+        },
+        "hint": "idx_municipio_operacion_precio",
+        "$db": "reto1_entrega_20261112"
+      },
+      "serverInfo": {
+        "host": "3411fa354f85",
+        "port": 27017,
+        "version": "7.0.48",
+        "gitVersion": "6937736f0539a5d4c8edb2970255b9369cb385a5"
+      },
+      "serverParameters": {
+        "internalQueryFacetBufferSizeBytes": 104857600,
+        "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+        "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+        "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+        "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+        "internalQueryProhibitBlockingMergeOnMongoS": 0,
+        "internalQueryMaxAddToSetBytes": 104857600,
+        "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+        "internalQueryFrameworkControl": "forceClassicEngine"
+      },
+      "ok": 1.0
+    }
+  },
+  "reduccion_documentos_examinados_pct": 99.3730407523511
+}

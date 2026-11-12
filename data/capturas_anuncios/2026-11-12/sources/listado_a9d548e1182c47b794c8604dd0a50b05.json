@@ -1,0 +1,12 @@
+{
+  "archivo": "listado_a9d548e1182c47b794c8604dd0a50b05.bin",
+  "url": "https://www.habitaclia.com/alquiler/viviendas/bizkaia-provincia/bilbao/s",
+  "http_status": 200,
+  "fecha_utc": "2026-11-12T14:33:13.102505+00:00",
+  "sha256": "c2ff0a45ad9f23cd0d337a549955ecce94a307d94a07c10e056e24e6e2db10c5",
+  "bytes": 1146958,
+  "clase": "listado",
+  "user_agent": "Reto1AcademicBot/1.0",
+  "tls_verificado": true,
+  "content_type": "text/html; charset=utf-8"
+}

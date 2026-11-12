@@ -1,0 +1,8 @@
+{
+  "motor": "Chromium real mediante Playwright",
+  "urls": [
+    "http://127.0.0.1:8502",
+    "http://127.0.0.1:8501"
+  ],
+  "errores_javascript": []
+}

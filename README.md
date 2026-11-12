@@ -6,14 +6,12 @@ Proyecto interdisciplinar del Curso de Especialización en Inteligencia Artifici
 
 ## Qué hemos construido
 
-La continuación incorpora una [captura trazable de anuncios](docs/SCRAPING.md),
-con robots y TLS obligatorios. Sus pruebas usan fixtures; la captura real sigue
-bloqueada por la red y no se presenta como requisito completado.
-El incremento de adquisición supera **153 pruebas** y cinco de servicios reales;
-el [intento actual](docs/evidencias_scraping_2026-11-11/intento_real.json) registra
-cero anuncios y el bloqueo, sin fabricar un lote válido.
-El código de adquisición `a15756c` superó el
-[CI BDA 43011875465](https://github.com/markelalvarez0/Reto-1/actions/runs/43011875465).
+La captura del **12 de noviembre de 2026** conserva **17 anuncios** de Habitaclia
+y Pisos.com, con HTML, robots y huellas verificables. HDFS, Kafka y MongoDB reales
+han transportado estos anuncios junto con 621 promociones, manteniendo sus unidades.
+El [análisis de la muestra](docs/RESULTADOS_ANUNCIOS.md) documenta precios, condiciones,
+consultas, idempotencia e índices. El visor territorial permite explorar la muestra
+archivada; no es una búsqueda en tiempo real ni una estimación del mercado completo.
 
 Una herramienta de orientación para comparar rentas municipales observadas,
 estimar la referencia del siguiente trimestre y explicar reglas al usuario.
@@ -92,7 +90,7 @@ El antiguo objetivo `es_viable` se generaba artificialmente. Sus CSV y JSON hist
 | Notebooks y Streamlit | Tres notebooks ejecutados sin errores; formulario → modelo → reglas → acción n8n comprobado con un caso de prueba explícito y consentimiento. |
 | Capturas | Chromium contra interfaces locales reales de Streamlit y MLflow, no imágenes generadas. |
 | Test de ML | Evaluado una vez después de cerrar la selección; las reaperturas leen el mismo informe. |
-| Entrega global | Pendiente de cerrar el recorrido Big Data con datos reales, dashboard, documentación completa y promoción controlada a `test`/`main`. |
+| Entrega global | Recorrido con originales oficiales y 17 anuncios reales acreditado; promoción final y ensayo humano se registran en docs/CONTINUAR.md. |
 
 Ejecuciones verificables:
 
@@ -204,7 +202,4 @@ Los resultados heredados de `best_model.json`, `mlruns_data.json` y gráficos an
 
 Las pruebas reales de la continuación acreditan las capturas oficiales y las
 vistas municipales por HDFS → Kafka → MongoDB. Los mensajes de promociones y las
-vistas agregadas conservan tipos diferentes. Quedan el scraping verificable de
-anuncios individuales, el ensayo humano y
-la integración final en `test`/`main`. La red actual bloquea los portales; no se
-declara cumplimiento integral ni se sustituye una muestra ausente por datos ficticios.
+vistas agregadas conservan tipos diferentes. La muestra verificable de anuncios individuales está conservada. El ensayo humano y el estado de integración final se detallan en `docs/CONTINUAR.md`. No se afirma representatividad del mercado ni disponibilidad de las ofertas.

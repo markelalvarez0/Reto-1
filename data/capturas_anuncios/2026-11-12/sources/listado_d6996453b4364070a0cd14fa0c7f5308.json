@@ -1,0 +1,12 @@
+{
+  "archivo": "listado_d6996453b4364070a0cd14fa0c7f5308.bin",
+  "url": "https://www.pisos.com/alquiler/viviendas-bilbao/",
+  "http_status": 200,
+  "fecha_utc": "2026-11-12T14:33:20.030937+00:00",
+  "sha256": "891b4f20c62960130961e3c0818c806be0378b148bec13ce49d9136d59afc1d8",
+  "bytes": 293332,
+  "clase": "listado",
+  "user_agent": "Reto1AcademicBot/1.0",
+  "tls_verificado": true,
+  "content_type": "text/html; charset=utf-8"
+}

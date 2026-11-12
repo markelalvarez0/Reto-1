@@ -1,0 +1,31 @@
+{
+  "fecha_utc": "2026-11-12T14:33:28.318454+00:00",
+  "estado": "captura_interpretable",
+  "portales": {
+    "habitaclia": {
+      "registros": 9,
+      "errores": [],
+      "listados_solicitados": [
+        "https://www.habitaclia.com/alquiler/viviendas/bizkaia-provincia/bilbao/s",
+        "https://www.habitaclia.com/alquiler/viviendas/gipuzkoa-provincia/donostia-san-sebastian/s",
+        "https://www.habitaclia.com/alquiler/viviendas/araba-alava-provincia/vitoria-gasteiz/s"
+      ]
+    },
+    "pisos": {
+      "registros": 8,
+      "errores": [],
+      "listados_solicitados": [
+        "https://www.pisos.com/alquiler/viviendas-bilbao/",
+        "https://www.pisos.com/alquiler/viviendas-donostia_san_sebastian/",
+        "https://www.pisos.com/alquiler/viviendas-vitoria_gasteiz/"
+      ]
+    }
+  },
+  "registros_unicos": 17,
+  "limites": [
+    "Muestra de listados, no censo ni garantía de disponibilidad.",
+    "Las condiciones temporal/estudiantes/empresas son señales textuales; su ausencia no acredita vivienda habitual.",
+    "Revisar condiciones de uso antes de ejecutar; robots no equivale a licencia.",
+    "No modifica fuentes oficiales ni el modelo o su test."
+  ]
+}

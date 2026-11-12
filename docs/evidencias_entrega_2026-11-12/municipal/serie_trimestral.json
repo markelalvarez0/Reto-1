@@ -1,0 +1,6086 @@
+[
+  {
+    "codigo_municipio": "01059",
+    "periodo": 8064,
+    "anio": 2016,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 428.0,
+    "renta_media_eur": 549.06,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20030",
+    "periodo": 8064,
+    "anio": 2016,
+    "municipio": "Eibar",
+    "numero_contratos": 63.0,
+    "renta_media_eur": 514.58,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8064,
+    "codigo_municipio": "20040",
+    "anio": 2016,
+    "municipio": "Hernani",
+    "numero_contratos": 39.0,
+    "renta_media_eur": 597.44,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8064,
+    "codigo_municipio": "20045",
+    "anio": 2016,
+    "municipio": "Irun",
+    "numero_contratos": 163.0,
+    "renta_media_eur": 598.29,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8064,
+    "codigo_municipio": "20055",
+    "anio": 2016,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 21.0,
+    "renta_media_eur": 515.71,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8064,
+    "codigo_municipio": "20067",
+    "anio": 2016,
+    "municipio": "Errenteria",
+    "numero_contratos": 66.0,
+    "renta_media_eur": 586.68,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8064,
+    "codigo_municipio": "20069",
+    "anio": 2016,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 478.0,
+    "renta_media_eur": 788.06,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8064,
+    "codigo_municipio": "20071",
+    "anio": 2016,
+    "municipio": "Tolosa",
+    "numero_contratos": 38.0,
+    "renta_media_eur": 549.73,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8064,
+    "codigo_municipio": "20079",
+    "anio": 2016,
+    "municipio": "Zarautz",
+    "numero_contratos": 46.0,
+    "renta_media_eur": 721.33,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8064,
+    "codigo_municipio": "48013",
+    "anio": 2016,
+    "municipio": "Barakaldo",
+    "numero_contratos": 129.0,
+    "renta_media_eur": 597.1,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48015",
+    "periodo": 8064,
+    "anio": 2016,
+    "municipio": "Basauri",
+    "numero_contratos": 43.0,
+    "renta_media_eur": 568.93,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48020",
+    "periodo": 8064,
+    "anio": 2016,
+    "municipio": "Bilbao",
+    "numero_contratos": 683.0,
+    "renta_media_eur": 684.0,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8064,
+    "codigo_municipio": "48027",
+    "anio": 2016,
+    "municipio": "Durango",
+    "numero_contratos": 63.0,
+    "renta_media_eur": 581.35,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8064,
+    "codigo_municipio": "48044",
+    "anio": 2016,
+    "municipio": "Getxo",
+    "numero_contratos": 121.0,
+    "renta_media_eur": 777.78,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8064,
+    "codigo_municipio": "48054",
+    "anio": 2016,
+    "municipio": "Leioa",
+    "numero_contratos": 54.0,
+    "renta_media_eur": 710.79,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8064,
+    "codigo_municipio": "48078",
+    "anio": 2016,
+    "municipio": "Portugalete",
+    "numero_contratos": 45.0,
+    "renta_media_eur": 595.48,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48082",
+    "periodo": 8064,
+    "anio": 2016,
+    "municipio": "Santurtzi",
+    "numero_contratos": 59.0,
+    "renta_media_eur": 601.47,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48084",
+    "periodo": 8064,
+    "anio": 2016,
+    "municipio": "Sestao",
+    "numero_contratos": 34.0,
+    "renta_media_eur": 556.76,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "01059",
+    "periodo": 8065,
+    "anio": 2016,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 543.0,
+    "renta_media_eur": 559.51,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20030",
+    "periodo": 8065,
+    "anio": 2016,
+    "municipio": "Eibar",
+    "numero_contratos": 81.0,
+    "renta_media_eur": 517.47,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20040",
+    "periodo": 8065,
+    "anio": 2016,
+    "municipio": "Hernani",
+    "numero_contratos": 43.0,
+    "renta_media_eur": 582.33,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20045",
+    "periodo": 8065,
+    "anio": 2016,
+    "municipio": "Irun",
+    "numero_contratos": 216.0,
+    "renta_media_eur": 601.54,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20055",
+    "periodo": 8065,
+    "anio": 2016,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 33.0,
+    "renta_media_eur": 466.25,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20067",
+    "periodo": 8065,
+    "anio": 2016,
+    "municipio": "Errenteria",
+    "numero_contratos": 99.0,
+    "renta_media_eur": 598.71,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8065,
+    "codigo_municipio": "20069",
+    "anio": 2016,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 541.0,
+    "renta_media_eur": 799.98,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8065,
+    "codigo_municipio": "20071",
+    "anio": 2016,
+    "municipio": "Tolosa",
+    "numero_contratos": 46.0,
+    "renta_media_eur": 560.35,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8065,
+    "codigo_municipio": "20079",
+    "anio": 2016,
+    "municipio": "Zarautz",
+    "numero_contratos": 60.0,
+    "renta_media_eur": 735.43,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8065,
+    "codigo_municipio": "48013",
+    "anio": 2016,
+    "municipio": "Barakaldo",
+    "numero_contratos": 220.0,
+    "renta_media_eur": 599.51,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8065,
+    "codigo_municipio": "48015",
+    "anio": 2016,
+    "municipio": "Basauri",
+    "numero_contratos": 94.0,
+    "renta_media_eur": 575.79,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8065,
+    "codigo_municipio": "48020",
+    "anio": 2016,
+    "municipio": "Bilbao",
+    "numero_contratos": 853.0,
+    "renta_media_eur": 695.1,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8065,
+    "codigo_municipio": "48027",
+    "anio": 2016,
+    "municipio": "Durango",
+    "numero_contratos": 74.0,
+    "renta_media_eur": 571.01,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8065,
+    "codigo_municipio": "48044",
+    "anio": 2016,
+    "municipio": "Getxo",
+    "numero_contratos": 153.0,
+    "renta_media_eur": 796.35,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48054",
+    "periodo": 8065,
+    "anio": 2016,
+    "municipio": "Leioa",
+    "numero_contratos": 63.0,
+    "renta_media_eur": 724.53,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8065,
+    "anio": 2016,
+    "municipio": "Portugalete",
+    "numero_contratos": 77.0,
+    "renta_media_eur": 588.22,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8065,
+    "codigo_municipio": "48082",
+    "anio": 2016,
+    "municipio": "Santurtzi",
+    "numero_contratos": 84.0,
+    "renta_media_eur": 591.59,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48084",
+    "periodo": 8065,
+    "anio": 2016,
+    "municipio": "Sestao",
+    "numero_contratos": 41.0,
+    "renta_media_eur": 542.32,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48902",
+    "periodo": 8065,
+    "anio": 2016,
+    "municipio": "Erandio",
+    "numero_contratos": 43.0,
+    "renta_media_eur": 617.09,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "01059",
+    "periodo": 8066,
+    "anio": 2016,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 625.0,
+    "renta_media_eur": 573.39,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8066,
+    "codigo_municipio": "20030",
+    "anio": 2016,
+    "municipio": "Eibar",
+    "numero_contratos": 57.0,
+    "renta_media_eur": 536.55,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20040",
+    "periodo": 8066,
+    "anio": 2016,
+    "municipio": "Hernani",
+    "numero_contratos": 49.0,
+    "renta_media_eur": 598.44,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8066,
+    "codigo_municipio": "20045",
+    "anio": 2016,
+    "municipio": "Irun",
+    "numero_contratos": 148.0,
+    "renta_media_eur": 608.29,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8066,
+    "codigo_municipio": "20055",
+    "anio": 2016,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 36.0,
+    "renta_media_eur": 501.9,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8066,
+    "codigo_municipio": "20067",
+    "anio": 2016,
+    "municipio": "Errenteria",
+    "numero_contratos": 70.0,
+    "renta_media_eur": 604.23,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8066,
+    "codigo_municipio": "20069",
+    "anio": 2016,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 448.0,
+    "renta_media_eur": 820.09,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8066,
+    "codigo_municipio": "20071",
+    "anio": 2016,
+    "municipio": "Tolosa",
+    "numero_contratos": 39.0,
+    "renta_media_eur": 538.16,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20079",
+    "periodo": 8066,
+    "anio": 2016,
+    "municipio": "Zarautz",
+    "numero_contratos": 36.0,
+    "renta_media_eur": 700.44,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8066,
+    "codigo_municipio": "48013",
+    "anio": 2016,
+    "municipio": "Barakaldo",
+    "numero_contratos": 155.0,
+    "renta_media_eur": 613.62,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48015",
+    "periodo": 8066,
+    "anio": 2016,
+    "municipio": "Basauri",
+    "numero_contratos": 80.0,
+    "renta_media_eur": 568.06,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8066,
+    "codigo_municipio": "48020",
+    "anio": 2016,
+    "municipio": "Bilbao",
+    "numero_contratos": 845.0,
+    "renta_media_eur": 720.49,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8066,
+    "codigo_municipio": "48027",
+    "anio": 2016,
+    "municipio": "Durango",
+    "numero_contratos": 62.0,
+    "renta_media_eur": 578.92,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8066,
+    "codigo_municipio": "48044",
+    "anio": 2016,
+    "municipio": "Getxo",
+    "numero_contratos": 129.0,
+    "renta_media_eur": 788.51,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8066,
+    "codigo_municipio": "48054",
+    "anio": 2016,
+    "municipio": "Leioa",
+    "numero_contratos": 62.0,
+    "renta_media_eur": 730.0,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8066,
+    "codigo_municipio": "48078",
+    "anio": 2016,
+    "municipio": "Portugalete",
+    "numero_contratos": 60.0,
+    "renta_media_eur": 600.75,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48082",
+    "periodo": 8066,
+    "anio": 2016,
+    "municipio": "Santurtzi",
+    "numero_contratos": 67.0,
+    "renta_media_eur": 598.97,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48084",
+    "periodo": 8066,
+    "anio": 2016,
+    "municipio": "Sestao",
+    "numero_contratos": 30.0,
+    "renta_media_eur": 550.0,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8066,
+    "codigo_municipio": "48902",
+    "anio": 2016,
+    "municipio": "Erandio",
+    "numero_contratos": 33.0,
+    "renta_media_eur": 621.17,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8067,
+    "codigo_municipio": "01059",
+    "anio": 2016,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 564.0,
+    "renta_media_eur": 573.13,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8067,
+    "codigo_municipio": "20030",
+    "anio": 2016,
+    "municipio": "Eibar",
+    "numero_contratos": 69.0,
+    "renta_media_eur": 514.42,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8067,
+    "codigo_municipio": "20040",
+    "anio": 2016,
+    "municipio": "Hernani",
+    "numero_contratos": 66.0,
+    "renta_media_eur": 602.19,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8067,
+    "codigo_municipio": "20045",
+    "anio": 2016,
+    "municipio": "Irun",
+    "numero_contratos": 172.0,
+    "renta_media_eur": 606.37,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20055",
+    "periodo": 8067,
+    "anio": 2016,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 32.0,
+    "renta_media_eur": 498.59,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8067,
+    "codigo_municipio": "20067",
+    "anio": 2016,
+    "municipio": "Errenteria",
+    "numero_contratos": 98.0,
+    "renta_media_eur": 600.41,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8067,
+    "codigo_municipio": "20069",
+    "anio": 2016,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 510.0,
+    "renta_media_eur": 835.34,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8067,
+    "codigo_municipio": "20071",
+    "anio": 2016,
+    "municipio": "Tolosa",
+    "numero_contratos": 51.0,
+    "renta_media_eur": 554.7,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8067,
+    "codigo_municipio": "20079",
+    "anio": 2016,
+    "municipio": "Zarautz",
+    "numero_contratos": 65.0,
+    "renta_media_eur": 765.08,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8067,
+    "codigo_municipio": "48013",
+    "anio": 2016,
+    "municipio": "Barakaldo",
+    "numero_contratos": 203.0,
+    "renta_media_eur": 613.99,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8067,
+    "codigo_municipio": "48015",
+    "anio": 2016,
+    "municipio": "Basauri",
+    "numero_contratos": 75.0,
+    "renta_media_eur": 573.66,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8067,
+    "codigo_municipio": "48020",
+    "anio": 2016,
+    "municipio": "Bilbao",
+    "numero_contratos": 853.0,
+    "renta_media_eur": 719.25,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8067,
+    "codigo_municipio": "48027",
+    "anio": 2016,
+    "municipio": "Durango",
+    "numero_contratos": 66.0,
+    "renta_media_eur": 568.71,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8067,
+    "codigo_municipio": "48044",
+    "anio": 2016,
+    "municipio": "Getxo",
+    "numero_contratos": 189.0,
+    "renta_media_eur": 792.57,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8067,
+    "codigo_municipio": "48054",
+    "anio": 2016,
+    "municipio": "Leioa",
+    "numero_contratos": 69.0,
+    "renta_media_eur": 713.69,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8067,
+    "codigo_municipio": "48078",
+    "anio": 2016,
+    "municipio": "Portugalete",
+    "numero_contratos": 43.0,
+    "renta_media_eur": 605.12,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48082",
+    "periodo": 8067,
+    "anio": 2016,
+    "municipio": "Santurtzi",
+    "numero_contratos": 90.0,
+    "renta_media_eur": 590.86,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48084",
+    "periodo": 8067,
+    "anio": 2016,
+    "municipio": "Sestao",
+    "numero_contratos": 36.0,
+    "renta_media_eur": 539.58,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48902",
+    "periodo": 8067,
+    "anio": 2016,
+    "municipio": "Erandio",
+    "numero_contratos": 38.0,
+    "renta_media_eur": 618.29,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8068,
+    "codigo_municipio": "01059",
+    "anio": 2017,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 590.0,
+    "renta_media_eur": 570.87,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8068,
+    "codigo_municipio": "20030",
+    "anio": 2017,
+    "municipio": "Eibar",
+    "numero_contratos": 100.0,
+    "renta_media_eur": 508.75,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20040",
+    "periodo": 8068,
+    "anio": 2017,
+    "municipio": "Hernani",
+    "numero_contratos": 71.0,
+    "renta_media_eur": 601.04,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20045",
+    "periodo": 8068,
+    "anio": 2017,
+    "municipio": "Irun",
+    "numero_contratos": 179.0,
+    "renta_media_eur": 603.46,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8068,
+    "codigo_municipio": "20055",
+    "anio": 2017,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 36.0,
+    "renta_media_eur": 511.86,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8068,
+    "codigo_municipio": "20067",
+    "anio": 2017,
+    "municipio": "Errenteria",
+    "numero_contratos": 106.0,
+    "renta_media_eur": 616.48,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8068,
+    "codigo_municipio": "20069",
+    "anio": 2017,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 577.0,
+    "renta_media_eur": 830.4,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8068,
+    "codigo_municipio": "20071",
+    "anio": 2017,
+    "municipio": "Tolosa",
+    "numero_contratos": 46.0,
+    "renta_media_eur": 533.15,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8068,
+    "codigo_municipio": "20079",
+    "anio": 2017,
+    "municipio": "Zarautz",
+    "numero_contratos": 64.0,
+    "renta_media_eur": 721.89,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48013",
+    "periodo": 8068,
+    "anio": 2017,
+    "municipio": "Barakaldo",
+    "numero_contratos": 239.0,
+    "renta_media_eur": 620.22,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48015",
+    "periodo": 8068,
+    "anio": 2017,
+    "municipio": "Basauri",
+    "numero_contratos": 66.0,
+    "renta_media_eur": 595.66,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8068,
+    "codigo_municipio": "48020",
+    "anio": 2017,
+    "municipio": "Bilbao",
+    "numero_contratos": 907.0,
+    "renta_media_eur": 701.41,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48027",
+    "periodo": 8068,
+    "anio": 2017,
+    "municipio": "Durango",
+    "numero_contratos": 69.0,
+    "renta_media_eur": 581.37,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8068,
+    "codigo_municipio": "48044",
+    "anio": 2017,
+    "municipio": "Getxo",
+    "numero_contratos": 193.0,
+    "renta_media_eur": 786.3,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48054",
+    "periodo": 8068,
+    "anio": 2017,
+    "municipio": "Leioa",
+    "numero_contratos": 70.0,
+    "renta_media_eur": 707.76,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8068,
+    "codigo_municipio": "48078",
+    "anio": 2017,
+    "municipio": "Portugalete",
+    "numero_contratos": 60.0,
+    "renta_media_eur": 600.56,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8068,
+    "codigo_municipio": "48082",
+    "anio": 2017,
+    "municipio": "Santurtzi",
+    "numero_contratos": 103.0,
+    "renta_media_eur": 592.02,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48084",
+    "periodo": 8068,
+    "anio": 2017,
+    "municipio": "Sestao",
+    "numero_contratos": 42.0,
+    "renta_media_eur": 557.44,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8068,
+    "codigo_municipio": "48902",
+    "anio": 2017,
+    "municipio": "Erandio",
+    "numero_contratos": 50.0,
+    "renta_media_eur": 634.31,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "01059",
+    "periodo": 8069,
+    "anio": 2017,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 644.0,
+    "renta_media_eur": 578.75,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20030",
+    "periodo": 8069,
+    "anio": 2017,
+    "municipio": "Eibar",
+    "numero_contratos": 85.0,
+    "renta_media_eur": 510.08,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20040",
+    "periodo": 8069,
+    "anio": 2017,
+    "municipio": "Hernani",
+    "numero_contratos": 51.0,
+    "renta_media_eur": 589.4,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20045",
+    "periodo": 8069,
+    "anio": 2017,
+    "municipio": "Irun",
+    "numero_contratos": 211.0,
+    "renta_media_eur": 611.06,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20055",
+    "periodo": 8069,
+    "anio": 2017,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 55.0,
+    "renta_media_eur": 506.64,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8069,
+    "codigo_municipio": "20067",
+    "anio": 2017,
+    "municipio": "Errenteria",
+    "numero_contratos": 111.0,
+    "renta_media_eur": 598.09,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8069,
+    "codigo_municipio": "20069",
+    "anio": 2017,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 623.0,
+    "renta_media_eur": 836.24,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8069,
+    "codigo_municipio": "20071",
+    "anio": 2017,
+    "municipio": "Tolosa",
+    "numero_contratos": 60.0,
+    "renta_media_eur": 555.17,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8069,
+    "codigo_municipio": "20079",
+    "anio": 2017,
+    "municipio": "Zarautz",
+    "numero_contratos": 42.0,
+    "renta_media_eur": 731.13,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8069,
+    "codigo_municipio": "48013",
+    "anio": 2017,
+    "municipio": "Barakaldo",
+    "numero_contratos": 209.0,
+    "renta_media_eur": 612.4,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8069,
+    "codigo_municipio": "48015",
+    "anio": 2017,
+    "municipio": "Basauri",
+    "numero_contratos": 78.0,
+    "renta_media_eur": 591.25,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8069,
+    "codigo_municipio": "48020",
+    "anio": 2017,
+    "municipio": "Bilbao",
+    "numero_contratos": 1038.0,
+    "renta_media_eur": 697.39,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8069,
+    "codigo_municipio": "48027",
+    "anio": 2017,
+    "municipio": "Durango",
+    "numero_contratos": 69.0,
+    "renta_media_eur": 592.27,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8069,
+    "codigo_municipio": "48044",
+    "anio": 2017,
+    "municipio": "Getxo",
+    "numero_contratos": 198.0,
+    "renta_media_eur": 811.54,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8069,
+    "codigo_municipio": "48054",
+    "anio": 2017,
+    "municipio": "Leioa",
+    "numero_contratos": 68.0,
+    "renta_media_eur": 723.81,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8069,
+    "codigo_municipio": "48078",
+    "anio": 2017,
+    "municipio": "Portugalete",
+    "numero_contratos": 72.0,
+    "renta_media_eur": 605.18,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8069,
+    "codigo_municipio": "48082",
+    "anio": 2017,
+    "municipio": "Santurtzi",
+    "numero_contratos": 89.0,
+    "renta_media_eur": 608.84,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8069,
+    "codigo_municipio": "48084",
+    "anio": 2017,
+    "municipio": "Sestao",
+    "numero_contratos": 32.0,
+    "renta_media_eur": 561.36,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8069,
+    "codigo_municipio": "48902",
+    "anio": 2017,
+    "municipio": "Erandio",
+    "numero_contratos": 55.0,
+    "renta_media_eur": 628.2,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "01059",
+    "anio": 2017,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 692.0,
+    "renta_media_eur": 592.85,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "20030",
+    "anio": 2017,
+    "municipio": "Eibar",
+    "numero_contratos": 80.0,
+    "renta_media_eur": 510.84,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "20040",
+    "anio": 2017,
+    "municipio": "Hernani",
+    "numero_contratos": 52.0,
+    "renta_media_eur": 627.79,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "20045",
+    "anio": 2017,
+    "municipio": "Irun",
+    "numero_contratos": 190.0,
+    "renta_media_eur": 625.22,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20055",
+    "periodo": 8070,
+    "anio": 2017,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 67.0,
+    "renta_media_eur": 501.83,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "20067",
+    "anio": 2017,
+    "municipio": "Errenteria",
+    "numero_contratos": 96.0,
+    "renta_media_eur": 605.9,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8070,
+    "anio": 2017,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 573.0,
+    "renta_media_eur": 832.96,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "20071",
+    "anio": 2017,
+    "municipio": "Tolosa",
+    "numero_contratos": 50.0,
+    "renta_media_eur": 564.98,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "20079",
+    "anio": 2017,
+    "municipio": "Zarautz",
+    "numero_contratos": 52.0,
+    "renta_media_eur": 752.25,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "48013",
+    "anio": 2017,
+    "municipio": "Barakaldo",
+    "numero_contratos": 217.0,
+    "renta_media_eur": 624.21,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "48015",
+    "anio": 2017,
+    "municipio": "Basauri",
+    "numero_contratos": 74.0,
+    "renta_media_eur": 593.19,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "48020",
+    "anio": 2017,
+    "municipio": "Bilbao",
+    "numero_contratos": 1010.0,
+    "renta_media_eur": 720.63,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "48027",
+    "anio": 2017,
+    "municipio": "Durango",
+    "numero_contratos": 73.0,
+    "renta_media_eur": 583.82,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "48044",
+    "anio": 2017,
+    "municipio": "Getxo",
+    "numero_contratos": 178.0,
+    "renta_media_eur": 812.52,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "48054",
+    "anio": 2017,
+    "municipio": "Leioa",
+    "numero_contratos": 80.0,
+    "renta_media_eur": 755.72,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "48078",
+    "anio": 2017,
+    "municipio": "Portugalete",
+    "numero_contratos": 54.0,
+    "renta_media_eur": 621.8,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "48082",
+    "anio": 2017,
+    "municipio": "Santurtzi",
+    "numero_contratos": 90.0,
+    "renta_media_eur": 603.48,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "48084",
+    "anio": 2017,
+    "municipio": "Sestao",
+    "numero_contratos": 49.0,
+    "renta_media_eur": 585.0,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8070,
+    "codigo_municipio": "48902",
+    "anio": 2017,
+    "municipio": "Erandio",
+    "numero_contratos": 42.0,
+    "renta_media_eur": 649.76,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8071,
+    "codigo_municipio": "01059",
+    "anio": 2017,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 639.0,
+    "renta_media_eur": 596.64,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8071,
+    "codigo_municipio": "20030",
+    "anio": 2017,
+    "municipio": "Eibar",
+    "numero_contratos": 108.0,
+    "renta_media_eur": 507.21,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8071,
+    "codigo_municipio": "20040",
+    "anio": 2017,
+    "municipio": "Hernani",
+    "numero_contratos": 52.0,
+    "renta_media_eur": 616.73,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8071,
+    "codigo_municipio": "20045",
+    "anio": 2017,
+    "municipio": "Irun",
+    "numero_contratos": 204.0,
+    "renta_media_eur": 615.58,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20055",
+    "periodo": 8071,
+    "anio": 2017,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 37.0,
+    "renta_media_eur": 458.36,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20067",
+    "periodo": 8071,
+    "anio": 2017,
+    "municipio": "Errenteria",
+    "numero_contratos": 108.0,
+    "renta_media_eur": 614.93,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8071,
+    "codigo_municipio": "20069",
+    "anio": 2017,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 651.0,
+    "renta_media_eur": 854.48,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8071,
+    "codigo_municipio": "20071",
+    "anio": 2017,
+    "municipio": "Tolosa",
+    "numero_contratos": 63.0,
+    "renta_media_eur": 562.27,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8071,
+    "codigo_municipio": "20079",
+    "anio": 2017,
+    "municipio": "Zarautz",
+    "numero_contratos": 75.0,
+    "renta_media_eur": 729.5,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8071,
+    "codigo_municipio": "48013",
+    "anio": 2017,
+    "municipio": "Barakaldo",
+    "numero_contratos": 233.0,
+    "renta_media_eur": 613.98,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48015",
+    "periodo": 8071,
+    "anio": 2017,
+    "municipio": "Basauri",
+    "numero_contratos": 68.0,
+    "renta_media_eur": 591.91,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8071,
+    "codigo_municipio": "48020",
+    "anio": 2017,
+    "municipio": "Bilbao",
+    "numero_contratos": 1034.0,
+    "renta_media_eur": 726.92,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8071,
+    "codigo_municipio": "48027",
+    "anio": 2017,
+    "municipio": "Durango",
+    "numero_contratos": 72.0,
+    "renta_media_eur": 594.44,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48044",
+    "periodo": 8071,
+    "anio": 2017,
+    "municipio": "Getxo",
+    "numero_contratos": 186.0,
+    "renta_media_eur": 819.28,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8071,
+    "codigo_municipio": "48054",
+    "anio": 2017,
+    "municipio": "Leioa",
+    "numero_contratos": 61.0,
+    "renta_media_eur": 748.36,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8071,
+    "codigo_municipio": "48078",
+    "anio": 2017,
+    "municipio": "Portugalete",
+    "numero_contratos": 80.0,
+    "renta_media_eur": 612.49,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8071,
+    "codigo_municipio": "48082",
+    "anio": 2017,
+    "municipio": "Santurtzi",
+    "numero_contratos": 101.0,
+    "renta_media_eur": 600.4,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8071,
+    "codigo_municipio": "48084",
+    "anio": 2017,
+    "municipio": "Sestao",
+    "numero_contratos": 46.0,
+    "renta_media_eur": 594.82,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8071,
+    "codigo_municipio": "48902",
+    "anio": 2017,
+    "municipio": "Erandio",
+    "numero_contratos": 54.0,
+    "renta_media_eur": 660.19,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8072,
+    "codigo_municipio": "01059",
+    "anio": 2018,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 639.0,
+    "renta_media_eur": 595.95,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8072,
+    "codigo_municipio": "20030",
+    "anio": 2018,
+    "municipio": "Eibar",
+    "numero_contratos": 119.0,
+    "renta_media_eur": 526.57,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8072,
+    "codigo_municipio": "20040",
+    "anio": 2018,
+    "municipio": "Hernani",
+    "numero_contratos": 54.0,
+    "renta_media_eur": 600.52,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20045",
+    "periodo": 8072,
+    "anio": 2018,
+    "municipio": "Irun",
+    "numero_contratos": 212.0,
+    "renta_media_eur": 643.17,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8072,
+    "codigo_municipio": "20055",
+    "anio": 2018,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 39.0,
+    "renta_media_eur": 494.21,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20067",
+    "periodo": 8072,
+    "anio": 2018,
+    "municipio": "Errenteria",
+    "numero_contratos": 109.0,
+    "renta_media_eur": 629.23,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8072,
+    "anio": 2018,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 659.0,
+    "renta_media_eur": 868.47,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8072,
+    "codigo_municipio": "20071",
+    "anio": 2018,
+    "municipio": "Tolosa",
+    "numero_contratos": 56.0,
+    "renta_media_eur": 535.0,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20079",
+    "periodo": 8072,
+    "anio": 2018,
+    "municipio": "Zarautz",
+    "numero_contratos": 64.0,
+    "renta_media_eur": 741.62,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48013",
+    "periodo": 8072,
+    "anio": 2018,
+    "municipio": "Barakaldo",
+    "numero_contratos": 249.0,
+    "renta_media_eur": 631.89,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48015",
+    "periodo": 8072,
+    "anio": 2018,
+    "municipio": "Basauri",
+    "numero_contratos": 84.0,
+    "renta_media_eur": 592.94,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48020",
+    "periodo": 8072,
+    "anio": 2018,
+    "municipio": "Bilbao",
+    "numero_contratos": 1075.0,
+    "renta_media_eur": 734.13,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8072,
+    "codigo_municipio": "48027",
+    "anio": 2018,
+    "municipio": "Durango",
+    "numero_contratos": 74.0,
+    "renta_media_eur": 584.11,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8072,
+    "codigo_municipio": "48044",
+    "anio": 2018,
+    "municipio": "Getxo",
+    "numero_contratos": 185.0,
+    "renta_media_eur": 813.5,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8072,
+    "codigo_municipio": "48054",
+    "anio": 2018,
+    "municipio": "Leioa",
+    "numero_contratos": 69.0,
+    "renta_media_eur": 741.29,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8072,
+    "anio": 2018,
+    "municipio": "Portugalete",
+    "numero_contratos": 81.0,
+    "renta_media_eur": 601.94,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8072,
+    "codigo_municipio": "48082",
+    "anio": 2018,
+    "municipio": "Santurtzi",
+    "numero_contratos": 86.0,
+    "renta_media_eur": 613.53,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8072,
+    "codigo_municipio": "48084",
+    "anio": 2018,
+    "municipio": "Sestao",
+    "numero_contratos": 52.0,
+    "renta_media_eur": 582.4,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8072,
+    "codigo_municipio": "48902",
+    "anio": 2018,
+    "municipio": "Erandio",
+    "numero_contratos": 47.0,
+    "renta_media_eur": 650.45,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8073,
+    "codigo_municipio": "01059",
+    "anio": 2018,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 662.0,
+    "renta_media_eur": 618.45,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8073,
+    "codigo_municipio": "20030",
+    "anio": 2018,
+    "municipio": "Eibar",
+    "numero_contratos": 97.0,
+    "renta_media_eur": 520.84,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20040",
+    "periodo": 8073,
+    "anio": 2018,
+    "municipio": "Hernani",
+    "numero_contratos": 40.0,
+    "renta_media_eur": 638.72,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20045",
+    "periodo": 8073,
+    "anio": 2018,
+    "municipio": "Irun",
+    "numero_contratos": 201.0,
+    "renta_media_eur": 663.46,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8073,
+    "codigo_municipio": "20055",
+    "anio": 2018,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 42.0,
+    "renta_media_eur": 506.83,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20067",
+    "periodo": 8073,
+    "anio": 2018,
+    "municipio": "Errenteria",
+    "numero_contratos": 128.0,
+    "renta_media_eur": 627.02,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8073,
+    "codigo_municipio": "20069",
+    "anio": 2018,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 721.0,
+    "renta_media_eur": 890.77,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8073,
+    "codigo_municipio": "20071",
+    "anio": 2018,
+    "municipio": "Tolosa",
+    "numero_contratos": 69.0,
+    "renta_media_eur": 566.41,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20079",
+    "periodo": 8073,
+    "anio": 2018,
+    "municipio": "Zarautz",
+    "numero_contratos": 65.0,
+    "renta_media_eur": 751.61,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48013",
+    "periodo": 8073,
+    "anio": 2018,
+    "municipio": "Barakaldo",
+    "numero_contratos": 236.0,
+    "renta_media_eur": 642.53,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8073,
+    "codigo_municipio": "48015",
+    "anio": 2018,
+    "municipio": "Basauri",
+    "numero_contratos": 85.0,
+    "renta_media_eur": 599.4,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8073,
+    "codigo_municipio": "48020",
+    "anio": 2018,
+    "municipio": "Bilbao",
+    "numero_contratos": 988.0,
+    "renta_media_eur": 731.5,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48027",
+    "periodo": 8073,
+    "anio": 2018,
+    "municipio": "Durango",
+    "numero_contratos": 71.0,
+    "renta_media_eur": 612.84,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48044",
+    "periodo": 8073,
+    "anio": 2018,
+    "municipio": "Getxo",
+    "numero_contratos": 171.0,
+    "renta_media_eur": 819.91,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8073,
+    "codigo_municipio": "48054",
+    "anio": 2018,
+    "municipio": "Leioa",
+    "numero_contratos": 71.0,
+    "renta_media_eur": 777.16,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8073,
+    "codigo_municipio": "48078",
+    "anio": 2018,
+    "municipio": "Portugalete",
+    "numero_contratos": 87.0,
+    "renta_media_eur": 626.08,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48082",
+    "periodo": 8073,
+    "anio": 2018,
+    "municipio": "Santurtzi",
+    "numero_contratos": 89.0,
+    "renta_media_eur": 623.26,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48084",
+    "periodo": 8073,
+    "anio": 2018,
+    "municipio": "Sestao",
+    "numero_contratos": 63.0,
+    "renta_media_eur": 578.83,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8073,
+    "codigo_municipio": "48902",
+    "anio": 2018,
+    "municipio": "Erandio",
+    "numero_contratos": 46.0,
+    "renta_media_eur": 635.0,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8074,
+    "codigo_municipio": "01059",
+    "anio": 2018,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 668.0,
+    "renta_media_eur": 629.65,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20030",
+    "periodo": 8074,
+    "anio": 2018,
+    "municipio": "Eibar",
+    "numero_contratos": 83.0,
+    "renta_media_eur": 525.32,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8074,
+    "codigo_municipio": "20040",
+    "anio": 2018,
+    "municipio": "Hernani",
+    "numero_contratos": 46.0,
+    "renta_media_eur": 647.56,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8074,
+    "codigo_municipio": "20045",
+    "anio": 2018,
+    "municipio": "Irun",
+    "numero_contratos": 182.0,
+    "renta_media_eur": 659.49,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8074,
+    "codigo_municipio": "20055",
+    "anio": 2018,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 57.0,
+    "renta_media_eur": 521.12,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20067",
+    "periodo": 8074,
+    "anio": 2018,
+    "municipio": "Errenteria",
+    "numero_contratos": 98.0,
+    "renta_media_eur": 647.81,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8074,
+    "anio": 2018,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 680.0,
+    "renta_media_eur": 889.51,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8074,
+    "codigo_municipio": "20071",
+    "anio": 2018,
+    "municipio": "Tolosa",
+    "numero_contratos": 66.0,
+    "renta_media_eur": 569.56,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8074,
+    "codigo_municipio": "20079",
+    "anio": 2018,
+    "municipio": "Zarautz",
+    "numero_contratos": 56.0,
+    "renta_media_eur": 801.44,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48013",
+    "periodo": 8074,
+    "anio": 2018,
+    "municipio": "Barakaldo",
+    "numero_contratos": 215.0,
+    "renta_media_eur": 639.77,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8074,
+    "codigo_municipio": "48015",
+    "anio": 2018,
+    "municipio": "Basauri",
+    "numero_contratos": 64.0,
+    "renta_media_eur": 609.69,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48020",
+    "periodo": 8074,
+    "anio": 2018,
+    "municipio": "Bilbao",
+    "numero_contratos": 1014.0,
+    "renta_media_eur": 765.94,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8074,
+    "codigo_municipio": "48027",
+    "anio": 2018,
+    "municipio": "Durango",
+    "numero_contratos": 95.0,
+    "renta_media_eur": 594.89,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48044",
+    "periodo": 8074,
+    "anio": 2018,
+    "municipio": "Getxo",
+    "numero_contratos": 161.0,
+    "renta_media_eur": 845.24,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48054",
+    "periodo": 8074,
+    "anio": 2018,
+    "municipio": "Leioa",
+    "numero_contratos": 62.0,
+    "renta_media_eur": 742.5,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8074,
+    "anio": 2018,
+    "municipio": "Portugalete",
+    "numero_contratos": 63.0,
+    "renta_media_eur": 624.28,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8074,
+    "codigo_municipio": "48082",
+    "anio": 2018,
+    "municipio": "Santurtzi",
+    "numero_contratos": 84.0,
+    "renta_media_eur": 618.42,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48084",
+    "periodo": 8074,
+    "anio": 2018,
+    "municipio": "Sestao",
+    "numero_contratos": 64.0,
+    "renta_media_eur": 592.18,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8074,
+    "codigo_municipio": "48902",
+    "anio": 2018,
+    "municipio": "Erandio",
+    "numero_contratos": 45.0,
+    "renta_media_eur": 645.68,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8075,
+    "codigo_municipio": "01059",
+    "anio": 2018,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 636.0,
+    "renta_media_eur": 633.13,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20030",
+    "periodo": 8075,
+    "anio": 2018,
+    "municipio": "Eibar",
+    "numero_contratos": 99.0,
+    "renta_media_eur": 526.63,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8075,
+    "codigo_municipio": "20040",
+    "anio": 2018,
+    "municipio": "Hernani",
+    "numero_contratos": 61.0,
+    "renta_media_eur": 625.47,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8075,
+    "codigo_municipio": "20045",
+    "anio": 2018,
+    "municipio": "Irun",
+    "numero_contratos": 210.0,
+    "renta_media_eur": 662.89,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8075,
+    "codigo_municipio": "20055",
+    "anio": 2018,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 43.0,
+    "renta_media_eur": 512.86,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8075,
+    "codigo_municipio": "20067",
+    "anio": 2018,
+    "municipio": "Errenteria",
+    "numero_contratos": 121.0,
+    "renta_media_eur": 646.24,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8075,
+    "anio": 2018,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 658.0,
+    "renta_media_eur": 894.82,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20071",
+    "periodo": 8075,
+    "anio": 2018,
+    "municipio": "Tolosa",
+    "numero_contratos": 59.0,
+    "renta_media_eur": 611.16,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20079",
+    "periodo": 8075,
+    "anio": 2018,
+    "municipio": "Zarautz",
+    "numero_contratos": 62.0,
+    "renta_media_eur": 794.97,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48013",
+    "periodo": 8075,
+    "anio": 2018,
+    "municipio": "Barakaldo",
+    "numero_contratos": 234.0,
+    "renta_media_eur": 649.7,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8075,
+    "codigo_municipio": "48015",
+    "anio": 2018,
+    "municipio": "Basauri",
+    "numero_contratos": 74.0,
+    "renta_media_eur": 614.66,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8075,
+    "codigo_municipio": "48020",
+    "anio": 2018,
+    "municipio": "Bilbao",
+    "numero_contratos": 986.0,
+    "renta_media_eur": 748.84,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48027",
+    "periodo": 8075,
+    "anio": 2018,
+    "municipio": "Durango",
+    "numero_contratos": 82.0,
+    "renta_media_eur": 621.05,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8075,
+    "codigo_municipio": "48044",
+    "anio": 2018,
+    "municipio": "Getxo",
+    "numero_contratos": 175.0,
+    "renta_media_eur": 825.47,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8075,
+    "codigo_municipio": "48054",
+    "anio": 2018,
+    "municipio": "Leioa",
+    "numero_contratos": 67.0,
+    "renta_media_eur": 747.56,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8075,
+    "codigo_municipio": "48078",
+    "anio": 2018,
+    "municipio": "Portugalete",
+    "numero_contratos": 76.0,
+    "renta_media_eur": 627.66,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8075,
+    "codigo_municipio": "48082",
+    "anio": 2018,
+    "municipio": "Santurtzi",
+    "numero_contratos": 108.0,
+    "renta_media_eur": 620.32,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8075,
+    "codigo_municipio": "48084",
+    "anio": 2018,
+    "municipio": "Sestao",
+    "numero_contratos": 64.0,
+    "renta_media_eur": 600.98,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8075,
+    "codigo_municipio": "48902",
+    "anio": 2018,
+    "municipio": "Erandio",
+    "numero_contratos": 47.0,
+    "renta_media_eur": 665.0,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8076,
+    "codigo_municipio": "01059",
+    "anio": 2019,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 701.0,
+    "renta_media_eur": 637.68,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20030",
+    "periodo": 8076,
+    "anio": 2019,
+    "municipio": "Eibar",
+    "numero_contratos": 95.0,
+    "renta_media_eur": 530.85,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8076,
+    "codigo_municipio": "20040",
+    "anio": 2019,
+    "municipio": "Hernani",
+    "numero_contratos": 55.0,
+    "renta_media_eur": 667.66,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20045",
+    "periodo": 8076,
+    "anio": 2019,
+    "municipio": "Irun",
+    "numero_contratos": 235.0,
+    "renta_media_eur": 658.16,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8076,
+    "codigo_municipio": "20055",
+    "anio": 2019,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 54.0,
+    "renta_media_eur": 550.74,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8076,
+    "codigo_municipio": "20067",
+    "anio": 2019,
+    "municipio": "Errenteria",
+    "numero_contratos": 115.0,
+    "renta_media_eur": 648.1,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8076,
+    "anio": 2019,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 677.0,
+    "renta_media_eur": 894.82,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20071",
+    "periodo": 8076,
+    "anio": 2019,
+    "municipio": "Tolosa",
+    "numero_contratos": 76.0,
+    "renta_media_eur": 592.32,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8076,
+    "codigo_municipio": "20079",
+    "anio": 2019,
+    "municipio": "Zarautz",
+    "numero_contratos": 59.0,
+    "renta_media_eur": 779.27,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8076,
+    "codigo_municipio": "48013",
+    "anio": 2019,
+    "municipio": "Barakaldo",
+    "numero_contratos": 243.0,
+    "renta_media_eur": 646.16,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8076,
+    "codigo_municipio": "48015",
+    "anio": 2019,
+    "municipio": "Basauri",
+    "numero_contratos": 85.0,
+    "renta_media_eur": 619.39,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8076,
+    "codigo_municipio": "48020",
+    "anio": 2019,
+    "municipio": "Bilbao",
+    "numero_contratos": 1024.0,
+    "renta_media_eur": 751.73,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48027",
+    "periodo": 8076,
+    "anio": 2019,
+    "municipio": "Durango",
+    "numero_contratos": 87.0,
+    "renta_media_eur": 617.67,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8076,
+    "codigo_municipio": "48044",
+    "anio": 2019,
+    "municipio": "Getxo",
+    "numero_contratos": 188.0,
+    "renta_media_eur": 851.42,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8076,
+    "codigo_municipio": "48054",
+    "anio": 2019,
+    "municipio": "Leioa",
+    "numero_contratos": 54.0,
+    "renta_media_eur": 735.28,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8076,
+    "anio": 2019,
+    "municipio": "Portugalete",
+    "numero_contratos": 88.0,
+    "renta_media_eur": 607.15,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8076,
+    "codigo_municipio": "48082",
+    "anio": 2019,
+    "municipio": "Santurtzi",
+    "numero_contratos": 99.0,
+    "renta_media_eur": 632.22,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48084",
+    "periodo": 8076,
+    "anio": 2019,
+    "municipio": "Sestao",
+    "numero_contratos": 72.0,
+    "renta_media_eur": 589.14,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8076,
+    "codigo_municipio": "48902",
+    "anio": 2019,
+    "municipio": "Erandio",
+    "numero_contratos": 42.0,
+    "renta_media_eur": 655.12,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "01059",
+    "periodo": 8077,
+    "anio": 2019,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 639.0,
+    "renta_media_eur": 645.38,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20030",
+    "periodo": 8077,
+    "anio": 2019,
+    "municipio": "Eibar",
+    "numero_contratos": 67.0,
+    "renta_media_eur": 537.37,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8077,
+    "codigo_municipio": "20040",
+    "anio": 2019,
+    "municipio": "Hernani",
+    "numero_contratos": 46.0,
+    "renta_media_eur": 651.79,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8077,
+    "codigo_municipio": "20045",
+    "anio": 2019,
+    "municipio": "Irun",
+    "numero_contratos": 207.0,
+    "renta_media_eur": 671.53,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8077,
+    "codigo_municipio": "20055",
+    "anio": 2019,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 39.0,
+    "renta_media_eur": 568.16,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8077,
+    "codigo_municipio": "20067",
+    "anio": 2019,
+    "municipio": "Errenteria",
+    "numero_contratos": 95.0,
+    "renta_media_eur": 639.58,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8077,
+    "anio": 2019,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 636.0,
+    "renta_media_eur": 914.03,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8077,
+    "codigo_municipio": "20071",
+    "anio": 2019,
+    "municipio": "Tolosa",
+    "numero_contratos": 49.0,
+    "renta_media_eur": 606.75,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20079",
+    "periodo": 8077,
+    "anio": 2019,
+    "municipio": "Zarautz",
+    "numero_contratos": 53.0,
+    "renta_media_eur": 787.51,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8077,
+    "codigo_municipio": "48013",
+    "anio": 2019,
+    "municipio": "Barakaldo",
+    "numero_contratos": 216.0,
+    "renta_media_eur": 659.41,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8077,
+    "codigo_municipio": "48015",
+    "anio": 2019,
+    "municipio": "Basauri",
+    "numero_contratos": 96.0,
+    "renta_media_eur": 621.68,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8077,
+    "codigo_municipio": "48020",
+    "anio": 2019,
+    "municipio": "Bilbao",
+    "numero_contratos": 952.0,
+    "renta_media_eur": 754.32,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48027",
+    "periodo": 8077,
+    "anio": 2019,
+    "municipio": "Durango",
+    "numero_contratos": 71.0,
+    "renta_media_eur": 614.54,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8077,
+    "codigo_municipio": "48044",
+    "anio": 2019,
+    "municipio": "Getxo",
+    "numero_contratos": 169.0,
+    "renta_media_eur": 869.06,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8077,
+    "codigo_municipio": "48054",
+    "anio": 2019,
+    "municipio": "Leioa",
+    "numero_contratos": 60.0,
+    "renta_media_eur": 767.41,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8077,
+    "anio": 2019,
+    "municipio": "Portugalete",
+    "numero_contratos": 93.0,
+    "renta_media_eur": 627.16,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48082",
+    "periodo": 8077,
+    "anio": 2019,
+    "municipio": "Santurtzi",
+    "numero_contratos": 86.0,
+    "renta_media_eur": 606.28,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48084",
+    "periodo": 8077,
+    "anio": 2019,
+    "municipio": "Sestao",
+    "numero_contratos": 66.0,
+    "renta_media_eur": 586.23,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48902",
+    "periodo": 8077,
+    "anio": 2019,
+    "municipio": "Erandio",
+    "numero_contratos": 49.0,
+    "renta_media_eur": 680.67,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8078,
+    "codigo_municipio": "01059",
+    "anio": 2019,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 744.0,
+    "renta_media_eur": 658.9,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8078,
+    "codigo_municipio": "20030",
+    "anio": 2019,
+    "municipio": "Eibar",
+    "numero_contratos": 85.0,
+    "renta_media_eur": 539.56,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8078,
+    "codigo_municipio": "20040",
+    "anio": 2019,
+    "municipio": "Hernani",
+    "numero_contratos": 46.0,
+    "renta_media_eur": 637.33,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8078,
+    "codigo_municipio": "20045",
+    "anio": 2019,
+    "municipio": "Irun",
+    "numero_contratos": 206.0,
+    "renta_media_eur": 665.9,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8078,
+    "codigo_municipio": "20055",
+    "anio": 2019,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 51.0,
+    "renta_media_eur": 567.58,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8078,
+    "codigo_municipio": "20067",
+    "anio": 2019,
+    "municipio": "Errenteria",
+    "numero_contratos": 102.0,
+    "renta_media_eur": 675.65,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8078,
+    "anio": 2019,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 683.0,
+    "renta_media_eur": 919.13,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8078,
+    "codigo_municipio": "20071",
+    "anio": 2019,
+    "municipio": "Tolosa",
+    "numero_contratos": 54.0,
+    "renta_media_eur": 617.36,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20079",
+    "periodo": 8078,
+    "anio": 2019,
+    "municipio": "Zarautz",
+    "numero_contratos": 42.0,
+    "renta_media_eur": 780.73,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48013",
+    "periodo": 8078,
+    "anio": 2019,
+    "municipio": "Barakaldo",
+    "numero_contratos": 178.0,
+    "renta_media_eur": 651.22,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48015",
+    "periodo": 8078,
+    "anio": 2019,
+    "municipio": "Basauri",
+    "numero_contratos": 67.0,
+    "renta_media_eur": 623.15,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8078,
+    "codigo_municipio": "48020",
+    "anio": 2019,
+    "municipio": "Bilbao",
+    "numero_contratos": 846.0,
+    "renta_media_eur": 788.52,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8078,
+    "codigo_municipio": "48027",
+    "anio": 2019,
+    "municipio": "Durango",
+    "numero_contratos": 67.0,
+    "renta_media_eur": 632.55,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8078,
+    "codigo_municipio": "48044",
+    "anio": 2019,
+    "municipio": "Getxo",
+    "numero_contratos": 151.0,
+    "renta_media_eur": 858.71,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8078,
+    "codigo_municipio": "48054",
+    "anio": 2019,
+    "municipio": "Leioa",
+    "numero_contratos": 69.0,
+    "renta_media_eur": 760.85,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8078,
+    "anio": 2019,
+    "municipio": "Portugalete",
+    "numero_contratos": 71.0,
+    "renta_media_eur": 637.57,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8078,
+    "codigo_municipio": "48082",
+    "anio": 2019,
+    "municipio": "Santurtzi",
+    "numero_contratos": 80.0,
+    "renta_media_eur": 615.49,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8078,
+    "codigo_municipio": "48084",
+    "anio": 2019,
+    "municipio": "Sestao",
+    "numero_contratos": 50.0,
+    "renta_media_eur": 587.8,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8078,
+    "codigo_municipio": "48902",
+    "anio": 2019,
+    "municipio": "Erandio",
+    "numero_contratos": 30.0,
+    "renta_media_eur": 655.33,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8079,
+    "codigo_municipio": "01059",
+    "anio": 2019,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 578.0,
+    "renta_media_eur": 655.57,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20030",
+    "periodo": 8079,
+    "anio": 2019,
+    "municipio": "Eibar",
+    "numero_contratos": 82.0,
+    "renta_media_eur": 543.52,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8079,
+    "codigo_municipio": "20040",
+    "anio": 2019,
+    "municipio": "Hernani",
+    "numero_contratos": 55.0,
+    "renta_media_eur": 656.57,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20045",
+    "periodo": 8079,
+    "anio": 2019,
+    "municipio": "Irun",
+    "numero_contratos": 190.0,
+    "renta_media_eur": 677.69,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20055",
+    "periodo": 8079,
+    "anio": 2019,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 47.0,
+    "renta_media_eur": 571.64,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20067",
+    "periodo": 8079,
+    "anio": 2019,
+    "municipio": "Errenteria",
+    "numero_contratos": 101.0,
+    "renta_media_eur": 663.74,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8079,
+    "anio": 2019,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 650.0,
+    "renta_media_eur": 915.08,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8079,
+    "codigo_municipio": "20071",
+    "anio": 2019,
+    "municipio": "Tolosa",
+    "numero_contratos": 74.0,
+    "renta_media_eur": 624.79,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8079,
+    "codigo_municipio": "20079",
+    "anio": 2019,
+    "municipio": "Zarautz",
+    "numero_contratos": 63.0,
+    "renta_media_eur": 809.06,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8079,
+    "codigo_municipio": "48013",
+    "anio": 2019,
+    "municipio": "Barakaldo",
+    "numero_contratos": 184.0,
+    "renta_media_eur": 656.66,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8079,
+    "codigo_municipio": "48015",
+    "anio": 2019,
+    "municipio": "Basauri",
+    "numero_contratos": 66.0,
+    "renta_media_eur": 632.58,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8079,
+    "codigo_municipio": "48020",
+    "anio": 2019,
+    "municipio": "Bilbao",
+    "numero_contratos": 801.0,
+    "renta_media_eur": 787.9,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48027",
+    "periodo": 8079,
+    "anio": 2019,
+    "municipio": "Durango",
+    "numero_contratos": 76.0,
+    "renta_media_eur": 624.72,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48044",
+    "periodo": 8079,
+    "anio": 2019,
+    "municipio": "Getxo",
+    "numero_contratos": 146.0,
+    "renta_media_eur": 898.68,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8079,
+    "codigo_municipio": "48054",
+    "anio": 2019,
+    "municipio": "Leioa",
+    "numero_contratos": 43.0,
+    "renta_media_eur": 762.38,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8079,
+    "anio": 2019,
+    "municipio": "Portugalete",
+    "numero_contratos": 64.0,
+    "renta_media_eur": 654.33,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48082",
+    "periodo": 8079,
+    "anio": 2019,
+    "municipio": "Santurtzi",
+    "numero_contratos": 82.0,
+    "renta_media_eur": 643.78,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48084",
+    "periodo": 8079,
+    "anio": 2019,
+    "municipio": "Sestao",
+    "numero_contratos": 53.0,
+    "renta_media_eur": 614.33,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48902",
+    "periodo": 8079,
+    "anio": 2019,
+    "municipio": "Erandio",
+    "numero_contratos": 42.0,
+    "renta_media_eur": 674.88,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8080,
+    "codigo_municipio": "01059",
+    "anio": 2020,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 595.0,
+    "renta_media_eur": 653.24,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8080,
+    "codigo_municipio": "20030",
+    "anio": 2020,
+    "municipio": "Eibar",
+    "numero_contratos": 84.0,
+    "renta_media_eur": 525.98,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8080,
+    "codigo_municipio": "20040",
+    "anio": 2020,
+    "municipio": "Hernani",
+    "numero_contratos": 75.0,
+    "renta_media_eur": 655.14,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8080,
+    "codigo_municipio": "20045",
+    "anio": 2020,
+    "municipio": "Irun",
+    "numero_contratos": 181.0,
+    "renta_media_eur": 674.0,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20055",
+    "periodo": 8080,
+    "anio": 2020,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 43.0,
+    "renta_media_eur": 568.02,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20067",
+    "periodo": 8080,
+    "anio": 2020,
+    "municipio": "Errenteria",
+    "numero_contratos": 81.0,
+    "renta_media_eur": 654.09,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8080,
+    "anio": 2020,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 653.0,
+    "renta_media_eur": 911.22,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20071",
+    "periodo": 8080,
+    "anio": 2020,
+    "municipio": "Tolosa",
+    "numero_contratos": 50.0,
+    "renta_media_eur": 623.8,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8080,
+    "codigo_municipio": "20079",
+    "anio": 2020,
+    "municipio": "Zarautz",
+    "numero_contratos": 68.0,
+    "renta_media_eur": 811.42,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8080,
+    "codigo_municipio": "48013",
+    "anio": 2020,
+    "municipio": "Barakaldo",
+    "numero_contratos": 187.0,
+    "renta_media_eur": 658.35,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8080,
+    "codigo_municipio": "48015",
+    "anio": 2020,
+    "municipio": "Basauri",
+    "numero_contratos": 72.0,
+    "renta_media_eur": 637.22,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48020",
+    "periodo": 8080,
+    "anio": 2020,
+    "municipio": "Bilbao",
+    "numero_contratos": 795.0,
+    "renta_media_eur": 773.98,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48027",
+    "periodo": 8080,
+    "anio": 2020,
+    "municipio": "Durango",
+    "numero_contratos": 73.0,
+    "renta_media_eur": 600.63,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8080,
+    "codigo_municipio": "48044",
+    "anio": 2020,
+    "municipio": "Getxo",
+    "numero_contratos": 155.0,
+    "renta_media_eur": 840.96,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8080,
+    "codigo_municipio": "48054",
+    "anio": 2020,
+    "municipio": "Leioa",
+    "numero_contratos": 49.0,
+    "renta_media_eur": 771.85,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8080,
+    "anio": 2020,
+    "municipio": "Portugalete",
+    "numero_contratos": 68.0,
+    "renta_media_eur": 633.42,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8080,
+    "codigo_municipio": "48082",
+    "anio": 2020,
+    "municipio": "Santurtzi",
+    "numero_contratos": 90.0,
+    "renta_media_eur": 657.35,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48084",
+    "periodo": 8080,
+    "anio": 2020,
+    "municipio": "Sestao",
+    "numero_contratos": 49.0,
+    "renta_media_eur": 584.73,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48902",
+    "periodo": 8080,
+    "anio": 2020,
+    "municipio": "Erandio",
+    "numero_contratos": 34.0,
+    "renta_media_eur": 666.62,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "01059",
+    "periodo": 8081,
+    "anio": 2020,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 327.0,
+    "renta_media_eur": 665.26,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8081,
+    "codigo_municipio": "20030",
+    "anio": 2020,
+    "municipio": "Eibar",
+    "numero_contratos": 41.0,
+    "renta_media_eur": 557.11,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8081,
+    "codigo_municipio": "20045",
+    "anio": 2020,
+    "municipio": "Irun",
+    "numero_contratos": 112.0,
+    "renta_media_eur": 669.95,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8081,
+    "codigo_municipio": "20067",
+    "anio": 2020,
+    "municipio": "Errenteria",
+    "numero_contratos": 72.0,
+    "renta_media_eur": 680.65,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8081,
+    "anio": 2020,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 408.0,
+    "renta_media_eur": 913.95,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8081,
+    "codigo_municipio": "20071",
+    "anio": 2020,
+    "municipio": "Tolosa",
+    "numero_contratos": 37.0,
+    "renta_media_eur": 592.57,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48013",
+    "periodo": 8081,
+    "anio": 2020,
+    "municipio": "Barakaldo",
+    "numero_contratos": 84.0,
+    "renta_media_eur": 657.2,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48015",
+    "periodo": 8081,
+    "anio": 2020,
+    "municipio": "Basauri",
+    "numero_contratos": 41.0,
+    "renta_media_eur": 624.23,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8081,
+    "codigo_municipio": "48020",
+    "anio": 2020,
+    "municipio": "Bilbao",
+    "numero_contratos": 461.0,
+    "renta_media_eur": 773.38,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8081,
+    "codigo_municipio": "48027",
+    "anio": 2020,
+    "municipio": "Durango",
+    "numero_contratos": 38.0,
+    "renta_media_eur": 622.34,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48044",
+    "periodo": 8081,
+    "anio": 2020,
+    "municipio": "Getxo",
+    "numero_contratos": 94.0,
+    "renta_media_eur": 846.39,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8081,
+    "anio": 2020,
+    "municipio": "Portugalete",
+    "numero_contratos": 40.0,
+    "renta_media_eur": 617.75,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8081,
+    "codigo_municipio": "48082",
+    "anio": 2020,
+    "municipio": "Santurtzi",
+    "numero_contratos": 46.0,
+    "renta_media_eur": 667.0,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48084",
+    "periodo": 8081,
+    "anio": 2020,
+    "municipio": "Sestao",
+    "numero_contratos": 30.0,
+    "renta_media_eur": 600.67,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8082,
+    "codigo_municipio": "01059",
+    "anio": 2020,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 747.0,
+    "renta_media_eur": 678.08,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8082,
+    "codigo_municipio": "20030",
+    "anio": 2020,
+    "municipio": "Eibar",
+    "numero_contratos": 71.0,
+    "renta_media_eur": 544.83,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8082,
+    "codigo_municipio": "20040",
+    "anio": 2020,
+    "municipio": "Hernani",
+    "numero_contratos": 65.0,
+    "renta_media_eur": 662.71,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20045",
+    "periodo": 8082,
+    "anio": 2020,
+    "municipio": "Irun",
+    "numero_contratos": 216.0,
+    "renta_media_eur": 688.6,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20055",
+    "periodo": 8082,
+    "anio": 2020,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 61.0,
+    "renta_media_eur": 584.14,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20067",
+    "periodo": 8082,
+    "anio": 2020,
+    "municipio": "Errenteria",
+    "numero_contratos": 84.0,
+    "renta_media_eur": 683.95,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8082,
+    "anio": 2020,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 802.0,
+    "renta_media_eur": 940.02,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8082,
+    "codigo_municipio": "20071",
+    "anio": 2020,
+    "municipio": "Tolosa",
+    "numero_contratos": 58.0,
+    "renta_media_eur": 629.65,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8082,
+    "codigo_municipio": "20079",
+    "anio": 2020,
+    "municipio": "Zarautz",
+    "numero_contratos": 53.0,
+    "renta_media_eur": 791.99,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8082,
+    "codigo_municipio": "48013",
+    "anio": 2020,
+    "municipio": "Barakaldo",
+    "numero_contratos": 189.0,
+    "renta_media_eur": 665.33,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8082,
+    "codigo_municipio": "48015",
+    "anio": 2020,
+    "municipio": "Basauri",
+    "numero_contratos": 71.0,
+    "renta_media_eur": 637.5,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48020",
+    "periodo": 8082,
+    "anio": 2020,
+    "municipio": "Bilbao",
+    "numero_contratos": 977.0,
+    "renta_media_eur": 797.16,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8082,
+    "codigo_municipio": "48027",
+    "anio": 2020,
+    "municipio": "Durango",
+    "numero_contratos": 71.0,
+    "renta_media_eur": 635.7,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48044",
+    "periodo": 8082,
+    "anio": 2020,
+    "municipio": "Getxo",
+    "numero_contratos": 174.0,
+    "renta_media_eur": 868.27,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48054",
+    "periodo": 8082,
+    "anio": 2020,
+    "municipio": "Leioa",
+    "numero_contratos": 52.0,
+    "renta_media_eur": 800.76,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8082,
+    "anio": 2020,
+    "municipio": "Portugalete",
+    "numero_contratos": 65.0,
+    "renta_media_eur": 636.21,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48082",
+    "periodo": 8082,
+    "anio": 2020,
+    "municipio": "Santurtzi",
+    "numero_contratos": 77.0,
+    "renta_media_eur": 643.73,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8082,
+    "codigo_municipio": "48084",
+    "anio": 2020,
+    "municipio": "Sestao",
+    "numero_contratos": 52.0,
+    "renta_media_eur": 610.92,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8082,
+    "codigo_municipio": "48902",
+    "anio": 2020,
+    "municipio": "Erandio",
+    "numero_contratos": 45.0,
+    "renta_media_eur": 665.91,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8083,
+    "codigo_municipio": "01059",
+    "anio": 2020,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 622.0,
+    "renta_media_eur": 661.33,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8083,
+    "codigo_municipio": "20030",
+    "anio": 2020,
+    "municipio": "Eibar",
+    "numero_contratos": 81.0,
+    "renta_media_eur": 564.06,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8083,
+    "codigo_municipio": "20040",
+    "anio": 2020,
+    "municipio": "Hernani",
+    "numero_contratos": 45.0,
+    "renta_media_eur": 673.89,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8083,
+    "codigo_municipio": "20045",
+    "anio": 2020,
+    "municipio": "Irun",
+    "numero_contratos": 172.0,
+    "renta_media_eur": 664.67,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20055",
+    "periodo": 8083,
+    "anio": 2020,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 46.0,
+    "renta_media_eur": 564.81,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20067",
+    "periodo": 8083,
+    "anio": 2020,
+    "municipio": "Errenteria",
+    "numero_contratos": 106.0,
+    "renta_media_eur": 655.51,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8083,
+    "anio": 2020,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 752.0,
+    "renta_media_eur": 913.81,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8083,
+    "codigo_municipio": "20071",
+    "anio": 2020,
+    "municipio": "Tolosa",
+    "numero_contratos": 64.0,
+    "renta_media_eur": 656.0,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8083,
+    "codigo_municipio": "20079",
+    "anio": 2020,
+    "municipio": "Zarautz",
+    "numero_contratos": 69.0,
+    "renta_media_eur": 802.54,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48013",
+    "periodo": 8083,
+    "anio": 2020,
+    "municipio": "Barakaldo",
+    "numero_contratos": 182.0,
+    "renta_media_eur": 661.23,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8083,
+    "codigo_municipio": "48015",
+    "anio": 2020,
+    "municipio": "Basauri",
+    "numero_contratos": 71.0,
+    "renta_media_eur": 630.44,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8083,
+    "codigo_municipio": "48020",
+    "anio": 2020,
+    "municipio": "Bilbao",
+    "numero_contratos": 940.0,
+    "renta_media_eur": 780.03,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48027",
+    "periodo": 8083,
+    "anio": 2020,
+    "municipio": "Durango",
+    "numero_contratos": 62.0,
+    "renta_media_eur": 626.69,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48044",
+    "periodo": 8083,
+    "anio": 2020,
+    "municipio": "Getxo",
+    "numero_contratos": 162.0,
+    "renta_media_eur": 852.96,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48054",
+    "periodo": 8083,
+    "anio": 2020,
+    "municipio": "Leioa",
+    "numero_contratos": 47.0,
+    "renta_media_eur": 816.43,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8083,
+    "anio": 2020,
+    "municipio": "Portugalete",
+    "numero_contratos": 65.0,
+    "renta_media_eur": 633.77,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8083,
+    "codigo_municipio": "48082",
+    "anio": 2020,
+    "municipio": "Santurtzi",
+    "numero_contratos": 94.0,
+    "renta_media_eur": 654.39,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8083,
+    "codigo_municipio": "48084",
+    "anio": 2020,
+    "municipio": "Sestao",
+    "numero_contratos": 46.0,
+    "renta_media_eur": 607.28,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8083,
+    "codigo_municipio": "48902",
+    "anio": 2020,
+    "municipio": "Erandio",
+    "numero_contratos": 37.0,
+    "renta_media_eur": 669.72,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8084,
+    "codigo_municipio": "01059",
+    "anio": 2021,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 633.0,
+    "renta_media_eur": 659.37,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8084,
+    "codigo_municipio": "20030",
+    "anio": 2021,
+    "municipio": "Eibar",
+    "numero_contratos": 77.0,
+    "renta_media_eur": 559.76,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8084,
+    "codigo_municipio": "20040",
+    "anio": 2021,
+    "municipio": "Hernani",
+    "numero_contratos": 65.0,
+    "renta_media_eur": 654.18,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8084,
+    "codigo_municipio": "20045",
+    "anio": 2021,
+    "municipio": "Irun",
+    "numero_contratos": 190.0,
+    "renta_media_eur": 684.93,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8084,
+    "codigo_municipio": "20055",
+    "anio": 2021,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 36.0,
+    "renta_media_eur": 556.43,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8084,
+    "codigo_municipio": "20067",
+    "anio": 2021,
+    "municipio": "Errenteria",
+    "numero_contratos": 113.0,
+    "renta_media_eur": 660.81,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8084,
+    "codigo_municipio": "20069",
+    "anio": 2021,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 686.0,
+    "renta_media_eur": 916.07,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20071",
+    "periodo": 8084,
+    "anio": 2021,
+    "municipio": "Tolosa",
+    "numero_contratos": 79.0,
+    "renta_media_eur": 630.01,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20079",
+    "periodo": 8084,
+    "anio": 2021,
+    "municipio": "Zarautz",
+    "numero_contratos": 59.0,
+    "renta_media_eur": 789.07,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8084,
+    "codigo_municipio": "48013",
+    "anio": 2021,
+    "municipio": "Barakaldo",
+    "numero_contratos": 206.0,
+    "renta_media_eur": 675.47,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8084,
+    "codigo_municipio": "48015",
+    "anio": 2021,
+    "municipio": "Basauri",
+    "numero_contratos": 76.0,
+    "renta_media_eur": 627.26,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48020",
+    "periodo": 8084,
+    "anio": 2021,
+    "municipio": "Bilbao",
+    "numero_contratos": 901.0,
+    "renta_media_eur": 752.35,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48027",
+    "periodo": 8084,
+    "anio": 2021,
+    "municipio": "Durango",
+    "numero_contratos": 109.0,
+    "renta_media_eur": 640.01,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8084,
+    "codigo_municipio": "48044",
+    "anio": 2021,
+    "municipio": "Getxo",
+    "numero_contratos": 181.0,
+    "renta_media_eur": 851.3,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8084,
+    "codigo_municipio": "48054",
+    "anio": 2021,
+    "municipio": "Leioa",
+    "numero_contratos": 63.0,
+    "renta_media_eur": 762.46,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8084,
+    "codigo_municipio": "48078",
+    "anio": 2021,
+    "municipio": "Portugalete",
+    "numero_contratos": 84.0,
+    "renta_media_eur": 646.89,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8084,
+    "codigo_municipio": "48082",
+    "anio": 2021,
+    "municipio": "Santurtzi",
+    "numero_contratos": 76.0,
+    "renta_media_eur": 648.76,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8084,
+    "codigo_municipio": "48084",
+    "anio": 2021,
+    "municipio": "Sestao",
+    "numero_contratos": 60.0,
+    "renta_media_eur": 606.05,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8084,
+    "codigo_municipio": "48902",
+    "anio": 2021,
+    "municipio": "Erandio",
+    "numero_contratos": 40.0,
+    "renta_media_eur": 676.38,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "01059",
+    "periodo": 8085,
+    "anio": 2021,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 592.0,
+    "renta_media_eur": 670.61,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20030",
+    "periodo": 8085,
+    "anio": 2021,
+    "municipio": "Eibar",
+    "numero_contratos": 79.0,
+    "renta_media_eur": 551.56,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20040",
+    "periodo": 8085,
+    "anio": 2021,
+    "municipio": "Hernani",
+    "numero_contratos": 64.0,
+    "renta_media_eur": 675.72,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8085,
+    "codigo_municipio": "20045",
+    "anio": 2021,
+    "municipio": "Irun",
+    "numero_contratos": 201.0,
+    "renta_media_eur": 687.09,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8085,
+    "codigo_municipio": "20055",
+    "anio": 2021,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 40.0,
+    "renta_media_eur": 581.35,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8085,
+    "codigo_municipio": "20067",
+    "anio": 2021,
+    "municipio": "Errenteria",
+    "numero_contratos": 97.0,
+    "renta_media_eur": 669.4,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8085,
+    "codigo_municipio": "20069",
+    "anio": 2021,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 755.0,
+    "renta_media_eur": 912.0,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8085,
+    "codigo_municipio": "20071",
+    "anio": 2021,
+    "municipio": "Tolosa",
+    "numero_contratos": 60.0,
+    "renta_media_eur": 627.59,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20079",
+    "periodo": 8085,
+    "anio": 2021,
+    "municipio": "Zarautz",
+    "numero_contratos": 55.0,
+    "renta_media_eur": 872.73,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48013",
+    "periodo": 8085,
+    "anio": 2021,
+    "municipio": "Barakaldo",
+    "numero_contratos": 237.0,
+    "renta_media_eur": 674.15,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48015",
+    "periodo": 8085,
+    "anio": 2021,
+    "municipio": "Basauri",
+    "numero_contratos": 83.0,
+    "renta_media_eur": 642.07,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8085,
+    "codigo_municipio": "48020",
+    "anio": 2021,
+    "municipio": "Bilbao",
+    "numero_contratos": 905.0,
+    "renta_media_eur": 773.51,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8085,
+    "codigo_municipio": "48027",
+    "anio": 2021,
+    "municipio": "Durango",
+    "numero_contratos": 85.0,
+    "renta_media_eur": 626.14,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48044",
+    "periodo": 8085,
+    "anio": 2021,
+    "municipio": "Getxo",
+    "numero_contratos": 157.0,
+    "renta_media_eur": 877.88,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8085,
+    "codigo_municipio": "48054",
+    "anio": 2021,
+    "municipio": "Leioa",
+    "numero_contratos": 74.0,
+    "renta_media_eur": 816.18,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8085,
+    "codigo_municipio": "48078",
+    "anio": 2021,
+    "municipio": "Portugalete",
+    "numero_contratos": 70.0,
+    "renta_media_eur": 653.46,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8085,
+    "codigo_municipio": "48082",
+    "anio": 2021,
+    "municipio": "Santurtzi",
+    "numero_contratos": 71.0,
+    "renta_media_eur": 651.14,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8085,
+    "codigo_municipio": "48084",
+    "anio": 2021,
+    "municipio": "Sestao",
+    "numero_contratos": 72.0,
+    "renta_media_eur": 616.36,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8085,
+    "codigo_municipio": "48902",
+    "anio": 2021,
+    "municipio": "Erandio",
+    "numero_contratos": 47.0,
+    "renta_media_eur": 652.87,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8086,
+    "codigo_municipio": "01059",
+    "anio": 2021,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 728.0,
+    "renta_media_eur": 682.97,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8086,
+    "codigo_municipio": "20030",
+    "anio": 2021,
+    "municipio": "Eibar",
+    "numero_contratos": 74.0,
+    "renta_media_eur": 563.72,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8086,
+    "codigo_municipio": "20040",
+    "anio": 2021,
+    "municipio": "Hernani",
+    "numero_contratos": 52.0,
+    "renta_media_eur": 675.0,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8086,
+    "codigo_municipio": "20045",
+    "anio": 2021,
+    "municipio": "Irun",
+    "numero_contratos": 180.0,
+    "renta_media_eur": 696.42,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8086,
+    "codigo_municipio": "20055",
+    "anio": 2021,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 61.0,
+    "renta_media_eur": 584.74,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8086,
+    "codigo_municipio": "20067",
+    "anio": 2021,
+    "municipio": "Errenteria",
+    "numero_contratos": 115.0,
+    "renta_media_eur": 670.85,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8086,
+    "anio": 2021,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 700.0,
+    "renta_media_eur": 937.81,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8086,
+    "codigo_municipio": "20071",
+    "anio": 2021,
+    "municipio": "Tolosa",
+    "numero_contratos": 71.0,
+    "renta_media_eur": 623.77,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8086,
+    "codigo_municipio": "20079",
+    "anio": 2021,
+    "municipio": "Zarautz",
+    "numero_contratos": 45.0,
+    "renta_media_eur": 793.41,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8086,
+    "codigo_municipio": "48013",
+    "anio": 2021,
+    "municipio": "Barakaldo",
+    "numero_contratos": 193.0,
+    "renta_media_eur": 673.43,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8086,
+    "codigo_municipio": "48015",
+    "anio": 2021,
+    "municipio": "Basauri",
+    "numero_contratos": 65.0,
+    "renta_media_eur": 625.94,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48020",
+    "periodo": 8086,
+    "anio": 2021,
+    "municipio": "Bilbao",
+    "numero_contratos": 1055.0,
+    "renta_media_eur": 808.29,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48027",
+    "periodo": 8086,
+    "anio": 2021,
+    "municipio": "Durango",
+    "numero_contratos": 90.0,
+    "renta_media_eur": 633.11,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8086,
+    "codigo_municipio": "48044",
+    "anio": 2021,
+    "municipio": "Getxo",
+    "numero_contratos": 181.0,
+    "renta_media_eur": 882.27,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8086,
+    "codigo_municipio": "48054",
+    "anio": 2021,
+    "municipio": "Leioa",
+    "numero_contratos": 74.0,
+    "renta_media_eur": 773.62,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8086,
+    "codigo_municipio": "48078",
+    "anio": 2021,
+    "municipio": "Portugalete",
+    "numero_contratos": 76.0,
+    "renta_media_eur": 651.55,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8086,
+    "codigo_municipio": "48082",
+    "anio": 2021,
+    "municipio": "Santurtzi",
+    "numero_contratos": 80.0,
+    "renta_media_eur": 663.75,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8086,
+    "codigo_municipio": "48084",
+    "anio": 2021,
+    "municipio": "Sestao",
+    "numero_contratos": 54.0,
+    "renta_media_eur": 602.1,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48902",
+    "periodo": 8086,
+    "anio": 2021,
+    "municipio": "Erandio",
+    "numero_contratos": 36.0,
+    "renta_media_eur": 675.89,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8087,
+    "codigo_municipio": "01059",
+    "anio": 2021,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 639.0,
+    "renta_media_eur": 683.01,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8087,
+    "codigo_municipio": "20030",
+    "anio": 2021,
+    "municipio": "Eibar",
+    "numero_contratos": 95.0,
+    "renta_media_eur": 569.02,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8087,
+    "codigo_municipio": "20040",
+    "anio": 2021,
+    "municipio": "Hernani",
+    "numero_contratos": 60.0,
+    "renta_media_eur": 662.27,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8087,
+    "codigo_municipio": "20045",
+    "anio": 2021,
+    "municipio": "Irun",
+    "numero_contratos": 175.0,
+    "renta_media_eur": 699.2,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20055",
+    "periodo": 8087,
+    "anio": 2021,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 34.0,
+    "renta_media_eur": 596.97,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20067",
+    "periodo": 8087,
+    "anio": 2021,
+    "municipio": "Errenteria",
+    "numero_contratos": 98.0,
+    "renta_media_eur": 681.98,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8087,
+    "codigo_municipio": "20069",
+    "anio": 2021,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 625.0,
+    "renta_media_eur": 923.58,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20071",
+    "periodo": 8087,
+    "anio": 2021,
+    "municipio": "Tolosa",
+    "numero_contratos": 58.0,
+    "renta_media_eur": 627.53,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8087,
+    "codigo_municipio": "20079",
+    "anio": 2021,
+    "municipio": "Zarautz",
+    "numero_contratos": 67.0,
+    "renta_media_eur": 832.66,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8087,
+    "codigo_municipio": "48013",
+    "anio": 2021,
+    "municipio": "Barakaldo",
+    "numero_contratos": 222.0,
+    "renta_media_eur": 681.33,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8087,
+    "codigo_municipio": "48015",
+    "anio": 2021,
+    "municipio": "Basauri",
+    "numero_contratos": 77.0,
+    "renta_media_eur": 636.16,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8087,
+    "codigo_municipio": "48020",
+    "anio": 2021,
+    "municipio": "Bilbao",
+    "numero_contratos": 985.0,
+    "renta_media_eur": 777.8,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8087,
+    "codigo_municipio": "48027",
+    "anio": 2021,
+    "municipio": "Durango",
+    "numero_contratos": 49.0,
+    "renta_media_eur": 641.63,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48044",
+    "periodo": 8087,
+    "anio": 2021,
+    "municipio": "Getxo",
+    "numero_contratos": 181.0,
+    "renta_media_eur": 877.65,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8087,
+    "codigo_municipio": "48054",
+    "anio": 2021,
+    "municipio": "Leioa",
+    "numero_contratos": 66.0,
+    "renta_media_eur": 767.92,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8087,
+    "codigo_municipio": "48078",
+    "anio": 2021,
+    "municipio": "Portugalete",
+    "numero_contratos": 66.0,
+    "renta_media_eur": 670.85,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8087,
+    "codigo_municipio": "48082",
+    "anio": 2021,
+    "municipio": "Santurtzi",
+    "numero_contratos": 103.0,
+    "renta_media_eur": 640.79,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8087,
+    "codigo_municipio": "48084",
+    "anio": 2021,
+    "municipio": "Sestao",
+    "numero_contratos": 87.0,
+    "renta_media_eur": 623.41,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8087,
+    "codigo_municipio": "48902",
+    "anio": 2021,
+    "municipio": "Erandio",
+    "numero_contratos": 41.0,
+    "renta_media_eur": 684.2,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8088,
+    "codigo_municipio": "01059",
+    "anio": 2022,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 596.0,
+    "renta_media_eur": 690.44,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8088,
+    "codigo_municipio": "20030",
+    "anio": 2022,
+    "municipio": "Eibar",
+    "numero_contratos": 109.0,
+    "renta_media_eur": 554.52,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8088,
+    "codigo_municipio": "20040",
+    "anio": 2022,
+    "municipio": "Hernani",
+    "numero_contratos": 71.0,
+    "renta_media_eur": 696.73,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20045",
+    "periodo": 8088,
+    "anio": 2022,
+    "municipio": "Irun",
+    "numero_contratos": 172.0,
+    "renta_media_eur": 697.45,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8088,
+    "codigo_municipio": "20055",
+    "anio": 2022,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 54.0,
+    "renta_media_eur": 563.35,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20067",
+    "periodo": 8088,
+    "anio": 2022,
+    "municipio": "Errenteria",
+    "numero_contratos": 97.0,
+    "renta_media_eur": 689.6,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8088,
+    "anio": 2022,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 645.0,
+    "renta_media_eur": 942.68,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8088,
+    "codigo_municipio": "20071",
+    "anio": 2022,
+    "municipio": "Tolosa",
+    "numero_contratos": 63.0,
+    "renta_media_eur": 635.14,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20079",
+    "periodo": 8088,
+    "anio": 2022,
+    "municipio": "Zarautz",
+    "numero_contratos": 68.0,
+    "renta_media_eur": 862.35,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8088,
+    "codigo_municipio": "48013",
+    "anio": 2022,
+    "municipio": "Barakaldo",
+    "numero_contratos": 261.0,
+    "renta_media_eur": 683.61,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8088,
+    "codigo_municipio": "48015",
+    "anio": 2022,
+    "municipio": "Basauri",
+    "numero_contratos": 87.0,
+    "renta_media_eur": 633.85,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8088,
+    "codigo_municipio": "48020",
+    "anio": 2022,
+    "municipio": "Bilbao",
+    "numero_contratos": 1064.0,
+    "renta_media_eur": 783.2,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8088,
+    "codigo_municipio": "48027",
+    "anio": 2022,
+    "municipio": "Durango",
+    "numero_contratos": 82.0,
+    "renta_media_eur": 638.64,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8088,
+    "codigo_municipio": "48044",
+    "anio": 2022,
+    "municipio": "Getxo",
+    "numero_contratos": 169.0,
+    "renta_media_eur": 857.28,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8088,
+    "codigo_municipio": "48054",
+    "anio": 2022,
+    "municipio": "Leioa",
+    "numero_contratos": 68.0,
+    "renta_media_eur": 820.48,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8088,
+    "anio": 2022,
+    "municipio": "Portugalete",
+    "numero_contratos": 82.0,
+    "renta_media_eur": 657.47,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8088,
+    "codigo_municipio": "48082",
+    "anio": 2022,
+    "municipio": "Santurtzi",
+    "numero_contratos": 98.0,
+    "renta_media_eur": 650.72,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48084",
+    "periodo": 8088,
+    "anio": 2022,
+    "municipio": "Sestao",
+    "numero_contratos": 84.0,
+    "renta_media_eur": 622.23,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48902",
+    "periodo": 8088,
+    "anio": 2022,
+    "municipio": "Erandio",
+    "numero_contratos": 32.0,
+    "renta_media_eur": 686.0,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8089,
+    "codigo_municipio": "01059",
+    "anio": 2022,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 651.0,
+    "renta_media_eur": 701.18,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8089,
+    "codigo_municipio": "20030",
+    "anio": 2022,
+    "municipio": "Eibar",
+    "numero_contratos": 82.0,
+    "renta_media_eur": 569.8,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8089,
+    "codigo_municipio": "20040",
+    "anio": 2022,
+    "municipio": "Hernani",
+    "numero_contratos": 58.0,
+    "renta_media_eur": 701.45,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8089,
+    "codigo_municipio": "20045",
+    "anio": 2022,
+    "municipio": "Irun",
+    "numero_contratos": 188.0,
+    "renta_media_eur": 722.57,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8089,
+    "codigo_municipio": "20055",
+    "anio": 2022,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 45.0,
+    "renta_media_eur": 627.33,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20067",
+    "periodo": 8089,
+    "anio": 2022,
+    "municipio": "Errenteria",
+    "numero_contratos": 96.0,
+    "renta_media_eur": 724.0,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8089,
+    "codigo_municipio": "20069",
+    "anio": 2022,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 637.0,
+    "renta_media_eur": 967.28,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8089,
+    "codigo_municipio": "20071",
+    "anio": 2022,
+    "municipio": "Tolosa",
+    "numero_contratos": 60.0,
+    "renta_media_eur": 662.63,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8089,
+    "codigo_municipio": "20079",
+    "anio": 2022,
+    "municipio": "Zarautz",
+    "numero_contratos": 56.0,
+    "renta_media_eur": 856.16,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8089,
+    "codigo_municipio": "48013",
+    "anio": 2022,
+    "municipio": "Barakaldo",
+    "numero_contratos": 236.0,
+    "renta_media_eur": 704.8,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8089,
+    "codigo_municipio": "48015",
+    "anio": 2022,
+    "municipio": "Basauri",
+    "numero_contratos": 102.0,
+    "renta_media_eur": 655.95,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8089,
+    "codigo_municipio": "48020",
+    "anio": 2022,
+    "municipio": "Bilbao",
+    "numero_contratos": 1054.0,
+    "renta_media_eur": 804.79,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48027",
+    "periodo": 8089,
+    "anio": 2022,
+    "municipio": "Durango",
+    "numero_contratos": 93.0,
+    "renta_media_eur": 667.14,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8089,
+    "codigo_municipio": "48044",
+    "anio": 2022,
+    "municipio": "Getxo",
+    "numero_contratos": 171.0,
+    "renta_media_eur": 865.36,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48054",
+    "periodo": 8089,
+    "anio": 2022,
+    "municipio": "Leioa",
+    "numero_contratos": 58.0,
+    "renta_media_eur": 808.71,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8089,
+    "anio": 2022,
+    "municipio": "Portugalete",
+    "numero_contratos": 88.0,
+    "renta_media_eur": 643.35,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8089,
+    "codigo_municipio": "48082",
+    "anio": 2022,
+    "municipio": "Santurtzi",
+    "numero_contratos": 112.0,
+    "renta_media_eur": 682.8,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8089,
+    "codigo_municipio": "48084",
+    "anio": 2022,
+    "municipio": "Sestao",
+    "numero_contratos": 75.0,
+    "renta_media_eur": 632.25,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48902",
+    "periodo": 8089,
+    "anio": 2022,
+    "municipio": "Erandio",
+    "numero_contratos": 43.0,
+    "renta_media_eur": 693.95,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8090,
+    "codigo_municipio": "01059",
+    "anio": 2022,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 723.0,
+    "renta_media_eur": 720.48,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20030",
+    "periodo": 8090,
+    "anio": 2022,
+    "municipio": "Eibar",
+    "numero_contratos": 72.0,
+    "renta_media_eur": 569.03,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8090,
+    "codigo_municipio": "20040",
+    "anio": 2022,
+    "municipio": "Hernani",
+    "numero_contratos": 35.0,
+    "renta_media_eur": 707.1,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8090,
+    "codigo_municipio": "20045",
+    "anio": 2022,
+    "municipio": "Irun",
+    "numero_contratos": 201.0,
+    "renta_media_eur": 753.3,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20055",
+    "periodo": 8090,
+    "anio": 2022,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 63.0,
+    "renta_media_eur": 656.56,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8090,
+    "codigo_municipio": "20067",
+    "anio": 2022,
+    "municipio": "Errenteria",
+    "numero_contratos": 90.0,
+    "renta_media_eur": 706.58,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8090,
+    "codigo_municipio": "20069",
+    "anio": 2022,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 631.0,
+    "renta_media_eur": 986.9,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8090,
+    "codigo_municipio": "20071",
+    "anio": 2022,
+    "municipio": "Tolosa",
+    "numero_contratos": 56.0,
+    "renta_media_eur": 646.31,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20079",
+    "periodo": 8090,
+    "anio": 2022,
+    "municipio": "Zarautz",
+    "numero_contratos": 50.0,
+    "renta_media_eur": 873.67,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48013",
+    "periodo": 8090,
+    "anio": 2022,
+    "municipio": "Barakaldo",
+    "numero_contratos": 230.0,
+    "renta_media_eur": 703.22,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48015",
+    "periodo": 8090,
+    "anio": 2022,
+    "municipio": "Basauri",
+    "numero_contratos": 85.0,
+    "renta_media_eur": 652.92,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8090,
+    "codigo_municipio": "48020",
+    "anio": 2022,
+    "municipio": "Bilbao",
+    "numero_contratos": 1074.0,
+    "renta_media_eur": 831.28,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48027",
+    "periodo": 8090,
+    "anio": 2022,
+    "municipio": "Durango",
+    "numero_contratos": 80.0,
+    "renta_media_eur": 644.16,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8090,
+    "codigo_municipio": "48044",
+    "anio": 2022,
+    "municipio": "Getxo",
+    "numero_contratos": 210.0,
+    "renta_media_eur": 925.51,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48054",
+    "periodo": 8090,
+    "anio": 2022,
+    "municipio": "Leioa",
+    "numero_contratos": 55.0,
+    "renta_media_eur": 789.82,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8090,
+    "anio": 2022,
+    "municipio": "Portugalete",
+    "numero_contratos": 62.0,
+    "renta_media_eur": 652.08,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8090,
+    "codigo_municipio": "48082",
+    "anio": 2022,
+    "municipio": "Santurtzi",
+    "numero_contratos": 94.0,
+    "renta_media_eur": 687.26,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8090,
+    "codigo_municipio": "48084",
+    "anio": 2022,
+    "municipio": "Sestao",
+    "numero_contratos": 76.0,
+    "renta_media_eur": 635.54,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8091,
+    "codigo_municipio": "01059",
+    "anio": 2022,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 598.0,
+    "renta_media_eur": 730.26,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8091,
+    "codigo_municipio": "20030",
+    "anio": 2022,
+    "municipio": "Eibar",
+    "numero_contratos": 101.0,
+    "renta_media_eur": 574.2,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8091,
+    "codigo_municipio": "20040",
+    "anio": 2022,
+    "municipio": "Hernani",
+    "numero_contratos": 41.0,
+    "renta_media_eur": 696.92,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20045",
+    "periodo": 8091,
+    "anio": 2022,
+    "municipio": "Irun",
+    "numero_contratos": 166.0,
+    "renta_media_eur": 744.41,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8091,
+    "codigo_municipio": "20055",
+    "anio": 2022,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 45.0,
+    "renta_media_eur": 600.84,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8091,
+    "codigo_municipio": "20067",
+    "anio": 2022,
+    "municipio": "Errenteria",
+    "numero_contratos": 99.0,
+    "renta_media_eur": 727.72,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8091,
+    "codigo_municipio": "20069",
+    "anio": 2022,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 607.0,
+    "renta_media_eur": 974.73,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8091,
+    "codigo_municipio": "20071",
+    "anio": 2022,
+    "municipio": "Tolosa",
+    "numero_contratos": 52.0,
+    "renta_media_eur": 664.14,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8091,
+    "codigo_municipio": "20079",
+    "anio": 2022,
+    "municipio": "Zarautz",
+    "numero_contratos": 74.0,
+    "renta_media_eur": 846.58,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8091,
+    "codigo_municipio": "48013",
+    "anio": 2022,
+    "municipio": "Barakaldo",
+    "numero_contratos": 268.0,
+    "renta_media_eur": 704.52,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8091,
+    "codigo_municipio": "48015",
+    "anio": 2022,
+    "municipio": "Basauri",
+    "numero_contratos": 84.0,
+    "renta_media_eur": 648.92,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48020",
+    "periodo": 8091,
+    "anio": 2022,
+    "municipio": "Bilbao",
+    "numero_contratos": 984.0,
+    "renta_media_eur": 823.11,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8091,
+    "codigo_municipio": "48027",
+    "anio": 2022,
+    "municipio": "Durango",
+    "numero_contratos": 68.0,
+    "renta_media_eur": 648.79,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8091,
+    "codigo_municipio": "48044",
+    "anio": 2022,
+    "municipio": "Getxo",
+    "numero_contratos": 191.0,
+    "renta_media_eur": 892.23,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8091,
+    "codigo_municipio": "48054",
+    "anio": 2022,
+    "municipio": "Leioa",
+    "numero_contratos": 65.0,
+    "renta_media_eur": 791.48,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8091,
+    "codigo_municipio": "48078",
+    "anio": 2022,
+    "municipio": "Portugalete",
+    "numero_contratos": 91.0,
+    "renta_media_eur": 665.85,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8091,
+    "codigo_municipio": "48082",
+    "anio": 2022,
+    "municipio": "Santurtzi",
+    "numero_contratos": 106.0,
+    "renta_media_eur": 687.08,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8091,
+    "codigo_municipio": "48084",
+    "anio": 2022,
+    "municipio": "Sestao",
+    "numero_contratos": 70.0,
+    "renta_media_eur": 642.96,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48902",
+    "periodo": 8091,
+    "anio": 2022,
+    "municipio": "Erandio",
+    "numero_contratos": 52.0,
+    "renta_media_eur": 703.62,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8092,
+    "codigo_municipio": "01059",
+    "anio": 2023,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 687.0,
+    "renta_media_eur": 725.8,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8092,
+    "codigo_municipio": "20030",
+    "anio": 2023,
+    "municipio": "Eibar",
+    "numero_contratos": 94.0,
+    "renta_media_eur": 587.01,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20040",
+    "periodo": 8092,
+    "anio": 2023,
+    "municipio": "Hernani",
+    "numero_contratos": 58.0,
+    "renta_media_eur": 714.78,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8092,
+    "codigo_municipio": "20045",
+    "anio": 2023,
+    "municipio": "Irun",
+    "numero_contratos": 172.0,
+    "renta_media_eur": 756.29,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8092,
+    "codigo_municipio": "20055",
+    "anio": 2023,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 74.0,
+    "renta_media_eur": 611.68,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8092,
+    "codigo_municipio": "20067",
+    "anio": 2023,
+    "municipio": "Errenteria",
+    "numero_contratos": 87.0,
+    "renta_media_eur": 730.02,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8092,
+    "codigo_municipio": "20069",
+    "anio": 2023,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 605.0,
+    "renta_media_eur": 1007.4,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8092,
+    "codigo_municipio": "20071",
+    "anio": 2023,
+    "municipio": "Tolosa",
+    "numero_contratos": 58.0,
+    "renta_media_eur": 660.69,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "20079",
+    "periodo": 8092,
+    "anio": 2023,
+    "municipio": "Zarautz",
+    "numero_contratos": 82.0,
+    "renta_media_eur": 865.16,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8092,
+    "codigo_municipio": "48013",
+    "anio": 2023,
+    "municipio": "Barakaldo",
+    "numero_contratos": 271.0,
+    "renta_media_eur": 714.03,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8092,
+    "codigo_municipio": "48015",
+    "anio": 2023,
+    "municipio": "Basauri",
+    "numero_contratos": 99.0,
+    "renta_media_eur": 678.6,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8092,
+    "codigo_municipio": "48020",
+    "anio": 2023,
+    "municipio": "Bilbao",
+    "numero_contratos": 1026.0,
+    "renta_media_eur": 830.01,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8092,
+    "codigo_municipio": "48027",
+    "anio": 2023,
+    "municipio": "Durango",
+    "numero_contratos": 88.0,
+    "renta_media_eur": 683.55,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48044",
+    "periodo": 8092,
+    "anio": 2023,
+    "municipio": "Getxo",
+    "numero_contratos": 234.0,
+    "renta_media_eur": 916.54,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48054",
+    "periodo": 8092,
+    "anio": 2023,
+    "municipio": "Leioa",
+    "numero_contratos": 51.0,
+    "renta_media_eur": 866.0,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8092,
+    "codigo_municipio": "48078",
+    "anio": 2023,
+    "municipio": "Portugalete",
+    "numero_contratos": 117.0,
+    "renta_media_eur": 687.61,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8092,
+    "codigo_municipio": "48082",
+    "anio": 2023,
+    "municipio": "Santurtzi",
+    "numero_contratos": 108.0,
+    "renta_media_eur": 696.44,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8092,
+    "codigo_municipio": "48084",
+    "anio": 2023,
+    "municipio": "Sestao",
+    "numero_contratos": 64.0,
+    "renta_media_eur": 626.25,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8092,
+    "codigo_municipio": "48902",
+    "anio": 2023,
+    "municipio": "Erandio",
+    "numero_contratos": 41.0,
+    "renta_media_eur": 731.13,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8093,
+    "codigo_municipio": "01059",
+    "anio": 2023,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 654.0,
+    "renta_media_eur": 746.89,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8093,
+    "codigo_municipio": "20030",
+    "anio": 2023,
+    "municipio": "Eibar",
+    "numero_contratos": 89.0,
+    "renta_media_eur": 576.52,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20040",
+    "periodo": 8093,
+    "anio": 2023,
+    "municipio": "Hernani",
+    "numero_contratos": 42.0,
+    "renta_media_eur": 717.31,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20045",
+    "periodo": 8093,
+    "anio": 2023,
+    "municipio": "Irun",
+    "numero_contratos": 162.0,
+    "renta_media_eur": 759.19,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20055",
+    "periodo": 8093,
+    "anio": 2023,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 47.0,
+    "renta_media_eur": 635.23,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20067",
+    "periodo": 8093,
+    "anio": 2023,
+    "municipio": "Errenteria",
+    "numero_contratos": 97.0,
+    "renta_media_eur": 762.02,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8093,
+    "codigo_municipio": "20069",
+    "anio": 2023,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 590.0,
+    "renta_media_eur": 1027.72,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8093,
+    "codigo_municipio": "20071",
+    "anio": 2023,
+    "municipio": "Tolosa",
+    "numero_contratos": 66.0,
+    "renta_media_eur": 697.06,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8093,
+    "codigo_municipio": "20079",
+    "anio": 2023,
+    "municipio": "Zarautz",
+    "numero_contratos": 63.0,
+    "renta_media_eur": 871.52,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8093,
+    "codigo_municipio": "48013",
+    "anio": 2023,
+    "municipio": "Barakaldo",
+    "numero_contratos": 249.0,
+    "renta_media_eur": 735.52,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8093,
+    "codigo_municipio": "48015",
+    "anio": 2023,
+    "municipio": "Basauri",
+    "numero_contratos": 74.0,
+    "renta_media_eur": 705.68,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8093,
+    "codigo_municipio": "48020",
+    "anio": 2023,
+    "municipio": "Bilbao",
+    "numero_contratos": 978.0,
+    "renta_media_eur": 843.3,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8093,
+    "codigo_municipio": "48027",
+    "anio": 2023,
+    "municipio": "Durango",
+    "numero_contratos": 83.0,
+    "renta_media_eur": 693.47,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8093,
+    "codigo_municipio": "48044",
+    "anio": 2023,
+    "municipio": "Getxo",
+    "numero_contratos": 182.0,
+    "renta_media_eur": 948.77,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48054",
+    "periodo": 8093,
+    "anio": 2023,
+    "municipio": "Leioa",
+    "numero_contratos": 45.0,
+    "renta_media_eur": 882.5,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8093,
+    "anio": 2023,
+    "municipio": "Portugalete",
+    "numero_contratos": 82.0,
+    "renta_media_eur": 693.04,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8093,
+    "codigo_municipio": "48082",
+    "anio": 2023,
+    "municipio": "Santurtzi",
+    "numero_contratos": 86.0,
+    "renta_media_eur": 687.96,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8093,
+    "codigo_municipio": "48084",
+    "anio": 2023,
+    "municipio": "Sestao",
+    "numero_contratos": 69.0,
+    "renta_media_eur": 669.85,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8093,
+    "codigo_municipio": "48902",
+    "anio": 2023,
+    "municipio": "Erandio",
+    "numero_contratos": 42.0,
+    "renta_media_eur": 743.9,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8094,
+    "codigo_municipio": "01059",
+    "anio": 2023,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 622.0,
+    "renta_media_eur": 760.99,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8094,
+    "codigo_municipio": "20030",
+    "anio": 2023,
+    "municipio": "Eibar",
+    "numero_contratos": 68.0,
+    "renta_media_eur": 626.95,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8094,
+    "codigo_municipio": "20040",
+    "anio": 2023,
+    "municipio": "Hernani",
+    "numero_contratos": 38.0,
+    "renta_media_eur": 744.44,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8094,
+    "codigo_municipio": "20045",
+    "anio": 2023,
+    "municipio": "Irun",
+    "numero_contratos": 155.0,
+    "renta_media_eur": 798.34,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8094,
+    "codigo_municipio": "20055",
+    "anio": 2023,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 61.0,
+    "renta_media_eur": 686.73,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8094,
+    "codigo_municipio": "20067",
+    "anio": 2023,
+    "municipio": "Errenteria",
+    "numero_contratos": 87.0,
+    "renta_media_eur": 769.58,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8094,
+    "anio": 2023,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 539.0,
+    "renta_media_eur": 1053.92,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8094,
+    "codigo_municipio": "20071",
+    "anio": 2023,
+    "municipio": "Tolosa",
+    "numero_contratos": 47.0,
+    "renta_media_eur": 684.35,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8094,
+    "codigo_municipio": "20079",
+    "anio": 2023,
+    "municipio": "Zarautz",
+    "numero_contratos": 65.0,
+    "renta_media_eur": 930.88,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8094,
+    "codigo_municipio": "48013",
+    "anio": 2023,
+    "municipio": "Barakaldo",
+    "numero_contratos": 205.0,
+    "renta_media_eur": 745.55,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8094,
+    "codigo_municipio": "48015",
+    "anio": 2023,
+    "municipio": "Basauri",
+    "numero_contratos": 51.0,
+    "renta_media_eur": 700.45,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8094,
+    "codigo_municipio": "48020",
+    "anio": 2023,
+    "municipio": "Bilbao",
+    "numero_contratos": 921.0,
+    "renta_media_eur": 871.03,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8094,
+    "codigo_municipio": "48027",
+    "anio": 2023,
+    "municipio": "Durango",
+    "numero_contratos": 50.0,
+    "renta_media_eur": 671.88,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8094,
+    "codigo_municipio": "48044",
+    "anio": 2023,
+    "municipio": "Getxo",
+    "numero_contratos": 153.0,
+    "renta_media_eur": 970.57,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48054",
+    "periodo": 8094,
+    "anio": 2023,
+    "municipio": "Leioa",
+    "numero_contratos": 45.0,
+    "renta_media_eur": 850.88,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8094,
+    "codigo_municipio": "48078",
+    "anio": 2023,
+    "municipio": "Portugalete",
+    "numero_contratos": 81.0,
+    "renta_media_eur": 704.36,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8094,
+    "codigo_municipio": "48082",
+    "anio": 2023,
+    "municipio": "Santurtzi",
+    "numero_contratos": 76.0,
+    "renta_media_eur": 716.41,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48084",
+    "periodo": 8094,
+    "anio": 2023,
+    "municipio": "Sestao",
+    "numero_contratos": 52.0,
+    "renta_media_eur": 663.43,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8094,
+    "codigo_municipio": "48902",
+    "anio": 2023,
+    "municipio": "Erandio",
+    "numero_contratos": 38.0,
+    "renta_media_eur": 740.83,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "01059",
+    "periodo": 8095,
+    "anio": 2023,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 528.0,
+    "renta_media_eur": 776.23,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20030",
+    "periodo": 8095,
+    "anio": 2023,
+    "municipio": "Eibar",
+    "numero_contratos": 83.0,
+    "renta_media_eur": 639.47,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8095,
+    "codigo_municipio": "20040",
+    "anio": 2023,
+    "municipio": "Hernani",
+    "numero_contratos": 35.0,
+    "renta_media_eur": 754.71,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8095,
+    "codigo_municipio": "20045",
+    "anio": 2023,
+    "municipio": "Irun",
+    "numero_contratos": 166.0,
+    "renta_media_eur": 775.72,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8095,
+    "codigo_municipio": "20055",
+    "anio": 2023,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 56.0,
+    "renta_media_eur": 651.35,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8095,
+    "codigo_municipio": "20067",
+    "anio": 2023,
+    "municipio": "Errenteria",
+    "numero_contratos": 68.0,
+    "renta_media_eur": 763.17,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8095,
+    "anio": 2023,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 503.0,
+    "renta_media_eur": 1057.3,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8095,
+    "codigo_municipio": "20071",
+    "anio": 2023,
+    "municipio": "Tolosa",
+    "numero_contratos": 54.0,
+    "renta_media_eur": 687.4,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20079",
+    "periodo": 8095,
+    "anio": 2023,
+    "municipio": "Zarautz",
+    "numero_contratos": 56.0,
+    "renta_media_eur": 937.91,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48013",
+    "periodo": 8095,
+    "anio": 2023,
+    "municipio": "Barakaldo",
+    "numero_contratos": 189.0,
+    "renta_media_eur": 751.49,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8095,
+    "codigo_municipio": "48015",
+    "anio": 2023,
+    "municipio": "Basauri",
+    "numero_contratos": 66.0,
+    "renta_media_eur": 713.8,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8095,
+    "codigo_municipio": "48020",
+    "anio": 2023,
+    "municipio": "Bilbao",
+    "numero_contratos": 812.0,
+    "renta_media_eur": 870.57,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8095,
+    "codigo_municipio": "48027",
+    "anio": 2023,
+    "municipio": "Durango",
+    "numero_contratos": 69.0,
+    "renta_media_eur": 696.03,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8095,
+    "codigo_municipio": "48044",
+    "anio": 2023,
+    "municipio": "Getxo",
+    "numero_contratos": 150.0,
+    "renta_media_eur": 948.54,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8095,
+    "codigo_municipio": "48054",
+    "anio": 2023,
+    "municipio": "Leioa",
+    "numero_contratos": 50.0,
+    "renta_media_eur": 912.4,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8095,
+    "codigo_municipio": "48078",
+    "anio": 2023,
+    "municipio": "Portugalete",
+    "numero_contratos": 72.0,
+    "renta_media_eur": 720.2,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8095,
+    "codigo_municipio": "48082",
+    "anio": 2023,
+    "municipio": "Santurtzi",
+    "numero_contratos": 97.0,
+    "renta_media_eur": 714.97,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8095,
+    "codigo_municipio": "48084",
+    "anio": 2023,
+    "municipio": "Sestao",
+    "numero_contratos": 59.0,
+    "renta_media_eur": 663.75,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8095,
+    "codigo_municipio": "48902",
+    "anio": 2023,
+    "municipio": "Erandio",
+    "numero_contratos": 33.0,
+    "renta_media_eur": 745.52,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "01059",
+    "periodo": 8096,
+    "anio": 2024,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 577.0,
+    "renta_media_eur": 772.44,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8096,
+    "codigo_municipio": "20030",
+    "anio": 2024,
+    "municipio": "Eibar",
+    "numero_contratos": 91.0,
+    "renta_media_eur": 645.08,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8096,
+    "codigo_municipio": "20040",
+    "anio": 2024,
+    "municipio": "Hernani",
+    "numero_contratos": 42.0,
+    "renta_media_eur": 688.79,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8096,
+    "codigo_municipio": "20045",
+    "anio": 2024,
+    "municipio": "Irun",
+    "numero_contratos": 167.0,
+    "renta_media_eur": 784.98,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8096,
+    "codigo_municipio": "20055",
+    "anio": 2024,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 46.0,
+    "renta_media_eur": 669.07,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8096,
+    "codigo_municipio": "20067",
+    "anio": 2024,
+    "municipio": "Errenteria",
+    "numero_contratos": 76.0,
+    "renta_media_eur": 808.84,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8096,
+    "codigo_municipio": "20069",
+    "anio": 2024,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 553.0,
+    "renta_media_eur": 1100.89,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8096,
+    "codigo_municipio": "20071",
+    "anio": 2024,
+    "municipio": "Tolosa",
+    "numero_contratos": 67.0,
+    "renta_media_eur": 719.59,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8096,
+    "codigo_municipio": "20079",
+    "anio": 2024,
+    "municipio": "Zarautz",
+    "numero_contratos": 58.0,
+    "renta_media_eur": 981.53,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48013",
+    "periodo": 8096,
+    "anio": 2024,
+    "municipio": "Barakaldo",
+    "numero_contratos": 215.0,
+    "renta_media_eur": 771.31,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48015",
+    "periodo": 8096,
+    "anio": 2024,
+    "municipio": "Basauri",
+    "numero_contratos": 85.0,
+    "renta_media_eur": 725.48,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8096,
+    "codigo_municipio": "48020",
+    "anio": 2024,
+    "municipio": "Bilbao",
+    "numero_contratos": 839.0,
+    "renta_media_eur": 871.93,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8096,
+    "codigo_municipio": "48027",
+    "anio": 2024,
+    "municipio": "Durango",
+    "numero_contratos": 73.0,
+    "renta_media_eur": 701.18,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8096,
+    "codigo_municipio": "48044",
+    "anio": 2024,
+    "municipio": "Getxo",
+    "numero_contratos": 180.0,
+    "renta_media_eur": 968.66,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8096,
+    "codigo_municipio": "48054",
+    "anio": 2024,
+    "municipio": "Leioa",
+    "numero_contratos": 53.0,
+    "renta_media_eur": 913.4,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8096,
+    "anio": 2024,
+    "municipio": "Portugalete",
+    "numero_contratos": 77.0,
+    "renta_media_eur": 747.31,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48082",
+    "periodo": 8096,
+    "anio": 2024,
+    "municipio": "Santurtzi",
+    "numero_contratos": 87.0,
+    "renta_media_eur": 737.23,
+    "trimestre": 1
+  },
+  {
+    "codigo_municipio": "48084",
+    "periodo": 8096,
+    "anio": 2024,
+    "municipio": "Sestao",
+    "numero_contratos": 47.0,
+    "renta_media_eur": 693.3,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8096,
+    "codigo_municipio": "48902",
+    "anio": 2024,
+    "municipio": "Erandio",
+    "numero_contratos": 38.0,
+    "renta_media_eur": 733.21,
+    "trimestre": 1
+  },
+  {
+    "periodo": 8097,
+    "codigo_municipio": "01059",
+    "anio": 2024,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 533.0,
+    "renta_media_eur": 773.88,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8097,
+    "codigo_municipio": "20030",
+    "anio": 2024,
+    "municipio": "Eibar",
+    "numero_contratos": 72.0,
+    "renta_media_eur": 639.74,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8097,
+    "codigo_municipio": "20040",
+    "anio": 2024,
+    "municipio": "Hernani",
+    "numero_contratos": 36.0,
+    "renta_media_eur": 772.85,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8097,
+    "codigo_municipio": "20045",
+    "anio": 2024,
+    "municipio": "Irun",
+    "numero_contratos": 156.0,
+    "renta_media_eur": 810.34,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8097,
+    "codigo_municipio": "20055",
+    "anio": 2024,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 53.0,
+    "renta_media_eur": 638.77,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8097,
+    "codigo_municipio": "20067",
+    "anio": 2024,
+    "municipio": "Errenteria",
+    "numero_contratos": 82.0,
+    "renta_media_eur": 817.49,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8097,
+    "codigo_municipio": "20069",
+    "anio": 2024,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 515.0,
+    "renta_media_eur": 1102.0,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20071",
+    "periodo": 8097,
+    "anio": 2024,
+    "municipio": "Tolosa",
+    "numero_contratos": 53.0,
+    "renta_media_eur": 657.16,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "20079",
+    "periodo": 8097,
+    "anio": 2024,
+    "municipio": "Zarautz",
+    "numero_contratos": 43.0,
+    "renta_media_eur": 988.69,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48013",
+    "periodo": 8097,
+    "anio": 2024,
+    "municipio": "Barakaldo",
+    "numero_contratos": 193.0,
+    "renta_media_eur": 767.19,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8097,
+    "codigo_municipio": "48015",
+    "anio": 2024,
+    "municipio": "Basauri",
+    "numero_contratos": 70.0,
+    "renta_media_eur": 728.98,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48020",
+    "periodo": 8097,
+    "anio": 2024,
+    "municipio": "Bilbao",
+    "numero_contratos": 842.0,
+    "renta_media_eur": 898.28,
+    "trimestre": 2
+  },
+  {
+    "codigo_municipio": "48027",
+    "periodo": 8097,
+    "anio": 2024,
+    "municipio": "Durango",
+    "numero_contratos": 83.0,
+    "renta_media_eur": 704.1,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8097,
+    "codigo_municipio": "48044",
+    "anio": 2024,
+    "municipio": "Getxo",
+    "numero_contratos": 147.0,
+    "renta_media_eur": 1037.28,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8097,
+    "codigo_municipio": "48054",
+    "anio": 2024,
+    "municipio": "Leioa",
+    "numero_contratos": 43.0,
+    "renta_media_eur": 963.68,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8097,
+    "codigo_municipio": "48078",
+    "anio": 2024,
+    "municipio": "Portugalete",
+    "numero_contratos": 70.0,
+    "renta_media_eur": 726.5,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8097,
+    "codigo_municipio": "48082",
+    "anio": 2024,
+    "municipio": "Santurtzi",
+    "numero_contratos": 81.0,
+    "renta_media_eur": 751.8,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8097,
+    "codigo_municipio": "48084",
+    "anio": 2024,
+    "municipio": "Sestao",
+    "numero_contratos": 57.0,
+    "renta_media_eur": 705.73,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8097,
+    "codigo_municipio": "48902",
+    "anio": 2024,
+    "municipio": "Erandio",
+    "numero_contratos": 35.0,
+    "renta_media_eur": 747.87,
+    "trimestre": 2
+  },
+  {
+    "periodo": 8098,
+    "codigo_municipio": "01059",
+    "anio": 2024,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 621.0,
+    "renta_media_eur": 783.19,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8098,
+    "codigo_municipio": "20030",
+    "anio": 2024,
+    "municipio": "Eibar",
+    "numero_contratos": 76.0,
+    "renta_media_eur": 637.05,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20040",
+    "periodo": 8098,
+    "anio": 2024,
+    "municipio": "Hernani",
+    "numero_contratos": 34.0,
+    "renta_media_eur": 756.97,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8098,
+    "codigo_municipio": "20045",
+    "anio": 2024,
+    "municipio": "Irun",
+    "numero_contratos": 168.0,
+    "renta_media_eur": 810.55,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8098,
+    "codigo_municipio": "20055",
+    "anio": 2024,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 63.0,
+    "renta_media_eur": 713.69,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8098,
+    "codigo_municipio": "20067",
+    "anio": 2024,
+    "municipio": "Errenteria",
+    "numero_contratos": 87.0,
+    "renta_media_eur": 800.17,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20069",
+    "periodo": 8098,
+    "anio": 2024,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 508.0,
+    "renta_media_eur": 1138.14,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20071",
+    "periodo": 8098,
+    "anio": 2024,
+    "municipio": "Tolosa",
+    "numero_contratos": 43.0,
+    "renta_media_eur": 696.15,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "20079",
+    "periodo": 8098,
+    "anio": 2024,
+    "municipio": "Zarautz",
+    "numero_contratos": 55.0,
+    "renta_media_eur": 879.15,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8098,
+    "codigo_municipio": "48013",
+    "anio": 2024,
+    "municipio": "Barakaldo",
+    "numero_contratos": 204.0,
+    "renta_media_eur": 772.62,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8098,
+    "codigo_municipio": "48015",
+    "anio": 2024,
+    "municipio": "Basauri",
+    "numero_contratos": 57.0,
+    "renta_media_eur": 739.64,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48020",
+    "periodo": 8098,
+    "anio": 2024,
+    "municipio": "Bilbao",
+    "numero_contratos": 827.0,
+    "renta_media_eur": 944.6,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8098,
+    "codigo_municipio": "48027",
+    "anio": 2024,
+    "municipio": "Durango",
+    "numero_contratos": 72.0,
+    "renta_media_eur": 753.6,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8098,
+    "codigo_municipio": "48044",
+    "anio": 2024,
+    "municipio": "Getxo",
+    "numero_contratos": 142.0,
+    "renta_media_eur": 1061.62,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8098,
+    "codigo_municipio": "48054",
+    "anio": 2024,
+    "municipio": "Leioa",
+    "numero_contratos": 65.0,
+    "renta_media_eur": 895.27,
+    "trimestre": 3
+  },
+  {
+    "codigo_municipio": "48078",
+    "periodo": 8098,
+    "anio": 2024,
+    "municipio": "Portugalete",
+    "numero_contratos": 63.0,
+    "renta_media_eur": 741.7,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8098,
+    "codigo_municipio": "48082",
+    "anio": 2024,
+    "municipio": "Santurtzi",
+    "numero_contratos": 78.0,
+    "renta_media_eur": 724.87,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8098,
+    "codigo_municipio": "48084",
+    "anio": 2024,
+    "municipio": "Sestao",
+    "numero_contratos": 45.0,
+    "renta_media_eur": 691.59,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8098,
+    "codigo_municipio": "48902",
+    "anio": 2024,
+    "municipio": "Erandio",
+    "numero_contratos": 30.0,
+    "renta_media_eur": 766.21,
+    "trimestre": 3
+  },
+  {
+    "periodo": 8099,
+    "codigo_municipio": "01059",
+    "anio": 2024,
+    "municipio": "Vitoria-Gasteiz",
+    "numero_contratos": 549.0,
+    "renta_media_eur": 798.57,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8099,
+    "codigo_municipio": "20030",
+    "anio": 2024,
+    "municipio": "Eibar",
+    "numero_contratos": 92.0,
+    "renta_media_eur": 651.55,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8099,
+    "codigo_municipio": "20040",
+    "anio": 2024,
+    "municipio": "Hernani",
+    "numero_contratos": 48.0,
+    "renta_media_eur": 749.49,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20045",
+    "periodo": 8099,
+    "anio": 2024,
+    "municipio": "Irun",
+    "numero_contratos": 141.0,
+    "renta_media_eur": 821.28,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20055",
+    "periodo": 8099,
+    "anio": 2024,
+    "municipio": "Arrasate/Mondragon",
+    "numero_contratos": 44.0,
+    "renta_media_eur": 680.93,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20067",
+    "periodo": 8099,
+    "anio": 2024,
+    "municipio": "Errenteria",
+    "numero_contratos": 93.0,
+    "renta_media_eur": 817.64,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8099,
+    "codigo_municipio": "20069",
+    "anio": 2024,
+    "municipio": "Donostia-San Sebastian",
+    "numero_contratos": 516.0,
+    "renta_media_eur": 1147.53,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20071",
+    "periodo": 8099,
+    "anio": 2024,
+    "municipio": "Tolosa",
+    "numero_contratos": 45.0,
+    "renta_media_eur": 695.5,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "20079",
+    "periodo": 8099,
+    "anio": 2024,
+    "municipio": "Zarautz",
+    "numero_contratos": 75.0,
+    "renta_media_eur": 1001.94,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48013",
+    "periodo": 8099,
+    "anio": 2024,
+    "municipio": "Barakaldo",
+    "numero_contratos": 171.0,
+    "renta_media_eur": 782.15,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48015",
+    "periodo": 8099,
+    "anio": 2024,
+    "municipio": "Basauri",
+    "numero_contratos": 69.0,
+    "renta_media_eur": 731.0,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8099,
+    "codigo_municipio": "48020",
+    "anio": 2024,
+    "municipio": "Bilbao",
+    "numero_contratos": 767.0,
+    "renta_media_eur": 930.31,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8099,
+    "codigo_municipio": "48027",
+    "anio": 2024,
+    "municipio": "Durango",
+    "numero_contratos": 62.0,
+    "renta_media_eur": 724.68,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8099,
+    "codigo_municipio": "48044",
+    "anio": 2024,
+    "municipio": "Getxo",
+    "numero_contratos": 127.0,
+    "renta_media_eur": 1037.23,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8099,
+    "codigo_municipio": "48054",
+    "anio": 2024,
+    "municipio": "Leioa",
+    "numero_contratos": 46.0,
+    "renta_media_eur": 908.11,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8099,
+    "codigo_municipio": "48078",
+    "anio": 2024,
+    "municipio": "Portugalete",
+    "numero_contratos": 69.0,
+    "renta_media_eur": 747.83,
+    "trimestre": 4
+  },
+  {
+    "periodo": 8099,
+    "codigo_municipio": "48082",
+    "anio": 2024,
+    "municipio": "Santurtzi",
+    "numero_contratos": 93.0,
+    "renta_media_eur": 744.73,
+    "trimestre": 4
+  },
+  {
+    "codigo_municipio": "48084",
+    "periodo": 8099,
+    "anio": 2024,
+    "municipio": "Sestao",
+    "numero_contratos": 58.0,
+    "renta_media_eur": 736.73,
+    "trimestre": 4
+  }
+]

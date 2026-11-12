@@ -40,7 +40,7 @@ def capture(output, portal='ambos', limit=10):
               'estado': 'captura_interpretable' if complete else 'incompleta',
               'portales': reports, 'registros_unicos': len(ads),
               'limites': ['Muestra de listados, no censo ni garantía de disponibilidad.',
-                          'Los selectores requieren validación con HTML vigente.',
+                          'Las condiciones temporal/estudiantes/empresas son señales textuales; su ausencia no acredita vivienda habitual.',
                           'Revisar condiciones de uso antes de ejecutar; robots no equivale a licencia.',
                           'No modifica fuentes oficiales ni el modelo o su test.']}
     def write(name, data):

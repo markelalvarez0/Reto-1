@@ -17,7 +17,9 @@ from .models import resolver_codigo_ine
 
 def observed_municipality(location):
     """Solo acepta el municipio publicado en la ubicación; nunca el del target."""
-    for part in reversed(re.split(r',|\s+[-|]\s+', location or '')):
+    # Los subtítulos actuales incluyen «Barrio (Distrito. Municipio)».
+    # No dividir guiones: forman parte de Vitoria - Gasteiz y San Sebastián - Donostia.
+    for part in reversed(re.split(r'[,().|]', location or '')):
         if resolver_codigo_ine(part.strip()):
             return part.strip()
     return 'No publicado'
@@ -40,6 +42,15 @@ def euro_price(text):
 
 
 USER_AGENT = 'Reto1AcademicBot/1.0'
+
+
+def published_rental_conditions(ad):
+    """Señales textuales, no una clasificación jurídica ni garantía de uso habitual."""
+    text = ' '.join((ad.titulo or '', ad.descripcion or '')).casefold()
+    signals = {'temporal': r'temporal|temporada|estancias?',
+               'estudiantes': r'estudiantes?|curso\s+20\d\d',
+               'empresas': r'empresas?'}
+    return [name for name, pattern in signals.items() if re.search(pattern, text)]
 
 
 def residential_title(title):

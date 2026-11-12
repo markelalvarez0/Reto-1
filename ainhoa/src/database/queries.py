@@ -15,24 +15,32 @@ logger = logging.getLogger(__name__)
 class MongoHousingQueries:
     """Ejecuta consultas analíticas especializadas para el reto de vivienda juvenil."""
 
-    def __init__(self, db):
+    def __init__(self, db, include_synthetic: bool = False):
         self.db = db
         self.viviendas = db["viviendas"]
         self.municipios = db["municipios"]
+        self.include_synthetic = include_synthetic
+
+    def _anuncios(self):
+        filtro = {'tipo_registro': {'$ne': 'promocion'}, 'tipo_operacion': 'alquiler',
+                  'precio': {'$type': 'number', '$gt': 0}}
+        if not self.include_synthetic:
+            filtro['es_sintetico'] = False
+        return filtro
 
     def consulta_1_alquileres_en_municipio(self, municipio: str = "Bilbao") -> List[Dict[str, Any]]:
         """Consulta 1: Filtro de igualdad y proyección con ordenación de menor a mayor precio."""
-        filtro = {"municipio": municipio, "tipo_operacion": "alquiler"}
+        filtro = {**self._anuncios(), "municipio": municipio}
         proyeccion = {"_id": 0, "id_origen": 1, "titulo": 1, "precio": 1, "superficie_m2": 1, "municipio": 1}
         resultados = list(self.viviendas.find(filtro, proyeccion).sort("precio", 1))
         logger.info(f"Consulta 1 ({municipio}): {len(resultados)} resultados obtenidos.")
         return resultados
 
     def consulta_2_alquileres_asequibles_jovenes(self, precio_max: float = 750.0) -> List[Dict[str, Any]]:
-        """Consulta 2: Operadores de comparación ($lte, $gt) para identificar alquileres por debajo del umbral de riesgo."""
+        """Consulta 2: Precios pedidos bajo un umbral analítico, sin evaluar solvencia."""
         filtro = {
-            "tipo_operacion": "alquiler",
-            "precio": {"$gt": 0.0, "$lte": precio_max}
+            **self._anuncios(),
+            "precio": {"$type": "number", "$gt": 0.0, "$lte": precio_max}
         }
         proyeccion = {"_id": 0, "titulo": 1, "municipio": 1, "precio": 1, "categoria_accesibilidad": 1}
         resultados = list(self.viviendas.find(filtro, proyeccion).sort("precio", 1))
@@ -43,6 +51,7 @@ class MongoHousingQueries:
         """Consulta 3: Combinación lógica ($and) de municipio, precio máximo y superficie mínima."""
         filtro = {
             "$and": [
+                self._anuncios(),
                 {"municipio": municipio},
                 {"tipo_operacion": "alquiler"},
                 {"precio": {"$lte": precio_max}},
@@ -56,6 +65,7 @@ class MongoHousingQueries:
     def consulta_4_campos_anidados_confort(self, min_hab: int = 2, ascensor: bool = True) -> List[Dict[str, Any]]:
         """Consulta 4: Filtrado sobre campos estructurados anidados (características)."""
         filtro = {
+            **self._anuncios(),
             "caracteristicas.habitaciones": {"$gte": min_hab},
             "caracteristicas.ascensor": ascensor
         }
@@ -77,6 +87,8 @@ class MongoHousingQueries:
                 "$elemMatch": {"nombre": nombre_programa}
             }
         }
+        if not self.include_synthetic:
+            filtro['es_sintetico'] = False
         proyeccion = {
             "_id": 0,
             "municipio": 1,

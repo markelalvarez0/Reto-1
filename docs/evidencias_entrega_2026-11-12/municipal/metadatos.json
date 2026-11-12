@@ -1,0 +1,77 @@
+{
+  "anio": 2024,
+  "trimestre": 4,
+  "unidad": "municipio/trimestre",
+  "fuentes": {
+    "emal_municipios.xlsx": {
+      "archivo": "emal_municipios.xlsx",
+      "url_solicitada": "https://opendata.euskadi.eus/contenidos/estadistica/122417_emal_tablas_estad/opendata/EMAL.-Barrios-Municipios.-2016-2026_es.xlsx",
+      "fecha_utc": "2026-11-10T14:37:18.098528+00:00",
+      "http_status": 200,
+      "url_final": "https://opendata.euskadi.eus/contenidos/estadistica/122417_emal_tablas_estad/opendata/EMAL.-Barrios-Municipios.-2016-2026_es.xlsx",
+      "estado": "descargado",
+      "bytes": 256980,
+      "sha256": "f4d27d4e8e9bd3688d4e7a454026a4a0884073dc73e3fc1c0da4891a1ad1af5c"
+    },
+    "ovj_salario_2024.html": {
+      "archivo": "ovj_salario_2024.html",
+      "url_solicitada": "https://www.euskadi.eus/gobierno-vasco/-/noticia/2025/el-salario-neto-medio-juventud-asalariada-18-y-34-anos-2024-incluidas-pagas-extra-asciende-1-564-euros-mensuales-ligero-incremento-respecto-2023/",
+      "fecha_utc": "2026-11-10T14:37:20.620671+00:00",
+      "http_status": 200,
+      "url_final": "https://www.euskadi.eus/gobierno-vasco/-/noticia/2025/el-salario-neto-medio-juventud-asalariada-18-y-34-anos-2024-incluidas-pagas-extra-asciende-1-564-euros-mensuales-ligero-incremento-respecto-2023/",
+      "estado": "descargado",
+      "bytes": 47334,
+      "sha256": "ef8899a548fb273ae892223b29c6fdf85f3a8945202f77346eb1914c0a36d892"
+    },
+    "visesa.json": {
+      "archivo": "visesa.json",
+      "url_solicitada": "https://apps.visesa.eus/ws/promocion/filtro",
+      "fecha_utc": "2026-11-10T14:37:18.325207+00:00",
+      "http_status": 200,
+      "url_final": "https://apps.visesa.eus/ws/promocion/filtro",
+      "estado": "descargado",
+      "bytes": 1426128,
+      "sha256": "d12204dfb4f4b0d21cac38f32579129763c5f7617e1968864798e59fae112409"
+    },
+    "ine_2026.xlsx": {
+      "archivo": "ine_2026.xlsx",
+      "url_solicitada": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx",
+      "fecha_utc": "2026-11-10T14:37:19.620907+00:00",
+      "http_status": 200,
+      "url_final": "https://www.ine.es/daco/daco42/codmun/26codmun.xlsx",
+      "estado": "descargado",
+      "bytes": 318222,
+      "sha256": "b4bea7c3cc1b295a73f7fa3ca68b2ef25c3a59833bd91ea5315ae25dcc1ca741"
+    }
+  },
+  "salario": {
+    "indicador": "salario_neto_medio_juventud_asalariada",
+    "valor": 1564.0,
+    "unidad": "EUR/mes",
+    "periodo": "2024",
+    "territorio": "Euskadi",
+    "edad_min": 18,
+    "edad_max": 34,
+    "incluye_pagas_extra": true,
+    "es_salario_municipal": false,
+    "procedencia": {
+      "archivo": "ovj_salario_2024.html",
+      "url_solicitada": "https://www.euskadi.eus/gobierno-vasco/-/noticia/2025/el-salario-neto-medio-juventud-asalariada-18-y-34-anos-2024-incluidas-pagas-extra-asciende-1-564-euros-mensuales-ligero-incremento-respecto-2023/",
+      "fecha_utc": "2026-11-10T14:37:20.620671+00:00",
+      "http_status": 200,
+      "url_final": "https://www.euskadi.eus/gobierno-vasco/-/noticia/2025/el-salario-neto-medio-juventud-asalariada-18-y-34-anos-2024-incluidas-pagas-extra-asciende-1-564-euros-mensuales-ligero-incremento-respecto-2023/",
+      "estado": "descargado",
+      "bytes": 47334,
+      "sha256": "ef8899a548fb273ae892223b29c6fdf85f3a8945202f77346eb1914c0a36d892"
+    }
+  },
+  "limites": [
+    "El esfuerzo es un escenario con salario autonómico, no una medida de cada hogar.",
+    "La renta anual equivalente multiplica por 12 la renta mensual: no suma contratos anuales.",
+    "El umbral del 30% es analítico, no un requisito legal de subvención.",
+    "El mapa localiza promociones Visesa; no representa ofertas disponibles ni centros municipales.",
+    "La media territorial es simple entre los municipios cubiertos; no representa todos los contratos.",
+    "Serie revisada en la fecha de captura; evaluacion retrospectiva, no prueba de disponibilidad historica en tiempo real. No representa anuncios individuales ni todos los municipios de Euskadi."
+  ],
+  "motor": "MongoDB"
+}

@@ -12,7 +12,7 @@ No presentar una ejecución histórica como si acabara de realizarse.
 | 8–10 | Datos y pipeline ML, división temporal 601/75/92, comparativa MLflow y MLP_2_capas frente a persistencia. Explicar la pequeña diferencia. |
 | 10–12 | SHAP de validación y test sellado (MAE 28,67 EUR); abrir la app sin recalcular. Predecir un caso declarado como demostración. |
 | 12–14 | Reglas por prioridad, consentimiento, n8n y ficha local. Repetir UUID para mostrar idempotencia sin enviar comunicaciones reales. |
-| 14–15 | Limitaciones, requisitos pendientes y conclusión vinculada a los indicadores. No afirmar cumplimiento integral sin scraping verificado. |
+| 14–15 | Limitaciones, requisitos pendientes y conclusión vinculada a los indicadores. Mostrar la muestra archivada verificada y explicar su sesgo y mezcla de modalidades. |
 
 ## Reproducción
 
@@ -41,4 +41,24 @@ Ver `.github/workflows/bda-candidate.yml`, `infra/start_hdfs_ci.sh` y
 - ¿Qué protege un índice único? La identidad de cada dato; no convierte catálogos de dos fuentes en viviendas únicas.
 - ¿Qué significa el esfuerzo? Escenario renta/ingreso regional, no proporción de jóvenes capaces de emanciparse.
 - ¿Qué hace n8n? Guarda acciones locales distintas con consentimiento e idempotencia; no concede ayudas.
-- ¿Qué queda sin acreditar? Scraping vigente de anuncios individuales y cualquier integración cuyo XML/evidencia actual falte.
+- ¿Qué queda sin acreditar? Ensayo humano, actualización de disponibilidad de los anuncios y cualquier plataforma o integración sin evidencia actual. La captura del 12 de noviembre está conservada.
+
+## Ensayo técnico del incremento de anuncios
+
+En los minutos 2–4 mostrar `data/capturas_anuncios/manifest.json`, un HTML y su
+metadato robots; `scripts/audit_project.py` verifica sus bytes. En los minutos 4–6
+mostrar 638 mensajes recibidos (621 promociones + 17 anuncios) y recarga sin duplicados.
+En los minutos 6–8 abrir la sección de anuncios del visor: 6 Bilbao, 6 Donostia y
+5 Vitoria. Comparar precio pedido y superficie, sin confundirlo con EMAL.
+Explicar 3 señales de temporalidad y 2 de empresas, que pueden solaparse.
+
+Preguntas añadidas: ¿17 anuncios son 17 viviendas distintas? No: son identidades
+de portal; puede haber publicación cruzada. ¿El índice aceleró el tiempo? Se
+examinaron 638 frente a 4 documentos; ambos tiempos fueron 0 ms y no permiten
+cuantificar aceleración. ¿Por qué dos consultas devuelven cero? No se ha observado
+ascensor en los campos normalizados ni programas municipales publicados en esas
+fuentes; no se rellenan con constantes. ¿El contador prueba demanda real? No: las
+100 operaciones se hicieron sobre una copia aislada para demostrar atomicidad.
+
+El guion está preparado y se ha comprobado el recorrido técnico; el ensayo oral
+cronometrado y las respuestas personales corresponden al alumnado y siguen pendientes.

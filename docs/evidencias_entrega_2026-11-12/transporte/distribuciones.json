@@ -1,0 +1,56 @@
+{
+  "distribucion_accesibilidad": [
+    {
+      "_id": "ALQUILER_600_850",
+      "total": 1
+    },
+    {
+      "_id": "ALQUILER_MAS_850",
+      "total": 16
+    }
+  ],
+  "top_asequibles": [
+    {
+      "codigo_municipio": "01059",
+      "es_protegida": false,
+      "municipio": "Vitoria - Gasteiz",
+      "precio": 750.0,
+      "titulo": "Piso en calle de los Herrán, 12"
+    },
+    {
+      "codigo_municipio": "01059",
+      "es_protegida": false,
+      "municipio": "Vitoria - Gasteiz",
+      "precio": 1057.0,
+      "titulo": "Piso con ascensor en alquiler en Tarragona"
+    },
+    {
+      "codigo_municipio": "48020",
+      "es_protegida": false,
+      "municipio": "Bilbao",
+      "precio": 1200.0,
+      "titulo": "Piso con balcón en alquiler en Francisco Durrio Eskultorearen Kalea"
+    },
+    {
+      "codigo_municipio": "20069",
+      "es_protegida": false,
+      "municipio": "Donostia - San Sebastián",
+      "precio": 1350.0,
+      "titulo": "Piso con balcón en alquiler en Arroka Kalea"
+    },
+    {
+      "codigo_municipio": "01059",
+      "es_protegida": false,
+      "municipio": "Vitoria - Gasteiz",
+      "precio": 1415.0,
+      "titulo": "Piso en alquiler en Uleta Kalea"
+    }
+  ],
+  "desglose_por_tipo": [
+    {
+      "_id": "alquiler",
+      "total": 17,
+      "precio_promedio": 2033.6470588235295
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "archivo": "listado_c67ab944df9e47ae8a90c931983f2d4b.bin",
+  "url": "https://www.habitaclia.com/alquiler/viviendas/araba-alava-provincia/vitoria-gasteiz/s",
+  "http_status": 200,
+  "fecha_utc": "2026-11-12T14:33:16.566858+00:00",
+  "sha256": "d0f78d487b4e4530c0516a5b2e92d0bbddadb9914ceab600786e1988f07edfa7",
+  "bytes": 307614,
+  "clase": "listado",
+  "user_agent": "Reto1AcademicBot/1.0",
+  "tls_verificado": true,
+  "content_type": "text/html; charset=utf-8"
+}

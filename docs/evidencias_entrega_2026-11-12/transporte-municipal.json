@@ -1,0 +1,44 @@
+{
+  "servicios": {
+    "hdfs": "real",
+    "kafka": "real",
+    "mongodb": "real"
+  },
+  "tipo": "vistas municipales agregadas; no anuncios",
+  "lote": "d5a9a99857844991a5ad81919caa5256",
+  "topic": "reto1-municipal-854035056823429491f99d53b877a60c",
+  "recibidos": 5,
+  "hdfs": [
+    {
+      "archivo": "comparativa_municipal.json",
+      "hdfs_path": "/data/reto1/processed/municipal/d5a9a99857844991a5ad81919caa5256/comparativa_municipal.json",
+      "sha256": "218c8b678d806ba6ca2e1870fdc26254bae020c1d5047aee1c2bd945310a138d",
+      "recuperacion_identica": true
+    },
+    {
+      "archivo": "mapa_promociones.json",
+      "hdfs_path": "/data/reto1/processed/municipal/d5a9a99857844991a5ad81919caa5256/mapa_promociones.json",
+      "sha256": "a38aef0e4da450d4ca3fc17969412bd12b3a76a53e7d324d919a4dc952faf624",
+      "recuperacion_identica": true
+    },
+    {
+      "archivo": "metadatos.json",
+      "hdfs_path": "/data/reto1/processed/municipal/d5a9a99857844991a5ad81919caa5256/metadatos.json",
+      "sha256": "7c48fef7459c354f9a1185bc1278a02067475f7a4200742c9af630c4d07484cc",
+      "recuperacion_identica": true
+    },
+    {
+      "archivo": "resumen_territorial.json",
+      "hdfs_path": "/data/reto1/processed/municipal/d5a9a99857844991a5ad81919caa5256/resumen_territorial.json",
+      "sha256": "a7557e80b4277bb61c7cc2c42d52f7893f85f9ae1b9ee2ffe683634ffb2e3a5c",
+      "recuperacion_identica": true
+    },
+    {
+      "archivo": "serie_trimestral.json",
+      "hdfs_path": "/data/reto1/processed/municipal/d5a9a99857844991a5ad81919caa5256/serie_trimestral.json",
+      "sha256": "c0b3fb35a6441b0df3fb090b6050f3713ae0f2d55a25a286c1c043400136ad7e",
+      "recuperacion_identica": true
+    }
+  ],
+  "offsets_tras_persistencia": true
+}
