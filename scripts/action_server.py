@@ -44,7 +44,8 @@ def persist_action(root, action, payload):
         else:
             record = {'event_id': event_id, 'decision': decision, 'accion': action, 'persistido': True,
                       'fecha_utc': datetime.now(timezone.utc).isoformat(), 'huella': fingerprint,
-                      'documento': ACTIONS[decision][1], 'resolucion_administrativa': False}
+                      'documento': ACTIONS[decision][1], 'regla_id': payload.get('regla_id'),
+                      'renta_estimada': payload.get('renta_estimada'), 'resolucion_administrativa': False}
             temporary = path.with_suffix('.tmp')
             temporary.write_text(json.dumps(record, indent=2), encoding='utf-8'); temporary.replace(path)
         return record

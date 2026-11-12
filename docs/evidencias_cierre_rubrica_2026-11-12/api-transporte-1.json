@@ -1,0 +1,133 @@
+{
+  "servicios": {
+    "hdfs": "real",
+    "kafka": "real",
+    "mongodb": "real"
+  },
+  "recibidos": 3,
+  "documentos_coleccion": 3,
+  "coleccion": "rentas_api",
+  "offsets_tras_persistencia": true,
+  "archivos": [
+    {
+      "archivo": "01059.json",
+      "hdfs": "/data/reto1/raw/api_rentas/0d0d38ab70fd4253a36cda49b83ac8f1/01059.json",
+      "sha256": "72ea6be473b47416714bdbb2c35ced8ee309fea58bc42c18a29adcca913ff2ed"
+    },
+    {
+      "archivo": "20069.json",
+      "hdfs": "/data/reto1/raw/api_rentas/0d0d38ab70fd4253a36cda49b83ac8f1/20069.json",
+      "sha256": "c9d88fb28c148ea31955402d89aa1bc2fd6a13af0185028a5bffbe6b0e812a91"
+    },
+    {
+      "archivo": "48020.json",
+      "hdfs": "/data/reto1/raw/api_rentas/0d0d38ab70fd4253a36cda49b83ac8f1/48020.json",
+      "sha256": "c8537448cea2229af1b0b9caae06d18b086e03c3c600a600ac9a847a2384c86b"
+    },
+    {
+      "archivo": "manifest.json",
+      "hdfs": "/data/reto1/raw/api_rentas/0d0d38ab70fd4253a36cda49b83ac8f1/manifest.json",
+      "sha256": "5a038eab1961a1635aa2ab9cbaecbea238b01b6a151fa75e89bd9b5b6451516e"
+    },
+    {
+      "archivo": "rentas_api.json",
+      "hdfs": "/data/reto1/raw/api_rentas/0d0d38ab70fd4253a36cda49b83ac8f1/rentas_api.json",
+      "sha256": "3b42ad26dff6c1801848b50fc59d34839c87a392c958672d716a4657dcf48e84"
+    },
+    {
+      "archivo": "visor.html",
+      "hdfs": "/data/reto1/raw/api_rentas/0d0d38ab70fd4253a36cda49b83ac8f1/visor.html",
+      "sha256": "ad4c55f311d226d9a8fe9ab9f0e8379e522dbedec35e57e8f48f0886c71a16b1"
+    }
+  ],
+  "datos": [
+    {
+      "codigo_municipio": "01059",
+      "municipio": "Vitoria-Gasteiz",
+      "anio": 2024,
+      "trimestre": 4,
+      "renta_media_eur": 798.6,
+      "numero_contratos": 549,
+      "contratos_con_importe": 523,
+      "unidad": "municipio/trimestre; EUR/mes; nuevos contratos de vivienda habitual colectiva",
+      "fuente": "API_JSON_visor_EMAL",
+      "tipo_registro": "estadistica_agregada",
+      "procedencia": {
+        "archivo": "01059.json",
+        "url": "https://eremutentsionatua.euskadi.eus/ad23aConsultaWar/consulta/emal?ambito=4&tipoDatoContratos=4&tipoContrato=1&tipoHueco=0&idProvincia=01&idMunicipio=059",
+        "http_status": 200,
+        "bytes": 5666,
+        "sha256": "72ea6be473b47416714bdbb2c35ced8ee309fea58bc42c18a29adcca913ff2ed",
+        "fecha_utc": "2026-11-12T15:45:09.948478+00:00",
+        "parametros": {
+          "ambito": 4,
+          "tipoDatoContratos": 4,
+          "tipoContrato": 1,
+          "tipoHueco": 0,
+          "idProvincia": "01",
+          "idMunicipio": "059"
+        },
+        "tls_verificado": true
+      }
+    },
+    {
+      "codigo_municipio": "20069",
+      "municipio": "Donostia-San Sebastián",
+      "anio": 2024,
+      "trimestre": 4,
+      "renta_media_eur": 1147.5,
+      "numero_contratos": 516,
+      "contratos_con_importe": 506,
+      "unidad": "municipio/trimestre; EUR/mes; nuevos contratos de vivienda habitual colectiva",
+      "fuente": "API_JSON_visor_EMAL",
+      "tipo_registro": "estadistica_agregada",
+      "procedencia": {
+        "archivo": "20069.json",
+        "url": "https://eremutentsionatua.euskadi.eus/ad23aConsultaWar/consulta/emal?ambito=4&tipoDatoContratos=4&tipoContrato=1&tipoHueco=0&idProvincia=20&idMunicipio=069",
+        "http_status": 200,
+        "bytes": 5716,
+        "sha256": "c9d88fb28c148ea31955402d89aa1bc2fd6a13af0185028a5bffbe6b0e812a91",
+        "fecha_utc": "2026-11-12T15:45:11.996427+00:00",
+        "parametros": {
+          "ambito": 4,
+          "tipoDatoContratos": 4,
+          "tipoContrato": 1,
+          "tipoHueco": 0,
+          "idProvincia": "20",
+          "idMunicipio": "069"
+        },
+        "tls_verificado": true
+      }
+    },
+    {
+      "codigo_municipio": "48020",
+      "municipio": "Bilbao",
+      "anio": 2024,
+      "trimestre": 4,
+      "renta_media_eur": 930.3,
+      "numero_contratos": 767,
+      "contratos_con_importe": 729,
+      "unidad": "municipio/trimestre; EUR/mes; nuevos contratos de vivienda habitual colectiva",
+      "fuente": "API_JSON_visor_EMAL",
+      "tipo_registro": "estadistica_agregada",
+      "procedencia": {
+        "archivo": "48020.json",
+        "url": "https://eremutentsionatua.euskadi.eus/ad23aConsultaWar/consulta/emal?ambito=4&tipoDatoContratos=4&tipoContrato=1&tipoHueco=0&idProvincia=48&idMunicipio=020",
+        "http_status": 200,
+        "bytes": 5725,
+        "sha256": "c8537448cea2229af1b0b9caae06d18b086e03c3c600a600ac9a847a2384c86b",
+        "fecha_utc": "2026-11-12T15:45:13.876120+00:00",
+        "parametros": {
+          "ambito": 4,
+          "tipoDatoContratos": 4,
+          "tipoContrato": 1,
+          "tipoHueco": 0,
+          "idProvincia": "48",
+          "idMunicipio": "020"
+        },
+        "tls_verificado": true
+      }
+    }
+  ],
+  "limite": "Estadísticas de precios agregados por municipio/trimestre; no anuncios. No modifica el Excel, el modelo o el test."
+}

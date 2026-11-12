@@ -119,6 +119,7 @@ with case_tab:
         st.session_state["event_id_vivienda"] = str(uuid.uuid4())
     if "decision_vivienda" in st.session_state:
         st.json(st.session_state["decision_vivienda"])
+        st.caption("El esfuerzo declarado usa tu contrato y deudas. El esfuerzo de referencia supone pagar íntegra la renta municipal predicha. El umbral interno del 40% orienta la comparación de municipios; no decide ayudas.")
         consent = st.checkbox("Autorizo enviar SOLO decision y referencia municipal a n8n; sin salario ni datos identificativos")
         if st.button("Registrar accion en n8n", disabled=not consent):
             response = N8NWebhookClient().disparar_accion(st.session_state["decision_vivienda"], event_id=st.session_state["event_id_vivienda"])

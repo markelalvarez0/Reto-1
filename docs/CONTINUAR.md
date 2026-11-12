@@ -1,3 +1,33 @@
+# Cierre de la revisión de rúbricas · 12 de noviembre de 2026
+
+La revisión posterior al cierre 5151943 detectó un vínculo débil entre predicción
+ y decisión, y contenido obligatorio del README disperso. El usuario autorizó
+corregirlo y cerrar los puntos en orden. Ver docs/CIERRE_RUBRICA.md.
+
+- Diez reglas: nueva R_REFERENCIA (65) utiliza el escenario de esfuerzo de la
+  renta predicha para orientar a comparar municipios. Contrato/deudas y revisión
+  de requisitos conservan sus propias reglas y mayor prioridad. No decide ayudas.
+- Prueba contrafactual de perfil idéntico con 600/1.600 € cambia la decisión.
+- AppTest del modelo conservado → R_REFERENCIA → consentimiento → n8n real →
+  ficha con regla y referencia, repetida sin duplicados. Perfil de prueba inventado.
+- API JSON pública del visor EMAL: tres originales de capitales y página del
+  visor, con URL/filtros/HTTP/fecha/bytes/huellas. Nuevos scripts capture_emal_api.py
+  y transport_rent_api.py. Renta monetaria de 2024 T4: 798,6 / 1.147,5 / 930,3 €.
+- Dos transportes reales HDFS/Kafka/MongoDB, seis archivos por carga y tres
+  observaciones en rentas_api, sin duplicación. No son anuncios y no se suman a638.
+- Ningún cambio en los seis originales oficiales, 88 artefactos ML o test sellado.
+- README principal y de IA con tabla completa train/validación/tiempo, EDA,
+  MLflow, test conservado, contexto cuantificado y explicaciones conceptuales.
+- Defensa con recorrido de 15 minutos en pareja y nueve preguntas con respuestas
+  y puntos del código. El ensayo humano sigue pendiente; no se simula acreditación oral.
+
+Evidencias nuevas: docs/evidencias_cierre_rubrica_2026-11-12/.
+Pruebas e integración actuales se registran allí. Publicar en dev-jon y comprobar
+CI del nuevo commit antes de integrar normalmente en test/main y volver a dev-jon.
+Las validaciones y cierres siguientes corresponden a versiones anteriores.
+
+---
+
 # Cierre técnico · 12 de noviembre de 2026
 
 ## Estado remoto confirmado tras la validación integral

@@ -1,5 +1,9 @@
 # Reto 1 · De la referencia de alquiler a la orientación explicable
 
+![Caso de demostración: referencia predicha y orientación](../docs/evidencias_cierre_rubrica_2026-11-12/caso.png)
+
+Captura real de Streamlit con un perfil inventado de prueba; no es un expediente personal.
+
 **SAA + PIA + MIA · IABD 2026–27 · Rama de trabajo `dev-jon`**
 
 El bloque utiliza estadísticas públicas de alquiler para estimar una **renta media municipal trimestral** y una aplicación de orientación que combina esa referencia con datos declarados y reglas explícitas. El flujo n8n genera una ficha o lista de comprobación; **no concede ni deniega ayudas, no se conecta a una sede electrónica y no envía SMS reales**.
@@ -156,3 +160,76 @@ Los CSV `solicitudes_vivienda_joven.csv`, los antiguos `data/processed/*.csv`, `
 - **Compañero de Proyecto**
 
 Proyecto académico interdisciplinar del Curso de Especialización en Inteligencia Artificial y Big Data, 2026–27. La revisión técnica y las ejecuciones quedan trazadas en los commits y en GitHub Actions.
+
+## Necesidad del servicio de orientación
+
+En Bilbao, EMAL publica 930,31 €/mes en 2024 T4. Frente al salario autonómico OVJ
+2024 de 1.564 €/mes, pagar íntegra esa renta representa un escenario del 59,48%.
+No es el salario de Bilbao ni el porcentaje de jóvenes que no puede emanciparse.
+Los servicios de orientación necesitan referencias verificables para comparar
+municipios y presupuestos. El sistema predice la renta media municipal del siguiente
+trimestre; la regla R_REFERENCIA compara esa predicción con el ingreso declarado
+y puede recomendar estudiar alternativas. El beneficio esperado es facilitar esa
+comparación; no hemos medido ahorro de tiempo ni impacto social.
+
+```text
+EMAL → modelo conservado → referencia municipal predicha
+     → reglas + perfil declarado → decisión → consentimiento → n8n → ficha local
+```
+
+Es IA débil porque resuelve una tarea concreta aprendida de EMAL. Una IA fuerte
+supondría capacidades generales de razonamiento y transferencia que este sistema
+no posee. El aprendizaje es supervisado porque cada entrada histórica se asocia
+a una renta objetivo observada. En aprendizaje no supervisado se buscarían grupos
+o estructuras sin esa variable objetivo; no es lo que entrenamos aquí.
+
+## EDA y resultados visibles
+
+![Rentas en entrenamiento](../entrega_ml/resultados/01_barras.png)
+
+Las medias de entrenamiento difieren entre municipios; son agregados trimestrales,
+no precios de ofertas individuales. Esa heterogeneidad justifica incluir territorio.
+
+![Persistencia trimestral](../entrega_ml/resultados/04_dispersion.png)
+
+La relación con el trimestre anterior justifica comparar contra persistencia.
+La pequeña mejora del ganador no acredita superioridad generalizable.
+
+La tabla siguiente es una transcripción de `entrega_ml/resultados/comparativa_mlflow.csv`;
+los tiempos son históricos del entrenamiento conservado, no una ejecución nueva.
+
+| Modelo | MAE train | RMSE train | R² train | MAE val | RMSE val | R² val | Tiempo (s) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| MLP_2_capas | 15.8800 | 22.3526 | 0.9558 | 24.1970 | 31.8597 | 0.9370 | 0.0799 |
+| Random_Forest | 5.9217 | 9.0960 | 0.9927 | 25.1507 | 34.7620 | 0.9250 | 1.8462 |
+| MLP_regularizada | 14.7771 | 21.2229 | 0.9601 | 25.4173 | 34.0273 | 0.9282 | 0.1250 |
+| MLP_base | 14.2235 | 19.8385 | 0.9652 | 25.7799 | 34.3755 | 0.9267 | 0.1260 |
+| XGBoost | 11.6437 | 16.3124 | 0.9765 | 26.5234 | 37.0516 | 0.9148 | 0.2494 |
+| Regresion_lineal | 12.7637 | 16.6719 | 0.9754 | 31.1665 | 40.5837 | 0.8978 | 0.2258 |
+| MLP_tanh | 16.9724 | 23.4404 | 0.9514 | 35.1592 | 50.7876 | 0.8400 | 0.1391 |
+| SVM | 10.6001 | 16.5865 | 0.9757 | 37.8630 | 55.5557 | 0.8085 | 0.1856 |
+| KNN | 0.0000 | 0.0000 | 1.0000 | 51.5196 | 60.8912 | 0.7700 | 0.0917 |
+
+![Comparación en MLflow](../docs/evidencias_ml/capturas/mlflow-experimentos.png)
+
+Captura histórica real de los experimentos conservados; no es una nueva selección.
+Se conserva MLP_2_capas por MAE de validación (24,20 €), frente a persistencia
+(24,63 €). El error se refiere a una referencia municipal, no a la tasación de un piso.
+
+![Test final conservado](../entrega_ml/resultados/test_real_predicho.png)
+
+MAE final 28,67 €, RMSE 37,93 € y R² 0,9189, sobre 92 observaciones. Esta figura
+es la evaluación única ya conservada; no se vuelve a calcular para el README.
+
+## Relación con las prácticas de clase
+
+Se reutilizan los principios de requests/BeautifulSoup, pandas, Pipeline,
+ColumnTransformer, escalado, codificación, GridSearchCV y joblib/Streamlit.
+KFold_GridSearch.pdf contempla TimeSeriesSplit para datos temporales: su uso aquí
+es una adaptación al dato, no se presenta como novedad no vista en clase.
+La red utiliza MLPRegressor de sklearn; las prácticas usan Sequential/Dense/Adam.
+Kafka utiliza kafka-python-ng en lugar de confluent_kafka y HDFS usa WebHDFS REST
+en lugar de hdfs.InsecureClient. Son APIs distintas para los mismos servicios.
+SHAP con validación y el experimento auxiliar SMOTE amplían los ejercicios aportados.
+No afirmamos que sean nuevos en todo el curso ni garantizamos los puntos de novedad.
+La comparativa sin/con SMOTE conserva F1 0,8254/0,8167: esa ampliación no mejoró F1.

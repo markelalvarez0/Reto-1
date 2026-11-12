@@ -16,6 +16,9 @@ name: BDA capturas oficiales de extremo a extremo
       - 'scripts/transport_municipal.py'
       - 'scripts/audit_project.py'
       - 'scripts/run_pipeline.py'
+      - 'scripts/capture_emal_api.py'
+      - 'scripts/transport_rent_api.py'
+      - 'data/capturas_api_rentas/**'
       - 'scripts/sync_sources.py'
       - 'BDA + SBD/main.py'
       - 'tests/**'
@@ -129,6 +132,17 @@ jobs:
           PY
           python scripts/audit_project.py
           git diff --exit-code
+      - name: API de rentas monetarias conservada y transporte real separado
+        run: |
+          python scripts/transport_rent_api.py --input-dir data/capturas_api_rentas/2026-11-12 --db-name "reto1_api_${GITHUB_RUN_ID}" --report evidencia_bda_integracion/api-primera.json
+          python scripts/transport_rent_api.py --input-dir data/capturas_api_rentas/2026-11-12 --db-name "reto1_api_${GITHUB_RUN_ID}" --report evidencia_bda_integracion/api-reentrega.json
+          python - <<'PYCODE'
+          import json
+          from pathlib import Path
+          report=json.loads(Path('evidencia_bda_integracion/api-reentrega.json').read_text())
+          assert report['recibidos']==report['documentos_coleccion']==3
+          assert report['offsets_tras_persistencia']
+          PYCODE
       - name: Comprobar resultados sin publicar ni modificar ramas
         run: |
           python - <<'PY'

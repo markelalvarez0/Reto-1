@@ -16,7 +16,7 @@ def test_audit_reports_all_errors_without_changing_files(tmp_path):
     before = digest(manifest)
     result = audit(tmp_path)
     assert not result["ok"]
-    assert len(result["controles"]) == 5
+    assert len(result["controles"]) == 6
     assert all(not item["ok"] for item in result["controles"])
     assert "Ruta inválida" in result["controles"][1]["detalle"]
     assert digest(manifest) == before

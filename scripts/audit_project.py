@@ -79,6 +79,9 @@ def audit(root=ROOT):
     check("captura_anuncios", lambda: verify_files(
         {"archivo": "data/capturas_anuncios/" + e["archivo"], "sha256": e["sha256"]}
         for e in read("data/capturas_anuncios/manifest.json")))
+    check("api_rentas", lambda: verify_files(
+        {"archivo": "data/capturas_api_rentas/2026-11-12/" + e["archivo"], "sha256": e["sha256"]}
+        for e in read("data/capturas_api_rentas/2026-11-12/manifest.json")))
     return {"ok": all(item["ok"] for item in checks), "controles": checks,
             "alcance": "Integridad local. No acredita servicios activos, scraping vigente ni cumplimiento completo de rúbricas."}
 

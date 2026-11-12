@@ -1,0 +1,7 @@
+OK originales {'archivos_verificados': 6}
+OK artefactos_ml {'archivos_verificados': 88}
+OK test_sellado {'modelo': 'MLP_2_capas', 'evaluaciones': 1, 'modelo_ejecutado': False}
+OK copias_academicas Tres copias académicas coinciden con src/
+OK captura_anuncios {'archivos_verificados': 22}
+OK api_rentas {'archivos_verificados': 4}
+Integridad local. No acredita servicios activos, scraping vigente ni cumplimiento completo de rúbricas.

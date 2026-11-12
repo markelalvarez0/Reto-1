@@ -95,3 +95,13 @@ else:
         st.json({k: sample[k] for k in ('por_fuente', 'nulos', 'reentrega', 'atomicidad', 'consultas')})
         for note in sample['limites']:
             st.write(note)
+
+
+st.subheader('Rentas de la API pública EMAL · 2024 T4')
+try:
+    from scripts.capture_emal_api import verified
+    api_rows = verified(ROOT / 'data/capturas_api_rentas/2026-11-12')
+    st.dataframe(pd.DataFrame(api_rows).drop(columns=['procedencia']), hide_index=True)
+    st.caption('Observaciones agregadas obtenidas por API JSON, redondeadas a una décima. No son anuncios ni sustituyen el Excel y el modelo conservados.')
+except (OSError, ValueError, KeyError) as exc:
+    st.error('Archivo API no verificable: ' + str(exc))

@@ -1,0 +1,33 @@
+{
+  "datos": "perfil inventado de demostracion, no expediente real",
+  "decision": {
+    "regla_id": "R_REFERENCIA",
+    "nombre_regla": "R_REFERENCIA",
+    "prioridad": 65,
+    "decision": "BUSCAR_ALTERNATIVAS",
+    "accion_recomendada": "Comparar referencias de otros municipios y presupuesto, manteniendo separado el contrato declarado.",
+    "justificacion_negocio": "La renta municipal predicha supera el 40% del ingreso declarado en el escenario de pagarla integra; no es el alquiler real ni un requisito de ayudas.",
+    "renta_estimada": 857.8253293014686,
+    "esfuerzo_pct": 33.33333333333333,
+    "ayuda_teorica_max": null,
+    "canal_notificacion": "registro_local_n8n",
+    "aviso": "Orientativo. No concede ni deniega ayudas. Se requiere comprobacion administrativa.",
+    "norma": "https://www.euskadi.eus/bopv2/datos/2026/06/2602608a.shtml",
+    "esfuerzo_referencia_pct": 57.18835528676458
+  },
+  "accion": {
+    "event_id": "80f98ca9-d3df-4706-b3d0-1381a0ddec1d",
+    "decision": "BUSCAR_ALTERNATIVAS",
+    "accion": "ficha_alternativas",
+    "persistido": true,
+    "fecha_utc": "2026-11-12T15:47:00.053781+00:00",
+    "huella": "788e09de1e8d62ac6d247ca9d605f7f966002b6fc1842a368bc8580dbfc60478",
+    "documento": "Comparar municipios y presupuesto; no asumir subvenciones concedidas.",
+    "regla_id": "R_REFERENCIA",
+    "renta_estimada": 857.8253293014686,
+    "resolucion_administrativa": false
+  },
+  "consentimiento_exigido": true,
+  "repeticion_sin_duplicados": true,
+  "holdout_reevaluado": false
+}

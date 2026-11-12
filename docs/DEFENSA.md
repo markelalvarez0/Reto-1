@@ -62,3 +62,45 @@ fuentes; no se rellenan con constantes. ¿El contador prueba demanda real? No: l
 
 El guion está preparado y se ha comprobado el recorrido técnico; el ensayo oral
 cronometrado y las respuestas personales corresponden al alumnado y siguen pendientes.
+
+## Recorrido de cierre para ensayar en pareja
+
+- Minutos 0–2 (persona A): explicar el servicio de orientación y el escenario
+  Bilbao 2024 T4, con salario regional. No hablar de concesiones o solvencia.
+- 2–4 (A): mostrar respuesta JSON de API EMAL y sus filtros; contraponerla a un
+  anuncio HTML. Señalar municipio/trimestre frente a identidad de portal.
+- 4–6 (A): mostrar los informes HDFS/Kafka/MongoDB, recuperación y recarga.
+  Enseñar explain (638 frente a 4 documentos) y atomicidad sobre copia aislada.
+- 6–8 (B): comparar tres capitales, separar anuncios 2026 de estadísticas 2024,
+  explicar los indicadores y que una muestra de conveniencia no es un censo.
+- 8–10 (B): enseñar el EDA y tabla MLflow; explicar 601/75/92, lag1, preprocesado
+  en train y la pequeña diferencia frente a persistencia. No entrenar.
+- 10–12 (B): SHAP de validación, test sellado leído y nuevo caso. Explicar que
+  R_REFERENCIA usa la predicción para orientar, sin sustituir el contrato.
+- 12–14 (A): contrastar el caso de prueba 600/1.600, mostrar consentimiento,
+  ficha n8n con regla/referencia y repetir UUID. No enviar mensajes externos.
+- 14–15 (ambas personas): límites, diferencias respecto a clase y conclusión.
+
+Este reparto es un guion de ensayo, no un ensayo oral ya realizado. Practicar
+con cronómetro; al llegar a 15 minutos se corta como indica el enunciado.
+
+Preguntas individuales nuevas, con respuesta y punto del código que mostrar:
+
+1. SAA: ¿por qué no clasificación? La etiqueta observada es renta continua
+   municipal; enseñar TARGET y temporal_split en src/ml_data.py.
+2. SAA: ¿qué pasa si KNN memoriza? Su MAE train casi cero contrasta con MAE val
+   51,52 €; mostrar comparativa conservada y justificar el ganador sin mirar test.
+3. SAA: ¿por qué sklearn y no Keras? Misma familia MLP, otra API; mostrar las
+   cuatro configuraciones en regression_models. No se cambia tras abrir test.
+4. PIA: ¿qué contiene joblib? Pipeline con preprocesador y regresor; mostrar
+   construcción en src/ml_workflow.py y carga/inferencia de la app sin fit.
+5. PIA: ¿cómo se evita repetir test? Mostrar la rama que lee test_final.json y
+   verifica las huellas en evaluate_test_once, sin pulsar una nueva evaluación.
+6. PIA: ¿de dónde sale la tabla? Consulta MLflow y CSV conservado; mostrar sus
+   métricas train/validación y tiempo, no generar valores manualmente.
+7. MIA: ¿dónde influye la predicción? R_REFERENCIA y esfuerzo_referencia_pct;
+   enseñar el contrafactual de tests/test_business_rules.py.
+8. MIA: ¿puede ganar sobre seguridad? No: prioridad 65 frente a 100; mostrar la
+   prueba que devuelve R_SEGURIDAD incluso con una referencia alta.
+9. MIA: ¿qué acción se ejecutó? Una ficha local con regla y referencia, no una
+   cita concertada ni una ayuda concedida; mostrar persist_action y el JSON.

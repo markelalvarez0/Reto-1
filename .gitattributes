@@ -10,3 +10,7 @@
 /docs/evidencias_ml/** -text -diff
 /docs/TEST_FINAL_EMAL.json -text -diff
 /docs/evidencias_entrega_2026-11-12/** -text -diff
+
+/data/capturas_api_rentas/** -text -diff
+
+/docs/evidencias_cierre_rubrica_2026-11-12/** -text -diff

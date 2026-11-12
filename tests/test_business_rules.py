@@ -76,3 +76,22 @@ def test_acciones_distintas_idempotentes_y_sin_pii(tmp_path):
         assert first['resolucion_administrativa'] is False
     assert len(list(tmp_path.glob('*.json')))==len(DECISIONES)
     with pytest.raises(ValueError): persist_action(tmp_path,'revision_datos',{'event_id':str(uuid4()),'decision':'REVISION_DATOS','nombre':'No'})
+
+
+def test_prediccion_cambia_orientacion_sin_cambiar_contrato():
+    """Escenario inventado; no ejecuta ni reevalúa el modelo publicado."""
+    profile = caso(ingresos_mensuales=1500, ingresos_anuales_computables=18000,
+                   precio_alquiler=500, renta_total_vivienda=500)
+    motor = MotorReglasVivienda()
+    low = motor.evaluar(profile, renta_estimada=600, fecha=date(2026,11,12))
+    high = motor.evaluar(profile, renta_estimada=1600, fecha=date(2026,11,12))
+    assert low.decision == 'CONSULTAR_GAZTELAGUN'
+    assert high.decision == 'BUSCAR_ALTERNATIVAS' and high.regla_id == 'R_REFERENCIA'
+    assert low.esfuerzo_pct == high.esfuerzo_pct == 500 / 1500 * 100
+    assert low.esfuerzo_referencia_pct == 40
+    assert high.esfuerzo_referencia_pct == 1600 / 1500 * 100
+    assert high.ayuda_teorica_max is None
+    unsafe = motor.evaluar({**profile, 'modelo_en_cobertura':False}, renta_estimada=1600)
+    assert unsafe.regla_id == 'R_SEGURIDAD'
+    incomplete = motor.evaluar({**profile, 'renta_total_vivienda':950}, renta_estimada=1600)
+    assert incomplete.regla_id == 'R_DOCUMENTACION'

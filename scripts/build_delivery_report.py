@@ -74,6 +74,7 @@ def build(output):
         ('Resultados municipales y límites', read('docs/ESTADO_ENTREGA.md')),
         ('Contratos BDA y evidencia', read('docs/BDA_ESTADO.md')),
         ('Muestra de anuncios y conclusiones', read('docs/RESULTADOS_ANUNCIOS.md')),
+        ('Cierre de requisitos docentes', read('docs/CIERRE_RUBRICA.md')),
         ('Reglas y automatización local',
          'Prioridad descendente; primera regla aplicable. Seguridad: datos inválidos o fuera de cobertura → revisión. '
          'Después se revisan vigencia normativa, esfuerzo crítico, requisitos, documentación, alternativas, '

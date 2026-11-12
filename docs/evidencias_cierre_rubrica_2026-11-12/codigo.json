@@ -1,0 +1,42 @@
+[
+  {
+    "archivo": "src/reglas.py",
+    "sha256": "eda1644d666bdead56a5d1a3997e2fc667a8c261182d108f380c4110d85c1c58"
+  },
+  {
+    "archivo": "src/n8n.py",
+    "sha256": "1a0b22271766aab8bd276e19e70e831834bfefd3eac7ef1b474fc0f3856e459c"
+  },
+  {
+    "archivo": "app/streamlit_app.py",
+    "sha256": "d735bd441925f74b7e972dd38420a3f810fdde638ab0a1ad006bc68515c43dc5"
+  },
+  {
+    "archivo": "app/territorio.py",
+    "sha256": "fcaa1529c8434c1dcf3db9124845251aea54a5643ea6fcd2fe6aa4914a9017b1"
+  },
+  {
+    "archivo": "scripts/action_server.py",
+    "sha256": "ab21d1e1125f53b436a214d364b59c4ba346c60ebf7ee1fa6a7a4a1b46b5c1ef"
+  },
+  {
+    "archivo": "scripts/capture_emal_api.py",
+    "sha256": "8f3de6c61d82cd1baa363ab691d10977250ff13f31d6b1aec2816635f0f66948"
+  },
+  {
+    "archivo": "scripts/transport_rent_api.py",
+    "sha256": "19d56dad332717911ce7eb7bc3d7de5d5d91cab09528a2db7c52568a5e35ce75"
+  },
+  {
+    "archivo": "scripts/audit_project.py",
+    "sha256": "6af142dfd9bec8ec3c11be1f27407f60a2bd5b5c379688aa16c9ef5eaaabd723"
+  },
+  {
+    "archivo": "scripts/build_delivery_report.py",
+    "sha256": "265d7b47fdd6ab2508b03dec4608542a487a738d640ebb6c74794b085a2aedd1"
+  },
+  {
+    "archivo": ".github/workflows/bda-candidate.yml",
+    "sha256": "1e6cc2820667e3a1f8adf1f66364f5953c2f01d7206b4cb01e07bb0f0c665ec3"
+  }
+]

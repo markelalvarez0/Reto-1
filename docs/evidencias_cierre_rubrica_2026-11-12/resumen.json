@@ -1,0 +1,14 @@
+{
+  "base": "5151943",
+  "pruebas": 168,
+  "avisos": 5,
+  "integraciones_pytest": 12,
+  "omisiones": 0,
+  "api_transportes_reales": 2,
+  "api_documentos_tras_recarga": 3,
+  "n8n_ramas": 8,
+  "contrafactual": "600/1600 cambia decision con contrato identico",
+  "modelo_reentrenado": false,
+  "holdout_reevaluado": false,
+  "ensayo_oral_humano": "pendiente"
+}

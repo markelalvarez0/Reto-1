@@ -31,6 +31,7 @@ class DecisionNegocio:
     canal_notificacion: str = 'registro_local_n8n'
     aviso: str = 'Orientativo. No concede ni deniega ayudas. Se requiere comprobacion administrativa.'
     norma: str = NORMA_URL
+    esfuerzo_referencia_pct: float | None = None
 
     def to_dict(self):
         return asdict(self)
@@ -66,6 +67,7 @@ class MotorReglasVivienda:
             Regla('R_REQUISITOS', 80, 'REVISION_REQUISITOS', 'Un requisito basico declarado requiere revision; ingreso anual computable no equivale a salario neto por doce.', 'Generar lista de requisitos que revisar con personal tecnico.', lambda c: c['requisito_no_cumplido']),
             Regla('R_DOCUMENTACION', 75, 'REVISION_NORMATIVA', 'Faltan comprobaciones o hay excepciones territoriales/contractuales no resueltas.', 'Preparar checklist documental; revisar limite de renta y excepciones.', lambda c: not c['documentacion_completa'] or c['limite_pendiente']),
             Regla('R_ALTERNATIVAS', 70, 'BUSCAR_ALTERNATIVAS', 'El coste supera el 40% del ingreso neto; comparar alternativas sin dar por concedida una ayuda.', 'Crear ficha de alternativas y presupuesto maximo orientativo.', lambda c: c['esfuerzo'] > 40),
+            Regla('R_REFERENCIA', 65, 'BUSCAR_ALTERNATIVAS', 'La renta municipal predicha supera el 40% del ingreso declarado en el escenario de pagarla integra; no es el alquiler real ni un requisito de ayudas.', 'Comparar referencias de otros municipios y presupuesto, manteniendo separado el contrato declarado.', lambda c: c['esfuerzo_referencia'] is not None and c['esfuerzo_referencia'] > 40),
             Regla('R_ENTRADA', 60, 'PLANIFICAR_ENTRADA', 'El ahorro declarado no cubre la entrada estimada por el usuario.', 'Crear plan de ahorro para entrada; no ofrecer creditos ficticios.', lambda c: c['ahorros'] < c['entrada']),
             Regla('R_GAZTELAGUN', 50, 'CONSULTAR_GAZTELAGUN', 'Comprobaciones basicas declaradas completas; la cuantia maxima es orientativa y esta sujeta a la resolucion oficial.', 'Generar checklist de solicitud Gaztelagun, nunca una concesion.', lambda c: c['esfuerzo'] > 30),
             Regla('R_GENERAL', 0, 'INFORMACION_GENERAL', 'Caso sin alertas anteriores; la renta predicha es una media municipal, no una oferta individual.', 'Guardar una ficha informativa de presupuesto y limites del modelo.', lambda c: True),
@@ -89,6 +91,7 @@ class MotorReglasVivienda:
         invalid = invalid or group not in LIMITES_ANUALES or caso.get('modelo_en_cobertura') is not True
         invalid = invalid or (renta_estimada is not None and (estimate is None or estimate <= 0))
         effort = (rent + debt) / income * 100 if not invalid else None
+        reference_effort = estimate / income * 100 if not invalid and estimate is not None else None
         code = resolver_codigo_ine(caso.get('municipio'))
         # Unknown municipal classification is reviewed rather than assumed.
         limit = 900 if code in CAPITALES else 800 if caso.get('municipio_grupo_800_verificado') is True else None
@@ -100,8 +103,8 @@ class MotorReglasVivienda:
         failed = failed or any(caso.get(k) is False for k in document_fields)
         context = {'invalido': invalid, 'fecha': fecha, 'esfuerzo': effort, 'requisito_no_cumplido': failed,
                    'documentacion_completa': not missing, 'limite_pendiente': pending_limit,
-                   'ahorros': savings, 'entrada': entry}
+                   'ahorros': savings, 'entrada': entry, 'esfuerzo_referencia': reference_effort}
         rule = next(rule for rule in sorted(self.reglas, key=lambda r: -r.prioridad) if rule.condicion(context))
         aid = min(300.0, 0.6 * rent) if rule.decision == 'CONSULTAR_GAZTELAGUN' else None
         return DecisionNegocio(rule.id, rule.id, rule.prioridad, rule.decision, rule.accion, rule.motivo,
-                               estimate, effort, aid)
+                               estimate, effort, aid, esfuerzo_referencia_pct=reference_effort)
