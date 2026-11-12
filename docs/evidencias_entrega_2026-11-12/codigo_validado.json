@@ -5,7 +5,7 @@
   },
   {
     "archivo": "src/database/queries.py",
-    "sha256": "fbf170af504f553465f3f093d844f682b625b2e9556628595aa99fe52888d2d9"
+    "sha256": "ce71fadc4880ce6f028b7bb1058bbcf9619d846f649c33281c25595bc90e96ad"
   },
   {
     "archivo": "src/extraction/models.py",
@@ -29,7 +29,7 @@
   },
   {
     "archivo": "scripts/analyze_rental_sample.py",
-    "sha256": "10c08547a7afb7dbf103fd5fe4d6a168c9ee31f32598e3c473b11bd211d49e2e"
+    "sha256": "011f6b253841ede549b68f9609b9de2135b48345e8cf91720a01430e9a801904"
   },
   {
     "archivo": "scripts/audit_project.py",
@@ -45,7 +45,7 @@
   },
   {
     "archivo": "integration_tests/test_mongodb_live.py",
-    "sha256": "82f67a674fb480084921dbbbce9bef93b5d2d47fe10fcd08b0f735d5cc8e6d3d"
+    "sha256": "1ba4c6cb349261e4cff8d85c50fe97938d88dc4571c1e45f57710fc522aa1b3a"
   },
   {
     "archivo": ".github/workflows/current-version.yml",

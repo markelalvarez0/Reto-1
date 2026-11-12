@@ -74,5 +74,169 @@
     }
   ],
   "dos_habitaciones_y_ascensor": [],
+  "dos_habitaciones_publicadas": [
+    {
+      "caracteristicas": {
+        "habitaciones": 3,
+        "banos": 2,
+        "fianza_meses": null,
+        "distancia_transporte_m": null,
+        "ascensor": null
+      },
+      "municipio": "Bilbao",
+      "precio": 1800.0,
+      "titulo": "Piso con ascensor en alquiler en Carretera, Carrera Basurtu-Kastrexana"
+    },
+    {
+      "caracteristicas": {
+        "habitaciones": 4,
+        "banos": 2,
+        "fianza_meses": null,
+        "distancia_transporte_m": null,
+        "ascensor": null
+      },
+      "municipio": "Bilbao",
+      "precio": 1600.0,
+      "titulo": "Piso con ascensor en alquiler en Begoña - Santutxu"
+    },
+    {
+      "caracteristicas": {
+        "habitaciones": 3,
+        "banos": 1,
+        "fianza_meses": null,
+        "distancia_transporte_m": null,
+        "ascensor": null
+      },
+      "municipio": "Bilbao",
+      "precio": 1200.0,
+      "titulo": "Piso con balcón en alquiler en Francisco Durrio Eskultorearen Kalea"
+    },
+    {
+      "caracteristicas": {
+        "habitaciones": 2,
+        "banos": 2,
+        "fianza_meses": null,
+        "distancia_transporte_m": null,
+        "ascensor": null
+      },
+      "municipio": "Donostia - San Sebastián",
+      "precio": 2000.0,
+      "titulo": "Apartamento con ascensor en alquiler en Gros"
+    },
+    {
+      "caracteristicas": {
+        "habitaciones": 3,
+        "banos": 2,
+        "fianza_meses": null,
+        "distancia_transporte_m": null,
+        "ascensor": null
+      },
+      "municipio": "Donostia - San Sebastián",
+      "precio": 1350.0,
+      "titulo": "Piso con balcón en alquiler en Arroka Kalea"
+    },
+    {
+      "caracteristicas": {
+        "habitaciones": 3,
+        "banos": 2,
+        "fianza_meses": null,
+        "distancia_transporte_m": null,
+        "ascensor": null
+      },
+      "municipio": "Vitoria - Gasteiz",
+      "precio": 1057.0,
+      "titulo": "Piso con ascensor en alquiler en Tarragona"
+    },
+    {
+      "caracteristicas": {
+        "habitaciones": 2,
+        "banos": 2,
+        "fianza_meses": null,
+        "distancia_transporte_m": null,
+        "ascensor": null
+      },
+      "municipio": "Vitoria - Gasteiz",
+      "precio": 1650.0,
+      "titulo": "Piso en alquiler en Uleta Kalea"
+    },
+    {
+      "caracteristicas": {
+        "habitaciones": 3,
+        "banos": 2,
+        "fianza_meses": null,
+        "distancia_transporte_m": null,
+        "ascensor": null
+      },
+      "municipio": "Bilbao",
+      "precio": 3000.0,
+      "titulo": "Apartamento en Abando Hurtado de Amézaga"
+    },
+    {
+      "caracteristicas": {
+        "habitaciones": 3,
+        "banos": 3,
+        "fianza_meses": null,
+        "distancia_transporte_m": null,
+        "ascensor": null
+      },
+      "municipio": "Bilbao",
+      "precio": 4500.0,
+      "titulo": "Piso en Abando Hurtado de Amézaga"
+    },
+    {
+      "caracteristicas": {
+        "habitaciones": 2,
+        "banos": 2,
+        "fianza_meses": null,
+        "distancia_transporte_m": null,
+        "ascensor": null
+      },
+      "municipio": "San Sebastián - Donostia",
+      "precio": 2500.0,
+      "titulo": "Piso en calle Beatriz Infantaren Kalea"
+    }
+  ],
+  "senal_temporal_en_array": [
+    {
+      "fuente": "PisosCom_Scraping",
+      "id_origen": "pisos_66754691449.101800",
+      "municipio": "Bilbao",
+      "precio": 1800.0,
+      "procedencia": {
+        "condiciones_publicadas": [
+          "temporal",
+          "empresas"
+        ]
+      },
+      "titulo": "Piso en Casco Viejo - Zazpi Kaleak",
+      "url": "https://www.pisos.com/alquilar/piso-casco_viejo_zazpi_kaleak48005-66754691449_101800/"
+    },
+    {
+      "fuente": "PisosCom_Scraping",
+      "id_origen": "pisos_66712117256.100500",
+      "municipio": "San Sebastián - Donostia",
+      "precio": 2000.0,
+      "procedencia": {
+        "condiciones_publicadas": [
+          "temporal"
+        ]
+      },
+      "titulo": "Dúplex en Camino de Illarra, 95",
+      "url": "https://www.pisos.com/alquilar/duplex-ibaeta_igeldo20018-66712117256_100500/"
+    },
+    {
+      "fuente": "PisosCom_Scraping",
+      "id_origen": "pisos_63359188396.102200",
+      "municipio": "San Sebastián - Donostia",
+      "precio": 2500.0,
+      "procedencia": {
+        "condiciones_publicadas": [
+          "temporal"
+        ]
+      },
+      "titulo": "Piso en calle Beatriz Infantaren Kalea",
+      "url": "https://www.pisos.com/alquilar/piso-antiguo_ondarreta20008-63359188396_102200/"
+    }
+  ],
   "programa_gaztelagun_publicado": []
 }

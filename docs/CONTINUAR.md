@@ -14,6 +14,12 @@ La descarga histórica de Hadoop resultó lenta localmente; la descarga oficial 
 El script prefiere ahora esa distribución oficial y conserva el archivo Apache como
 alternativa si la versión ya no está publicada allí, con esperas/velocidad acotadas.
 
+Corrección publicada en **4bf7b28**. El [CI actual 43241629033](https://github.com/markelalvarez0/Reto-1/actions/runs/43241629033)
+terminó **Success en Linux y Windows**: 159 pruebas, integridad, preparación BDA,
+PDF y AppTest del modelo conservado. MongoDB real [43241628598](https://github.com/markelalvarez0/Reto-1/actions/runs/43241628598)
+también terminó Success. Esta evidencia valida ese commit; el incremento posterior
+de consultas requiere su propio CI.
+
 ## Incremento actual: anuncios reales y comprobación del lote
 
 Base remota comprobada: `dev-jon` en c5fdd5d, `test`/`main` en 6e279a4.
@@ -42,7 +48,8 @@ robots, proxy, CAPTCHA o autenticación.
   base mantiene 638. Reentrega de los 17 también conserva el recuento.
 - Consultas corregidas: antes la consulta Bilbao mezclaba 9 promociones con
   6 anuncios. Ahora las consultas de anuncios excluyen promociones/simulaciones
-  y precios no positivos. Resultados 6/1/4/0/0 documentados sin rellenar ceros.
+  y precios no positivos. Cinco consultas útiles devuelven 6/1/4/10/3 (la de habitaciones limita a 10);
+  se conservan además los dos ceros de ascensor y programas sin rellenarlos.
 - Explain real: COLLSCAN 638 documentos frente a IXSCAN 4, cuatro resultados
   iguales, ambos 0 ms; no se afirma una aceleración temporal medible.
 - Atomicidad: 100 incrementos concurrentes en una copia aislada de un anuncio;

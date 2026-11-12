@@ -20,4 +20,4 @@ tests/test_ml_pipeline.py::test_mlp_neural_network_activations
     warnings.warn(
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-159 passed, 5 warnings in 17.16s
+159 passed, 5 warnings in 16.25s

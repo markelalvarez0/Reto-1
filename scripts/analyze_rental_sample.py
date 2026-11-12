@@ -84,6 +84,8 @@ def analyze(capture_dir, pipeline_dir, db_name, output_dir):
             'precio_hasta_750': query.consulta_2_alquileres_asequibles_jovenes(),
             'bilbao_hasta_2000_y_55m2': query.consulta_3_condiciones_combinadas(precio_max=2000),
             'dos_habitaciones_y_ascensor': query.consulta_4_campos_anidados_confort(),
+            'dos_habitaciones_publicadas': query.consulta_4_campos_anidados_confort(ascensor=None),
+            'senal_temporal_en_array': query.consulta_6_condiciones_publicadas(),
             'programa_gaztelagun_publicado': query.consulta_5_municipios_programas_array(),
         }
         explain = MongoIndexOptimizer(db).comparar_rendimiento_consulta(precio_max=2000)

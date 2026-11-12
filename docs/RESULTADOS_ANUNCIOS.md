@@ -70,6 +70,8 @@ Las consultas actuales excluyen promociones y simulaciones. Resultados reales:
 | Anuncios de alquiler de Bilbao | 6 | Identidades observadas con precio positivo |
 | Precio hasta 750 €/mes | 1 | Umbral analítico, no solvencia ni derecho a ayuda |
 | Bilbao, hasta 2.000 €/mes y desde 55 m² | 4 | Filtros combinados sobre la muestra |
+| Hasta 10 anuncios con al menos dos habitaciones | 10 | Campo anidado publicado, sin exigir ascensor desconocido |
+| Señal temporal en array de condiciones | 3 | Filtrado de una señal textual publicada, no categoría jurídica |
 | Dos habitaciones y ascensor acreditado en campo | 0 | Ascensor no se ha extraído a un campo observado |
 | Municipios con Gaztelagun publicado en array | 0 | Los catálogos utilizados no aportan ese array; no se rellena |
 

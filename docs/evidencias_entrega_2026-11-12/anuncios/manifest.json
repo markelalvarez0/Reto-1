@@ -112,11 +112,11 @@
   "resultados": [
     {
       "archivo": "resumen.json",
-      "sha256": "4de3f112f2b653bb4ff9330650457e38ed6d57a7589edbdaabf608a0acf7636f"
+      "sha256": "3774eec8f4a90f43cdfb3f8902780f44afb0a6b384a5be0f2d36c3a5d3427e39"
     },
     {
       "archivo": "consultas.json",
-      "sha256": "2f77e1002b5bb99bb100eac984d5947ca22f0977766e6289d6d58f3e2e35f9c9"
+      "sha256": "04eb2b6836f8cf57d82dacef1251888cdc6c0e2be9675bc20761612194e3c3ec"
     },
     {
       "archivo": "explain.json",

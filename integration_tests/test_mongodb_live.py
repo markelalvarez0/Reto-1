@@ -99,7 +99,8 @@ def test_nulos_reales_no_se_transforman_en_asequibilidad(db):
 def test_consultas_separan_anuncios_de_promociones_y_fixtures(db):
     base = {'municipio': 'Bilbao', 'tipo_operacion': 'alquiler', 'precio': 700,
             'superficie_m2': 60, 'es_sintetico': False, 'tipo_registro': 'anuncio',
-            'caracteristicas': {'habitaciones': 2, 'ascensor': True}}
+            'caracteristicas': {'habitaciones': 2, 'ascensor': True},
+            'procedencia': {'condiciones_publicadas': ['temporal']}}
     # Todos son fixtures declarados; es_sintetico=False ejercita el filtro de producción.
     db.viviendas.insert_many([
         {**base, 'id_origen': 'observado_fixture'},
@@ -111,5 +112,9 @@ def test_consultas_separan_anuncios_de_promociones_y_fixtures(db):
     for result in (queries.consulta_1_alquileres_en_municipio(),
                    queries.consulta_2_alquileres_asequibles_jovenes(),
                    queries.consulta_3_condiciones_combinadas(),
-                   queries.consulta_4_campos_anidados_confort()):
+                   queries.consulta_4_campos_anidados_confort(),
+                   queries.consulta_6_condiciones_publicadas()):
         assert len(result) == 1
+    db.viviendas.update_one({'id_origen': 'observado_fixture'}, {'$set': {'caracteristicas.ascensor': None}})
+    assert queries.consulta_4_campos_anidados_confort() == []
+    assert len(queries.consulta_4_campos_anidados_confort(ascensor=None)) == 1
