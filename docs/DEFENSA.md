@@ -1,5 +1,12 @@
 # Defensa de 15 minutos
 
+Material de preparación ampliado: [manual completo](guia_defensa/Manual_completo_Reto1.pdf),
+[Word editable](guia_defensa/Manual_completo_Reto1.docx),
+[presentación de doce diapositivas](guia_defensa/Presentacion_15_minutos.pdf) y
+[guía rápida](guia_defensa/Guia_rapida_defensa.pdf).
+El manual incluye explicaciones, ejemplos comentados y 45 preguntas con el código que mostrar.
+La presentación propone el reparto A/B; no atribuye autoría histórica ni acredita un ensayo humano.
+
 Ensayar con los artefactos conservados; no entrenar ni volver a evaluar test.
 No presentar una ejecución histórica como si acabara de realizarse.
 

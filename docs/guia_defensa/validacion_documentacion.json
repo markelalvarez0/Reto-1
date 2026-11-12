@@ -1,0 +1,232 @@
+{
+  "fecha": "2026-11-12",
+  "version_tecnica": "2778774b906724e85e9a29712e1f603cf5fa86bf",
+  "modelo_publicado_reentrenado": false,
+  "test_publicado_reevaluado": false,
+  "docx": {
+    "tablas": 25,
+    "imagenes": 12
+  },
+  "fuentes_verificadas": 86,
+  "pdf_paginas": {
+    "Manual_completo_Reto1": 66,
+    "Guia_rapida_defensa": 3,
+    "Presentacion_15_minutos": 12
+  },
+  "indice_pdf_correcto": 39,
+  "comprobacion_navegador": [
+    {
+      "name": "Manual_completo_Reto1",
+      "title": "Manual completo · Reto 1",
+      "images": 12,
+      "brokenImages": [],
+      "emptyLinks": 0,
+      "brokenAnchors": [],
+      "slides": [],
+      "tables": 25,
+      "chapters": 40,
+      "errors": []
+    },
+    {
+      "name": "Guia_rapida_defensa",
+      "title": "Guía rápida · Reto 1",
+      "images": 0,
+      "brokenImages": [],
+      "emptyLinks": 0,
+      "brokenAnchors": [],
+      "slides": [],
+      "tables": 2,
+      "chapters": 0,
+      "errors": []
+    },
+    {
+      "name": "Presentacion_15_minutos",
+      "title": "Presentación 15 minutos · Reto 1",
+      "images": 3,
+      "brokenImages": [],
+      "emptyLinks": 0,
+      "brokenAnchors": [],
+      "slides": [
+        {
+          "number": 1,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 2,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 3,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 4,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 5,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 6,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 7,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 8,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 9,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 10,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 11,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        },
+        {
+          "number": 12,
+          "height": 680,
+          "scroll": 680,
+          "overflow": false,
+          "footerCollision": false
+        }
+      ],
+      "tables": 0,
+      "chapters": 0,
+      "errors": []
+    }
+  ],
+  "suite_local": {
+    "tests": 168,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "integridad_proyecto": {
+    "ok": true,
+    "controles": [
+      {
+        "control": "originales",
+        "ok": true,
+        "detalle": {
+          "archivos_verificados": 6
+        }
+      },
+      {
+        "control": "artefactos_ml",
+        "ok": true,
+        "detalle": {
+          "archivos_verificados": 88
+        }
+      },
+      {
+        "control": "test_sellado",
+        "ok": true,
+        "detalle": {
+          "modelo": "MLP_2_capas",
+          "evaluaciones": 1,
+          "modelo_ejecutado": false
+        }
+      },
+      {
+        "control": "copias_academicas",
+        "ok": true,
+        "detalle": "Tres copias académicas coinciden con src/"
+      },
+      {
+        "control": "captura_anuncios",
+        "ok": true,
+        "detalle": {
+          "archivos_verificados": 22
+        }
+      },
+      {
+        "control": "api_rentas",
+        "ok": true,
+        "detalle": {
+          "archivos_verificados": 4
+        }
+      }
+    ],
+    "alcance": "Integridad local. No acredita servicios activos, scraping vigente ni cumplimiento completo de rúbricas."
+  },
+  "alcance": "Material documental validado; las doce integraciones de servicios citadas en el manual corresponden al cierre previo conservado, no a una nueva ejecución de esta tarea.",
+  "documentos": [
+    {
+      "archivo": "Guia_rapida_defensa.html",
+      "bytes": 8349,
+      "sha256": "2bfe69e85314386a0b79126e4db02bbcacf8e881fba1580333814c155b3f903e"
+    },
+    {
+      "archivo": "Guia_rapida_defensa.pdf",
+      "bytes": 92917,
+      "sha256": "aafdd049422183cbacb03c8f5fe72a3aff60528e6bb42caef814c625f0cba0a2"
+    },
+    {
+      "archivo": "Manual_completo_Reto1.docx",
+      "bytes": 698745,
+      "sha256": "b19fab378adb00adba444d22c5faf0a035567cf15e9dd112aa68575a08c5fbaa"
+    },
+    {
+      "archivo": "Manual_completo_Reto1.html",
+      "bytes": 1137966,
+      "sha256": "989c01263b6d8594ba5ce57d5b38a4a14700ebbbb74385d753a8f7da9cc70c17"
+    },
+    {
+      "archivo": "Manual_completo_Reto1.pdf",
+      "bytes": 1608094,
+      "sha256": "4ab0c65c4cd7790d75ef84ae9901e4099ffcf05365efa6f4384dfe4a5bcffd80"
+    },
+    {
+      "archivo": "Presentacion_15_minutos.html",
+      "bytes": 292475,
+      "sha256": "bd61500d191f7556cd347733e8caeb928b107bc341d77465bf93d3060ccc21f3"
+    },
+    {
+      "archivo": "Presentacion_15_minutos.pdf",
+      "bytes": 288949,
+      "sha256": "7dc845abcc6fc7f6144c0d7bbe1ae98c8ac40d0e32fa71e88967a941abc2d19e"
+    }
+  ]
+}

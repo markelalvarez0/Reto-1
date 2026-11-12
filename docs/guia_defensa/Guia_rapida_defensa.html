@@ -1,0 +1,152 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><title>Guía rápida · Reto 1</title><style>
+@page { size:A4; margin:18mm 16mm 19mm; }
+*{box-sizing:border-box}body{font-family:"DejaVu Sans",Arial,sans-serif;color:#243447;font-size:10.5pt;line-height:1.52;margin:0;background:#f2f5f8}
+main{max-width:960px;margin:24px auto;background:white;padding:48px 58px;box-shadow:0 2px 18px #ccd5df}
+h1,h2,h3{color:#16324f;line-height:1.22;break-after:avoid}h1{font-size:23pt;margin:0 0 20px}h2{font-size:15pt;margin-top:26px}h3{font-size:12pt;margin-top:22px}
+p{orphans:3;widows:3}a{color:#176b89;text-decoration:none;overflow-wrap:anywhere}table{width:100%;border-collapse:collapse;margin:16px 0;font-size:9pt;line-height:1.4;table-layout:auto}th{background:#edf4f8;color:#16324f;text-align:left}td,th{padding:8px 9px;border:1px solid #d7e0e8;vertical-align:top;overflow-wrap:anywhere}thead{display:table-header-group}tr{break-inside:avoid}pre{font-family:"DejaVu Sans Mono",monospace;font-size:8.5pt;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f4f7;border-left:3px solid #22768c;padding:12px;break-inside:avoid}code{font-size:.92em}img{max-width:100%;max-height:215mm;object-fit:contain;display:block;margin:15px auto}em{color:#536575;font-size:.93em}li{margin:5px 0}.chapter{break-before:page;margin-top:60px}.cover{padding:85px 0 70px;min-height:245mm}.cover h1{font-size:40pt;max-width:650px}.eyebrow{color:#197c83;text-transform:uppercase;letter-spacing:2px;font-size:11pt;font-weight:bold}.lead{font-size:16pt;color:#496276;max-width:650px}.badge{display:inline-block;border:1px solid #abc8d3;padding:8px 14px;border-radius:4px;margin:4px;font-size:10pt}.toc ol{columns:2;column-gap:35px;padding-left:22px}.toc li{font-size:10pt;margin:9px 0;break-inside:avoid}.source{font-size:9pt}.screen-tools{position:sticky;top:0;background:#16324f;color:white;padding:10px 16px;text-align:right;z-index:2}.screen-tools button{padding:6px 12px;cursor:pointer;border:0;border-radius:3px}.small{font-size:9pt}
+@media print{body{background:white;font-size:10pt;line-height:1.46}main{padding:0;margin:0;max-width:none;box-shadow:none}.screen-tools{display:none}.chapter{margin:0}.cover{min-height:240mm}.toc ol{columns:1}table{font-size:8.4pt}td,th{padding:6px 7px}a{color:#245c77}img{max-height:185mm}}
+</style><main><h1>Guía rápida · Día de la defensa</h1>
+<p><strong>Objetivo:</strong> demostrar el recorrido y explicar sus límites en 15 minutos. Versión técnica de referencia: 2778774. Ambos integrantes deben saber responder sobre todo el proyecto.</p>
+<h2>Diez cifras que conviene recordar</h2>
+<table>
+<thead>
+<tr>
+<th>Dato</th>
+<th>Valor y significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dataset principal</td>
+<td>768 municipio/trimestres, 19 municipios.</td>
+</tr>
+<tr>
+<td>Train / validación / test</td>
+<td>601 / 75 / 92; hasta 2023 / 2024 / desde 2025.</td>
+</tr>
+<tr>
+<td>Ganador</td>
+<td>MLP de dos capas, 64 y 32 neuronas.</td>
+</tr>
+<tr>
+<td>MAE de validación</td>
+<td>24,20 €; persistencia 24,63 €: mejora pequeña.</td>
+</tr>
+<tr>
+<td>Test conservado</td>
+<td>MAE 28,67 €, RMSE 37,93 €, R² 0,9189; una evaluación.</td>
+</tr>
+<tr>
+<td>Transporte vivienda</td>
+<td>638 registros: 621 promociones + 17 anuncios.</td>
+</tr>
+<tr>
+<td>Anuncios</td>
+<td>9 Habitaclia + 8 Pisos.com; 6 Bilbao, 6 Donostia, 5 Vitoria.</td>
+</tr>
+<tr>
+<td>API monetaria</td>
+<td>Tres estadísticas EMAL de 2024 T4, colección separada.</td>
+</tr>
+<tr>
+<td>MongoDB explain</td>
+<td>638 frente a 4 examinados; ambos tiempos 0 ms.</td>
+</tr>
+<tr>
+<td>MIA</td>
+<td>Diez reglas, ocho decisiones/ramas; ficha local persistida.</td>
+</tr>
+</tbody>
+</table>
+<h2>Arranque seguro</h2>
+<p>Desde la raíz, en terminales independientes:</p>
+<pre><code class="language-bash">uv sync --locked --extra dev
+uv run --no-sync python main.py --audit --json
+uv run --no-sync python scripts/sync_sources.py --check
+uv run --no-sync python main.py --subject saa_pia_mia --server.port 8501
+</code></pre>
+<pre><code class="language-bash">uv run --no-sync python main.py --subject bda_sbd --visual --server.port 8502
+</code></pre>
+<p>Abrir localhost:8501 y localhost:8502. La app no necesita entrenar. La pestaña Test reservado lee el informe ya conservado. El periodo nuevo de esta captura es 2026 T2; leerlo en pantalla.</p>
+<h2>Antes de empezar</h2>
+<ul>
+<li>[ ] Modelo, originales y huellas intactos; no borrar test_final.json.</li>
+<li>[ ] Las dos apps abiertas y probadas con la versión correcta.</li>
+<li>[ ] n8n publicado y receptor de acciones accesible si se demuestra envío real.</li>
+<li>[ ] Presentación PDF, manual y capturas disponibles sin red.</li>
+<li>[ ] JSON API, HTML, transporte, explain y reglas abiertos.</li>
+<li>[ ] Ambos integrantes conocen el recorrido y han ensayado con cronómetro.</li>
+<li>[ ] Enlace, commit y permisos del repositorio revisados.</li>
+</ul>
+<h2>Reparto del tiempo</h2>
+<table>
+<thead>
+<tr>
+<th>Minutos</th>
+<th>Persona</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–2</td>
+<td>A</td>
+<td>Problema y arquitectura.</td>
+</tr>
+<tr>
+<td>2–4:30</td>
+<td>A</td>
+<td>Fuentes, unidades, HDFS/Kafka/MongoDB.</td>
+</tr>
+<tr>
+<td>4:30–5:30</td>
+<td>A</td>
+<td>Consultas, índice y atomicidad.</td>
+</tr>
+<tr>
+<td>5:30–8</td>
+<td>B</td>
+<td>Territorio, dataset, EDA y tiempo.</td>
+</tr>
+<tr>
+<td>8–10:45</td>
+<td>B</td>
+<td>Modelos, baseline, SHAP y test.</td>
+</tr>
+<tr>
+<td>10:45–12:30</td>
+<td>B → A</td>
+<td>Caso, referencia y regla.</td>
+</tr>
+<tr>
+<td>12:30–14</td>
+<td>A</td>
+<td>Consentimiento, n8n y ficha.</td>
+</tr>
+<tr>
+<td>14–15</td>
+<td>Ambas</td>
+<td>Límites y cierre.</td>
+</tr>
+</tbody>
+</table>
+<h2>Caso preparado: datos inventados de demostración</h2>
+<p>25 años; ingreso mensual 1.500 €; ingreso anual computable 18.000 €; pago y renta total 500 €; deuda cero; ahorro 2.000 €; entrada 1.000 €; unidad individual; contrato no compartido; siete comprobaciones documentales marcadas como declaradas. Elegir un municipio cubierto y leer la referencia real del modelo. La decisión depende del valor, de la fecha y de las prioridades.</p>
+<p>El caso completo conservado obtuvo referencia 857,8253 €, esfuerzo declarado 33,33 % y de referencia 57,1884 %, con R_REFERENCIA. No prometer ese valor para todos los municipios. Contrafactual separado del motor: referencia 600 € → CONSULTAR_GAZTELAGUN; 1.600 € → BUSCAR_ALTERNATIVAS. Esos dos importes son valores de prueba, no predicciones del modelo.</p>
+<p>Para la acción: comprobar consentimiento, enviar una vez, ver persistido=true y localizar la ficha por UUID. Repetir el mismo evento no crea otro fichero. No introducir datos de personas reales para la exposición.</p>
+<h2>Si falla un servicio</h2>
+<p>Identificar el fallo y mostrar el informe o captura conservados con su fecha. No llamar «en vivo» a una evidencia archivada. No cambiar a mock y presentarlo como integración real. No reinstalar, entrenar o recapturar durante la defensa. Reservar tiempo para explicar el límite y cerrar.</p>
+<h2>Respuestas de una frase</h2>
+<ul>
+<li>Por qué regresión: predecimos una renta continua, no una etiqueta personal.</li>
+<li>Por qué temporal: entrenamos con el pasado y comparamos en periodos posteriores.</li>
+<li>Por qué persistencia: lag1 tiene correlación alta; repetir el trimestre anterior es un rival fuerte.</li>
+<li>Qué mide R²: comparación cuadrática con la media, no porcentaje de aciertos.</li>
+<li>Por qué MLP sklearn: misma familia exigida, biblioteca diferente de Keras de clase.</li>
+<li>Para qué HDFS/Kafka/MongoDB: conservar archivos / transportar eventos / consultar documentos.</li>
+<li>Por qué guardar antes del offset: evitar confirmar un evento no persistido.</li>
+<li>Qué hace n8n: guarda fichas locales distintas, no concede ayudas.</li>
+<li>Qué garantiza hash: igualdad de bytes, no verdad ni actualidad.</li>
+</ul>
+<h2>Entrega</h2>
+<p>Repositorio y README, código y dependencias, originales y manifiestos, datos/servicios accesibles o reconstruibles según lo acordado, informe vigente, notebooks con salidas, pipeline joblib, particiones, MLflow, workflow n8n y evidencias. Comprobar formato y límite del aula virtual con la instrucción docente. El paquete de esta guía es material de apoyo, no el proyecto completo ni un dump de MongoDB.</p></main></html>

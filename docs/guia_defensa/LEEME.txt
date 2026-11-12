@@ -1,0 +1,30 @@
+RETO 1 · PAQUETE DE ESTUDIO Y DEFENSA
+Fecha: 12 de noviembre de 2026.
+Referencia técnica: commit 2778774 del proyecto.
+
+1. Manual_completo_Reto1.pdf: guía completa con índice navegable, fundamentos,
+   decisiones, gráficas, APIs, scraping, bases de datos, modelos, límites,
+   comandos, entrega, exposición y 45 preguntas con respuestas.
+2. Manual_completo_Reto1.docx: copia editable en Word. Si el índice no aparece
+   actualizado, pulsar sobre él y elegir Actualizar tabla en Word.
+3. Presentacion_15_minutos.pdf: doce diapositivas en formato panorámico,
+   con tiempos y reparto propuesto entre persona A y persona B.
+4. Guia_rapida_defensa.pdf: tres páginas para el día de la exposición.
+5. Los tres HTML son autónomos, con imágenes incorporadas. Pueden leerse en
+   navegador sin instalar el proyecto. Los enlaces al código requieren red.
+6. fuentes_verificadas.json registra archivos, tamaños y huellas consultados.
+7. validacion_documentacion.json conserva las comprobaciones del material.
+
+Orden recomendado: estudiar manual; practicar preguntas; ensayar la presentación
+con cronómetro; usar guía rápida para preparar el equipo. Ambas personas deben
+entender todos los bloques, aunque se repartan los minutos. Completar nombres
+según la autoría real; el reparto propuesto no asigna contribuciones históricas.
+
+El ZIP contiene DOCUMENTACIÓN DE APOYO, no el proyecto completo ni un dump de
+MongoDB ni un clúster HDFS. El capítulo de entrega explica qué debe acompañarlo.
+No añadir a la entrega entornos virtuales, credenciales o carpetas work/ensayo.
+
+Las cifras y figuras proceden de resultados conservados. No se ha reentrenado
+el modelo ni reevaluado el test. Las capturas históricas y los perfiles inventados
+de demostración están identificados. La preparación escrita no acredita una
+defensa humana ya realizada.
