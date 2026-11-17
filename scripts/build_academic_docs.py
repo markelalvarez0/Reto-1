@@ -267,7 +267,12 @@ def slides(source):
 def main():
     fonts()
     outputs = []
-    for source in sorted(OUT.rglob('*.md')):
+    sources = sorted(OUT.rglob('*.md'))
+    sources += sorted((ROOT / 'docs/paquetes').glob('Instrucciones_*.md'))
+    restoration = ROOT / 'data/exportaciones_entrega_2026-11-17/Instrucciones_restauracion.md'
+    if restoration.is_file():
+        sources.append(restoration)
+    for source in sources:
         if source.name == 'README.md':
             continue
         target = slides(source) if source.name.startswith('Presentacion_') else report(source)

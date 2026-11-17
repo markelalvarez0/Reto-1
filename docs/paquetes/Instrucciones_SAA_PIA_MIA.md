@@ -1,11 +1,16 @@
-# Entrega SAA, PIA y MIA · Vivienda en Euskadi
+# Instrucciones de ejecución · SAA, PIA y MIA
+
+## Qué entregamos
 
 Hemos creado una aplicación que estima una renta media municipal, explica una orientación mediante reglas y permite registrar una acción local con n8n tras recibir consentimiento.
 
 ## Documentos para corregir
 
-- [Memoria en PDF](docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf): datos, preparación, modelos, resultados, app, reglas y límites.
-- [Presentación en PDF](docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf): 12 diapositivas con gráficos, capturas y explicaciones de qué hicimos y por qué.
+
+- [Memoria en PDF](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf): datos, preparación, modelos, resultados, app, reglas y límites.
+
+- [Presentación en PDF](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf): 12 diapositivas con gráficos, capturas y explicaciones de qué hicimos y por qué.
+
 - Las fuentes editables `.md` están junto a los PDF.
 
 ## Qué contiene
@@ -38,7 +43,7 @@ SHAP explica contribuciones del modelo sin demostrar causalidad. SMOTE se estudi
 
 ## Instalar y comprobar
 
-Descomprimir todo el ZIP y abrir una terminal en la carpeta `Entrega_SAA_PIA_MIA`, donde está este README. Se necesita Python 3.12 y [uv](https://docs.astral.sh/uv/getting-started/installation/).
+Descomprimir todo el ZIP y abrir una terminal en la carpeta `Entrega_SAA_PIA_MIA`, donde está este PDF de instrucciones. Se necesita Python 3.12 y [uv](https://docs.astral.sh/uv/getting-started/installation/).
 
 ```bash
 uv sync --locked --extra dev

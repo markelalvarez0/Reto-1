@@ -23,3 +23,5 @@
 
 # Exportaciones reales de servicios: originales y huellas sin conversión de líneas.
 /data/exportaciones_entrega_2026-11-17/** -text -diff
+
+/docs/paquetes/*.pdf -text -diff

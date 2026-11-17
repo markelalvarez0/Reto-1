@@ -1,14 +1,22 @@
-# Datos entregables de HDFS y MongoDB
+# Instrucciones de restauración · HDFS y MongoDB
+
+## Origen de las copias
 
 Exportación preparada el 17 de noviembre de 2026 con HDFS 3.4.2, Kafka 3.9.1 y MongoDB 7.0 reales, a partir de los originales archivados del proyecto. No se han recapturado anuncios ni modificado el modelo de IA.
 
 ## Qué se incluye
 
+
 - `hdfs/data/reto1/`: 37 archivos descargados de HDFS y comprobados con SHA-256; 31 del recorrido de promociones y anuncios, y seis de la API de rentas.
+
 - `hdfs_manifest.json`: ruta original de HDFS y huella de cada copia recuperada.
+
 - `mongodb/`: tres copias `mongodump --archive --gzip`, con documentos e índices.
+
 - `mongodb_inventario.json`: colecciones, recuentos e índices exportados.
+
 - `resultados/`: salidas calculadas y evidencia del recorrido de esta ejecución.
+
 - `restauracion_verificada.json`: comprobación de las copias restauradas en bases y rutas nuevas.
 
 | Base exportada | Colecciones y recuentos |
@@ -47,4 +55,4 @@ La orden de carga supone que `/data/reto1` todavía no existe. Si existe, elegir
 
 ## Consultar las salidas sin arrancar los servicios
 
-Los JSON de `resultados/municipal/` y `resultados/anuncios/` se pueden abrir directamente o seleccionar en el visor mediante `RETO1_ANALYSIS_DIR` y `RETO1_RENTALS_DIR`. Son resultados conservados de esta ejecución real. Para repetir el recorrido completo se usan los scripts y requisitos del README principal.
+Los JSON de `resultados/municipal/` y `resultados/anuncios/` se pueden abrir directamente o seleccionar en el visor mediante `RETO1_ANALYSIS_DIR` y `RETO1_RENTALS_DIR`. Son resultados conservados de esta ejecución real. Para repetir el recorrido completo se usan los scripts y requisitos del PDF de instrucciones de ejecución incluido en la raíz del paquete.

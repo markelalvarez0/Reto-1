@@ -207,7 +207,7 @@ El recorrido técnico conserva el origen, permite repetir entregas y produce res
 
 Como mejoras proponemos una captura periódica con revisión de acceso, mayor cobertura de anuncios, detección de posibles duplicados entre portales, datos de ingresos comparables y seguimiento de calidad por fecha. También sería útil medir rendimiento con un volumen mayor. Estas mejoras no se presentan como funciones ya implementadas.
 
-Para defenderlo mostramos el visor, un original y su manifiesto, el resumen de transporte y la reentrega, las consultas, el explain y la operación atómica. El ZIP incluye una copia recuperada de HDFS y tres exportaciones MongoDB en `data/exportaciones_entrega_2026-11-17/`. Se ha comprobado su restauración en rutas y bases nuevas. El README de esa carpeta explica cómo recuperarlas; el README del paquete explica cómo ejecutar el bloque.
+Para defenderlo mostramos el visor, un original y su manifiesto, el resumen de transporte y la reentrega, las consultas, el explain y la operación atómica. El ZIP incluye una copia recuperada de HDFS y tres exportaciones MongoDB en `data/exportaciones_entrega_2026-11-17/`. Se ha comprobado su restauración en rutas y bases nuevas. El PDF de restauración de esa carpeta explica cómo recuperarlas; el PDF de instrucciones del paquete explica cómo ejecutar el bloque.
 
 ## 16 Dónde comprobamos cada parte
 

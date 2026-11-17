@@ -3,20 +3,23 @@
   "paquetes": [
     {
       "archivo": "Entrega_BDA_SBD.zip",
-      "bytes": 5358419,
-      "sha256": "b45630a33c54e2bba09fbd3caf83f1685fd3c7aad6af8199cf46988d481300a2",
+      "bytes": 5408333,
+      "sha256": "83232651b501056985126c63e6b62e21143a30d8673424df2319c30db3d7cda4",
       "archivos": 216,
       "pdf": [
+        "Instrucciones_BDA_SBD.pdf",
+        "data/exportaciones_entrega_2026-11-17/Instrucciones_restauracion.pdf",
         "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
         "docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf"
       ]
     },
     {
       "archivo": "Entrega_SAA_PIA_MIA.zip",
-      "bytes": 5953752,
-      "sha256": "96cec1edf27d3167a07cc3588b7bfee9eb3dfb674a3e79def80b8547916d2aa4",
+      "bytes": 5980938,
+      "sha256": "ae966e58e9f2e6e082afb0dd60619dc99292e8134b06f0729e25878164ea6b98",
       "archivos": 172,
       "pdf": [
+        "Instrucciones_SAA_PIA_MIA.pdf",
         "docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf",
         "docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf"
       ]

@@ -4,7 +4,7 @@
 
 Entregamos dos bloques del mismo proyecto: BDA y SBD, y SAA, PIA y MIA. Las memorias explican el trabajo por sí solas; las presentaciones sirven para contarlo en voz alta. Los guiones y esta guía ayudan a prepararnos. El código, los datos y el modelo se conservan en sus formatos funcionales: un PDF no sustituye una base de datos ni un notebook.
 
-Preparamos dos ZIP en la raíz: `Entrega_BDA_SBD.zip` y `Entrega_SAA_PIA_MIA.zip`. Cada uno incluye la memoria y la presentación de su bloque, las fuentes editables, los archivos funcionales y un README con instrucciones. Los guiones orales, esta guía y la revisión de rúbricas quedan fuera de los ZIP porque son material de preparación.
+Preparamos dos ZIP en la raíz: `Entrega_BDA_SBD.zip` y `Entrega_SAA_PIA_MIA.zip`. Cada uno incluye la memoria y la presentación de su bloque, las fuentes editables, los archivos funcionales y un PDF con las instrucciones de ejecución. Los guiones orales, esta guía y la revisión de rúbricas quedan fuera de los ZIP porque son material de preparación.
 
 ## 2 Lista exacta de archivos PDF
 
@@ -13,9 +13,12 @@ Preparamos dos ZIP en la raíz: `Entrega_BDA_SBD.zip` y `Entrega_SAA_PIA_MIA.zip
 | BDA y SBD | [BDA_SBD/Documentacion_BDA_SBD.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf) | Arquitectura, decisiones, resultados y límites | Informe y arquitectura confirmados en rúbrica; formato PDF solicitado por el equipo |
 | BDA y SBD | [BDA_SBD/Presentacion_BDA_SBD.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf) | Apoyo a la demostración | Presentación preparada para la defensa; demostración confirmada |
 | BDA y SBD | [BDA_SBD/Guion_oral_BDA_SBD.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/BDA_SBD/Guion_oral_BDA_SBD.pdf) | Qué decir y qué abrir en cada diapositiva | Estudio, solicitado por el equipo |
-| SAA PIA MIA | [SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf) | Explicación de datos, modelos, app y acción | Memoria PDF solicitada por el equipo; no reemplaza README y notebooks exigidos |
+| SAA PIA MIA | [SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf) | Explicación de datos, modelos, app y acción | Memoria PDF solicitada por el equipo; acompañada del contenido del README en PDF y de los notebooks exigidos |
 | SAA PIA MIA | [SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf) | Exposición de 15 minutos por pareja | Duración y defensa confirmadas; soporte PDF preparado |
 | SAA PIA MIA | [SAA_PIA_MIA/Guion_oral_SAA_PIA_MIA.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/SAA_PIA_MIA/Guion_oral_SAA_PIA_MIA.pdf) | Ensayo con tiempos y preguntas | Estudio, solicitado por el equipo |
+| BDA y SBD | [Instrucciones_BDA_SBD.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/paquetes/Instrucciones_BDA_SBD.pdf) | Instalación, visor y servicios | Incluido en la raíz de su ZIP |
+| BDA y SBD | [Instrucciones_restauracion.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/data/exportaciones_entrega_2026-11-17/Instrucciones_restauracion.pdf) | Recuperar HDFS y MongoDB | Incluido junto a las exportaciones |
+| SAA PIA MIA | [Instrucciones_SAA_PIA_MIA.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/paquetes/Instrucciones_SAA_PIA_MIA.pdf) | Instalación, app y n8n | Incluido en la raíz de su ZIP |
 | Común | [Guia_entrega_y_defensa.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/Guia_entrega_y_defensa.pdf) | Lista de entrega, estudio y demo | Apoyo solicitado por el equipo |
 | Común | [Revision_rubricas.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/Revision_rubricas.pdf) | Relación de criterios con evidencia | Comprobación adicional; no es un certificado de nota |
 
@@ -25,7 +28,7 @@ Las fuentes Markdown editables tienen el mismo nombre y carpeta. `scripts/build_
 
 | Bloque o asignatura | Archivo o carpeta desde la raíz | Para qué sirve | Confirmado o recomendado |
 |---|---|---|---|
-| Común | [README.md](https://github.com/markelalvarez0/Reto-1/blob/main/README.md) y README de ambos bloques | Entrada, instrucciones y resultados | README confirmado para IA; organización recomendada para entrega común |
+| Común | PDF de instrucciones de cada paquete | Entrada, instrucciones y resultados | Contenido del README confirmado para IA; entregado en PDF por indicación del equipo |
 | Común | [main.py](https://github.com/markelalvarez0/Reto-1/blob/main/main.py), src/, scripts/, app/ | Código Python organizado y funcional | Confirmado en ambos enunciados |
 | Común | [requirements.txt](https://github.com/markelalvarez0/Reto-1/blob/main/requirements.txt) | Dependencias | Confirmado en PIA |
 | Común | [pyproject.toml](https://github.com/markelalvarez0/Reto-1/blob/main/pyproject.toml), uv.lock, requirements-ci.txt | Instalación reproducible y comprobaciones | Soporte técnico recomendado; uv es el camino preparado |
@@ -50,11 +53,11 @@ La estructura del enunciado IA es básica y no coincide literalmente con todas n
 
 ## 4 Los dos ZIP que entregamos
 
-[Entrega_BDA_SBD.zip](https://github.com/markelalvarez0/Reto-1/raw/refs/heads/main/Entrega_BDA_SBD.zip) corresponde a BDA y SBD. Lleva sus dos PDF, código, originales de API y scraping, consultas, resultados, evidencias del transporte y las instrucciones del visor y de los servicios.
+[Entrega_BDA_SBD.zip](https://github.com/markelalvarez0/Reto-1/raw/refs/heads/main/Entrega_BDA_SBD.zip) corresponde a BDA y SBD. Lleva memoria, presentación e instrucciones en PDF, código, originales de API y scraping, consultas, resultados, evidencias del transporte y las instrucciones del visor y de los servicios.
 
-[Entrega_SAA_PIA_MIA.zip](https://github.com/markelalvarez0/Reto-1/raw/refs/heads/main/Entrega_SAA_PIA_MIA.zip) corresponde a SAA, PIA y MIA. Lleva sus dos PDF, código, datos y particiones, modelo guardado, notebooks fuente y ejecutados, registros MLflow, resultados, capturas y workflow n8n.
+[Entrega_SAA_PIA_MIA.zip](https://github.com/markelalvarez0/Reto-1/raw/refs/heads/main/Entrega_SAA_PIA_MIA.zip) corresponde a SAA, PIA y MIA. Lleva memoria, presentación e instrucciones en PDF, código, datos y particiones, modelo guardado, notebooks fuente y ejecutados, registros MLflow, resultados, capturas y workflow n8n.
 
-Descomprimimos cada ZIP completo. Dentro encontramos `README.md`, los documentos en `docs/entrega/` y un comprobador `verificar_entrega.py`. No copiamos únicamente una carpeta académica antigua, porque utiliza recursos compartidos de raíz. Los ZIP mantienen las rutas necesarias para sus aplicaciones.
+Descomprimimos cada ZIP completo. Dentro encontramos `Instrucciones_BDA_SBD.pdf` o `Instrucciones_SAA_PIA_MIA.pdf`, los documentos en `docs/entrega/` y un comprobador `verificar_entrega.py`. No copiamos únicamente una carpeta académica antigua, porque utiliza recursos compartidos de raíz. Los ZIP mantienen las rutas necesarias para sus aplicaciones.
 
 Si hay buzones separados, usamos el paquete del bloque correspondiente: BDA/SBD para esas dos asignaturas y SAA/PIA/MIA para las otras tres. Si piden enlaces, adjuntamos también el repositorio. El canal y el límite de tamaño los marca el aula virtual.
 
@@ -81,7 +84,7 @@ uv run --no-sync python scripts/sync_sources.py --check
 uv run --no-sync python -m pytest tests/ -q
 ```
 
-Si usamos uno de los ZIP, seguimos su README y ejecutamos `python verificar_entrega.py` dentro de su carpeta. La auditoría global del repositorio completo comprueba originales, artefactos, test sellado, anuncios y copias académicas sin entrenar. Los tests incluyen miniensayos con fixtures; no reentrenan el modelo entregado ni repiten su holdout. Para abrir los resultados no ejecutamos `scripts/train_official.py` ni las celdas históricas de entrenamiento.
+Si usamos uno de los ZIP, seguimos su PDF de instrucciones y ejecutamos `python verificar_entrega.py` dentro de su carpeta. La auditoría global del repositorio completo comprueba originales, artefactos, test sellado, anuncios y copias académicas sin entrenar. Los tests incluyen miniensayos con fixtures; no reentrenan el modelo entregado ni repiten su holdout. Para abrir los resultados no ejecutamos `scripts/train_official.py` ni las celdas históricas de entrenamiento.
 
 Si necesitamos regenerar solo la documentación, instalamos sus dependencias en otro entorno y ejecutamos el generador desde la raíz:
 
@@ -180,7 +183,7 @@ hdfs dfs -put data/exportaciones_entrega_2026-11-17/hdfs/data/reto1 /data/
 hdfs dfs -ls -R /data/reto1
 ```
 
-La carga supone que `/data/reto1` no existe. Si ya existe, elegimos otra ruta de destino. El [README de restauración](https://github.com/markelalvarez0/Reto-1/blob/main/data/exportaciones_entrega_2026-11-17/README.md), los inventarios y `restauracion_verificada.json` explican la copia. Para demostrar el recorrido desde el principio usamos los comandos del apartado 7.
+La carga supone que `/data/reto1` no existe. Si ya existe, elegimos otra ruta de destino. El [PDF de restauración](https://github.com/markelalvarez0/Reto-1/blob/main/data/exportaciones_entrega_2026-11-17/Instrucciones_restauracion.pdf), los inventarios y `restauracion_verificada.json` explican la copia. Para demostrar el recorrido desde el principio usamos los comandos del apartado 7.
 
 ## 11 Orden de estudio BDA y SBD
 

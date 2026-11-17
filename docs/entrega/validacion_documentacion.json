@@ -6,8 +6,8 @@
       "archivo": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
       "paginas": 14,
       "texto_seleccionable": true,
-      "caracteres": 24572,
-      "sha256": "b1a31bf3446d5c9e735fe8f1d9bea1faa589384976769a6cceda22dafc2cf402",
+      "caracteres": 24599,
+      "sha256": "fb7ec56daefa8fa35ff3d8c58d8de3accfd8f37d56c974f5bd09922aef0b7843",
       "enlaces_pdf": 34,
       "paginas_con_imagenes": 2
     },
@@ -15,8 +15,8 @@
       "archivo": "docs/entrega/BDA_SBD/Guion_oral_BDA_SBD.pdf",
       "paginas": 6,
       "texto_seleccionable": true,
-      "caracteres": 9179,
-      "sha256": "52b5f62d48aa00702153e6cf1dcb1a4a13f19a9038c3e9baa665c8eacb4db073",
+      "caracteres": 9207,
+      "sha256": "1727ae6bf5b8a6aa972fae1da2f73ad4ca3ce37be9ee1a93b92dc7ecca015bec",
       "enlaces_pdf": 30,
       "paginas_con_imagenes": 0
     },
@@ -25,7 +25,7 @@
       "paginas": 12,
       "texto_seleccionable": true,
       "caracteres": 3476,
-      "sha256": "2a32654285392a99b2375d421e24b51eb5ccec7ee5b199a045550bf9b9cb059a",
+      "sha256": "2fc62c836bb12400c70f2cf8246a231b05852db61ed556c87ae14068950af7de",
       "enlaces_pdf": 0,
       "paginas_con_imagenes": 3
     },
@@ -33,17 +33,17 @@
       "archivo": "docs/entrega/Guia_entrega_y_defensa.pdf",
       "paginas": 11,
       "texto_seleccionable": true,
-      "caracteres": 19888,
-      "sha256": "075e6aab8b52376010e7f029eada8cad47a952d7b9234750718fc6b86a7d42b0",
-      "enlaces_pdf": 81,
+      "caracteres": 20486,
+      "sha256": "c2742872a690b1498c5a34d143c0d9793614fa30b41033c2f8aa07f0555e7d3e",
+      "enlaces_pdf": 86,
       "paginas_con_imagenes": 0
     },
     {
       "archivo": "docs/entrega/Revision_rubricas.pdf",
       "paginas": 9,
       "texto_seleccionable": true,
-      "caracteres": 13575,
-      "sha256": "891e568cf4ec4208f7fd7243bbc6c77892d14675e9eccf0539919fbad062e121",
+      "caracteres": 13789,
+      "sha256": "89e20ea776fab2d9ddbf928ccfd9f2b2af5917c163b1498f6d76fe79ef584b57",
       "enlaces_pdf": 25,
       "paginas_con_imagenes": 0
     },
@@ -52,7 +52,7 @@
       "paginas": 21,
       "texto_seleccionable": true,
       "caracteres": 29499,
-      "sha256": "69431fcc1df23efe3dc611f962b4773558ccd3a1c91c1ece89c21f9bc0298b7e",
+      "sha256": "f08a8169aa9027b6e897b40a4b0450791b84b852c7217efb4efdf8271b70e867",
       "enlaces_pdf": 45,
       "paginas_con_imagenes": 9
     },
@@ -61,7 +61,7 @@
       "paginas": 7,
       "texto_seleccionable": true,
       "caracteres": 10174,
-      "sha256": "d994486072af8fb2b000e303369b1394105a9c51cb838064bb5dc1117cb0b5f3",
+      "sha256": "6e0d251ceb5be2900571d8c3e54cb364f4c974f2f05b680b1d8e7c8fc5e357e2",
       "enlaces_pdf": 26,
       "paginas_con_imagenes": 0
     },
@@ -70,13 +70,40 @@
       "paginas": 12,
       "texto_seleccionable": true,
       "caracteres": 3223,
-      "sha256": "299f40fff561e02ad808bedcf53d1bac19278cc826bd6bf9b2a449553d12f2af",
+      "sha256": "f66ea5447d0cb7aaa94e407aa4050d51eeb29d6731ab3fdd1e20b680973fb69f",
       "enlaces_pdf": 0,
       "paginas_con_imagenes": 5
+    },
+    {
+      "archivo": "docs/paquetes/Instrucciones_BDA_SBD.pdf",
+      "paginas": 5,
+      "texto_seleccionable": true,
+      "caracteres": 6459,
+      "sha256": "6abaf1c3dcd28c4103e64b29d67ced9de5ef26b6bdd687c509601657424db21d",
+      "enlaces_pdf": 23,
+      "paginas_con_imagenes": 0
+    },
+    {
+      "archivo": "docs/paquetes/Instrucciones_SAA_PIA_MIA.pdf",
+      "paginas": 6,
+      "texto_seleccionable": true,
+      "caracteres": 6995,
+      "sha256": "0dcb762d223299e4096c07ae5b3929f7e48ef1dcb4a4cb71499b2d0d8c6f04ee",
+      "enlaces_pdf": 26,
+      "paginas_con_imagenes": 0
+    },
+    {
+      "archivo": "data/exportaciones_entrega_2026-11-17/Instrucciones_restauracion.pdf",
+      "paginas": 4,
+      "texto_seleccionable": true,
+      "caracteres": 3747,
+      "sha256": "e7d1aa3bb6ce3f1588d0848434f071e4cf64702c4483decf059a95ad40e51d3f",
+      "enlaces_pdf": 12,
+      "paginas_con_imagenes": 0
     }
   ],
   "errores_automaticos": [],
-  "enlaces_locales_comprobados": 78,
+  "enlaces_locales_comprobados": 133,
   "fuentes_docentes": [
     {
       "nombre": "Reto1_SAA_PIA_MIA_2026-27_v5.pdf",
@@ -168,8 +195,8 @@
       "failures": "0",
       "skipped": "0",
       "tests": "168",
-      "time": "13.452",
-      "timestamp": "2026-11-17T20:01:34.969983+01:00",
+      "time": "15.440",
+      "timestamp": "2026-11-17T20:28:57.636703+01:00",
       "hostname": "f945174f46f9"
     }
   ],
@@ -242,35 +269,38 @@
   "paquetes": [
     {
       "archivo": "Entrega_BDA_SBD.zip",
-      "bytes": 5358419,
-      "sha256": "b45630a33c54e2bba09fbd3caf83f1685fd3c7aad6af8199cf46988d481300a2",
+      "bytes": 5408333,
+      "sha256": "83232651b501056985126c63e6b62e21143a30d8673424df2319c30db3d7cda4",
       "archivos": 216,
       "pdf": [
+        "Instrucciones_BDA_SBD.pdf",
+        "data/exportaciones_entrega_2026-11-17/Instrucciones_restauracion.pdf",
         "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
         "docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf"
       ]
     },
     {
       "archivo": "Entrega_SAA_PIA_MIA.zip",
-      "bytes": 5953752,
-      "sha256": "96cec1edf27d3167a07cc3588b7bfee9eb3dfb674a3e79def80b8547916d2aa4",
+      "bytes": 5980938,
+      "sha256": "ae966e58e9f2e6e082afb0dd60619dc99292e8134b06f0729e25878164ea6b98",
       "archivos": 172,
       "pdf": [
+        "Instrucciones_SAA_PIA_MIA.pdf",
         "docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf",
         "docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf"
       ]
     }
   ],
   "verificacion_paquetes": {
-    "instalacion_uv_locked": "Correcta en cada carpeta extraída",
+    "instalacion_uv_locked": "Repetida correctamente en dos extracciones nuevas sin README.md; pyproject.toml no depende de ese archivo",
     "bda_pruebas": {
       "name": "pytest",
       "errors": "0",
       "failures": "0",
       "skipped": "0",
       "tests": "126",
-      "time": "9.643",
-      "timestamp": "2026-11-17T20:12:09.992827+01:00",
+      "time": "10.756",
+      "timestamp": "2026-11-17T20:29:10.826622+01:00",
       "hostname": "f945174f46f9"
     },
     "ia_pruebas": {
@@ -279,14 +309,27 @@
       "failures": "0",
       "skipped": "0",
       "tests": "34",
-      "time": "5.364",
-      "timestamp": "2026-11-17T20:02:04.508288+01:00",
+      "time": "11.992",
+      "timestamp": "2026-11-17T20:29:10.895936+01:00",
       "hostname": "f945174f46f9"
     },
     "bda_app": "AppTest sin errores; seis tablas",
     "ia_app": "AppTest sin errores; informe conservado; huellas de modelo y test intactas",
     "sin_material_oral": true,
-    "dos_pdf_por_paquete": true,
-    "pdf_identicos_al_repositorio": true
+    "pdf_identicos_al_repositorio": true,
+    "sin_readme_md": true,
+    "pdf_esperados_por_paquete": {
+      "BDA_SBD": 4,
+      "SAA_PIA_MIA": 3
+    },
+    "instrucciones_pdf": true
+  },
+  "revision_instrucciones_pdf": {
+    "pdf_nuevos": 3,
+    "inspeccion_visual": "Revisadas las 15 páginas de los tres PDF de instrucciones; texto seleccionable y enlaces activos.",
+    "servicios_repetidos": false,
+    "modelo_reevaluado": false,
+    "sin_readme_en_ambos_zip": true,
+    "instalacion_y_pruebas_tras_extraer": "126 pruebas BDA/SBD y 34 pruebas SAA/PIA/MIA, sin errores"
   }
 }

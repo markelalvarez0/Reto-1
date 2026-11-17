@@ -50,6 +50,8 @@ def build(block):
         path = ROOT / relative
         if path.is_symlink() or not path.resolve().is_relative_to(ROOT):
             raise ValueError(f'Ruta no admisible: {relative}')
+        if path.name.lower() == 'readme.md' or path.name == 'Instrucciones_restauracion.md':
+            return
         if path.is_dir():
             for item in sorted(path.rglob('*')):
                 if item.is_file() and '__pycache__' not in item.parts and item.suffix != '.pyc':
@@ -122,21 +124,34 @@ def build(block):
               or key in visual_names}
     visual['graficos'] = {key: value for key, value in visual_source['graficos'].items() if key in visual_names}
     files['docs/entrega/assets/procedencia_visuales.json'] = (json.dumps(visual, ensure_ascii=False, indent=2)+'\n').encode()
-    files['README.md'] = (ROOT/f'docs/paquetes/README_{block}.md').read_bytes()
+    instructions = f'Instrucciones_{block}.pdf'
+    files[instructions] = (ROOT/'docs/paquetes'/instructions).read_bytes()
+    # El paquete entrega las instrucciones en PDF y no depende de un README.md
+    # para construir su distribución Python. Las dependencias no cambian.
+    project = files['pyproject.toml'].decode('utf-8')
+    project, removed = re.subn(r'^readme = "README\.md"\n', '', project, flags=re.M)
+    if removed != 1:
+        raise ValueError('Revisar la referencia al README en pyproject.toml')
+    files['pyproject.toml'] = project.encode('utf-8')
     files['verificar_entrega.py'] = VERIFIER.encode()
     for name in files:
         if any(term in name.lower() for term in ('guion_oral', 'guia_defensa', 'guia_entrega_y_defensa', 'revision_rubricas')):
             raise ValueError(f'Material de preparación dentro de la entrega: {name}')
         if '.venv' in Path(name).parts or Path(name).name.startswith('.env'):
             raise ValueError(f'Archivo local no admisible: {name}')
+        if Path(name).name.lower() == 'readme.md':
+            raise ValueError(f'Las instrucciones se entregan en PDF: {name}')
     expected_pdfs = {f'docs/entrega/{block}/{kind}_{block}.pdf' for kind in ('Documentacion', 'Presentacion')}
+    expected_pdfs.add(instructions)
+    if block == 'BDA_SBD':
+        expected_pdfs.add('data/exportaciones_entrega_2026-11-17/Instrucciones_restauracion.pdf')
     if {name for name in files if name.endswith('.pdf')} != expected_pdfs:
-        raise ValueError('El paquete debe llevar solo la memoria y la presentación en PDF')
+        raise ValueError('Los PDF del paquete no coinciden con memoria, presentación e instrucciones')
     manifest = {
         'bloque': block, 'fecha': '2026-11-17',
         'repositorio': 'https://github.com/markelalvarez0/Reto-1',
         'codigo_base_conservado': '0f990531c86a7b4f247cb80631b02609fed687a0',
-        'contenido': 'Memoria, presentación y archivos funcionales del bloque; sin material oral de preparación',
+        'contenido': 'Memoria, presentación, instrucciones en PDF y archivos funcionales; sin README.md ni material oral de preparación',
         'test_reevaluado_al_empaquetar': False,
         'archivos': [{'ruta': name, 'bytes': len(data), 'sha256': sha(data)} for name, data in sorted(files.items())],
     }

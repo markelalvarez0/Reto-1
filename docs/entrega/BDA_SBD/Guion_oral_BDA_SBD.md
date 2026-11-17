@@ -4,7 +4,7 @@
 
 A y B son una propuesta para repartir la exposición, no un reparto de autoría. Los dos tenemos que poder explicar todo. La rúbrica pide demostración y justificación de decisiones, pero no fija minutos para este bloque.
 
-Abrimos la presentación y el visor en http://localhost:8502. Las capturas de las diapositivas muestran nuestra aplicación con resultados reales archivados. Si usamos esos resultados, lo decimos. Los comandos de servicios están en la guía común y en el README del ZIP de entrega.
+Abrimos la presentación y el visor en http://localhost:8502. Las capturas de las diapositivas muestran nuestra aplicación con resultados reales archivados. Si usamos esos resultados, lo decimos. Los comandos de servicios están en la guía común y en el PDF de instrucciones del ZIP de entrega.
 
 Este guion es material de preparación. No se incluye en el ZIP destinado a la profesora.
 
@@ -78,7 +78,7 @@ Señalamos las tres capitales en la captura y, si hay tiempo, abrimos el mapa y 
 
 Ambos: «Hemos pasado de fuentes diferentes a una comparación cuyo origen podemos comprobar. La conclusión concreta es que Vitoria exige menos esfuerzo en este escenario. Para orientar mejor a cada hogar ampliaríamos la muestra y usaríamos sus ingresos y circunstancias reales».
 
-Si falla un servicio, usamos los archivos, consultas y capturas conservados indicando su fecha. Esa evidencia permite explicar el trabajo; la ejecución en directo se prepara con los comandos del README de entrega.
+Si falla un servicio, usamos los archivos, consultas y capturas conservados indicando su fecha. Esa evidencia permite explicar el trabajo; la ejecución en directo se prepara con los comandos del PDF de instrucciones de entrega.
 
 ## Preguntas para ensayar
 

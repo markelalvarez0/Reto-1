@@ -1,11 +1,16 @@
-# Entrega BDA y SBD · Vivienda en Euskadi
+# Instrucciones de ejecución · BDA y SBD
+
+## Qué entregamos
 
 Hemos recogido y conservado datos de vivienda, conectado HDFS, Kafka y MongoDB y preparado una comparación de municipios. Este paquete reúne los documentos y archivos de este bloque.
 
 ## Documentos para corregir
 
-- [Memoria en PDF](docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf): fuentes, decisiones, recorrido, consultas, resultados y límites.
-- [Presentación en PDF](docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf): 12 diapositivas con gráficos, capturas y explicaciones de qué hicimos y por qué.
+
+- [Memoria en PDF](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf): fuentes, decisiones, recorrido, consultas, resultados y límites.
+
+- [Presentación en PDF](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf): 12 diapositivas con gráficos, capturas y explicaciones de qué hicimos y por qué.
+
 - Las fuentes editables `.md` están junto a los PDF.
 
 ## Qué contiene
@@ -26,7 +31,7 @@ Conservamos las rutas del repositorio para que los scripts encuentren los archiv
 
 ## Instalar y comprobar
 
-Descomprimir todo el ZIP y abrir una terminal en la carpeta `Entrega_BDA_SBD`, donde está este README. Se necesita Python 3.12 y [uv](https://docs.astral.sh/uv/getting-started/installation/).
+Descomprimir todo el ZIP y abrir una terminal en la carpeta `Entrega_BDA_SBD`, donde está este PDF de instrucciones. Se necesita Python 3.12 y [uv](https://docs.astral.sh/uv/getting-started/installation/).
 
 ```bash
 uv sync --locked --extra dev
@@ -93,7 +98,7 @@ En 2024 T4, las rentas medias EMAL de Vitoria, Bilbao y Donostia fueron 798,57 �
 
 El ZIP incluye 37 archivos recuperados de HDFS y tres copias de MongoDB con documentos e índices. Se ha comprobado su restauración en rutas y bases nuevas. Las bases contienen 638 registros de promociones y anuncios, 80 municipios, 768 observaciones EMAL, un contexto OVJ y tres estadísticas de la API.
 
-Las órdenes de `mongorestore` y `hdfs dfs -put` están en [Instrucciones de restauración](data/exportaciones_entrega_2026-11-17/README.md). El inventario y las huellas permiten comprobar la copia. No es necesario volver a capturar las webs para recuperar estos datos.
+Las órdenes de `mongorestore` y `hdfs dfs -put` están en [Instrucciones de restauración](https://github.com/markelalvarez0/Reto-1/blob/main/data/exportaciones_entrega_2026-11-17/Instrucciones_restauracion.pdf). El inventario y las huellas permiten comprobar la copia. No es necesario volver a capturar las webs para recuperar estos datos.
 
 
 Repositorio completo: https://github.com/markelalvarez0/Reto-1

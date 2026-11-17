@@ -2,15 +2,18 @@
 
 Memorias con explicaciones sencillas, en primera persona del plural. Las presentaciones cuentan qué hicimos y por qué, con capturas reales, gráficos y esquemas. Los detalles técnicos quedan en las memorias y las respuestas de los guiones.
 
-Los paquetes para entregar están en la raíz: [BDA/SBD](../../Entrega_BDA_SBD.zip) y [SAA/PIA/MIA](../../Entrega_SAA_PIA_MIA.zip). Incluyen memoria y presentación, código, datos y las instrucciones necesarias para cada bloque. Excluyen guiones orales, guía de defensa y revisión de rúbricas.
+Los paquetes para entregar están en la raíz: [BDA/SBD](../../Entrega_BDA_SBD.zip) y [SAA/PIA/MIA](../../Entrega_SAA_PIA_MIA.zip). Incluyen memoria y presentación, código, datos y las instrucciones en PDF necesarias para cada bloque. Excluyen guiones orales, guía de defensa y revisión de rúbricas.
 
 | Uso | PDF vigente | Fuente editable |
 |---|---|---|
 | Entrega BDA/SBD | [Documentación](BDA_SBD/Documentacion_BDA_SBD.pdf) | [Markdown](BDA_SBD/Documentacion_BDA_SBD.md) |
 | Exposición BDA/SBD | [Presentación](BDA_SBD/Presentacion_BDA_SBD.pdf) | [Markdown](BDA_SBD/Presentacion_BDA_SBD.md) |
+| Ejecución BDA/SBD | [Instrucciones](../paquetes/Instrucciones_BDA_SBD.pdf) | [Markdown](../paquetes/Instrucciones_BDA_SBD.md) |
+| Restauración HDFS y MongoDB | [Instrucciones](../../data/exportaciones_entrega_2026-11-17/Instrucciones_restauracion.pdf) | [Markdown](../../data/exportaciones_entrega_2026-11-17/Instrucciones_restauracion.md) |
 | Estudio BDA/SBD | [Guion oral](BDA_SBD/Guion_oral_BDA_SBD.pdf) | [Markdown](BDA_SBD/Guion_oral_BDA_SBD.md) |
 | Entrega SAA/PIA/MIA | [Documentación](SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf) | [Markdown](SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.md) |
 | Exposición IA, 15 minutos | [Presentación](SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf) | [Markdown](SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.md) |
+| Ejecución SAA/PIA/MIA | [Instrucciones](../paquetes/Instrucciones_SAA_PIA_MIA.pdf) | [Markdown](../paquetes/Instrucciones_SAA_PIA_MIA.md) |
 | Estudio IA | [Guion oral](SAA_PIA_MIA/Guion_oral_SAA_PIA_MIA.pdf) | [Markdown](SAA_PIA_MIA/Guion_oral_SAA_PIA_MIA.md) |
 | Entrega y estudio común | [Guía](Guia_entrega_y_defensa.pdf) | [Markdown](Guia_entrega_y_defensa.md) |
 | Comprobación adicional | [Revisión de rúbricas](Revision_rubricas.pdf) | [Markdown](Revision_rubricas.md) |

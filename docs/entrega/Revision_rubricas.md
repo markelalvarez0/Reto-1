@@ -99,9 +99,9 @@ El ejemplo de carpetas de la página 3 se corresponde con nuestras rutas `entreg
 
 La acción elegida es crear fichas locales persistidas, no enviar comunicaciones reales. El enunciado da ejemplos de acciones, no una obligación de enviar correo. Si se espera una integración concreta distinta, se debe confirmar con la profesora sin atribuirle al proyecto funciones que no tiene.
 
-## README y requisitos transversales
+## Contenido del README y requisitos transversales
 
-El PDF IA página 4 pide título y frase, captura arriba, necesidad desarrollada, esquema y explicación de IA, datos con tabla y gráficos, y resultados con tabla MLflow, elección, test y captura. El README de esta revisión conserva esos apartados y añade enlaces a la entrega actual. La captura de app es real e histórica; las conclusiones no se basan en métricas sintéticas antiguas.
+El README de instrucciones de cada ZIP se ha sustituido por un PDF. Las memorias reúnen la explicación del proyecto, los datos, las capturas y los resultados necesarios para corregirlo. El PDF IA página 4 pide título y frase, captura arriba, necesidad desarrollada, esquema y explicación de IA, datos con tabla y gráficos, y resultados con tabla MLflow, elección, test y captura. El README de esta revisión conserva esos apartados y añade enlaces a la entrega actual. La captura de app es real e histórica; las conclusiones no se basan en métricas sintéticas antiguas.
 
 Los 15 minutos por pareja y las tres preguntas individuales por alumno están confirmados en la página 1. BDA/SBD pide demostración sin duración escrita. La memoria y presentaciones PDF responden además a la petición del equipo para la corrección; no sustituyen los archivos funcionales ni las condiciones de entrega del aula virtual.
 
