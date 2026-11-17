@@ -1,0 +1,130 @@
+{
+  "reto1_entrega_paquete": {
+    "municipios": {
+      "documentos": 80,
+      "indices": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "codigo_municipio": 1
+          },
+          "name": "idx_ine_unique",
+          "unique": true
+        }
+      ]
+    },
+    "viviendas": {
+      "documentos": 638,
+      "indices": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "codigo_municipio": 1
+          },
+          "name": "idx_codigo_municipio"
+        },
+        {
+          "v": 2,
+          "key": {
+            "municipio": 1,
+            "tipo_operacion": 1,
+            "precio": 1
+          },
+          "name": "idx_municipio_operacion_precio"
+        },
+        {
+          "v": 2,
+          "key": {
+            "fuente": 1,
+            "id_origen": 1
+          },
+          "name": "idx_fuente_id",
+          "unique": true,
+          "partialFilterExpression": {
+            "fuente": {
+              "$type": "string"
+            },
+            "id_origen": {
+              "$type": "string"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "reto1_municipal_paquete": {
+    "contextos_ovj": {
+      "documentos": 1,
+      "indices": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        }
+      ]
+    },
+    "rentas_emal": {
+      "documentos": 768,
+      "indices": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "captura": 1,
+            "codigo_municipio": 1,
+            "periodo": 1
+          },
+          "name": "captura_1_codigo_municipio_1_periodo_1",
+          "unique": true
+        }
+      ]
+    }
+  },
+  "reto1_api_paquete": {
+    "rentas_api": {
+      "documentos": 3,
+      "indices": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "codigo_municipio": 1,
+            "anio": 1,
+            "trimestre": 1,
+            "sha256": 1
+          },
+          "name": "codigo_municipio_1_anio_1_trimestre_1_sha256_1",
+          "unique": true
+        }
+      ]
+    }
+  }
+}

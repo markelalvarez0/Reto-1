@@ -4,20 +4,20 @@
 
 Entregamos dos bloques del mismo proyecto: BDA y SBD, y SAA, PIA y MIA. Las memorias explican el trabajo por sí solas; las presentaciones sirven para contarlo en voz alta. Los guiones y esta guía ayudan a prepararnos. El código, los datos y el modelo se conservan en sus formatos funcionales: un PDF no sustituye una base de datos ni un notebook.
 
-Los siete PDF principales vigentes están en `docs/entrega/`. La revisión adicional de las rúbricas está en `Revision_rubricas.pdf`. Los documentos anteriores se conservan como históricos. Los cuatro informes antiguos de raíz y carpetas académicas tienen contenido idéntico y SHA-256 `629956f7a3fa836d0fb12d42d4e7e05d1f3e264ffeaac86da242529371f99e5b`. Ya no son la entrada principal para esta entrega.
+Preparamos dos ZIP en la raíz: `Entrega_BDA_SBD.zip` y `Entrega_SAA_PIA_MIA.zip`. Cada uno incluye la memoria y la presentación de su bloque, las fuentes editables, los archivos funcionales y un README con instrucciones. Los guiones orales, esta guía y la revisión de rúbricas quedan fuera de los ZIP porque son material de preparación.
 
 ## 2 Lista exacta de archivos PDF
 
 | Bloque | Archivo desde docs/entrega/ | Para qué sirve | Carácter |
 |---|---|---|---|
-| BDA y SBD | BDA_SBD/Documentacion_BDA_SBD.pdf | Arquitectura, decisiones, resultados y límites | Informe y arquitectura confirmados en rúbrica; formato PDF solicitado por el equipo |
-| BDA y SBD | BDA_SBD/Presentacion_BDA_SBD.pdf | Apoyo a la demostración | Presentación preparada para la defensa; demostración confirmada |
-| BDA y SBD | BDA_SBD/Guion_oral_BDA_SBD.pdf | Qué decir y qué abrir en cada diapositiva | Estudio, solicitado por el equipo |
-| SAA PIA MIA | SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf | Explicación de datos, modelos, app y acción | Memoria PDF solicitada por el equipo; no reemplaza README y notebooks exigidos |
-| SAA PIA MIA | SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf | Exposición de 15 minutos por pareja | Duración y defensa confirmadas; soporte PDF preparado |
-| SAA PIA MIA | SAA_PIA_MIA/Guion_oral_SAA_PIA_MIA.pdf | Ensayo con tiempos y preguntas | Estudio, solicitado por el equipo |
-| Común | Guia_entrega_y_defensa.pdf | Lista de entrega, estudio y demo | Apoyo solicitado por el equipo |
-| Común | Revision_rubricas.pdf | Relación de criterios con evidencia | Comprobación adicional; no es un certificado de nota |
+| BDA y SBD | [BDA_SBD/Documentacion_BDA_SBD.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf) | Arquitectura, decisiones, resultados y límites | Informe y arquitectura confirmados en rúbrica; formato PDF solicitado por el equipo |
+| BDA y SBD | [BDA_SBD/Presentacion_BDA_SBD.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf) | Apoyo a la demostración | Presentación preparada para la defensa; demostración confirmada |
+| BDA y SBD | [BDA_SBD/Guion_oral_BDA_SBD.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/BDA_SBD/Guion_oral_BDA_SBD.pdf) | Qué decir y qué abrir en cada diapositiva | Estudio, solicitado por el equipo |
+| SAA PIA MIA | [SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf) | Explicación de datos, modelos, app y acción | Memoria PDF solicitada por el equipo; no reemplaza README y notebooks exigidos |
+| SAA PIA MIA | [SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf) | Exposición de 15 minutos por pareja | Duración y defensa confirmadas; soporte PDF preparado |
+| SAA PIA MIA | [SAA_PIA_MIA/Guion_oral_SAA_PIA_MIA.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/SAA_PIA_MIA/Guion_oral_SAA_PIA_MIA.pdf) | Ensayo con tiempos y preguntas | Estudio, solicitado por el equipo |
+| Común | [Guia_entrega_y_defensa.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/Guia_entrega_y_defensa.pdf) | Lista de entrega, estudio y demo | Apoyo solicitado por el equipo |
+| Común | [Revision_rubricas.pdf](https://github.com/markelalvarez0/Reto-1/blob/main/docs/entrega/Revision_rubricas.pdf) | Relación de criterios con evidencia | Comprobación adicional; no es un certificado de nota |
 
 Las fuentes Markdown editables tienen el mismo nombre y carpeta. `scripts/build_academic_docs.py` genera los PDF desde esas fuentes. Sus dependencias documentales van aparte en `docs/entrega/requirements-documentacion.txt`; no cambiamos las dependencias del modelo.
 
@@ -25,36 +25,40 @@ Las fuentes Markdown editables tienen el mismo nombre y carpeta. `scripts/build_
 
 | Bloque o asignatura | Archivo o carpeta desde la raíz | Para qué sirve | Confirmado o recomendado |
 |---|---|---|---|
-| Común | README.md y README de ambos bloques | Entrada, instrucciones y resultados | README confirmado para IA; organización recomendada para entrega común |
-| Común | main.py, src/, scripts/, app/ | Código Python organizado y funcional | Confirmado en ambos enunciados |
-| Común | requirements.txt | Dependencias | Confirmado en PIA |
-| Común | pyproject.toml, uv.lock, requirements-ci.txt | Instalación reproducible y comprobaciones | Soporte técnico recomendado; uv es el camino preparado |
-| BDA | data/capturas_oficiales/ | Seis originales y manifiesto | Datos y originales en HDFS confirmados |
-| BDA | data/capturas_anuncios/ y data/capturas_api_rentas/ | HTML, robots, JSON API y procedencia | Evidencia de API y scraping confirmados |
-| BDA | HDFS real, rutas /data/reto1/ y listado de sus archivos | Mostrar almacenamiento y recuperación | Datos almacenados en HDFS confirmados; modo de acceso por acordar |
-| SBD | MongoDB real con colecciones y resultados | Datos, CRUD, agregaciones, índices y consistencia | Base de datos confirmada; acceso o exportación por acordar |
-| BDA y SBD | docs/evidencias_entrega_2026-11-12/ | Transporte, consultas, explain y vistas | Respaldo recomendado de la demostración exigida |
-| BDA y SBD | docs/evidencias_cierre_rubrica_2026-11-12/ | API monetaria y cierre real | Evidencia adicional del recorrido |
-| SAA | notebooks/ y entrega_ml/notebooks_ejecutados/ | EDA, modelos y SHAP con salidas conservadas | Notebooks y análisis confirmados; salidas ayudan a revisar sin ejecutar |
-| SAA y PIA | entrega_ml/data/ | train.csv, val.csv, test.csv y procedencia | Datos y particiones confirmados; estas rutas sustituyen la estructura de ejemplo |
-| SAA y PIA | entrega_ml/models/ | Pipeline joblib y selección cerrada | Mejor modelo guardado confirmado |
-| SAA y PIA | entrega_ml/resultados/ | Tabla MLflow, EDA, SHAP, SMOTE y test | Resultados y métricas confirmados |
-| PIA | entrega_ml/mlruns/ y docs/evidencias_ml/capturas/ | Registros y capturas MLflow y app | Registro y captura confirmados |
-| SAA y PIA | docs/TEST_FINAL_EMAL.json y docs/evidencias_ml/ | Evaluación única y manifiesto de artefactos | Test una vez confirmado; huellas son protección técnica |
-| MIA | src/reglas.py, src/n8n.py | Prioridad, motivo, seguridad y webhook | Confirmado |
-| MIA | n8n/flujo.json y n8n/compose.yml | Workflow importable y servicios locales | Flujo por decisión confirmado; Compose es soporte local |
+| Común | [README.md](https://github.com/markelalvarez0/Reto-1/blob/main/README.md) y README de ambos bloques | Entrada, instrucciones y resultados | README confirmado para IA; organización recomendada para entrega común |
+| Común | [main.py](https://github.com/markelalvarez0/Reto-1/blob/main/main.py), src/, scripts/, app/ | Código Python organizado y funcional | Confirmado en ambos enunciados |
+| Común | [requirements.txt](https://github.com/markelalvarez0/Reto-1/blob/main/requirements.txt) | Dependencias | Confirmado en PIA |
+| Común | [pyproject.toml](https://github.com/markelalvarez0/Reto-1/blob/main/pyproject.toml), uv.lock, requirements-ci.txt | Instalación reproducible y comprobaciones | Soporte técnico recomendado; uv es el camino preparado |
+| BDA | [data/capturas_oficiales/](https://github.com/markelalvarez0/Reto-1/tree/main/data/capturas_oficiales/) | Seis originales y manifiesto | Datos y originales en HDFS confirmados |
+| BDA | [data/capturas_anuncios/](https://github.com/markelalvarez0/Reto-1/tree/main/data/capturas_anuncios/) y data/capturas_api_rentas/ | HTML, robots, JSON API y procedencia | Evidencia de API y scraping confirmados |
+| BDA | [Copia de HDFS](https://github.com/markelalvarez0/Reto-1/tree/main/data/exportaciones_entrega_2026-11-17/hdfs/) | 37 archivos recuperados y verificados | Datos exigidos; exportación incluida |
+| SBD | [Copias MongoDB](https://github.com/markelalvarez0/Reto-1/tree/main/data/exportaciones_entrega_2026-11-17/mongodb/) | Tres bases exportadas con sus índices | Base de datos exigida; restauración comprobada |
+| BDA y SBD | [docs/evidencias_entrega_2026-11-12/](https://github.com/markelalvarez0/Reto-1/tree/main/docs/evidencias_entrega_2026-11-12/) | Transporte, consultas, explain y vistas | Respaldo recomendado de la demostración exigida |
+| BDA y SBD | [docs/evidencias_cierre_rubrica_2026-11-12/](https://github.com/markelalvarez0/Reto-1/tree/main/docs/evidencias_cierre_rubrica_2026-11-12/) | API monetaria y cierre real | Evidencia adicional del recorrido |
+| SAA | [notebooks/](https://github.com/markelalvarez0/Reto-1/tree/main/notebooks/) y entrega_ml/notebooks_ejecutados/ | EDA, modelos y SHAP con salidas conservadas | Notebooks y análisis confirmados; salidas ayudan a revisar sin ejecutar |
+| SAA y PIA | [entrega_ml/data/](https://github.com/markelalvarez0/Reto-1/tree/main/entrega_ml/data/) | train.csv, val.csv, test.csv y procedencia | Datos y particiones confirmados; estas rutas sustituyen la estructura de ejemplo |
+| SAA y PIA | [entrega_ml/models/](https://github.com/markelalvarez0/Reto-1/tree/main/entrega_ml/models/) | Pipeline joblib y selección cerrada | Mejor modelo guardado confirmado |
+| SAA y PIA | [entrega_ml/resultados/](https://github.com/markelalvarez0/Reto-1/tree/main/entrega_ml/resultados/) | Tabla MLflow, EDA, SHAP, SMOTE y test | Resultados y métricas confirmados |
+| PIA | [entrega_ml/mlruns/](https://github.com/markelalvarez0/Reto-1/tree/main/entrega_ml/mlruns/) y docs/evidencias_ml/capturas/ | Registros y capturas MLflow y app | Registro y captura confirmados |
+| SAA y PIA | [docs/TEST_FINAL_EMAL.json](https://github.com/markelalvarez0/Reto-1/blob/main/docs/TEST_FINAL_EMAL.json) y docs/evidencias_ml/ | Evaluación única y manifiesto de artefactos | Test una vez confirmado; huellas son protección técnica |
+| MIA | [src/](https://github.com/markelalvarez0/Reto-1/tree/main/src/)reglas.py, [src/](https://github.com/markelalvarez0/Reto-1/tree/main/src/)n8n.py | Prioridad, motivo, seguridad y webhook | Confirmado |
+| MIA | [n8n/flujo.json](https://github.com/markelalvarez0/Reto-1/blob/main/n8n/flujo.json) y n8n/compose.yml | Workflow importable y servicios locales | Flujo por decisión confirmado; Compose es soporte local |
 | MIA | data/acciones_n8n/ si se genera una demo | Ficha local de un caso ficticio | Evidencia recomendada, generada fuera de Git |
-| Común | tests/, integration_tests/ y .github/workflows/ | Verificación y ejecuciones | Evidencia técnica de apoyo |
+| Común | [tests/](https://github.com/markelalvarez0/Reto-1/tree/main/tests/), integration_[tests/](https://github.com/markelalvarez0/Reto-1/tree/main/tests/) y .github/workflows/ | Verificación y ejecuciones | Evidencia técnica de apoyo |
 
 La estructura del enunciado IA es básica y no coincide literalmente con todas nuestras rutas. Conservamos un único repositorio y explicamos la correspondencia: `data/raw` pasa a capturas originales, particiones a `entrega_ml/data`, modelo a `entrega_ml/models` y resultados a `entrega_ml/resultados`. Las carpetas académicas comparten recursos de raíz; copiarlas solas puede dejar fuera archivos necesarios.
 
-## 4 Si piden enlace ZIP o buzones separados
+## 4 Los dos ZIP que entregamos
 
-Si piden enlace, enviamos el repositorio y enlaces directos a los dos PDF del bloque correspondiente. Indicamos rama y commit entregados. No basta enlazar la presentación si también necesitan revisar código y datos.
+[Entrega_BDA_SBD.zip](https://github.com/markelalvarez0/Reto-1/raw/refs/heads/main/Entrega_BDA_SBD.zip) corresponde a BDA y SBD. Lleva sus dos PDF, código, originales de API y scraping, consultas, resultados, evidencias del transporte y las instrucciones del visor y de los servicios.
 
-Si piden ZIP, descargamos el repositorio del commit publicado y comprobamos que incluye `entrega_ml/`, originales y documentación. Adjuntamos por separado las exportaciones de servicios que acuerden, porque Git no contiene un clúster HDFS ni una instancia MongoDB en marcha. No incluimos `.venv`, credenciales o datos personales de ensayos.
+[Entrega_SAA_PIA_MIA.zip](https://github.com/markelalvarez0/Reto-1/raw/refs/heads/main/Entrega_SAA_PIA_MIA.zip) corresponde a SAA, PIA y MIA. Lleva sus dos PDF, código, datos y particiones, modelo guardado, notebooks fuente y ejecutados, registros MLflow, resultados, capturas y workflow n8n.
 
-Si hay buzones separados para SAA, PIA y MIA, podemos referenciar el mismo repositorio y memoria IA señalando sus apartados: SAA, datos y modelos; PIA, pipeline, código, MLflow y app; MIA, necesidad, reglas y acción. Para BDA, captura, HDFS y Kafka; para SBD, MongoDB y análisis. No inventamos que el aula virtual acepte enlaces o el mismo ZIP en todos los buzones: eso se confirma con el profesorado.
+Descomprimimos cada ZIP completo. Dentro encontramos `README.md`, los documentos en `docs/entrega/` y un comprobador `verificar_entrega.py`. No copiamos únicamente una carpeta académica antigua, porque utiliza recursos compartidos de raíz. Los ZIP mantienen las rutas necesarias para sus aplicaciones.
+
+Si hay buzones separados, usamos el paquete del bloque correspondiente: BDA/SBD para esas dos asignaturas y SAA/PIA/MIA para las otras tres. Si piden enlaces, adjuntamos también el repositorio. El canal y el límite de tamaño los marca el aula virtual.
+
+El paquete BDA/SBD incluye los datos exportados de HDFS y MongoDB. El apartado 10 explica cómo restaurarlos. Para repetir el sistema hacen falta los servicios accesibles; el ZIP conserva sus datos, no un servidor en marcha.
 
 ## 5 Qué se guarda en Git y qué se genera en el equipo
 
@@ -66,7 +70,7 @@ El visor territorial espera resultados municipales verificables. En un clon nuev
 
 ## 6 Descargar instalar y comprobar
 
-Con Git, Python 3.12 y uv disponibles:
+Para el repositorio completo, con Git, Python 3.12 y uv disponibles:
 
 ```bash
 git clone https://github.com/markelalvarez0/Reto-1.git
@@ -77,7 +81,7 @@ uv run --no-sync python scripts/sync_sources.py --check
 uv run --no-sync python -m pytest tests/ -q
 ```
 
-La auditoría comprueba originales, artefactos, test sellado, anuncios y copias académicas sin entrenar. Los tests incluyen miniensayos con fixtures; no reentrenan el modelo entregado ni repiten su holdout. Para abrir los resultados no ejecutamos `scripts/train_official.py` ni las celdas históricas de entrenamiento.
+Si usamos uno de los ZIP, seguimos su README y ejecutamos `python verificar_entrega.py` dentro de su carpeta. La auditoría global del repositorio completo comprueba originales, artefactos, test sellado, anuncios y copias académicas sin entrenar. Los tests incluyen miniensayos con fixtures; no reentrenan el modelo entregado ni repiten su holdout. Para abrir los resultados no ejecutamos `scripts/train_official.py` ni las celdas históricas de entrenamiento.
 
 Si necesitamos regenerar solo la documentación, instalamos sus dependencias en otro entorno y ejecutamos el generador desde la raíz:
 
@@ -108,7 +112,7 @@ Para repetir el lote archivado sin recapturar, primero creamos una carpeta de tr
 uv run --no-sync python -c "import shutil; shutil.copytree('data/capturas_anuncios/2026-11-12', 'data/scraping/ensayo_defensa')"
 uv run --no-sync python scripts/run_pipeline.py --snapshot-dir data/capturas_oficiales --raw-dir data/scraping/ensayo_defensa --output-dir data/bda/ensayo_defensa --db-name reto1_ensayo
 uv run --no-sync python scripts/analyze_rental_sample.py --capture-dir data/capturas_anuncios/2026-11-12 --pipeline-dir data/bda/ensayo_defensa --db-name reto1_ensayo
-uv run --no-sync python scripts/transport_rent_api.py --input-dir data/capturas_api_rentas/2026-11-12 --report data/bda/api-rentas-ensayo.json
+uv run --no-sync python scripts/transport_rent_api.py --input-dir data/capturas_api_rentas/2026-11-12 --db-name reto1_api_rentas --report data/bda/api-rentas-ensayo.json
 ```
 
 Enseñamos archivos recuperados idénticos, recuentos y reentrega. Para comparar índices abrimos explain y sus medidas; para CRUD y atomicidad mostramos las pruebas y la evidencia real. Preparamos servicios antes de entrar, sin consumir la exposición en descargas.
@@ -121,7 +125,14 @@ Podemos abrir el visor con los resultados históricos guardados, sin simular que
 RETO1_ANALYSIS_DIR=docs/evidencias_entrega_2026-11-12/municipal uv run --no-sync python main.py --subject bda_sbd --visual --server.port 8502
 ```
 
-En PowerShell fijamos primero `$env:RETO1_ANALYSIS_DIR='docs/evidencias_entrega_2026-11-12/municipal'` y después ejecutamos el mismo lanzador. Esta alternativa lee datos reales archivados, no certifica servicios vivos. Llevamos además capturas, XML de integración, consultas y explain del 12 de noviembre. Confirmamos si la profesora acepta ese respaldo cuando falle una ejecución presencial.
+En PowerShell:
+
+```powershell
+$env:RETO1_ANALYSIS_DIR='docs/evidencias_entrega_2026-11-12/municipal'
+uv run --no-sync python main.py --subject bda_sbd --visual --server.port 8502
+```
+
+ Esta alternativa lee datos reales archivados, no certifica servicios vivos. Llevamos además capturas, XML de integración, consultas y explain del 12 de noviembre. Confirmamos si la profesora acepta ese respaldo cuando falle una ejecución presencial.
 
 ## 9 Demostración SAA PIA y MIA
 
@@ -131,7 +142,7 @@ Para predicción y reglas basta el entorno Python y los artefactos conservados:
 uv run --no-sync python main.py --subject saa_pia_mia --server.port 8501
 ```
 
-Abrimos http://localhost:8501. Primero mostramos Modelos y datos, luego el informe ya conservado en Test reservado y después el caso nuevo. La app no exige HDFS ni Kafka para inferencia. No borramos `test_final.json` ni sustituimos el modelo. El diccionario completo añadido al notebook fuente es una celda explicativa; los notebooks ejecutados originales se mantienen intactos.
+Abrimos http://localhost:8501. Cada aplicación queda en su propia terminal; la detenemos con Ctrl+C. Primero mostramos Modelos y datos, luego el informe ya conservado en Test reservado y después el caso nuevo. La app no exige HDFS ni Kafka para inferencia. No borramos `test_final.json` ni sustituimos el modelo. El diccionario completo añadido al notebook fuente es una celda explicativa; los notebooks ejecutados originales se mantienen intactos.
 
 Para la acción local hace falta Docker en marcha. Importamos, publicamos y arrancamos n8n:
 
@@ -147,20 +158,29 @@ Caso ficticio: Bilbao, 25 años, ingreso neto 1.500 €, anual computable 18.000
 
 Si falla n8n mostramos `docs/evidencias_cierre_rubrica_2026-11-12/app-n8n.json`, `n8n.txt` y `caso.png`. Si falla la app usamos capturas, gráficos y notebooks ejecutados. Decimos la fecha y el alcance del respaldo. Nunca presentamos un fallo de red como acción confirmada.
 
-## 10 Exportaciones y accesos que debemos preparar
+## 10 Datos de HDFS y MongoDB incluidos
 
-El enunciado BDA/SBD pide originales almacenados en HDFS y base de datos MongoDB. Antes de entregar acordamos si revisarán acceso, exportación o ambos. Una captura y un PDF explican el trabajo, pero no equivalen automáticamente a entregar los datos de los servicios.
+El ZIP BDA/SBD contiene `data/exportaciones_entrega_2026-11-17/`. Incluye 37 archivos recuperados de HDFS y tres copias MongoDB creadas después de repetir el recorrido con los originales archivados y servicios reales. Comprobamos la restauración de los archivos, documentos e índices en destinos nuevos.
 
-Como preparación recomendamos un inventario de rutas HDFS, sus huellas y una copia recuperada de la carpeta del reto, y un dump MongoDB de las bases utilizadas. Hacen falta herramientas y servicios accesibles; estas órdenes son ejemplos para adaptar a las bases y rutas realmente usadas:
+Las bases exportadas son `reto1_entrega_paquete` (638 registros y 80 municipios), `reto1_municipal_paquete` (768 observaciones EMAL y un contexto OVJ) y `reto1_api_paquete` (tres estadísticas). Son unidades distintas y no se suman como viviendas.
+
+Con MongoDB y MongoDB Database Tools instalados, desde la raíz del paquete:
 
 ```bash
-hdfs dfs -ls -R /data/reto1
-hdfs dfs -get /data/reto1 exportacion_hdfs_defensa
-mongodump --uri mongodb://localhost:27017 --db reto1_ensayo --out exportacion_mongodb_defensa
-mongodump --uri mongodb://localhost:27017 --db reto1_analisis_municipal --out exportacion_mongodb_defensa
+mongorestore --uri mongodb://localhost:27017 --archive=data/exportaciones_entrega_2026-11-17/mongodb/reto1_entrega_paquete.archive.gz --gzip
+mongorestore --uri mongodb://localhost:27017 --archive=data/exportaciones_entrega_2026-11-17/mongodb/reto1_municipal_paquete.archive.gz --gzip
+mongorestore --uri mongodb://localhost:27017 --archive=data/exportaciones_entrega_2026-11-17/mongodb/reto1_api_paquete.archive.gz --gzip
 ```
 
-La API utiliza la base indicada en su script y configuración; comprobamos su nombre y exportamos también `rentas_api`. No suponemos que esté en `reto1_ensayo`. Guardamos fecha, versión, colecciones, recuentos y README de restauración. Revisamos la copia antes de enviarla y excluimos datos personales. Estas exportaciones no se incluyen como si ya se hubieran generado en esta actualización documental.
+Las órdenes crean las bases con esos nombres. Si ya existen, usamos otros nombres con `--nsFrom` y `--nsTo`; no necesitamos borrar datos del servidor. Con HDFS y su cliente disponibles:
+
+```bash
+hdfs dfs -mkdir -p /data
+hdfs dfs -put data/exportaciones_entrega_2026-11-17/hdfs/data/reto1 /data/
+hdfs dfs -ls -R /data/reto1
+```
+
+La carga supone que `/data/reto1` no existe. Si ya existe, elegimos otra ruta de destino. El [README de restauración](https://github.com/markelalvarez0/Reto-1/blob/main/data/exportaciones_entrega_2026-11-17/README.md), los inventarios y `restauracion_verificada.json` explican la copia. Para demostrar el recorrido desde el principio usamos los comandos del apartado 7.
 
 ## 11 Orden de estudio BDA y SBD
 
@@ -168,10 +188,10 @@ La API utiliza la base indicada en su script y configuración; comprobamos su no
 |---|---|---|---|
 | 1 | Documentacion_BDA_SBD.pdf | 1 a 3 | Pregunta, fuentes y por qué 638 no son pisos únicos |
 | 2 | Misma memoria y manifiestos | 4 a 6 | Originales, huella, recorrido y reentrega |
-| 3 | src/database/data_loader.py y cleaning.py | Normalización, upsert y cuatro operaciones | INE, identidad, nulos y derivados |
-| 4 | src/database/queries.py y consultas.json | Cinco consultas útiles | Condiciones, anidados, arrays y ceros |
-| 5 | src/database/aggregations.py | Tres pipelines | Qué responde group, lookup, unwind y facet |
-| 6 | explain.json y src/database/consistency.py | Memoria 11 y 12 | 638/4, 0 ms y atomicidad de un documento |
+| 3 | [src/](https://github.com/markelalvarez0/Reto-1/tree/main/src/)database/data_loader.py y cleaning.py | Normalización, upsert y cuatro operaciones | INE, identidad, nulos y derivados |
+| 4 | [src/](https://github.com/markelalvarez0/Reto-1/tree/main/src/)database/queries.py y consultas.json | Cinco consultas útiles | Condiciones, anidados, arrays y ceros |
+| 5 | [src/](https://github.com/markelalvarez0/Reto-1/tree/main/src/)database/aggregations.py | Tres pipelines | Qué responde group, lookup, unwind y facet |
+| 6 | explain.json y [src/](https://github.com/markelalvarez0/Reto-1/tree/main/src/)database/consistency.py | Memoria 11 y 12 | 638/4, 0 ms y atomicidad de un documento |
 | 7 | Memoria 13 a 15 y visor | Tablas de capitales y muestra | 51,06/59,48/73,37 %, fechas y límites |
 | 8 | Guion_oral_BDA_SBD.pdf | Demo y preguntas | Mostrar cada evidencia y justificar decisiones |
 
@@ -181,12 +201,12 @@ La API utiliza la base indicada en su script y configuración; comprobamos su no
 |---|---|---|---|
 | 1 | Documentacion_SAA_PIA_MIA.pdf | 1 a 4 | Alquiler medio, aprendizaje supervisado y 601/75/92; no pisos |
 | 2 | Notebook ejecutado 01_eda | Campos, cinco gráficos y conclusiones | Nulos con patrón, retardos y baseline |
-| 3 | src/ml_data.py y src/pipeline.py | temporal_folds y build_preprocessor | Fugas, tiempo, imputación, escalado y codificación |
+| 3 | [src/](https://github.com/markelalvarez0/Reto-1/tree/main/src/)ml_data.py y [src/](https://github.com/markelalvarez0/Reto-1/tree/main/src/)pipeline.py | temporal_folds y build_preprocessor | Fugas, tiempo, imputación, escalado y codificación |
 | 4 | Notebook ejecutado 02 y comparativa_mlflow.csv | Nueve modelos y MLP | Motivo de cada variante y MAE de validación |
 | 5 | Memoria 11 a 15 y notebook 03 | Persistencia, SHAP, SMOTE y test | 24,20 frente a 24,63; SHAP no causal; test único 28,67 |
-| 6 | app/streamlit_app.py | features, submit y caso nuevo | Pipeline guardado; referencia 2026 T2 y cobertura |
-| 7 | src/reglas.py | evaluar y orden de reglas | Dos esfuerzos, prioridades y seguridad |
-| 8 | src/n8n.py, flujo.json y action_server.py | Envío, rama y persistencia | Consentimiento, ocho decisiones, UUID y confirmación |
+| 6 | [app/](https://github.com/markelalvarez0/Reto-1/tree/main/app/)streamlit_app.py | features, submit y caso nuevo | Pipeline guardado; referencia 2026 T2 y cobertura |
+| 7 | [src/](https://github.com/markelalvarez0/Reto-1/tree/main/src/)reglas.py | evaluar y orden de reglas | Dos esfuerzos, prioridades y seguridad |
+| 8 | [src/](https://github.com/markelalvarez0/Reto-1/tree/main/src/)n8n.py, flujo.json y action_server.py | Envío, rama y persistencia | Consentimiento, ocho decisiones, UUID y confirmación |
 | 9 | Guion_oral_SAA_PIA_MIA.pdf | Cronograma y preguntas | Exponer en 15 minutos y responder cada asignatura |
 
 Las preguntas probables con respuestas y archivos concretos están en ambos guiones. Nos alternamos: quien no explicó un apartado en el ensayo responde su pregunta. No basta memorizar cifras si no sabemos qué unidad tienen y qué no permiten concluir.
@@ -195,9 +215,9 @@ Las preguntas probables con respuestas y archivos concretos están en ambos guio
 
 La revisión documental actual contrasta código, CSV, JSON, imágenes, manifiestos y los dos PDF docentes adjuntos. Se instalaron las dependencias con `uv sync --locked --extra dev`, se ejecutaron auditoría y sincronización, y pasaron 168 pruebas con cinco avisos conocidos. Las comprobaciones de PDF y apps que se ejecuten después constan en `validacion_documentacion.json` y en el cierre de publicación.
 
-Las ejecuciones HDFS/Kafka/MongoDB y las ocho ramas n8n del 12 de noviembre son evidencia conservada. No las presentamos como una nueva ejecución de servicios en esta actualización de documentación. Los comandos de arranque y exportación se contrastan con código y configuración; no se declaran ejecutados solo por aparecer aquí.
+Las evidencias del 12 de noviembre se conservan con su fecha. Para preparar el ZIP BDA/SBD hemos repetido además el recorrido HDFS/Kafka/MongoDB con los originales archivados, creado las exportaciones y comprobado su restauración. Las ocho ramas n8n siguen respaldadas por la ejecución histórica; no se declara una nueva ejecución de n8n en esta revisión.
 
-Queda a nuestro cargo ensayar con reloj, comprobar el equipo del aula y preparar los accesos o exportaciones que se pidan. El profesorado debe confirmar canal de entrega, tamaño máximo de ZIP, buzones, duración BDA/SBD y valoración de novedad. No afirmamos una nota ni que el aula virtual ya haya recibido nada.
+Queda a nuestro cargo ensayar con reloj y comprobar el equipo del aula. Los datos exportados ya están incluidos en el paquete BDA/SBD. El profesorado debe confirmar canal de entrega, tamaño máximo de ZIP, buzones, duración BDA/SBD y valoración de novedad. No afirmamos una nota ni que el aula virtual ya haya recibido nada.
 
 ## 14 Fuentes docentes de los requisitos
 

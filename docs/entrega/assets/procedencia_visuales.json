@@ -1,0 +1,44 @@
+{
+  "fecha": "2026-11-17",
+  "captura": "Chromium real mediante Playwright; recortes de regiones visibles sin alterar contenido",
+  "visor_capitales.png": {
+    "app": "app/territorio.py",
+    "datos": "docs/evidencias_entrega_2026-11-12/municipal",
+    "seleccion": [
+      "Vitoria-Gasteiz",
+      "Bilbao",
+      "Donostia-San Sebastian"
+    ],
+    "columnas_visibles": [
+      "municipio",
+      "renta_media_eur",
+      "salario_referencia_autonomico_eur",
+      "esfuerzo_escenario_pct"
+    ]
+  },
+  "visor_mapa.png": {
+    "app": "app/territorio.py",
+    "datos": "docs/evidencias_entrega_2026-11-12/municipal/mapa_promociones.json",
+    "mapa": "OpenStreetMap / CARTO; promociones de catálogo, no disponibilidad"
+  },
+  "app_caso_formulario.png": {
+    "app": "app/streamlit_app.py",
+    "perfil": "Ficticio: Bilbao, 25 años, ingreso mensual 1500, anual computable 18000, alquiler y renta total 500, deudas 0, ahorro 2000, entrada 1000; unidad individual, no compartido; siete comprobaciones verdaderas"
+  },
+  "app_caso_decision.png": {
+    "app": "app/streamlit_app.py",
+    "periodo_predicho": "2026 T2",
+    "decision_observada": "{\n\"regla_id\":\"R_REFERENCIA\"\n\"nombre_regla\":\"R_REFERENCIA\"\n\"prioridad\":65\n\"decision\":\"BUSCAR_ALTERNATIVAS\"\n\"accion_recomendada\":\"Comparar referencias de otros municipios y presupuesto, manteniendo separado el contrato declarado.\"\n\"justificacion_negocio\":\"La renta municipal predicha supera el 40% del ingreso declarado en el escenario de pagarla integra; no es el alquiler real ni un requisito de ayudas.\"\n\"renta_estimada\":1013.840609601808\n\"esfuerzo_pct\":33.33333333333333\n\"ayuda_teorica_max\":NULL\n\"canal_notificacion\":\"registro_local_n8n\"\n\"aviso\":\"Orientativo. No concede ni deniega ayudas. Se requiere comprobacion administrativa.\"\n\"norma\":\"https://www.euskadi.eus/bopv2/datos/2026/06/2602608a.shtml\"\n\"esfuerzo_referencia_pct\":67.58937397345386\n}",
+    "inferencia_nueva": true,
+    "webhook_enviado": false
+  },
+  "entrenamientos_nuevos": 0,
+  "test_reevaluado": false,
+  "servicios_bda_repetidos": false,
+  "graficos": {
+    "esfuerzo_capitales.png": "docs/evidencias_entrega_2026-11-12/municipal/comparativa_municipal.json",
+    "persistencia_train.png": "entrega_ml/data/train.csv",
+    "baseline_validacion.png": "entrega_ml/models/selection.json",
+    "shap_validacion_resumen.png": "entrega_ml/resultados/shap_validacion.csv"
+  }
+}

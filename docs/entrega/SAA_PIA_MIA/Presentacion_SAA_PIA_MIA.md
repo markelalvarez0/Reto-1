@@ -2,94 +2,78 @@
 
 ## 1 Una referencia para orientar
 
-Predecimos renta media municipal, expresada en €/mes.
+Hemos creado una aplicación que estima el alquiler medio de un municipio y ayuda a explicar qué supone para una persona.
 
-Ayudamos a comparar opciones; no valoramos un piso ni decidimos ayudas.
+:::flow Estimar alquiler | Comparar con ingresos | Orientar | Guardar una ficha
 
-:::flow Modelo | Referencia | Reglas | Consentimiento | Ficha local
+La orientación se puede revisar y explicar.
 
-## 2 Entrenamos con municipios y trimestres
+## 2 Aprendemos de la evolución del alquiler
 
-768 observaciones de 19 municipios; no son 768 pisos.
+:::cards 768 :: Observaciones de EMAL en total. | 19 :: Municipios representados en los datos. | Una fila :: Un municipio en un trimestre; no un piso.
 
-:::flow Train 601 hasta 2023 | Validación 75 de 2024 | Test 92 desde 2025
+Elegimos estas estadísticas porque permiten estudiar cómo cambia la renta media a lo largo del tiempo.
 
-Fuente EMAL. Objetivo continuo: aprendizaje supervisado de regresión.
+## 3 Primero miramos los datos
 
-## 3 El EDA nos obliga a mirar la persistencia
+![Relación entre renta anterior y actual en entrenamiento](../assets/persistencia_train.png)
 
-![Renta previa frente a renta actual en train](../assets/persistencia_train.png)
+La renta de un trimestre se parece mucho a la anterior. Por eso usamos la anterior como referencia sencilla con la que comparar.
 
-Correlación 0,985. Comparamos con usar la renta anterior como predicción.
+## 4 Comprobamos sin mirar el futuro
 
-## 4 El pipeline evita preparar cada caso de otra manera
+:::flow 601 para aprender | 75 para comparar | 92 para la prueba final
 
-:::flow Imputar en train | Escalar y codificar | Modelo | Euros
+Ordenamos los datos por fecha y preparamos las variables siempre de la misma forma.
 
-Retardos de 1 y 4 trimestres. Nunca introducimos la renta actual.
+Así evitamos ayudar al modelo con información que todavía no tendría al predecir.
 
-Guardamos el pipeline completo; MLflow conserva experimentos y métricas.
+## 5 Probamos y guardamos la comparación
 
-## 5 Comparamos cinco familias y cuatro MLP
+:::cards 5 familias :: Lineal, KNN, Random Forest, XGBoost y SVM. | 4 redes MLP :: Una base y tres variantes para comparar cambios. | 1 criterio :: El error en euros sobre los datos de validación.
 
-Lineal, KNN, Random Forest, XGBoost y SVM.
+Registramos los resultados en MLflow para poder justificar qué modelo conservamos.
 
-MLP base; dos capas; tanh; mayor regularización.
+## 6 Elegimos el menor error
 
-Elegimos con validación temporal. Test no participa en la selección.
+![Error medio en validación frente a usar la renta anterior](../assets/baseline_validacion.png)
 
-## 6 El ganador mejora poco a la referencia sencilla
+La MLP de dos capas mejora unos 0,43 €. Es una mejora pequeña frente a usar directamente la renta anterior.
 
-![MAE en validación del modelo y persistencia](../assets/baseline_validacion.png)
+## 7 Miramos qué pesa en la predicción
 
-La diferencia es de unos 0,43 €. No demuestra superioridad general.
+![Variables que más contribuyen al modelo en validación](../assets/shap_validacion_resumen.png)
 
-## 7 Explicamos y conservamos el test
+SHAP ayuda a explicar el modelo. En la prueba final, el error absoluto medio fue de 28,67 €; no es un margen garantizado para cada caso.
 
-![SHAP del ganador calculado en validación](../assets/shap_validacion_resumen.png)
+## 8 Probamos un caso inventado en la app
 
-Pesan más renta_lag1, renta_lag4 y año. No son causas.
+![Captura real del formulario con datos ficticios](../assets/app_caso_formulario.png)
 
-Test único: MAE 28,67 € · RMSE 37,93 € · R² 0,9189. R² no es acierto.
+Bilbao: ingreso de 1.500 € y alquiler de 500 €. Sin deudas, el alquiler supone el 33,33 % del ingreso.
 
-## 8 La app separa predicción y datos declarados
+## 9 Explicamos por qué orientamos así
 
-Demo ficticia: Bilbao; 25 años; ingreso 1.500 €; alquiler 500 €; deudas 0 €.
+![Captura real de la orientación obtenida en la aplicación](../assets/app_caso_decision.png)
 
-Esfuerzo declarado: 33,33 %. Referencia: leemos la predicción del modelo.
+Las diez reglas tienen prioridad. En este caso, la referencia supera el 40 % del ingreso y propone comparar municipios. El sueldo se usa después de predecir.
 
-Mostramos también el periodo 2026 T2. La app no actualiza sola los datos.
+## 10 Pedimos permiso antes de guardar
 
-## 9 La prioridad explica la decisión
+:::flow Consentimiento | n8n recibe la decisión | Crea la ficha | Confirma el guardado
 
-Diez reglas: seguridad y comprobaciones antes de orientar.
+Según la orientación, generamos una ficha de alternativas, un plan o una lista de comprobación.
 
-R_REFERENCIA compara renta predicha e ingreso; umbral interno del 40 %.
+La acción es local: no tramita ayudas ni envía mensajes reales.
 
-Prueba ficticia 600 / 1.600 €: mismo contrato, distinta orientación.
+## 11 Comprobamos que la acción queda guardada
 
-## 10 La acción necesita consentimiento y confirmación
+:::cards Primer envío :: Se crea una ficha para esa orientación. | Mismo envío :: Se conserva una sola ficha. | Si falla :: La app avisa y no confirma el guardado.
 
-:::flow Consentimiento | Webhook n8n | Rama por decisión | Ficha persistida
+En la demostración abrimos la ficha y comprobamos el resultado. Compartimos la decisión y la referencia, sin enviar el sueldo.
 
-Ocho decisiones. Enviamos evento, regla y referencia; no el perfil completo.
+## 12 Qué hemos conseguido y qué mejoraríamos
 
-Una respuesta HTTP no basta: comprobamos persistido.
+:::cards Conseguido :: Referencia, explicación y acción comprobable. | Límite :: Mejora pequeña y cobertura de 19 municipios. | Siguiente paso :: Actualizar datos y explicar mejor la incertidumbre.
 
-## 11 Repetimos el mismo evento sin duplicarlo
-
-Demo: abrimos la ficha y repetimos Registrar accion sin crear otro caso.
-
-El mismo UUID y contenido producen la misma ficha. No enviamos SMS ni tramitamos ayudas.
-
-SMOTE auxiliar: F1 0,8254 sin balanceo y 0,8167 con balanceo.
-
-## 12 Qué podemos defender con estos resultados
-
-Una referencia municipal comprobable, reglas explicables y una acción local.
-
-MLP de sklearn, distinto de Keras de clase. Serie revisada y cobertura limitada.
-
-Mejoras propuestas: actualización versionada e intervalos de predicción.
-
-15 minutos por pareja. Después, tres preguntas individuales por persona.
+El resultado sirve como orientación sobre rentas municipales, no como precio exacto de un piso.

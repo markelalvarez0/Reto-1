@@ -4,42 +4,42 @@
   "documentos": [
     {
       "archivo": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
-      "sha256": "603e1273bdc5d81f8cb1391af85990839990bc3240dfbb9b2c82fc4a19be26c2",
+      "sha256": "b1a31bf3446d5c9e735fe8f1d9bea1faa589384976769a6cceda22dafc2cf402",
       "fuente": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.md"
     },
     {
       "archivo": "docs/entrega/BDA_SBD/Guion_oral_BDA_SBD.pdf",
-      "sha256": "f6a7842dceacaa9d84ddb7be22890ce8e1203ac23f29984a27da71067a78ed41",
+      "sha256": "52b5f62d48aa00702153e6cf1dcb1a4a13f19a9038c3e9baa665c8eacb4db073",
       "fuente": "docs/entrega/BDA_SBD/Guion_oral_BDA_SBD.md"
     },
     {
       "archivo": "docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf",
-      "sha256": "d57c712c3dbbc491a3decfab60f085742aed1ea029427be159b2216d0a2dab29",
+      "sha256": "2a32654285392a99b2375d421e24b51eb5ccec7ee5b199a045550bf9b9cb059a",
       "fuente": "docs/entrega/BDA_SBD/Presentacion_BDA_SBD.md"
     },
     {
       "archivo": "docs/entrega/Guia_entrega_y_defensa.pdf",
-      "sha256": "d1c1bcbe6b9273ee4414d3f94f1be448095ebd9ac3a7f4805ef27e65daab83ac",
+      "sha256": "075e6aab8b52376010e7f029eada8cad47a952d7b9234750718fc6b86a7d42b0",
       "fuente": "docs/entrega/Guia_entrega_y_defensa.md"
     },
     {
       "archivo": "docs/entrega/Revision_rubricas.pdf",
-      "sha256": "14cc5ed37175f900170aa90aa1b38732ecc8cc89ffbf03aa30fa56d4d2a3172c",
+      "sha256": "891e568cf4ec4208f7fd7243bbc6c77892d14675e9eccf0539919fbad062e121",
       "fuente": "docs/entrega/Revision_rubricas.md"
     },
     {
       "archivo": "docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf",
-      "sha256": "6c8352a5935b3652f9d6a46a6b892e6e6d8481bebdf1eb245a0bc53c31ce3cca",
+      "sha256": "69431fcc1df23efe3dc611f962b4773558ccd3a1c91c1ece89c21f9bc0298b7e",
       "fuente": "docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.md"
     },
     {
       "archivo": "docs/entrega/SAA_PIA_MIA/Guion_oral_SAA_PIA_MIA.pdf",
-      "sha256": "46a534ea145afea537acb5b515c7e2331065ca55f80f560f0424579e73aa7d8c",
+      "sha256": "d994486072af8fb2b000e303369b1394105a9c51cb838064bb5dc1117cb0b5f3",
       "fuente": "docs/entrega/SAA_PIA_MIA/Guion_oral_SAA_PIA_MIA.md"
     },
     {
       "archivo": "docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf",
-      "sha256": "fc8067f14c15e5126785197c4650d42ca851e441894aca8a012d39ff8cb269cf",
+      "sha256": "299f40fff561e02ad808bedcf53d1bac19278cc826bd6bf9b2a449553d12f2af",
       "fuente": "docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.md"
     }
   ],

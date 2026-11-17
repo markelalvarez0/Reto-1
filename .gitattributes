@@ -17,3 +17,9 @@
 
 # PDF de entrega: preservar bytes y offsets internos también en Windows.
 /docs/entrega/**/*.pdf -text -diff
+
+# Paquetes docentes: conservar el ZIP publicado byte a byte.
+/Entrega_*.zip -text -diff
+
+# Exportaciones reales de servicios: originales y huellas sin conversión de líneas.
+/data/exportaciones_entrega_2026-11-17/** -text -diff

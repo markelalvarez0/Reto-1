@@ -11,6 +11,8 @@ Captura real de Streamlit con un perfil inventado de prueba; no es un expediente
 
 ## Documentos vigentes para entregar y defender
 
+**Paquetes para la profesora:** [Entrega BDA/SBD](Entrega_BDA_SBD.zip) · [Entrega SAA/PIA/MIA](Entrega_SAA_PIA_MIA.zip). Cada ZIP incluye memoria, presentación, archivos funcionales y README de ejecución. No incluye los guiones orales ni el material para preparar la defensa.
+
 Actualización documental del **17 de noviembre de 2026**, contrastada con los dos enunciados docentes. Las memorias explican qué hicimos, por qué y con qué límites. El modelo aprende estadísticas municipales: **601 observaciones de entrenamiento, no 601 pisos individuales**. El salario se utiliza después en el análisis y las reglas.
 
 | Bloque | Documentación que se corrige | Presentación | Apoyo oral |
@@ -20,7 +22,7 @@ Actualización documental del **17 de noviembre de 2026**, contrastada con los d
 
 [Guía de entrega, estudio y demostración PDF](docs/entrega/Guia_entrega_y_defensa.pdf) · [Revisión de las dos rúbricas PDF](docs/entrega/Revision_rubricas.pdf) · [Fuentes editables e inventario](docs/entrega/README.md).
 
-Los siete PDF principales y la revisión adicional son la documentación vigente. Los cuatro informes idénticos de raíz y carpetas académicas, y el material de `docs/guia_defensa/`, se conservan como **históricos**. No reemplazan estos nuevos documentos. El código, datos, notebooks y modelo se entregan en sus formatos originales; el acceso o exportación de HDFS/MongoDB se acuerda con el profesorado. El ensayo humano y la valoración de novedad siguen pendientes.
+Los siete PDF principales y la revisión adicional son la documentación vigente. Los cuatro informes idénticos de raíz y carpetas académicas, y el material de `docs/guia_defensa/`, se conservan como **históricos**. No reemplazan estos nuevos documentos. El código, datos, notebooks y modelo se entregan en sus formatos originales; el ZIP BDA/SBD incluye los datos recuperados de HDFS y tres exportaciones MongoDB con instrucciones de restauración. El ensayo humano y la valoración de novedad siguen pendientes.
 
 
 Proyecto interdisciplinar del Curso de Especialización en Inteligencia Artificial y Big Data, IABD 2026–27.

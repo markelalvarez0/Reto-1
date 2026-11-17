@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "Araba",
+    "municipios": 1,
+    "media_simple_rentas_municipales_eur": 798.57,
+    "contratos_publicados": 549.0
+  },
+  {
+    "_id": "Bizkaia",
+    "municipios": 9,
+    "media_simple_rentas_municipales_eur": 815.8633333333333,
+    "contratos_publicados": 1462.0
+  },
+  {
+    "_id": "Gipuzkoa",
+    "municipios": 8,
+    "media_simple_rentas_municipales_eur": 820.7325,
+    "contratos_publicados": 1054.0
+  }
+]

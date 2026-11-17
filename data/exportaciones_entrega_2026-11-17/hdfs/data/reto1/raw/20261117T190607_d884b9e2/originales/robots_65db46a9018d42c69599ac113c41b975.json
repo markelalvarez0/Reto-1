@@ -1,0 +1,12 @@
+{
+  "archivo": "robots_65db46a9018d42c69599ac113c41b975.bin",
+  "url": "https://www.pisos.com/robots.txt",
+  "http_status": 200,
+  "fecha_utc": "2026-11-12T14:33:18.863235+00:00",
+  "sha256": "76e4793160ff467f91863b64744ad18d862df71cb8ae6294be803353e7fffefe",
+  "bytes": 1137,
+  "clase": "robots",
+  "user_agent": "Reto1AcademicBot/1.0",
+  "tls_verificado": true,
+  "content_type": "text/plain"
+}

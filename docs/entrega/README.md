@@ -1,6 +1,8 @@
 # Entrega vigente del reto
 
-Documentos del 17 de noviembre de 2026. Las memorias están redactadas en primera persona del plural, con explicaciones sencillas de qué hacemos, por qué y qué límites tienen los resultados. El código y las evidencias base corresponden a `0f990531c86a7b4f247cb80631b02609fed687a0`. La rama y el commit final de publicación se indican en el cierre de la entrega y en GitHub.
+Memorias con explicaciones sencillas, en primera persona del plural. Las presentaciones cuentan qué hicimos y por qué, con capturas reales, gráficos y esquemas. Los detalles técnicos quedan en las memorias y las respuestas de los guiones.
+
+Los paquetes para entregar están en la raíz: [BDA/SBD](../../Entrega_BDA_SBD.zip) y [SAA/PIA/MIA](../../Entrega_SAA_PIA_MIA.zip). Incluyen memoria y presentación, código, datos y las instrucciones necesarias para cada bloque. Excluyen guiones orales, guía de defensa y revisión de rúbricas.
 
 | Uso | PDF vigente | Fuente editable |
 |---|---|---|
@@ -21,7 +23,7 @@ Los cuatro informes PDF de raíz y carpetas académicas tienen exactamente el mi
 
 `docs/guia_defensa/` conserva el manual, Word, guía rápida, presentaciones y ZIP anteriores. Las presentaciones y guiones vigentes son los de esta carpeta. Los apartados históricos de `CONTINUAR.md` y `ESTADO_ENTREGA.md` no vuelven a abrir tareas técnicas resueltas después.
 
-La captura antigua de MLflow mostraba la interfaz cargando. La nueva captura de `assets/mlflow_experimentos_2026-11-17.png` muestra la tabla abierta sobre una copia de los registros históricos. No cambia los experimentos originales. Las tres figuras de `assets/` se dibujan desde train y CSV de validación conservados, con letras grandes para proyectar. No usan el modelo ni calculan de nuevo test.
+La captura antigua de MLflow mostraba la interfaz cargando. La nueva captura de `assets/mlflow_experimentos_2026-11-17.png` muestra la tabla abierta sobre una copia de los registros históricos. No cambia los experimentos originales. Las figuras se dibujan desde train, CSV de validación y resultados municipales conservados. Las cuatro capturas nuevas muestran el visor, el mapa y un caso ficticio de la app. Su procedencia está en `assets/procedencia_visuales.json`. Las capturas de inferencia no reentrenan ni vuelven a puntuar el test.
 
 ## Regeneración
 
@@ -30,3 +32,5 @@ La captura antigua de MLflow mostraba la interfaz cargando. La nueva captura de 
 La captura MLflow es una captura de navegador de la aplicación real y no la dibuja el generador. Para repetirla se abre una copia de la base SQLite y se espera a que aparezca la tabla con los once experimentos. Las métricas de entrenamiento se distinguen de la duración total que muestra la interfaz.
 
 `manifest_documentos.json` relaciona PDF y fuentes con SHA-256. `validacion_documentacion.json` registra las comprobaciones actuales, la integridad y las diferencias entre ejecución nueva y evidencia histórica. Las pruebas no sustituyen el ensayo oral de la pareja.
+
+Los ZIP se generan con `python scripts/build_delivery_packages.py`. Cada paquete incluye un inventario con huellas y su comprobador, y se valida después de extraerlo en una carpeta nueva.

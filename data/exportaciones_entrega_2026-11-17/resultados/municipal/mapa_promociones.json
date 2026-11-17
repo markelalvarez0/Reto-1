@@ -1,0 +1,1304 @@
+[
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.246501699831,
+    "lon": -2.9053634602161065
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.26693917037869,
+    "lon": -2.958858319574432
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.26313550957785,
+    "lon": -2.9014896355822013
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01002",
+    "municipio": "Amurrio",
+    "lat": 43.055355740406156,
+    "lon": -3.004503334328265
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.26318600638384,
+    "lon": -2.959503362344538
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.25602802091423,
+    "lon": -2.9295369153426982
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20030",
+    "municipio": "Eibar",
+    "lat": 43.18086238029967,
+    "lon": -2.4729732795987642
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48044",
+    "municipio": "Getxo",
+    "lat": 43.35891275533138,
+    "lon": -3.007297115887172
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20036",
+    "municipio": "Hondarribia",
+    "lat": 43.36201960431722,
+    "lon": -1.7951194576713676
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48084",
+    "municipio": "Sestao",
+    "lat": 43.30481472205136,
+    "lon": -2.983730149648074
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48085",
+    "municipio": "Sopela",
+    "lat": 43.37765535557961,
+    "lon": -2.9930852000000003
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48085",
+    "municipio": "Sopela",
+    "lat": 43.37976294636389,
+    "lon": -2.9905223729032993
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01002",
+    "municipio": "Amurrio",
+    "lat": 43.053507245605,
+    "lon": -3.005340349668063
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48013",
+    "municipio": "Barakaldo",
+    "lat": 43.296182579265945,
+    "lon": -2.9790305275614797
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.26854078071179,
+    "lon": -2.954417577911229
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48044",
+    "municipio": "Getxo",
+    "lat": 43.34766844695708,
+    "lon": -3.001213915342736
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48044",
+    "municipio": "Getxo",
+    "lat": 43.349039919776,
+    "lon": -3.0022103492331578
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48044",
+    "municipio": "Getxo",
+    "lat": 43.359079786098874,
+    "lon": -3.0106198050865816
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20061",
+    "municipio": "Orio",
+    "lat": 43.27899727159182,
+    "lon": -2.1294574576713683
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20077",
+    "municipio": "Urretxu",
+    "lat": 43.08974407878284,
+    "lon": -2.320805634325504
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20080",
+    "municipio": "Zumarraga",
+    "lat": 43.08820721216231,
+    "lon": -2.306666915429511
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20080",
+    "municipio": "Zumarraga",
+    "lat": 43.08820721216231,
+    "lon": -2.306666915429511
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48082",
+    "municipio": "Santurtzi",
+    "lat": 43.33594264562544,
+    "lon": -3.0472675486644403
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48082",
+    "municipio": "Santurtzi",
+    "lat": 43.33600735965693,
+    "lon": -3.047351261319697
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.845279396417276,
+    "lon": -2.637438847840169
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20055",
+    "municipio": "Arrasate/Mondragón",
+    "lat": 43.06316258814591,
+    "lon": -2.484581991997471
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20055",
+    "municipio": "Arrasate/Mondragón",
+    "lat": 43.06306245737963,
+    "lon": -2.4842172915853022
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20055",
+    "municipio": "Arrasate/Mondragón",
+    "lat": 43.063192841322454,
+    "lon": -2.4853089361720055
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.846448959170495,
+    "lon": -2.637562434344819
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20017",
+    "municipio": "Azkoitia",
+    "lat": 43.178341724351064,
+    "lon": -2.31365606436793
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20017",
+    "municipio": "Azkoitia",
+    "lat": 43.17840970661825,
+    "lon": -2.3135764657558977
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.2752637207543,
+    "lon": -2.962365462732611
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48013",
+    "municipio": "Barakaldo",
+    "lat": 43.297413775207964,
+    "lon": -2.9798970762242947
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48015",
+    "municipio": "Basauri",
+    "lat": 43.242057272180595,
+    "lon": -2.8854304657546064
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.2618915435742,
+    "lon": -2.9581245110443866
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20079",
+    "municipio": "Zarautz",
+    "lat": 43.28528872252927,
+    "lon": -2.178285290135367
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20079",
+    "municipio": "Zarautz",
+    "lat": 43.285287102399046,
+    "lon": -2.1782238649892722
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.246635931521126,
+    "lon": -2.90824033431305
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48083",
+    "municipio": "Ortuella",
+    "lat": 43.30783755731193,
+    "lon": -3.038974991978005
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48082",
+    "municipio": "Santurtzi",
+    "lat": 43.33755652833863,
+    "lon": -3.042308946626632
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48015",
+    "municipio": "Basauri",
+    "lat": 43.24169845391215,
+    "lon": -2.886993277911228
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20069",
+    "municipio": "Donostia/San Sebastián",
+    "lat": 43.30865981280446,
+    "lon": -1.9857252933783518
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48054",
+    "municipio": "Leioa",
+    "lat": 43.33033137361153,
+    "lon": -2.9858387496460375
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48084",
+    "municipio": "Sestao",
+    "lat": 43.30500496926655,
+    "lon": -2.983650430679321
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48084",
+    "municipio": "Sestao",
+    "lat": 43.30475635257633,
+    "lon": -2.9833244627302475
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.24656883052402,
+    "lon": -2.9094278355822465
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20036",
+    "municipio": "Hondarribia",
+    "lat": 43.36361687103495,
+    "lon": -1.7983916203964658
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20036",
+    "municipio": "Hondarribia",
+    "lat": 43.363271514513706,
+    "lon": -1.798629808174181
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20045",
+    "municipio": "Irun",
+    "lat": 43.33280476994837,
+    "lon": -1.8048811343061557
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20045",
+    "municipio": "Irun",
+    "lat": 43.332700489212606,
+    "lon": -1.8039284288349149
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20045",
+    "municipio": "Irun",
+    "lat": 43.33293716557511,
+    "lon": -1.803961718966508
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20045",
+    "municipio": "Irun",
+    "lat": 43.33241319405696,
+    "lon": -1.8046982
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48054",
+    "municipio": "Leioa",
+    "lat": 43.332254855691176,
+    "lon": -2.983855476221485
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48015",
+    "municipio": "Basauri",
+    "lat": 43.24272224368398,
+    "lon": -2.8854798897222
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20030",
+    "municipio": "Eibar",
+    "lat": 43.18098840929245,
+    "lon": -2.4734432625691944
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20040",
+    "municipio": "Hernani",
+    "lat": 43.27301116204486,
+    "lon": -1.9695100762262834
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20040",
+    "municipio": "Hernani",
+    "lat": 43.27297991555865,
+    "lon": -1.9695315338973005
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48054",
+    "municipio": "Leioa",
+    "lat": 43.331526490543446,
+    "lon": -2.984663364417754
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.85441647269021,
+    "lon": -2.7076589490757197
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48013",
+    "municipio": "Barakaldo",
+    "lat": 43.298329001145824,
+    "lon": -2.9804144644177537
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48015",
+    "municipio": "Basauri",
+    "lat": 43.242690981538416,
+    "lon": -2.8855335343133572
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48054",
+    "municipio": "Leioa",
+    "lat": 43.33033948962031,
+    "lon": -2.9850348509242792
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20019",
+    "municipio": "Beasain",
+    "lat": 43.04361172024118,
+    "lon": -2.192296535582246
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20019",
+    "municipio": "Beasain",
+    "lat": 43.04370814819352,
+    "lon": -2.1929093153218204
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.25390618162815,
+    "lon": -2.9397711951018217
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20064",
+    "municipio": "Pasaia",
+    "lat": 43.31388063724215,
+    "lon": -1.919044918551947
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20064",
+    "municipio": "Pasaia",
+    "lat": 43.31486005279124,
+    "lon": -1.9184784204004288
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.84659185373541,
+    "lon": -2.6449123220887714
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.849676743914436,
+    "lon": -2.7019607490757203
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.84951121286306,
+    "lon": -2.6986532355822463
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48015",
+    "municipio": "Basauri",
+    "lat": 43.2353772774411,
+    "lon": -2.896357208693935
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48904",
+    "municipio": "Sondika",
+    "lat": 43.2975819831791,
+    "lon": -2.9324935915663097
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.84573316425469,
+    "lon": -2.647726219592711
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.847290893571675,
+    "lon": -2.6496036944543206
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.84752689561954,
+    "lon": -2.708221447425096
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01002",
+    "municipio": "Amurrio",
+    "lat": 43.05521686311868,
+    "lon": -3.001531374548315
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.25413698040555,
+    "lon": -2.9244111357473903
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.25339183915481,
+    "lon": -2.924151320405397
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48901",
+    "municipio": "Derio",
+    "lat": 43.30001713448684,
+    "lon": -2.8872883897175625
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20034",
+    "municipio": "Eskoriatza",
+    "lat": 43.01721216529708,
+    "lon": -2.5287434779112283
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48046",
+    "municipio": "Gernika-Lumo",
+    "lat": 43.306443405547114,
+    "lon": -2.6854870202402115
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48046",
+    "municipio": "Gernika-Lumo",
+    "lat": 43.307187152080616,
+    "lon": -2.685172606746738
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01901",
+    "municipio": "Iruña Oka/Iruña de Oca",
+    "lat": 42.81527241424294,
+    "lon": -2.819874091605268
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01901",
+    "municipio": "Iruña Oka/Iruña de Oca",
+    "lat": 42.815324754377,
+    "lon": -2.81944946092116
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01036",
+    "municipio": "Laudio/Llodio",
+    "lat": 43.13825199152912,
+    "lon": -2.9639001320596394
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01036",
+    "municipio": "Laudio/Llodio",
+    "lat": 43.138314622659415,
+    "lon": -2.963889403224131
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20056",
+    "municipio": "Mutriku",
+    "lat": 43.30688062580363,
+    "lon": -2.3913608269857383
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20056",
+    "municipio": "Mutriku",
+    "lat": 43.30658179510312,
+    "lon": -2.391327825953451
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.85303278880166,
+    "lon": -2.709803809964027
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20069",
+    "municipio": "Donostia/San Sebastián",
+    "lat": 43.308336520221204,
+    "lon": -1.9843788608813646
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48071",
+    "municipio": "Muskiz",
+    "lat": 43.3194013589416,
+    "lon": -3.1284445644177543
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48071",
+    "municipio": "Muskiz",
+    "lat": 43.32008877888575,
+    "lon": -3.1287218121984717
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.84224730085105,
+    "lon": -2.6502579509242796
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.8489106828947,
+    "lon": -2.650742350924279
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.841404140938785,
+    "lon": -2.7073334542680114
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.84888031710989,
+    "lon": -2.7078938650652558
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.83752073419906,
+    "lon": -2.7070786269869487
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.843587034573076,
+    "lon": -2.704268533931949
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20069",
+    "municipio": "Donostia/San Sebastián",
+    "lat": 43.30253214946354,
+    "lon": -2.002710921110744
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20069",
+    "municipio": "Donostia/San Sebastián",
+    "lat": 43.302536053378034,
+    "lon": -2.00274310761727
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20032",
+    "municipio": "Elgoibar",
+    "lat": 43.21242035877477,
+    "lon": -2.417584531171267
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48029",
+    "municipio": "Etxebarri",
+    "lat": 43.25425232211136,
+    "lon": -2.8822745542464556
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48029",
+    "municipio": "Etxebarri",
+    "lat": 43.24563807408908,
+    "lon": -2.8937286204060446
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48029",
+    "municipio": "Etxebarri",
+    "lat": 43.2540870085767,
+    "lon": -2.88181729198226
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48029",
+    "municipio": "Etxebarri",
+    "lat": 43.24566933460983,
+    "lon": -2.893685705064011
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01036",
+    "municipio": "Laudio/Llodio",
+    "lat": 43.148092096861504,
+    "lon": -2.9456868013387534
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01036",
+    "municipio": "Laudio/Llodio",
+    "lat": 43.148225144954644,
+    "lon": -2.9456868050718965
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48084",
+    "municipio": "Sestao",
+    "lat": 43.313775605549516,
+    "lon": -3.0114181204005144
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48085",
+    "municipio": "Sopela",
+    "lat": 43.38393371344394,
+    "lon": -2.9763763901274887
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20055",
+    "municipio": "Arrasate/Mondragón",
+    "lat": 43.064122030298634,
+    "lon": -2.4850883347468566
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20055",
+    "municipio": "Arrasate/Mondragón",
+    "lat": 43.06401229287906,
+    "lon": -2.4851741654309247
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48011",
+    "municipio": "Arrigorriaga",
+    "lat": 43.20960209415832,
+    "lon": -2.891788577911229
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.26675303192546,
+    "lon": -2.961174706910859
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.26651601184925,
+    "lon": -2.961812679759788
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20030",
+    "municipio": "Eibar",
+    "lat": 43.186826512016864,
+    "lon": -2.472149302955674
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48054",
+    "municipio": "Leioa",
+    "lat": 43.32183745060767,
+    "lon": -2.999203198517109
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48903",
+    "municipio": "Loiu",
+    "lat": 43.297237184165795,
+    "lon": -2.9110647812311283
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20067",
+    "municipio": "Errenteria",
+    "lat": 43.30981552994334,
+    "lon": -1.8837422830790382
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20067",
+    "municipio": "Errenteria",
+    "lat": 43.3090081324488,
+    "lon": -1.8828324627298811
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48065",
+    "municipio": "Ugao-Miraballes",
+    "lat": 43.18052141832916,
+    "lon": -2.9088985939007643
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48065",
+    "municipio": "Ugao-Miraballes",
+    "lat": 43.1808180035131,
+    "lon": -2.9081904907572023
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.843125198168245,
+    "lon": -2.650438066266314
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48095",
+    "municipio": "Zaldibar",
+    "lat": 43.17053778049152,
+    "lon": -2.546360965974375
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48017",
+    "municipio": "Bermeo",
+    "lat": 43.422399712230074,
+    "lon": -2.7237808203917004
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.85510914252908,
+    "lon": -2.6547753055456793
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.85562901170744,
+    "lon": -2.653638440480423
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.85307180643418,
+    "lon": -2.6526213355822463
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.85439165924228,
+    "lon": -2.6512314779112285
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.85409710382261,
+    "lon": -2.6498490509242796
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.84574362509851,
+    "lon": -2.700071266266313
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.843342326634385,
+    "lon": -2.699927433180129
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.84149399686945,
+    "lon": -2.7022345404533654
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.84109249898183,
+    "lon": -2.7001795935965647
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20069",
+    "municipio": "Donostia/San Sebastián",
+    "lat": 43.32004021579492,
+    "lon": -1.9619999855275796
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20069",
+    "municipio": "Donostia/San Sebastián",
+    "lat": 43.32007143810838,
+    "lon": -1.9620268076163505
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48027",
+    "municipio": "Durango",
+    "lat": 43.17128898736398,
+    "lon": -2.6291868813164085
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48902",
+    "municipio": "Erandio",
+    "lat": 43.302347667878344,
+    "lon": -2.974515220401433
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.85661926854927,
+    "lon": -2.6529029100896793
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20017",
+    "municipio": "Azkoitia",
+    "lat": 43.180688410291914,
+    "lon": -2.3110033202402116
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.249087668117376,
+    "lon": -2.9179991054779406
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.24926456750459,
+    "lon": -2.9182927073223173
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20032",
+    "municipio": "Elgoibar",
+    "lat": 43.21718407265287,
+    "lon": -2.408961596577355
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20040",
+    "municipio": "Hernani",
+    "lat": 43.2711817966722,
+    "lon": -1.9759959085952963
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20040",
+    "municipio": "Hernani",
+    "lat": 43.271173984817324,
+    "lon": -1.9759100779112286
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48072",
+    "municipio": "Otxandio",
+    "lat": 43.03880461198144,
+    "lon": -2.656644033916249
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20079",
+    "municipio": "Zarautz",
+    "lat": 43.281361,
+    "lon": -2.177052
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20051",
+    "municipio": "Legazpi",
+    "lat": 43.04991755699171,
+    "lon": -2.3344444791021806
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20051",
+    "municipio": "Legazpi",
+    "lat": 43.04969803110987,
+    "lon": -2.334487394444215
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48054",
+    "municipio": "Leioa",
+    "lat": 43.32164987248288,
+    "lon": -2.999245955258793
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48071",
+    "municipio": "Muskiz",
+    "lat": 43.31841836305928,
+    "lon": -3.1243980914885405
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48086",
+    "municipio": "Sopuerta",
+    "lat": 43.26258561750688,
+    "lon": -3.151882505476845
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.868652601360445,
+    "lon": -2.692104549271997
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.86932826502104,
+    "lon": -2.692615748971669
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.24947900764766,
+    "lon": -2.9147460203079807
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.24999547968562,
+    "lon": -2.9162075204056777
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20045",
+    "municipio": "Irun",
+    "lat": 43.33575555710655,
+    "lon": -1.7934271932532624
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20045",
+    "municipio": "Irun",
+    "lat": 43.335493304671985,
+    "lon": -1.7948039932532627
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20045",
+    "municipio": "Irun",
+    "lat": 43.33504455678642,
+    "lon": -1.794098698723445
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48071",
+    "municipio": "Muskiz",
+    "lat": 43.322085367119705,
+    "lon": -3.1288122897157806
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.86664891708878,
+    "lon": -2.6954278067467374
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.86575197413268,
+    "lon": -2.6939870779112285
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.86808992185946,
+    "lon": -2.693545693253262
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48011",
+    "municipio": "Arrigorriaga",
+    "lat": 43.20682989312254,
+    "lon": -2.8897331204091774
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48901",
+    "municipio": "Derio",
+    "lat": 43.297216150213515,
+    "lon": -2.88507958971779
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20069",
+    "municipio": "Donostia/San Sebastián",
+    "lat": 43.31413565242214,
+    "lon": -1.9506599662663142
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.8637291380333,
+    "lon": -2.697380050276778
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48015",
+    "municipio": "Basauri",
+    "lat": 43.23984888894274,
+    "lon": -2.8824401762289438
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20040",
+    "municipio": "Hernani",
+    "lat": 43.27107015625998,
+    "lon": -1.974045894725996
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48054",
+    "municipio": "Leioa",
+    "lat": 43.327349316346194,
+    "lon": -2.9885672509242793
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01042",
+    "municipio": "Okondo",
+    "lat": 43.15385280849688,
+    "lon": -3.0272589617338053
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20061",
+    "municipio": "Orio",
+    "lat": 43.27714981542776,
+    "lon": -2.117307035745496
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20079",
+    "municipio": "Zarautz",
+    "lat": 43.28004844849853,
+    "lon": -2.1663774194048226
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48078",
+    "municipio": "Portugalete",
+    "lat": 43.38112595196319,
+    "lon": -3.2206354516796525
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.862785264745305,
+    "lon": -2.6911998650652555
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.25595548954046,
+    "lon": -2.9323943562908537
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.25969010698829,
+    "lon": -2.9062805440571142
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48904",
+    "municipio": "Sondika",
+    "lat": 43.300072189060835,
+    "lon": -2.9227278813972823
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.86180674840329,
+    "lon": -2.6961417427430683
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20079",
+    "municipio": "Zarautz",
+    "lat": 43.28022830487824,
+    "lon": -2.1723052840675856
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01051",
+    "municipio": "Agurain/Salvatierra",
+    "lat": 42.84781021027237,
+    "lon": -2.388817796302881
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.25079356220787,
+    "lon": -2.9041129901381417
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20069",
+    "municipio": "Donostia/San Sebastián",
+    "lat": 43.313449963567464,
+    "lon": -1.9575831234241843
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "01059",
+    "municipio": "Vitoria-Gasteiz",
+    "lat": 42.851937670345976,
+    "lon": -2.6905563730196973
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.252638470259896,
+    "lon": -2.902235125411026
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "20055",
+    "municipio": "Arrasate/Mondragón",
+    "lat": 43.06258542006319,
+    "lon": -2.4832804524079197
+  },
+  {
+    "id_promocion": "None",
+    "codigo_municipio": "48020",
+    "municipio": "Bilbao",
+    "lat": 43.24657463170996,
+    "lon": -2.9091357496527444
+  }
+]

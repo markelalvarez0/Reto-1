@@ -2,76 +2,92 @@
 
 ## Ensayo de quince minutos
 
-La rúbrica fija 15 minutos por pareja y corta la exposición al llegar al límite. Después cada alumno responde tres preguntas, una de SAA, otra de PIA y otra de MIA. A y B indican una propuesta de reparto, no autoría histórica. Ambos estudiamos el proyecto completo y ensayamos con el reloj sin pararlo.
+La rúbrica fija 15 minutos por pareja. Después cada alumno responde tres preguntas: una de SAA, una de PIA y una de MIA. A y B son una propuesta de reparto; los dos estudiamos todo. Ensayamos con el reloj sin pararlo.
 
-Llevamos abiertos la presentación, Streamlit en http://localhost:8501, la comparación CSV, la captura MLflow, las figuras y el workflow n8n. Abrimos los notebooks ejecutados para consultar salidas, sin ejecutar todo. No entrenamos ni volvemos a evaluar test.
+Llevamos abiertos la presentación, la app en http://localhost:8501 y el workflow n8n. Los notebooks ejecutados y las tablas quedan preparados para preguntas. No entrenamos ni repetimos la evaluación del test. Las capturas del formulario usan un caso inventado.
 
-| Tiempo | Persona propuesta | Diapositiva | Objetivo |
+Este guion es para prepararnos y no se incluye en el ZIP de la profesora.
+
+| Tiempo | Persona | Diapositiva | Idea principal |
 |---|---|---|---|
-| 0:00 a 1:00 | A | 1 | Situar necesidad y referencia municipal |
-| 1:00 a 2:00 | A | 2 | Explicar filas, objetivo y cobertura |
-| 2:00 a 3:00 | A | 3 | Relacionar EDA y persistencia |
-| 3:00 a 4:00 | A | 4 | Explicar pipeline y fugas |
-| 4:00 a 5:30 | A | 5 | Comparar familias y MLP |
-| 5:30 a 7:00 | B | 6 | Justificar elección y baseline |
-| 7:00 a 8:30 | B | 7 | SHAP y test conservado |
-| 8:30 a 10:00 | B | 8 | Introducir caso y dos esfuerzos |
-| 10:00 a 11:15 | B | 9 | Explicar prioridad y referencia |
-| 11:15 a 13:00 | A | 10 | Consentimiento y ramas n8n |
-| 13:00 a 14:00 | A | 11 | Persistencia, repetición y SMOTE |
-| 14:00 a 15:00 | Ambos | 12 | Límites, diferencias y conclusión |
+| 0:00 a 1:00 | A | 1 | Qué necesidad queremos cubrir |
+| 1:00 a 2:00 | A | 2 | Qué representa cada dato |
+| 2:00 a 3:00 | A | 3 | Por qué comparar con la renta anterior |
+| 3:00 a 4:00 | A | 4 | Cómo evitamos mirar el futuro |
+| 4:00 a 5:30 | A | 5 | Qué alternativas probamos |
+| 5:30 a 7:00 | B | 6 | Por qué elegimos esta MLP |
+| 7:00 a 8:30 | B | 7 | Qué explica el modelo y cuánto se equivoca |
+| 8:30 a 10:00 | B | 8 | Caso ficticio en la aplicación |
+| 10:00 a 11:15 | B | 9 | Motivo de la orientación |
+| 11:15 a 13:00 | A | 10 | Permiso y acción local |
+| 13:00 a 14:00 | A | 11 | Comprobar guardado y repetición |
+| 14:00 a 15:00 | Ambos | 12 | Resultado, límites y mejoras |
 
-## Diapositivas 1 y 2 No entrenamos con pisos individuales
+## Diapositivas 1 y 2 Qué hemos construido y con qué datos
 
-«Hemos creado una referencia para un servicio de orientación. La IA aprende rentas medias de municipios y trimestres. El sueldo se utiliza después en las reglas; no es lo que aprende el modelo».
+A: «Hemos creado una referencia para ayudar a orientar sobre vivienda. Primero estimamos la renta media de un municipio. Después la comparamos con lo que declara la persona y explicamos una recomendación».
 
-Explicamos regresión supervisada: cada ejemplo tiene entradas históricas y una renta objetivo conocida. Son 601 observaciones de train, 75 de validación y 92 de test, de 19 municipios. Una fila resume contratos: no permite contar pisos distintos. Los 17 anuncios pertenecen a BDA/SBD.
+«Tenemos 768 observaciones de 19 municipios. Una fila es un municipio en un trimestre, no un piso. De esas filas, 601 se usan para entrenar. El modelo aprende alquileres medios; el sueldo se utiliza después».
 
-Mostrar: `entrega_ml/data/procedencia.json` y una fila de train.csv con INE leído como texto. No confundir la unidad mensual del importe con la frecuencia trimestral de la observación.
+Señalamos el esquema y las tarjetas. Si preguntan, es una regresión supervisada: aprendemos con ejemplos que tienen una renta objetivo conocida. Los 17 anuncios son del otro bloque y no forman el entrenamiento.
 
-## Diapositivas 3 y 4 Qué hacemos para aprender sin mirar el futuro
+## Diapositiva 3 Por qué miramos primero los datos
 
-«En el EDA vemos que la renta anterior se parece mucho a la siguiente. Por eso sería injusto celebrar un buen resultado sin compararlo con copiar la renta anterior». Señalamos la dispersión y la correlación 0,985 de train.
+A: «Aquí vemos que la renta de un trimestre se parece mucho a la anterior. Eso nos hizo pensar que no bastaba con probar modelos: también había que comparar con una solución muy sencilla, usar la última renta conocida».
 
-«Los nulos tienen motivos: faltan retardos al principio y EMAL suprime valores no publicados. No ponemos cero en el objetivo. Ajustamos la imputación dentro de train». Recorremos las ramas de `src/pipeline.py` y los folds por trimestres de `src/ml_data.py`. El pipeline guardado contiene las transformaciones y el regresor.
+Señalamos la nube de puntos. El gráfico usa entrenamiento. Para ampliar, tenemos los cinco gráficos y sus conclusiones en `entrega_ml/notebooks_ejecutados/01_eda.ipynb`. Los valores no publicados no se convierten en alquileres de cero euros.
 
-Mostrar: `entrega_ml/notebooks_ejecutados/01_eda.ipynb` con sus cinco gráficos y conclusiones, y código sin ejecutarlo.
+## Diapositiva 4 Cómo hacemos una comparación justa
 
-## Diapositivas 5 y 6 Por qué conservamos este modelo
+A: «Separamos por fechas: 601 filas para aprender, 75 para comparar modelos y 92 para la prueba final. Así intentamos reproducir la idea de aprender del pasado y predecir después».
 
-Nombramos las cinco familias y explicamos un contraste: lineal como referencia sencilla, árboles para no linealidad, KNN por proximidad y SVM por margen. Después explicamos base MLP de 32, dos capas 64/32, tanh y alpha 0,01. No afirmamos que sea Keras.
+«Guardamos la preparación de los datos junto al modelo para hacer los mismos pasos cuando llegue un caso nuevo». Si preguntan por fugas, explicamos que imputación, escalado y codificación se ajustan dentro del pipeline usando entrenamiento; el test no se usa para elegir.
 
-Abrimos `comparativa_mlflow.csv` y la captura MLflow. «Elegimos con MAE de validación porque se entiende en euros. Dos capas obtiene 24,20 €, pero persistencia ya obtiene 24,63 €. Mejoramos unos 43 céntimos; no es una ventaja enorme». Señalamos el casi cero en train de KNN y sus 51,52 € en validación para explicar sobreajuste.
+## Diapositiva 5 Por qué probamos varias opciones
 
-Si preguntan por tiempo, aclaramos que es el del entrenamiento histórico y del entorno registrado. Mostrar `entrega_ml/notebooks_ejecutados/02_entrenamiento_modelos.ipynb`.
+A: «No sabíamos de antemano cuál funcionaría mejor. Probamos cinco familias y cuatro versiones de una red MLP. Cambiamos su estructura o su forma de aprender para ver si esos cambios ayudaban».
 
-## Diapositiva 7 Qué significan SHAP y el test
+«Guardamos los experimentos en MLflow y comparamos el error de validación en euros, porque es una medida que podemos interpretar». Tenemos preparada `entrega_ml/resultados/comparativa_mlflow.csv` y la captura MLflow. Si preguntan por las variantes: base de 32, dos capas 64/32, tanh y regularización alpha 0,01. Usamos sklearn, no Keras.
 
-«Las mayores contribuciones medias son renta anterior, renta de hace cuatro trimestres y año. SHAP describe cómo usa el modelo esas entradas; no demuestra que sean causas». Son 30 filas de validación y fondo de 30 de train.
+## Diapositiva 6 Por qué conservamos ese modelo
 
-Abrimos el gráfico real frente a predicho en la pestaña Test reservado. Leemos MAE 28,67 €, RMSE 37,93 € y R² 0,9189. «R² no es porcentaje de aciertos. Este error es de renta media municipal, no de un piso». Mostramos `docs/TEST_FINAL_EMAL.json`, con una evaluación, sin tocar ningún botón de evaluación ni borrar el informe.
+B: «La MLP de dos capas fue la mejor en validación, con un error medio de 24,20 euros. Pero usar la renta anterior ya daba 24,63. La mejora es de unos 43 céntimos, así que no la presentamos como un salto enorme».
 
-## Diapositivas 8 y 9 Caso ficticio y reglas
+Señalamos las dos barras, que empiezan en cero. Lo relevante es justificar la elección y reconocer lo ajustado del resultado. En preguntas podemos explicar el sobreajuste de KNN: casi no falla en entrenamiento y empeora mucho en validación.
 
-Preparamos Bilbao, 25 años, ingreso 1.500 €, anual computable 18.000 €, alquiler y renta total 500 €, deudas 0 €, ahorro 2.000 € y entrada 1.000 €. Unidad individual y sin compartir. Para este caso inventado marcamos las siete comprobaciones documentales verdaderas.
+## Diapositiva 7 Cómo entendemos el resultado
 
-«El modelo no usa este sueldo para predecir. Produce una referencia municipal para 2026 T2 y después las reglas comparan». Leemos la predicción real de pantalla y el 33,33 % de esfuerzo declarado. Explicamos que esfuerzo de referencia divide la predicción entre el ingreso y supone pagarla íntegra.
+B: «SHAP nos ayuda a ver qué información pesa más en las predicciones. La renta anterior es la más importante. Eso encaja con lo que vimos antes, aunque no demuestra una relación de causa y efecto».
 
-Abrimos `src/reglas.py`. Seguridad tiene prioridad 100; R_REFERENCIA 65 interviene cuando la referencia supera el 40 % del ingreso y no salta antes otra regla. El ejemplo 600/1.600 es contrafactual con valores puestos por nosotros, no dos predicciones del modelo. No cambiamos los artefactos para forzar una pantalla.
+«En la prueba final el error absoluto medio fue de 28,67 euros. Es un promedio sobre rentas municipales: no significa que cualquier piso vaya a estar dentro de ese margen». Si piden más métricas, abrimos el informe conservado: RMSE 37,93 y R² 0,9189. R² no es un porcentaje de aciertos. No reevaluamos test.
 
-## Diapositivas 10 y 11 Del permiso a una ficha
+## Diapositiva 8 Qué introducimos en la app
 
-«Sin consentimiento no enviamos nada. Después enviamos decisión, regla y referencia, con un identificador de evento; no el sueldo ni el perfil». Mostramos las ocho ramas de `n8n/flujo.json` y abrimos la acción local.
+B: «Usamos un ejemplo inventado de Bilbao: 25 años, 1.500 euros netos al mes y 500 de alquiler, sin deudas. Su alquiler supone un tercio del ingreso: 33,33 %. La renta de referencia del modelo se muestra aparte».
 
-Pulsamos Registrar accion, comprobamos la confirmación y abrimos el JSON de `data/acciones_n8n/`. Repetimos el mismo botón sin crear otro formulario y comprobamos mismo UUID y una sola ficha. La app no puede decir éxito solo porque recibió un HTTP 200; tiene que confirmarse persistencia.
+Para repetirlo: ingreso anual computable 18.000, renta total 500, ahorro 2.000, entrada 1.000, unidad individual y contrato no compartido. Las siete comprobaciones documentales se marcan verdaderas solo porque así definimos este caso ficticio. La captura enseña el formulario real, no un diseño de ejemplo.
 
-En la última parte de este minuto explicamos SMOTE: «Lo probamos aparte para clasificar si sube la renta. El F1 baja de 0,8254 a 0,8167; no mejora por el hecho de balancear». La matriz está en `comparacion_smote.json`. No mezclamos ese F1 con la regresión principal.
+## Diapositiva 9 Por qué sale esa orientación
+
+B: «La aplicación no suelta una recomendación sin explicar nada. Tiene diez reglas ordenadas. En este caso, la renta municipal de referencia supera el 40 % del ingreso y por eso propone comparar municipios y presupuesto».
+
+«El sueldo no ha servido para entrenar ni para predecir la renta. Entra después, en las reglas». Leemos la referencia real que aparece en pantalla y su periodo, 2026 T2. En la captura actual de Bilbao es aproximadamente 1.013,84 euros y el esfuerzo de referencia es 67,59 %. El contrato declarado sigue siendo 500 euros y 33,33 %.
+
+Si preguntan por prioridades, seguridad es 100 y R_REFERENCIA es 65. Una regla anterior puede cambiar la decisión. El 40 % es un umbral interno de orientación, no un requisito legal para conceder ayudas.
+
+## Diapositivas 10 y 11 Qué ocurre después del permiso
+
+A: «Pedimos consentimiento antes de enviar la decisión. n8n recibe lo mínimo necesario y prepara una ficha según la orientación. No enviamos el sueldo ni el perfil completo».
+
+Pulsamos Registrar accion con los servicios preparados. Abrimos la ficha de `data/acciones_n8n/`. «Ahora comprobamos que existe. Si repetimos el mismo envío, seguimos teniendo una sola ficha. Si el guardado falla, la aplicación debe avisar y no decir que ha salido bien».
+
+Repetimos el botón sin volver a enviar el formulario, para conservar el mismo identificador de evento. La acción es local: no manda SMS ni resuelve solicitudes de ayudas. Para preguntas quedan las ocho ramas de `n8n/flujo.json` y la confirmación de persistencia. Si el servicio falla, mostramos la evidencia del 12 de noviembre indicando que es histórica.
 
 ## Diapositiva 12 Cierre dentro de tiempo
 
-«Tenemos una referencia municipal, una orientación que se puede explicar y una acción local comprobada. No tenemos una tasación, una evaluación de solvencia ni un trámite de ayudas. La mejora frente a persistencia es pequeña y los datos deben actualizarse con versiones nuevas».
+Ambos: «Hemos unido una referencia municipal, una explicación y una acción comprobable. Nos quedamos con que el sistema orienta, pero su mejora frente a usar la renta anterior es pequeña y solo cubre 19 municipios. Mejoraríamos la actualización de datos y la información sobre incertidumbre».
 
-Indicamos MLP sklearn frente a Keras y que la novedad la valora el profesorado. Cerramos antes de 15:00. Si un servicio falla, mostramos la evidencia fechada y continuamos; no fingimos una ejecución correcta ni consumimos el tiempo instalando dependencias.
+Cerramos antes de los 15 minutos. Los detalles de SMOTE y de implementación quedan preparados para las preguntas; no añadimos una explicación nueva en el último minuto.
 
 ## Preguntas individuales que ensayamos ambos
 

@@ -10,7 +10,6 @@ Construimos un sistema que estima una referencia municipal, la muestra en una ap
 
 La predicción es una renta media municipal trimestral, expresada en euros mensuales. No es el precio exacto de un piso, una probabilidad de solvencia ni una decisión administrativa. Mantener esa diferencia es esencial: una media territorial no puede explicar por sí sola las circunstancias de una persona.
 
-Esta memoria describe la versión base 0f990531c86a7b4f247cb80631b02609fed687a0, revisada el 17 de noviembre de 2026. Las métricas, figuras y notebooks ejecutados se leen de los artefactos conservados. No hemos reentrenado, cambiado el ganador ni repetido la evaluación final para preparar estos documentos.
 
 ## 2 Por qué es aprendizaje supervisado de regresión
 

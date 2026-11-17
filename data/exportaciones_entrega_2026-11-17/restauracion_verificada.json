@@ -1,0 +1,43 @@
+{
+  "fecha": "2026-11-17",
+  "motor": "MongoDB 7.0 real",
+  "metodo": "mongodump --archive --gzip y mongorestore en bases nuevas de comprobación",
+  "bases": {
+    "reto1_entrega_paquete": {
+      "municipios": {
+        "documentos": 80,
+        "documentos_identicos": true,
+        "indices_identicos": true
+      },
+      "viviendas": {
+        "documentos": 638,
+        "documentos_identicos": true,
+        "indices_identicos": true
+      }
+    },
+    "reto1_municipal_paquete": {
+      "contextos_ovj": {
+        "documentos": 1,
+        "documentos_identicos": true,
+        "indices_identicos": true
+      },
+      "rentas_emal": {
+        "documentos": 768,
+        "documentos_identicos": true,
+        "indices_identicos": true
+      }
+    },
+    "reto1_api_paquete": {
+      "rentas_api": {
+        "documentos": 3,
+        "documentos_identicos": true,
+        "indices_identicos": true
+      }
+    }
+  },
+  "hdfs": {
+    "archivos": 37,
+    "subidos_a_ruta_nueva": true,
+    "recuperados_identicos": true
+  }
+}

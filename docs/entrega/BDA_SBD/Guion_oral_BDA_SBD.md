@@ -2,69 +2,83 @@
 
 ## Cómo usamos este guion
 
-Nos repartimos la exposición como A y B solo para ensayar; no es un reparto de autoría. Ambos tenemos que poder explicar todo. La rúbrica pide demostración y justificación de decisiones, pero no fija minutos. Confirmamos la duración antes del ensayo definitivo.
+A y B son una propuesta para repartir la exposición, no un reparto de autoría. Los dos tenemos que poder explicar todo. La rúbrica pide demostración y justificación de decisiones, pero no fija minutos para este bloque.
 
-Abrimos `Presentacion_BDA_SBD.pdf`, el visor de http://localhost:8502 y el repositorio. Llevamos las evidencias del 12 de noviembre descargadas. Si mostramos un archivo histórico lo decimos; no lo presentamos como una ejecución que acaba de ocurrir.
+Abrimos la presentación y el visor en http://localhost:8502. Las capturas de las diapositivas muestran nuestra aplicación con resultados reales archivados. Si usamos esos resultados, lo decimos. Los comandos de servicios están en la guía común y en el README del ZIP de entrega.
 
-## Diapositivas 1 y 2 La pregunta y las unidades
+Este guion es material de preparación. No se incluye en el ZIP destinado a la profesora.
 
-A: «Queremos comparar referencias de vivienda entre municipios. Para hacerlo necesitamos precios, pero también explicar qué significan frente a unos ingresos. Por eso no basta con enseñar anuncios».
+## Diapositiva 1 Qué queríamos averiguar
 
-Señalamos el 59,48 % de Bilbao y explicamos que usa un salario común autonómico de 2024. Después distinguimos 17 identidades de anuncio, 621 registros de promociones y estadísticas municipales. Decimos claramente: «638 es un recuento del transporte; no significa 638 pisos distintos».
+A: «Queríamos ver qué supone alquilar en distintos municipios de Euskadi. Un precio de 900 euros, por sí solo, dice poco: también necesitamos saber con qué ingreso lo estamos comparando. Por eso nuestro trabajo une vivienda y contexto de ingresos».
 
-Pantalla o archivo: `docs/evidencias_entrega_2026-11-12/anuncios/resumen.json` y `data/capturas_oficiales/manifest.json`.
+Seguimos los tres pasos del esquema. La idea que debe quedar clara es que buscamos una comparación que podamos explicar, no una lista de anuncios sin contexto.
 
-## Diapositiva 3 El origen se puede revisar
+## Diapositiva 2 Por qué elegimos estas fuentes
 
-A: «Guardamos el archivo tal como llegó, junto con URL, fecha y huella. Así podemos revisar la extracción aunque la web cambie». Explicamos que API devuelve JSON estructurado y scraping lee HTML. Las tres rentas monetarias de la API son estadísticas; los portales aportan anuncios.
+A: «Las estadísticas oficiales nos permiten comparar municipios y ver la evolución. Los anuncios nos cuentan qué se pide y qué características se publican. El salario medio nos da un punto de partida común. Cada fuente aporta una parte de la respuesta».
 
-Mostramos una entrada del manifiesto de `data/capturas_api_rentas/2026-11-12/` y uno de sus JSON. Después abrimos el HTML archivado de un listado siguiendo la ruta que indica el manifiesto de anuncios. No hacemos otra captura en directo durante la defensa.
+Señalamos las tres tarjetas. Aclaramos que el salario es autonómico, no el sueldo medio medido de cada municipio.
 
-## Diapositivas 4 y 5 El recorrido y la recarga
+## Diapositiva 3 Qué representan los recuentos
 
-A: «HDFS conserva, Kafka separa el envío de la recepción y MongoDB guarda documentos que después consultamos». Seguimos las flechas en orden. Explicamos que este volumen no necesita un clúster por tamaño, pero el reto pide demostrar esos servicios y su integración.
+A: «Tenemos 17 identidades de anuncios y 621 registros de promociones. Esos 638 registros nos sirven para comprobar el transporte, pero no podemos llamarlos 638 pisos diferentes. Además, EMAL resume contratos por municipio y trimestre».
 
-Enseñamos el informe de transporte conservado en `docs/evidencias_entrega_2026-11-12/`, localizado desde su resumen, y `docs/evidencias_cierre_rubrica_2026-11-12/api-transporte-2.json`. Comprobamos 638 registros en el lote y tres documentos API separados.
+Las tarjetas separan las unidades. Si preguntan de dónde salen los números, abrimos `docs/evidencias_entrega_2026-11-12/anuncios/resumen.json`. Los 17 anuncios no son las muestras de entrenamiento de la IA.
 
-Decimos: «Si llega otra vez el mismo registro, actualizamos por fuente e identificador. Guardamos antes de confirmar el offset. La recarga mantiene el recuento». No afirmamos una transacción global ni exactamente una entrega entre todos los servicios.
+## Diapositiva 4 Por qué guardamos el original
 
-## Diapositiva 6 Modelado y limpieza
+A: «Una web puede cambiar. Por eso guardamos el archivo recibido, la dirección de origen y la fecha. Así, cuando alguien nos pregunta de dónde sale una cifra, podemos volver al archivo que utilizamos».
 
-B: «Metemos las características dentro de cada anuncio porque se leen juntas. El municipio se referencia por INE porque lo comparten muchas viviendas». Abrimos `src/database/data_loader.py` y señalamos `caracteristicas`, `codigo_municipio` y el upsert.
+Mostramos una entrada del manifiesto de `data/capturas_api_rentas/2026-11-12/` y el JSON correspondiente. Si hace falta, distinguimos API, que devuelve datos estructurados, y scraping, que lee la página de anuncios. No recapturamos durante la exposición.
 
-Después mostramos las cuatro operaciones en `src/database/cleaning.py`: duplicados, nulos, tipos y derivados. Explicamos los dos rechazos de Abanto y por qué un ascensor sin dato no es falso. Si preguntan por CRUD, abrimos `integration_tests/test_mongodb_live.py`, función `test_crud_comprobado_real`, y explicamos las comprobaciones de insert, find, update y delete.
+## Diapositiva 5 Para qué sirve cada herramienta
 
-## Diapositiva 7 Consultas y pipelines
+A: «HDFS conserva los archivos; Kafka mueve los registros; MongoDB los guarda para consultarlos. Hemos conectado estas herramientas porque el reto pide demostrar ese recorrido completo».
 
-B: «Las consultas parten de una pregunta útil». Leemos un ejemplo de filtros combinados de Bilbao, hasta 2.000 € y desde 55 m². Abrimos `docs/evidencias_entrega_2026-11-12/anuncios/consultas.json` y comprobamos cuatro resultados.
+Recorremos las flechas una vez. Si preguntan por el tamaño, reconocemos que esta muestra no necesita un clúster por volumen. Lo que demostramos es la integración y la posibilidad de revisar cada paso.
 
-En `src/database/queries.py` señalamos habitaciones como campo anidado y condiciones temporales como array. No ocultamos los ceros de ascensor o Gaztelagun. En `src/database/aggregations.py` recorremos los tres pipelines: filtrar, agrupar, unir y preparar salidas. Explicamos que el salario de los anuncios queda nulo si no hay uno medido y comparable.
+## Diapositiva 6 Qué limpiamos y por qué
 
-## Diapositiva 8 Índice y atomicidad
+B: «Antes de comparar, tenemos que evitar problemas sencillos: el mismo dato repetido, municipios escritos de formas distintas o campos vacíos que se interpretan mal. Por ejemplo, no saber si hay ascensor no significa que no lo haya».
 
-B: «Un índice evita recorrer toda la colección para esta consulta. Lo que hemos comprobado es que se examinan 4 documentos en vez de 638». Abrimos el explain y señalamos stage, totalDocsExamined y nReturned. Leemos también los dos tiempos 0 ms; no decimos que tarda un porcentaje menos.
+La tabla sirve para explicar cada decisión con un ejemplo. Como apoyo técnico tenemos `src/database/data_loader.py` y `src/database/cleaning.py`. Para CRUD podemos enseñar `test_crud_comprobado_real` en `integration_tests/test_mongodb_live.py`.
 
-En `src/database/consistency.py` mostramos `$inc` y `$set` sobre un documento. «Cien operaciones concurrentes dejan contador cien en una copia aislada. No son cien usuarios reales. Como solo cambia ese documento, no necesitamos una transacción entre colecciones».
+## Diapositiva 7 Qué preguntas responden las consultas
 
-## Diapositiva 9 Qué municipios comparamos
+B: «No hicimos consultas porque sí. Queríamos responder preguntas como qué anuncios cumplen un presupuesto, qué municipios tienen menor renta y cómo cambia el alquiler con el tiempo. MongoDB prepara las respuestas que luego ve el usuario».
 
-B: leemos Vitoria 798,57 €, Bilbao 930,31 € y Donostia 1.147,53 €, todos de 2024 T4. Explicamos que, con el mismo salario 1.564 €, los esfuerzos son 51,06 %, 59,48 % y 73,37 %.
+Si piden una consulta concreta, abrimos `docs/evidencias_entrega_2026-11-12/anuncios/consultas.json`: el filtro combinado de Bilbao, hasta 2.000 euros y desde 55 metros cuadrados devuelve cuatro resultados. Las condiciones publicadas y los valores desconocidos también se conservan.
 
-«Vitoria requiere menos esfuerzo en este escenario, pero las tres superan el 30 %. Eso no dice quién puede emanciparse realmente». Mostramos comparación, evolución y tabla del visor. Indicamos que la cobertura del trimestre es 18 municipios y la serie completa 19.
+## Diapositiva 8 Cómo comprobamos que funciona
 
-## Diapositiva 10 Demostración
+B: «Una carga repetida no debería crear otra copia de todo. Comprobamos que después de repetir seguimos teniendo 638 registros. Las tres estadísticas de la API se guardan aparte. También probamos un índice: obtenemos lo mismo mirando cuatro documentos en vez de 638».
 
-A: en el visor seleccionamos las tres capitales. Cambiamos selección y mostramos que tabla y gráficos responden. Abrimos la serie y el mapa de promociones. Después mostramos la muestra archivada, su tabla de condiciones y la descarga CSV.
+Mostramos `anuncios/explain.json` si preguntan. Ambos tiempos fueron 0 ms, así que no afirmamos una mejora temporal medida. La prueba de atomicidad hizo cien operaciones sobre un documento de una copia aislada y terminó en cien; no fueron cien usuarios reales.
 
-Seguimos una cifra de la tabla hasta `docs/evidencias_entrega_2026-11-12/municipal/comparativa_municipal.json` si usamos evidencias archivadas, o `data/analisis_municipal/comparativa_municipal.json` si acabamos de generarla con MongoDB. Decimos cuál de los dos casos mostramos.
+## Diapositiva 9 Qué nos dicen los resultados
 
-Para demostrar servicios reales necesitamos HDFS, Kafka y MongoDB accesibles y los comandos de la guía común preparados. El visor por sí solo lee resultados y no acredita que esos servicios estén funcionando ahora.
+B: «Con el mismo ingreso de 1.564 euros, Vitoria necesita un 51,06 %, Bilbao un 59,48 % y Donostia un 73,37 % para pagar la renta media entera. En esta comparación Vitoria requiere menos esfuerzo, aunque las tres superan la mitad del ingreso».
 
-## Diapositivas 11 y 12 Cierre
+Señalamos cada barra. Las rentas son de EMAL, 2024 T4: 798,57, 930,31 y 1.147,53 euros al mes. No son anuncios actuales ni el presupuesto real de todas las personas jóvenes.
 
-Ambos: «Hemos podido conservar el origen y justificar una comparación concreta. Nos falta ampliar la muestra y contar con información de ingresos más ajustada a cada hogar para sacar conclusiones más amplias». Señalamos las carpetas que acompañan a los PDF y la revisión de rúbricas.
+## Diapositiva 10 Cómo lo ve una persona
 
-Si falla la red o un servicio, mostramos el resumen, XML, explain y capturas conservadas con su fecha. Eso permite explicar el trabajo, aunque no sustituye una ejecución en directo si el profesorado la exige.
+A: «Preparamos un visor para que los resultados no se queden solo en archivos. Aquí elegimos las capitales y vemos la renta, el ingreso de referencia y el esfuerzo. También podemos cambiar municipios, consultar la evolución y descargar la comparación».
+
+La captura muestra esa selección real, con las columnas relevantes visibles. En directo cambiamos un municipio y seguimos una cifra hasta `docs/evidencias_entrega_2026-11-12/municipal/comparativa_municipal.json`, o hasta `data/analisis_municipal/` si acabamos de generar resultados nuevos. Decimos qué caso mostramos.
+
+## Diapositiva 11 Qué no podemos concluir del mapa
+
+A: «Los puntos sitúan promociones del catálogo de Visesa. Que aparezcan en el mapa no significa que estén disponibles para alquilar ahora. Con los anuncios pasa algo parecido: tenemos una muestra pequeña y archivada, no todo el mercado».
+
+Señalamos las tres capitales en la captura y, si hay tiempo, abrimos el mapa y la tabla de anuncios del visor. Mostramos la fecha y las condiciones publicadas. El visor lee resultados; por sí solo no acredita que HDFS, Kafka y MongoDB estén activos en ese momento.
+
+## Diapositiva 12 Con qué nos quedamos
+
+Ambos: «Hemos pasado de fuentes diferentes a una comparación cuyo origen podemos comprobar. La conclusión concreta es que Vitoria exige menos esfuerzo en este escenario. Para orientar mejor a cada hogar ampliaríamos la muestra y usaríamos sus ingresos y circunstancias reales».
+
+Si falla un servicio, usamos los archivos, consultas y capturas conservados indicando su fecha. Esa evidencia permite explicar el trabajo; la ejecución en directo se prepara con los comandos del README de entrega.
 
 ## Preguntas para ensayar
 

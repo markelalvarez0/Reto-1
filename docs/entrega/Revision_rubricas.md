@@ -11,7 +11,7 @@ Usamos tres estados: comprobado en código o artefactos; evidencia de ejecución
 | Criterio del PDF docente página 3 | Qué tenemos y dónde se comprueba | Estado y límite |
 |---|---|---|
 | Extracción Python mediante API y scraping | scripts/capture_emal_api.py, capture_rentals.py; originales en data/capturas_api_rentas y capturas_anuncios | Implementado; tres estadísticas monetarias y 17 anuncios archivados. No son la misma unidad |
-| HDFS organizado y recuperación | src/hdfs/, scripts/run_pipeline.py; informes de docs/evidencias_entrega_2026-11-12/ | Ejecución real conservada: 31 archivos del lote recuperados idénticos. Acceso o exportación de aula pendiente |
+| HDFS organizado y recuperación | src/hdfs/, scripts/run_pipeline.py; informes de docs/evidencias_entrega_2026-11-12/ | Ejecución real conservada: 31 archivos del lote recuperados idénticos. Además, el ZIP incluye 37 archivos recuperados y tres dumps MongoDB con restauración verificada |
 | Productor y consumidor Kafka Python | src/kafka/producer.py y consumer.py | Implementados; 638 mensajes del lote conservado. Simulación explícita no se presenta como broker real |
 | Integración completa hasta MongoDB | scripts/run_pipeline.py y scripts/transport_rent_api.py | Evidencia real conservada de lote y API separados; reentrega sin duplicar |
 
@@ -107,9 +107,9 @@ Los 15 minutos por pareja y las tres preguntas individuales por alumno están co
 
 ## Qué falta realmente para entregar con tranquilidad
 
-Tenemos implementación y evidencia conservada para los requisitos técnicos principales. La actualización documental no declara una nueva ejecución completa de todos los servicios. En `validacion_documentacion.json` se registran las comprobaciones que sí se hayan ejecutado ahora.
+Tenemos implementación y evidencia conservada para los requisitos técnicos principales. Para los ZIP se ha repetido el recorrido BDA con HDFS, Kafka y MongoDB reales y se han comprobado las exportaciones. La ejecución n8n conservada mantiene su fecha original. En `validacion_documentacion.json` se registran las comprobaciones que sí se hayan ejecutado ahora.
 
-Antes de entregar debemos ensayar ambos, preparar el equipo y comprobar qué acceso o exportación de HDFS y MongoDB se pide. Solo el profesorado puede confirmar canal de entrega, duración BDA/SBD y novedad de las ampliaciones. No hay una garantía automática de obtener la puntuación máxima por tener todos los archivos.
+Antes de entregar debemos ensayar ambos, preparar el equipo y saber restaurar las copias HDFS y MongoDB incluidas. Solo el profesorado puede confirmar canal de entrega, duración BDA/SBD y novedad de las ampliaciones. No hay una garantía automática de obtener la puntuación máxima por tener todos los archivos.
 
 Hay un límite de alcance que conviene hablar con la profesora: el servicio ofrece una referencia territorial con 19 municipios, no una respuesta individual completa a la emancipación. La API monetaria es agregada y la muestra de anuncios tiene 17 identidades. Los documentos explican esa limitación en lugar de inventar cobertura o conclusiones más amplias.
 

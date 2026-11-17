@@ -1,0 +1,12 @@
+{
+  "archivo": "listado_23917c28e70e4d37acd5438d1cf6909f.bin",
+  "url": "https://www.pisos.com/alquiler/viviendas-vitoria_gasteiz_zona_urbana/",
+  "http_status": 200,
+  "fecha_utc": "2026-11-12T14:33:26.790097+00:00",
+  "sha256": "b8e0626b36f6a17a4d2cef490f7f5d15aa86f41aadb89c3220eeea8fc99d1ae7",
+  "bytes": 117391,
+  "clase": "listado",
+  "user_agent": "Reto1AcademicBot/1.0",
+  "tls_verificado": true,
+  "content_type": "text/html; charset=utf-8"
+}

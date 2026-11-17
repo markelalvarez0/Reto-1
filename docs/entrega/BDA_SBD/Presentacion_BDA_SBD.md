@@ -1,107 +1,83 @@
 # Presentación BDA y SBD
 
-## 1 Queremos comparar opciones de vivienda
+## 1 ¿Qué supone alquilar siendo joven?
 
-¿Qué podemos decir sobre el acceso a la vivienda joven con datos reales?
+Hemos comparado información de vivienda de distintos municipios de Euskadi.
 
-En 2024 T4, pagar la renta media de Bilbao supone el 59,48 % del ingreso de referencia.
+:::flow Recoger datos | Comparar municipios | Entender el esfuerzo
 
-El ingreso es autonómico: 1.564 €/mes, OVJ 2024.
+Queremos explicar cuánto cuesta alquilar y qué parte de un ingreso podría llevarse.
 
-## 2 No todos los registros son pisos
+## 2 Buscamos datos que se complementen
 
-17 identidades de anuncio archivadas: precio pedido.
+:::cards Estadísticas :: Rentas de contratos y evolución municipal. | Anuncios :: Precios pedidos y características publicadas. | Ingresos :: Un salario común para comparar.
 
-621 registros de promociones: no son viviendas disponibles.
+Juntamos estas fuentes porque el precio, por sí solo, no explica el esfuerzo para pagarlo.
 
-EMAL: renta media municipal de contratos, no anuncios.
+## 3 Cada dato cuenta algo diferente
 
-:::flow Anuncios | Promociones | Estadísticas | Contexto salarial
+:::cards 17 :: Identidades de anuncios archivados. | 621 :: Registros de promociones de vivienda. | EMAL :: Rentas medias de contratos por municipio.
 
-## 3 Conservamos lo que recibimos
+Los 638 registros del transporte no son 638 pisos distintos. Analizamos los conjuntos por separado para no mezclar unidades.
 
-Guardamos originales, URL, fecha y SHA-256.
+## 4 Conservamos el origen de cada cifra
 
-La API aporta estadísticas monetarias; el scraping aporta anuncios.
+:::flow API y páginas web | Archivo original | Dirección y fecha | Revisión posterior
 
-Podemos comprobar un dato aunque la página cambie después.
+Guardamos lo que recibimos para poder comprobarlo aunque la web cambie.
 
-## 4 Cada herramienta tiene una función
+Así podemos explicar de dónde sale un resultado y repetir el trabajo.
 
-:::flow Captura | HDFS | Kafka | MongoDB | Visor
+## 5 Cada herramienta tiene una tarea
 
-HDFS guarda y recupera; Kafka transporta; MongoDB consulta y agrega.
+:::flow HDFS conserva archivos | Kafka envía registros | MongoDB guarda y consulta
 
-El tamaño de la muestra no exige un clúster: demostramos el recorrido del reto.
+Conectamos las tres herramientas para demostrar el recorrido que pide el reto.
 
-## 5 Repetir no debe crear otra copia
+La separación nos permite revisar en qué paso se ha producido un problema.
 
-638 registros recibidos y persistidos: 621 promociones + 17 anuncios.
+## 6 Limpiamos sin inventar información
 
-La recarga mantiene 638. La API mantiene sus tres estadísticas por separado.
+| Qué encontramos | Qué hacemos | Para qué |
+|---|---|---|
+| El mismo registro otra vez | Actualizamos el que ya existe | Evitar duplicados |
+| Municipios escritos distinto | Usamos su código oficial | Relacionarlos bien |
+| Ascensor sin información | Lo dejamos como desconocido | No confundirlo con «no tiene» |
 
-Guardamos antes de confirmar el mensaje. Identidad: fuente e identificador.
+Queremos que las comparaciones dependan de los datos, no de errores de formato.
 
-## 6 Los datos desconocidos siguen siendo desconocidos
+## 7 Convertimos datos en preguntas útiles
 
-Cuatro operaciones: duplicados, nulos, tipos y derivados.
+:::cards Presupuesto :: ¿Qué anuncios cumplen un precio y una superficie? | Territorio :: ¿Qué municipios tienen menor renta media? | Evolución :: ¿Cómo cambia el alquiler con el tiempo?
 
-Dos registros oficiales ambiguos se rechazan; no les asignamos Bilbao.
+Preparamos consultas y resúmenes en MongoDB para que el visor muestre respuestas calculadas.
 
-Ascensor sin dato no significa que el piso no tenga ascensor.
+## 8 Comprobamos que repetir no duplica
 
-## 7 Preguntamos y resumimos con MongoDB
+:::cards 638 :: Registros después de la primera carga. | 638 :: Registros después de repetirla. | 3 :: Estadísticas de la API, guardadas aparte.
 
-Consultas: Bilbao; hasta 750 €; filtros combinados; habitaciones; señal temporal.
+Además, con un índice la misma consulta revisa 4 documentos en vez de 638 y devuelve los mismos resultados.
 
-Resultados archivados: 6 / 1 / 4 / 10 como máximo / 3.
+## 9 Mismo ingreso, distinto esfuerzo
 
-Tres pipelines: estadísticas municipales, cruce de contexto y distribuciones.
+![Parte del ingreso de referencia destinada a la renta media](../assets/esfuerzo_capitales.png)
 
-## 8 Medimos qué hace el índice
+Rentas EMAL de 2024 T4. Suponemos pagar el alquiler entero con el mismo ingreso autonómico de referencia.
 
-| Medida | Sin índice | Con índice |
-|---|---:|---:|
-| Documentos examinados | 638 | 4 |
-| Resultados | 4 | 4 |
-| Tiempo registrado | 0 ms | 0 ms |
+## 10 Lo enseñamos en el visor
 
-Examinamos menos documentos. No medimos una mejora temporal.
+![Captura real de la comparación de capitales en el visor](../assets/visor_capitales.png)
 
-100 incrementos sobre una copia aislada dejan el contador en 100.
+Elegimos municipios y vemos su comparación. La captura usa los resultados reales archivados del proyecto.
 
-## 9 Vitoria requiere menos esfuerzo en este escenario
+## 11 El mapa también necesita contexto
 
-| Capital 2024 T4 | Renta mensual | Esfuerzo con 1.564 € |
-|---|---:|---:|
-| Vitoria-Gasteiz | 798,57 € | 51,06 % |
-| Bilbao | 930,31 € | 59,48 % |
-| Donostia-San Sebastián | 1.147,53 € | 73,37 % |
+![Captura real del mapa de promociones del visor](../assets/visor_mapa.png)
 
-Las tres superan el 30 %. Es un escenario, no una evaluación de cada joven.
+El mapa sitúa promociones publicadas; no garantiza que estén disponibles. Los 17 anuncios tampoco representan todo el mercado.
 
-## 10 Demostramos del resultado al original
+## 12 Qué hemos conseguido y qué mejoraríamos
 
-Abrimos el visor: comparación, evolución, promociones y anuncios archivados.
+:::cards Conseguido :: Una comparación cuyo origen podemos comprobar. | Conclusión :: Vitoria exige menos esfuerzo que las otras dos capitales. | Siguiente paso :: Más muestra e ingresos reales de cada hogar.
 
-Seguimos una cifra hasta el JSON, el manifiesto y el archivo original.
-
-Mostramos recarga, consultas y explain. Guion oral separado.
-
-## 11 La conclusión depende de lo que hemos medido
-
-Vitoria tiene menor renta media entre las tres capitales en 2024 T4.
-
-17 anuncios no representan todo el mercado ni garantizan disponibilidad.
-
-Mejoras propuestas: ampliar cobertura, actualizar versiones y estudiar ingresos comparables.
-
-## 12 Evidencias que acompañan la exposición
-
-Datos: data/capturas_oficiales, capturas_anuncios y capturas_api_rentas.
-
-Resultados: docs/evidencias_entrega_2026-11-12 y evidencias_cierre_rubrica_2026-11-12.
-
-Código: src/database, src/hdfs, src/kafka y scripts.
-
-Duración BDA/SBD: el enunciado no fija límite. Lo confirmamos con el profesorado.
+En el escenario comparado, las tres capitales superan la mitad del ingreso de referencia.

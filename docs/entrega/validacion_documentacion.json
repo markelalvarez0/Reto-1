@@ -6,61 +6,77 @@
       "archivo": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
       "paginas": 14,
       "texto_seleccionable": true,
-      "caracteres": 25271,
-      "sha256": "603e1273bdc5d81f8cb1391af85990839990bc3240dfbb9b2c82fc4a19be26c2"
+      "caracteres": 24572,
+      "sha256": "b1a31bf3446d5c9e735fe8f1d9bea1faa589384976769a6cceda22dafc2cf402",
+      "enlaces_pdf": 34,
+      "paginas_con_imagenes": 2
     },
     {
       "archivo": "docs/entrega/BDA_SBD/Guion_oral_BDA_SBD.pdf",
       "paginas": 6,
       "texto_seleccionable": true,
-      "caracteres": 8860,
-      "sha256": "f6a7842dceacaa9d84ddb7be22890ce8e1203ac23f29984a27da71067a78ed41"
+      "caracteres": 9179,
+      "sha256": "52b5f62d48aa00702153e6cf1dcb1a4a13f19a9038c3e9baa665c8eacb4db073",
+      "enlaces_pdf": 30,
+      "paginas_con_imagenes": 0
     },
     {
       "archivo": "docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf",
       "paginas": 12,
       "texto_seleccionable": true,
-      "caracteres": 3952,
-      "sha256": "d57c712c3dbbc491a3decfab60f085742aed1ea029427be159b2216d0a2dab29"
+      "caracteres": 3476,
+      "sha256": "2a32654285392a99b2375d421e24b51eb5ccec7ee5b199a045550bf9b9cb059a",
+      "enlaces_pdf": 0,
+      "paginas_con_imagenes": 3
     },
     {
       "archivo": "docs/entrega/Guia_entrega_y_defensa.pdf",
       "paginas": 11,
       "texto_seleccionable": true,
-      "caracteres": 19703,
-      "sha256": "d1c1bcbe6b9273ee4414d3f94f1be448095ebd9ac3a7f4805ef27e65daab83ac"
+      "caracteres": 19888,
+      "sha256": "075e6aab8b52376010e7f029eada8cad47a952d7b9234750718fc6b86a7d42b0",
+      "enlaces_pdf": 81,
+      "paginas_con_imagenes": 0
     },
     {
       "archivo": "docs/entrega/Revision_rubricas.pdf",
       "paginas": 9,
       "texto_seleccionable": true,
-      "caracteres": 13844,
-      "sha256": "14cc5ed37175f900170aa90aa1b38732ecc8cc89ffbf03aa30fa56d4d2a3172c"
+      "caracteres": 13575,
+      "sha256": "891e568cf4ec4208f7fd7243bbc6c77892d14675e9eccf0539919fbad062e121",
+      "enlaces_pdf": 25,
+      "paginas_con_imagenes": 0
     },
     {
       "archivo": "docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf",
       "paginas": 21,
       "texto_seleccionable": true,
-      "caracteres": 30516,
-      "sha256": "6c8352a5935b3652f9d6a46a6b892e6e6d8481bebdf1eb245a0bc53c31ce3cca"
+      "caracteres": 29499,
+      "sha256": "69431fcc1df23efe3dc611f962b4773558ccd3a1c91c1ece89c21f9bc0298b7e",
+      "enlaces_pdf": 45,
+      "paginas_con_imagenes": 9
     },
     {
       "archivo": "docs/entrega/SAA_PIA_MIA/Guion_oral_SAA_PIA_MIA.pdf",
-      "paginas": 6,
+      "paginas": 7,
       "texto_seleccionable": true,
-      "caracteres": 9408,
-      "sha256": "46a534ea145afea537acb5b515c7e2331065ca55f80f560f0424579e73aa7d8c"
+      "caracteres": 10174,
+      "sha256": "d994486072af8fb2b000e303369b1394105a9c51cb838064bb5dc1117cb0b5f3",
+      "enlaces_pdf": 26,
+      "paginas_con_imagenes": 0
     },
     {
       "archivo": "docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf",
       "paginas": 12,
       "texto_seleccionable": true,
-      "caracteres": 3511,
-      "sha256": "fc8067f14c15e5126785197c4650d42ca851e441894aca8a012d39ff8cb269cf"
+      "caracteres": 3223,
+      "sha256": "299f40fff561e02ad808bedcf53d1bac19278cc826bd6bf9b2a449553d12f2af",
+      "enlaces_pdf": 0,
+      "paginas_con_imagenes": 5
     }
   ],
   "errores_automaticos": [],
-  "enlaces_locales_comprobados": 120,
+  "enlaces_locales_comprobados": 78,
   "fuentes_docentes": [
     {
       "nombre": "Reto1_SAA_PIA_MIA_2026-27_v5.pdf",
@@ -126,7 +142,8 @@
     "test_informe_conservado": true,
     "territorio_abre_con_evidencia_archivada": true,
     "tablas": 6,
-    "servicios_nuevos": false
+    "servicios_nuevos": true,
+    "n8n_nuevo": false
   },
   "notebook_fuente_solo_celda_explicativa": true,
   "notebooks_ejecutados_modelo_resultados_datos_sin_cambios": true,
@@ -137,12 +154,12 @@
     "ejecuciones_existentes": 11,
     "entrenamientos_nuevos": 0
   },
-  "servicios_bda_n8n_en_esta_revision": "No se repite integración real; se revisan XML y JSON conservados del 12 de noviembre",
-  "inspeccion_visual": "Páginas rasterizadas y revisión visual de diagramas, tablas y figuras. Fuentes editables conservadas.",
+  "servicios_bda_n8n_en_esta_revision": "Recorrido HDFS/Kafka/MongoDB repetido con originales archivados para exportar y verificar restauración de datos. n8n conserva la evidencia histórica del 12 de noviembre.",
+  "inspeccion_visual": "Todos los PDF rasterizados; revisión de las 24 diapositivas, portadas, gráficos, capturas, tablas y páginas actualizadas. No se detectan textos fuera de página.",
   "pendientes": [
     "ensayo humano cronometrado y preguntas individuales",
-    "confirmar accesos o exportaciones HDFS y MongoDB para entrega",
-    "confirmar canal de aula y valoración de novedad"
+    "comprobar equipo del aula y canal de entrega",
+    "valoración docente de novedad"
   ],
   "pruebas_actuales": [
     {
@@ -151,8 +168,8 @@
       "failures": "0",
       "skipped": "0",
       "tests": "168",
-      "time": "13.371",
-      "timestamp": "2026-11-17T19:22:28.598856+01:00",
+      "time": "13.452",
+      "timestamp": "2026-11-17T20:01:34.969983+01:00",
       "hostname": "f945174f46f9"
     }
   ],
@@ -165,6 +182,111 @@
     "AppTest de ambas aplicaciones",
     "lectura y rasterización de todos los PDF",
     "verificación de texto, límites y enlaces locales",
-    "captura Chromium de MLflow sobre copia"
-  ]
+    "captura Chromium de MLflow sobre copia",
+    "capturas Chromium de visor y caso ficticio",
+    "instalación y verificación de ZIP extraídos",
+    "pruebas y AppTest por paquete",
+    "recorrido real HDFS/Kafka/MongoDB con originales",
+    "exportación y restauración verificada de 37 archivos HDFS y tres bases MongoDB"
+  ],
+  "textos_solicitados_retirados": true,
+  "presentaciones": {
+    "diapositivas_por_bloque": 12,
+    "enfoque": "Qué hicimos, por qué y qué conseguimos; vocabulario sencillo",
+    "capturas_nuevas": 4,
+    "procedencia": "docs/entrega/assets/procedencia_visuales.json"
+  },
+  "exportaciones_servicios": {
+    "fecha": "2026-11-17",
+    "motor": "MongoDB 7.0 real",
+    "metodo": "mongodump --archive --gzip y mongorestore en bases nuevas de comprobación",
+    "bases": {
+      "reto1_entrega_paquete": {
+        "municipios": {
+          "documentos": 80,
+          "documentos_identicos": true,
+          "indices_identicos": true
+        },
+        "viviendas": {
+          "documentos": 638,
+          "documentos_identicos": true,
+          "indices_identicos": true
+        }
+      },
+      "reto1_municipal_paquete": {
+        "contextos_ovj": {
+          "documentos": 1,
+          "documentos_identicos": true,
+          "indices_identicos": true
+        },
+        "rentas_emal": {
+          "documentos": 768,
+          "documentos_identicos": true,
+          "indices_identicos": true
+        }
+      },
+      "reto1_api_paquete": {
+        "rentas_api": {
+          "documentos": 3,
+          "documentos_identicos": true,
+          "indices_identicos": true
+        }
+      }
+    },
+    "hdfs": {
+      "archivos": 37,
+      "subidos_a_ruta_nueva": true,
+      "recuperados_identicos": true
+    }
+  },
+  "paquetes": [
+    {
+      "archivo": "Entrega_BDA_SBD.zip",
+      "bytes": 5358419,
+      "sha256": "b45630a33c54e2bba09fbd3caf83f1685fd3c7aad6af8199cf46988d481300a2",
+      "archivos": 216,
+      "pdf": [
+        "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
+        "docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf"
+      ]
+    },
+    {
+      "archivo": "Entrega_SAA_PIA_MIA.zip",
+      "bytes": 5953752,
+      "sha256": "96cec1edf27d3167a07cc3588b7bfee9eb3dfb674a3e79def80b8547916d2aa4",
+      "archivos": 172,
+      "pdf": [
+        "docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf",
+        "docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf"
+      ]
+    }
+  ],
+  "verificacion_paquetes": {
+    "instalacion_uv_locked": "Correcta en cada carpeta extraída",
+    "bda_pruebas": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "126",
+      "time": "9.643",
+      "timestamp": "2026-11-17T20:12:09.992827+01:00",
+      "hostname": "f945174f46f9"
+    },
+    "ia_pruebas": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "34",
+      "time": "5.364",
+      "timestamp": "2026-11-17T20:02:04.508288+01:00",
+      "hostname": "f945174f46f9"
+    },
+    "bda_app": "AppTest sin errores; seis tablas",
+    "ia_app": "AppTest sin errores; informe conservado; huellas de modelo y test intactas",
+    "sin_material_oral": true,
+    "dos_pdf_por_paquete": true,
+    "pdf_identicos_al_repositorio": true
+  }
 }

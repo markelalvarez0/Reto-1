@@ -30,7 +30,6 @@ OUT = ROOT / 'docs/entrega'
 BLUE = colors.HexColor('#123e53')
 TEAL = colors.HexColor('#087e83')
 LIGHT = colors.HexColor('#edf5f6')
-BASE = 'https://github.com/markelalvarez0/Reto-1/blob/0f990531c86a7b4f247cb80631b02609fed687a0/'
 
 
 def fonts():
@@ -51,15 +50,17 @@ def inline(text):
 
 
 def style(size=10.4, **kwargs):
-    return ParagraphStyle('body', fontName='Body', fontSize=size, leading=size * 1.48,
-                          textColor=BLUE, spaceAfter=9, alignment=TA_LEFT,
-                          splitLongWords=True, allowWidows=0, allowOrphans=0, **kwargs)
+    options = dict(fontName='Body', fontSize=size, leading=size * 1.48,
+                   textColor=BLUE, spaceAfter=9, alignment=TA_LEFT,
+                   splitLongWords=True, allowWidows=0, allowOrphans=0)
+    options.update(kwargs)
+    return ParagraphStyle('body', **options)
 
 
 class FlowDiagram(Flowable):
     def __init__(self, labels, width, slide=False):
         super().__init__()
-        self.labels, self.width, self.height = labels, width, 100 if slide else 84
+        self.labels, self.width, self.height = labels, width, 140 if slide else 84
         self.slide = slide
 
     def draw(self):
@@ -72,7 +73,7 @@ class FlowDiagram(Flowable):
             c.setFillColor(LIGHT)
             c.setStrokeColor(TEAL)
             c.roundRect(x, 14, box, self.height - 28, 6, fill=1, stroke=1)
-            p = Paragraph(inline(label), style(14 if self.slide else 9))
+            p = Paragraph(inline(label), style(20 if self.slide else 9))
             _, h = p.wrap(box - 14, self.height)
             p.drawOn(c, x + 7, (self.height - h)/2)
             if i < n-1:
@@ -80,6 +81,31 @@ class FlowDiagram(Flowable):
                 c.line(x + box + 2, self.height/2, x + box + gap-2, self.height/2)
                 c.line(x + box + gap-5, self.height/2+3, x + box + gap-2, self.height/2)
                 c.line(x + box + gap-5, self.height/2-3, x + box + gap-2, self.height/2)
+
+
+class InfoCards(Flowable):
+    """Tarjetas paralelas: cantidades o ideas que se leen de un vistazo."""
+    def __init__(self, items, width):
+        super().__init__()
+        self.items, self.width, self.height = items, width, 190
+
+    def draw(self):
+        gap = 18
+        box = (self.width - gap * (len(self.items)-1)) / len(self.items)
+        for i, item in enumerate(self.items):
+            heading, description = item.split('::', 1)
+            x = i * (box + gap)
+            self.canv.setFillColor(LIGHT)
+            self.canv.roundRect(x, 8, box, self.height-16, 9, fill=1, stroke=0)
+            numeric = bool(re.fullmatch(r'[\d ,.€%]+', heading.strip()))
+            title = Paragraph(inline(heading.strip()), style(42 if numeric else 24, leading=32))
+            _, th = title.wrap(box-28, 70)
+            title.drawOn(self.canv, x+14, self.height-25-th)
+            text = Paragraph(inline(description.strip()), style(19, leading=26))
+            _, bh = text.wrap(box-28, 100)
+            if 25+th+12+bh > self.height-12:
+                raise ValueError('Tarjeta desbordada: ' + item)
+            text.drawOn(self.canv, x+14, self.height-25-th-12-bh)
 
 
 def table(rows, width, slide=False):
@@ -130,6 +156,8 @@ def blocks(lines, source, width, slide=False):
             result.append(Spacer(1, 8))
         elif line.startswith(':::flow '):
             result.append(FlowDiagram([s.strip() for s in line[8:].split('|')], width, slide))
+        elif line.startswith(':::cards '):
+            result.append(InfoCards([s.strip() for s in line[9:].split('|')], width))
         elif line.startswith('|'):
             rows = []
             while i < len(lines) and lines[i].strip().startswith('|'):
@@ -146,7 +174,7 @@ def blocks(lines, source, width, slide=False):
                 raise ValueError(line)
             path = (source.parent / match[2]).resolve()
             im = Image(str(path))
-            ratio = min(width/im.imageWidth, (240 if slide else 350)/im.imageHeight)
+            ratio = min(width/im.imageWidth, (300 if slide else 350)/im.imageHeight)
             im.drawWidth, im.drawHeight = im.imageWidth*ratio, im.imageHeight*ratio
             im.hAlign = 'LEFT'
             im.keepWithNext = not slide
@@ -157,7 +185,7 @@ def blocks(lines, source, width, slide=False):
                 result.append(caption)
         else:
             para = [line]
-            while i+1 < len(lines) and lines[i+1].strip() and not lines[i+1].startswith(('|', '![', ':::flow', '```', '#')):
+            while i+1 < len(lines) and lines[i+1].strip() and not lines[i+1].startswith(('|', '![', ':::', '```', '#')):
                 i += 1; para.append(lines[i].strip())
             result.append(Paragraph(inline(' '.join(para)), style(19 if slide else 10.4)))
         i += 1
@@ -183,15 +211,13 @@ def report(source):
     def footer(c, d):
         c.setStrokeColor(TEAL); c.line(48, 40, A4[0]-48, 40)
         c.setFont('Body', 8); c.setFillColor(BLUE)
-        c.drawString(48, 27, 'Reto 1 · Vivienda en Euskadi · 17 de noviembre de 2026')
+        c.drawString(48, 27, 'Reto 1 · Vivienda en Euskadi')
         c.drawRightString(A4[0]-48, 27, str(d.page))
     doc.addPageTemplates(PageTemplate(id='report', frames=[Frame(48, 48, doc.width, doc.height, leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0)], onPage=footer))
     story = [Spacer(1, 70), Paragraph('RETO 1 · ACCESO A LA VIVIENDA', style(12)),
              Paragraph(inline(title), ParagraphStyle('title', parent=style(30), leading=38, spaceAfter=25)),
              Paragraph('Curso de Especialización en Inteligencia Artificial y Big Data', style(13)),
-             Paragraph('Proyecto compartido por dos integrantes · Euskadi', style(11)),
-             Spacer(1, 25), Paragraph('Versión documental del 17 de noviembre de 2026', style(11)),
-             Paragraph('Código y evidencia base: 0f99053. Modelo y test final conservados.', style(10)),
+             Spacer(1, 25),
              Paragraph('Repositorio y archivos funcionales', style(11)),
              Paragraph('<link href="https://github.com/markelalvarez0/Reto-1" color="#087e83">https://github.com/markelalvarez0/Reto-1</link>', style(10)),
              PageBreak(), Paragraph('Contenido', style(24))]
@@ -220,7 +246,7 @@ def slides(source):
     for idx in range(1, len(sections), 2):
         c.setFillColor(colors.white); c.rect(0, 0, 960, 540, fill=1, stroke=0)
         c.setFillColor(TEAL); c.rect(0, 525, 960, 15, fill=1, stroke=0)
-        title = Paragraph(inline(sections[idx]), style(29))
+        title = Paragraph(inline(sections[idx]), style(28, leading=34))
         _, h = title.wrap(856, 100)
         title.drawOn(c, 52, 488-h)
         y = 466-h
@@ -231,7 +257,7 @@ def slides(source):
             block.drawOn(c, 52, y-bh)
             y -= bh + (12 if isinstance(block, Paragraph) else 8)
         c.setFillColor(BLUE); c.setFont('Body', 9)
-        c.drawString(52, 24, 'Reto 1 · Vivienda en Euskadi · Evidencia conservada · 17/11/2026')
+        c.drawString(52, 24, 'Reto 1 · Vivienda en Euskadi')
         c.drawRightString(908, 24, f'{(idx+1)//2} / {total}')
         c.showPage()
     c.save()

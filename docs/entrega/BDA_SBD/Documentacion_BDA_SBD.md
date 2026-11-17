@@ -8,7 +8,6 @@ Hemos construido un recorrido en Python que recoge datos, conserva los originale
 
 Con los datos comparables de 2024 T4, Vitoria-Gasteiz presenta la menor renta media de las tres capitales. Aun así, pagarla entera supone el 51,06 % del salario de referencia que usamos. Esto muestra una dificultad de acceso en ese escenario. No nos permite afirmar qué porcentaje de jóvenes puede emanciparse ni elegir el mejor municipio para cualquier persona.
 
-Esta memoria describe el código y los resultados conservados en la base 0f990531c86a7b4f247cb80631b02609fed687a0, revisada el 17 de noviembre de 2026. Las comprobaciones nuevas de documentación se distinguen de las ejecuciones de servicios del 12 de noviembre.
 
 ## 2 Elegimos fuentes que aportan cosas distintas
 
@@ -208,7 +207,7 @@ El recorrido técnico conserva el origen, permite repetir entregas y produce res
 
 Como mejoras proponemos una captura periódica con revisión de acceso, mayor cobertura de anuncios, detección de posibles duplicados entre portales, datos de ingresos comparables y seguimiento de calidad por fecha. También sería útil medir rendimiento con un volumen mayor. Estas mejoras no se presentan como funciones ya implementadas.
 
-Para defenderlo mostramos el visor, un original y su manifiesto, el resumen de transporte y la reentrega, las consultas, el explain y la operación atómica. Los accesos reales a HDFS y MongoDB forman parte de la entrega docente; los PDF y un enlace a GitHub no los sustituyen automáticamente. La guía común concreta cómo prepararlos y qué debe confirmar el profesorado.
+Para defenderlo mostramos el visor, un original y su manifiesto, el resumen de transporte y la reentrega, las consultas, el explain y la operación atómica. El ZIP incluye una copia recuperada de HDFS y tres exportaciones MongoDB en `data/exportaciones_entrega_2026-11-17/`. Se ha comprobado su restauración en rutas y bases nuevas. El README de esa carpeta explica cómo recuperarlas; el README del paquete explica cómo ejecutar el bloque.
 
 ## 16 Dónde comprobamos cada parte
 
@@ -221,6 +220,6 @@ Para defenderlo mostramos el visor, un original y su manifiesto, el resumen de t
 | Tres estadísticas API y reentrega | docs/evidencias_cierre_rubrica_2026-11-12/api-transporte-2.json |
 | Indicadores territoriales | docs/evidencias_entrega_2026-11-12/municipal/ |
 | Pruebas históricas reales | docs/evidencias_entrega_2026-11-12/integracion-final.xml |
-| Revisión actual de requisitos | docs/entrega/Revision_rubricas.md |
+| Datos exportados y restauración verificada | data/exportaciones_entrega_2026-11-17/ |
 
 Las rutas anteriores pertenecen a un único repositorio. Las carpetas académicas comparten código y recursos de la raíz. No las instalamos como proyectos independientes.
