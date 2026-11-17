@@ -14,3 +14,6 @@
 /data/capturas_api_rentas/** -text -diff
 
 /docs/evidencias_cierre_rubrica_2026-11-12/** -text -diff
+
+# PDF de entrega: preservar bytes y offsets internos también en Windows.
+/docs/entrega/**/*.pdf -text -diff

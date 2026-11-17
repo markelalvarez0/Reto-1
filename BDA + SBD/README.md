@@ -1,5 +1,7 @@
 # Reto 1 · BDA + SBD · Vivienda joven en Euskadi
 
+**Entrega vigente del 17 de noviembre:** [documentación PDF](../docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf), [presentación PDF](../docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf), [guion oral PDF](../docs/entrega/BDA_SBD/Guion_oral_BDA_SBD.pdf), [guía común PDF](../docs/entrega/Guia_entrega_y_defensa.pdf) y [revisión de rúbricas PDF](../docs/entrega/Revision_rubricas.pdf). Las rutas de `docs/guia_defensa/` y el informe conjunto de esta carpeta son históricos. Compartimos código, datos y recursos de la raíz; esta carpeta no se instala por separado.
+
 Actualización del 12 de noviembre de 2026: [17 anuncios archivados](../docs/RESULTADOS_ANUNCIOS.md)
 de dos portales y tres capitales, transportados con HDFS/Kafka/MongoDB reales
 junto con 621 promociones. El visor muestra ambos conjuntos con sus unidades

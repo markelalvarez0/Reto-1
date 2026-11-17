@@ -1,0 +1,48 @@
+{
+  "base_codigo": "0f990531c86a7b4f247cb80631b02609fed687a0",
+  "fecha": "2026-11-17",
+  "documentos": [
+    {
+      "archivo": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
+      "sha256": "603e1273bdc5d81f8cb1391af85990839990bc3240dfbb9b2c82fc4a19be26c2",
+      "fuente": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.md"
+    },
+    {
+      "archivo": "docs/entrega/BDA_SBD/Guion_oral_BDA_SBD.pdf",
+      "sha256": "f6a7842dceacaa9d84ddb7be22890ce8e1203ac23f29984a27da71067a78ed41",
+      "fuente": "docs/entrega/BDA_SBD/Guion_oral_BDA_SBD.md"
+    },
+    {
+      "archivo": "docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf",
+      "sha256": "d57c712c3dbbc491a3decfab60f085742aed1ea029427be159b2216d0a2dab29",
+      "fuente": "docs/entrega/BDA_SBD/Presentacion_BDA_SBD.md"
+    },
+    {
+      "archivo": "docs/entrega/Guia_entrega_y_defensa.pdf",
+      "sha256": "d1c1bcbe6b9273ee4414d3f94f1be448095ebd9ac3a7f4805ef27e65daab83ac",
+      "fuente": "docs/entrega/Guia_entrega_y_defensa.md"
+    },
+    {
+      "archivo": "docs/entrega/Revision_rubricas.pdf",
+      "sha256": "14cc5ed37175f900170aa90aa1b38732ecc8cc89ffbf03aa30fa56d4d2a3172c",
+      "fuente": "docs/entrega/Revision_rubricas.md"
+    },
+    {
+      "archivo": "docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf",
+      "sha256": "6c8352a5935b3652f9d6a46a6b892e6e6d8481bebdf1eb245a0bc53c31ce3cca",
+      "fuente": "docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.md"
+    },
+    {
+      "archivo": "docs/entrega/SAA_PIA_MIA/Guion_oral_SAA_PIA_MIA.pdf",
+      "sha256": "46a534ea145afea537acb5b515c7e2331065ca55f80f560f0424579e73aa7d8c",
+      "fuente": "docs/entrega/SAA_PIA_MIA/Guion_oral_SAA_PIA_MIA.md"
+    },
+    {
+      "archivo": "docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf",
+      "sha256": "fc8067f14c15e5126785197c4650d42ca851e441894aca8a012d39ff8cb269cf",
+      "fuente": "docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.md"
+    }
+  ],
+  "modelo_cargado": false,
+  "test_reevaluado": false
+}

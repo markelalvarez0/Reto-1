@@ -1,5 +1,7 @@
 # Reto 1 · De la referencia de alquiler a la orientación explicable
 
+**Entrega vigente del 17 de noviembre:** [documentación PDF](../docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf), [presentación PDF](../docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf), [guion oral PDF](../docs/entrega/SAA_PIA_MIA/Guion_oral_SAA_PIA_MIA.pdf), [guía común PDF](../docs/entrega/Guia_entrega_y_defensa.pdf) y [revisión de rúbricas PDF](../docs/entrega/Revision_rubricas.pdf). Las rutas de `docs/guia_defensa/` y el informe conjunto de esta carpeta son históricos. Compartimos código, datos y recursos de la raíz; esta carpeta no se instala por separado.
+
 Cierre de rúbricas: **168 pruebas**, 12 integraciones reales y CI Windows/Linux,
 MongoDB y BDA correctos. Nueva regla de referencia y API JSON EMAL acreditadas.
 El código se integró en test/main; guion oral y preguntas preparados. El ensayo
@@ -215,9 +217,9 @@ los tiempos son históricos del entrenamiento conservado, no una ejecución nuev
 | SVM | 10.6001 | 16.5865 | 0.9757 | 37.8630 | 55.5557 | 0.8085 | 0.1856 |
 | KNN | 0.0000 | 0.0000 | 1.0000 | 51.5196 | 60.8912 | 0.7700 | 0.0917 |
 
-![Comparación en MLflow](../docs/evidencias_ml/capturas/mlflow-experimentos.png)
+![Comparación en MLflow](../docs/entrega/assets/mlflow_experimentos_2026-11-17.png)
 
-Captura histórica real de los experimentos conservados; no es una nueva selección.
+Captura del 17 de noviembre sobre una copia de los registros conservados; no es una nueva selección.
 Se conserva MLP_2_capas por MAE de validación (24,20 €), frente a persistencia
 (24,63 €). El error se refiere a una referencia municipal, no a la tasación de un piso.
 

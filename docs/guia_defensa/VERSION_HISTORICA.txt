@@ -1,0 +1,8 @@
+Material conservado como histórico desde el 17 de noviembre de 2026.
+
+Las memorias, presentaciones y guiones vigentes están en ../entrega/.
+Consultar ../entrega/README.md para los PDF y fuentes editables actuales.
+
+El manual y el ZIP de esta carpeta conservan una versión anterior. No se borran
+ni se reempaquetan como si fueran los nuevos documentos. Los resultados vigentes
+se explican en las memorias de entrega y se verifican en los artefactos del proyecto.

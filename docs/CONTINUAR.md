@@ -1,3 +1,9 @@
+# Actualización documental del 17 de noviembre de 2026
+
+La documentación vigente, las presentaciones separadas, los guiones y la guía están en [entrega/README.md](entrega/README.md). La [revisión de las rúbricas adjuntas](entrega/Revision_rubricas.pdf) distingue requisitos y recomendaciones. Los informes anteriores y los checkpoints que siguen son históricos. Los seis controles de integridad y la suite de 168 pruebas se vuelven a comprobar en esta revisión documental; no se reentrena, no se reselecciona ni se reevalúa el test final. Detalle de comprobaciones actuales en `entrega/validacion_documentacion.json`.
+
+`python main.py --pdf` sigue generando el informe conjunto anterior. Los nuevos PDF se generan con `scripts/build_academic_docs.py`. El ensayo humano, los accesos o exportaciones de servicios y las condiciones del aula siguen siendo comprobaciones separadas.
+
 # Cierre de rúbricas validado · 12 de noviembre de 2026
 
 Código publicado en **7b4f272** e integrado por avance rápido en test/main,

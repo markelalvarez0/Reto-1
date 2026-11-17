@@ -1,3 +1,9 @@
+# Defensa vigente desde el 17 de noviembre de 2026
+
+Las presentaciones y los guiones vigentes se encuentran en [docs/entrega](entrega/README.md): [BDA/SBD](entrega/BDA_SBD/Presentacion_BDA_SBD.pdf), [guion BDA/SBD](entrega/BDA_SBD/Guion_oral_BDA_SBD.pdf), [IA](entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf) y [guion IA](entrega/SAA_PIA_MIA/Guion_oral_SAA_PIA_MIA.pdf). La [guía común](entrega/Guia_entrega_y_defensa.pdf) incluye estudio, entrega y comandos. IA: 15 minutos por pareja y tres preguntas individuales por persona, confirmado en el enunciado adjunto. La duración BDA/SBD debe confirmarse.
+
+El contenido siguiente conserva la versión anterior como histórico; no prevalece sobre estos documentos.
+
 # Defensa por bloques: dos presentaciones independientes
 
 Material ampliado: [manual](guia_defensa/Manual_completo_Reto1.pdf), [Word editable](guia_defensa/Manual_completo_Reto1.docx), [guía rápida](guia_defensa/Guia_rapida_defensa.pdf).

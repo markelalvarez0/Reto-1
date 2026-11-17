@@ -9,6 +9,20 @@ humano sigue pendiente. Detalle en docs/CIERRE_RUBRICA.md desde la raíz.
 
 Captura real de Streamlit con un perfil inventado de prueba; no es un expediente personal.
 
+## Documentos vigentes para entregar y defender
+
+Actualización documental del **17 de noviembre de 2026**, contrastada con los dos enunciados docentes. Las memorias explican qué hicimos, por qué y con qué límites. El modelo aprende estadísticas municipales: **601 observaciones de entrenamiento, no 601 pisos individuales**. El salario se utiliza después en el análisis y las reglas.
+
+| Bloque | Documentación que se corrige | Presentación | Apoyo oral |
+|---|---|---|---|
+| BDA + SBD | [Memoria PDF](docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf) | [Presentación PDF](docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf) | [Guion PDF](docs/entrega/BDA_SBD/Guion_oral_BDA_SBD.pdf) |
+| SAA + PIA + MIA | [Memoria PDF](docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf) | [Presentación PDF de 15 minutos](docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf) | [Guion PDF](docs/entrega/SAA_PIA_MIA/Guion_oral_SAA_PIA_MIA.pdf) |
+
+[Guía de entrega, estudio y demostración PDF](docs/entrega/Guia_entrega_y_defensa.pdf) · [Revisión de las dos rúbricas PDF](docs/entrega/Revision_rubricas.pdf) · [Fuentes editables e inventario](docs/entrega/README.md).
+
+Los siete PDF principales y la revisión adicional son la documentación vigente. Los cuatro informes idénticos de raíz y carpetas académicas, y el material de `docs/guia_defensa/`, se conservan como **históricos**. No reemplazan estos nuevos documentos. El código, datos, notebooks y modelo se entregan en sus formatos originales; el acceso o exportación de HDFS/MongoDB se acuerda con el profesorado. El ensayo humano y la valoración de novedad siguen pendientes.
+
+
 Proyecto interdisciplinar del Curso de Especialización en Inteligencia Artificial y Big Data, IABD 2026–27.
 
 ![Visor territorial ejecutado con resultados de MongoDB real](docs/evidencias_2026-11-11/territorio.png)
@@ -39,13 +53,12 @@ El commit `1c7c45e` superó los CI remotos de
 [BDA](https://github.com/markelalvarez0/Reto-1/actions/runs/43008668473) y
 [n8n](https://github.com/markelalvarez0/Reto-1/actions/runs/43008668600).
 
-El [PDF vigente versionado](Entrega_Reto1_IABD_Documentacion.pdf) sustituye los
-cuatro PDF anteriores. `python main.py --pdf` genera el informe, figuras conservadas y manifiesto
+El [informe conjunto histórico](Entrega_Reto1_IABD_Documentacion.pdf) contiene la versión anterior, idéntica en cuatro rutas. Los documentos vigentes son los de `docs/entrega/`. `python main.py --pdf` genera el informe, figuras conservadas y manifiesto
 de fuentes en `data/informe_entrega/`, sin ejecutar el modelo. Las entradas
 históricas de generación delegan en este mismo generador.
 [Guion de defensa de 15 minutos](docs/DEFENSA.md).
 
-Para estudiar y preparar la exposición en pareja: [manual completo en PDF](docs/guia_defensa/Manual_completo_Reto1.pdf),
+Material histórico conservado para consulta: [manual completo en PDF](docs/guia_defensa/Manual_completo_Reto1.pdf),
 [versión editable Word](docs/guia_defensa/Manual_completo_Reto1.docx),
 [presentación BDA + SBD](docs/guia_defensa/Presentacion_BDA_SBD.pdf),
 [presentación SAA + PIA + MIA de 15 minutos](docs/guia_defensa/Presentacion_SAA_PIA_MIA.pdf) y
@@ -141,16 +154,19 @@ SMOTE se aplica únicamente a una clasificación auxiliar de subida trimestral o
 
 Campos del conjunto de entrenamiento (601 filas; porcentajes medidos, no imputados):
 
-| Campo | Significado | Tipo | Nulos train |
+| Campo | Significado y uso | Tipo | Nulos train |
 |---|---|---|---:|
-| codigo_municipio | Código INE | categórica | 0 % |
-| municipio / provincia | Territorio y denominación | categórica | 0 % |
-| anio / trimestre / periodo | Tiempo de observación | entero | 0 % |
-| renta_media_eur | Objetivo mensual agregado | real | 0 % |
-| numero_contratos | Contratos del trimestre, sin usar el contemporáneo como entrada | real | 0 % |
-| renta_lag1 | Renta un trimestre antes | real | 4,16 % |
-| renta_lag4 | Renta cuatro trimestres antes | real | 13,64 % |
-| contratos_lag1 | Contratos un trimestre antes | real | 3,00 % |
+| codigo_municipio | INE de cinco caracteres; entrada | categórica | 0 % |
+| municipio | Nombre para lectura, excluido de entradas porque usamos INE | texto | 0 % |
+| provincia | Territorio del INE; entrada | categórica | 0 % |
+| anio | Año del trimestre; entrada | entero | 0 % |
+| trimestre | Trimestre del año; entrada | entero | 0 % |
+| periodo | Orden temporal y partición, excluido como entrada adicional | entero | 0 % |
+| renta_media_eur | Renta mensual media; objetivo, nunca entrada | real | 0 % |
+| numero_contratos | Contratos del trimestre; solo se usa su retardo como entrada | real | 0 % |
+| renta_lag1 | Renta un trimestre antes; entrada | real | 4,16 % |
+| renta_lag4 | Renta cuatro trimestres antes; entrada | real | 13,64 % |
+| contratos_lag1 | Contratos un trimestre antes; entrada | real | 3,00 % |
 
 Los once objetivos no publicados se excluyen antes de construir el conjunto
 supervisado. Los retardos faltan por construcción o ausencia de publicación;
@@ -221,7 +237,7 @@ Las acciones locales generan fichas o listas de comprobación distintas. **No en
 
 ## Evaluación y límites de entrega
 
-Los resultados heredados de `best_model.json`, `mlruns_data.json` y gráficos antiguos no sustituyen los artefactos nuevos ni deben presentarse como evidencia de datos reales. Los README vigentes y los cuatro PDF se han actualizado con los artefactos conservados y la muestra archivada. Los resultados históricos se mantienen identificados por su fecha.
+Los resultados heredados de `best_model.json`, `mlruns_data.json` y gráficos antiguos no sustituyen los artefactos nuevos ni deben presentarse como evidencia de datos reales. Los README y los cuatro PDF históricos se actualizaron en el cierre anterior con los artefactos conservados y la muestra archivada. Los resultados históricos se mantienen identificados por su fecha.
 
 Las pruebas reales de la continuación acreditan las capturas oficiales y las
 vistas municipales por HDFS → Kafka → MongoDB. Los mensajes de promociones y las
@@ -276,9 +292,9 @@ los tiempos son históricos del entrenamiento conservado, no una ejecución nuev
 | SVM | 10.6001 | 16.5865 | 0.9757 | 37.8630 | 55.5557 | 0.8085 | 0.1856 |
 | KNN | 0.0000 | 0.0000 | 1.0000 | 51.5196 | 60.8912 | 0.7700 | 0.0917 |
 
-![Comparación en MLflow](docs/evidencias_ml/capturas/mlflow-experimentos.png)
+![Comparación en MLflow](docs/entrega/assets/mlflow_experimentos_2026-11-17.png)
 
-Captura histórica real de los experimentos conservados; no es una nueva selección.
+Captura del 17 de noviembre sobre una copia de los registros conservados; no es una nueva selección.
 Se conserva MLP_2_capas por MAE de validación (24,20 €), frente a persistencia
 (24,63 €). El error se refiere a una referencia municipal, no a la tasación de un piso.
 

@@ -1,0 +1,170 @@
+{
+  "fecha": "2026-11-17",
+  "base_codigo": "0f990531c86a7b4f247cb80631b02609fed687a0",
+  "pdf": [
+    {
+      "archivo": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
+      "paginas": 14,
+      "texto_seleccionable": true,
+      "caracteres": 25271,
+      "sha256": "603e1273bdc5d81f8cb1391af85990839990bc3240dfbb9b2c82fc4a19be26c2"
+    },
+    {
+      "archivo": "docs/entrega/BDA_SBD/Guion_oral_BDA_SBD.pdf",
+      "paginas": 6,
+      "texto_seleccionable": true,
+      "caracteres": 8860,
+      "sha256": "f6a7842dceacaa9d84ddb7be22890ce8e1203ac23f29984a27da71067a78ed41"
+    },
+    {
+      "archivo": "docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf",
+      "paginas": 12,
+      "texto_seleccionable": true,
+      "caracteres": 3952,
+      "sha256": "d57c712c3dbbc491a3decfab60f085742aed1ea029427be159b2216d0a2dab29"
+    },
+    {
+      "archivo": "docs/entrega/Guia_entrega_y_defensa.pdf",
+      "paginas": 11,
+      "texto_seleccionable": true,
+      "caracteres": 19703,
+      "sha256": "d1c1bcbe6b9273ee4414d3f94f1be448095ebd9ac3a7f4805ef27e65daab83ac"
+    },
+    {
+      "archivo": "docs/entrega/Revision_rubricas.pdf",
+      "paginas": 9,
+      "texto_seleccionable": true,
+      "caracteres": 13844,
+      "sha256": "14cc5ed37175f900170aa90aa1b38732ecc8cc89ffbf03aa30fa56d4d2a3172c"
+    },
+    {
+      "archivo": "docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf",
+      "paginas": 21,
+      "texto_seleccionable": true,
+      "caracteres": 30516,
+      "sha256": "6c8352a5935b3652f9d6a46a6b892e6e6d8481bebdf1eb245a0bc53c31ce3cca"
+    },
+    {
+      "archivo": "docs/entrega/SAA_PIA_MIA/Guion_oral_SAA_PIA_MIA.pdf",
+      "paginas": 6,
+      "texto_seleccionable": true,
+      "caracteres": 9408,
+      "sha256": "46a534ea145afea537acb5b515c7e2331065ca55f80f560f0424579e73aa7d8c"
+    },
+    {
+      "archivo": "docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf",
+      "paginas": 12,
+      "texto_seleccionable": true,
+      "caracteres": 3511,
+      "sha256": "fc8067f14c15e5126785197c4650d42ca851e441894aca8a012d39ff8cb269cf"
+    }
+  ],
+  "errores_automaticos": [],
+  "enlaces_locales_comprobados": 120,
+  "fuentes_docentes": [
+    {
+      "nombre": "Reto1_SAA_PIA_MIA_2026-27_v5.pdf",
+      "paginas": 9,
+      "sha256": "114ee388e33dcc90d1faf276ed506ff90d5f57764f62cb3d9cfb57b76b3dbc19"
+    },
+    {
+      "nombre": "RETO 1Evaluacion SBD-BDA.pdf",
+      "paginas": 6,
+      "sha256": "6f75e97ff127bf3a25b93962a03f4c3957d526ee6ca66895717104e75b07b185"
+    }
+  ],
+  "integridad": {
+    "ok": true,
+    "controles": [
+      {
+        "control": "originales",
+        "ok": true,
+        "detalle": {
+          "archivos_verificados": 6
+        }
+      },
+      {
+        "control": "artefactos_ml",
+        "ok": true,
+        "detalle": {
+          "archivos_verificados": 88
+        }
+      },
+      {
+        "control": "test_sellado",
+        "ok": true,
+        "detalle": {
+          "modelo": "MLP_2_capas",
+          "evaluaciones": 1,
+          "modelo_ejecutado": false
+        }
+      },
+      {
+        "control": "copias_academicas",
+        "ok": true,
+        "detalle": "Tres copias académicas coinciden con src/"
+      },
+      {
+        "control": "captura_anuncios",
+        "ok": true,
+        "detalle": {
+          "archivos_verificados": 22
+        }
+      },
+      {
+        "control": "api_rentas",
+        "ok": true,
+        "detalle": {
+          "archivos_verificados": 4
+        }
+      }
+    ],
+    "alcance": "Integridad local. No acredita servicios activos, scraping vigente ni cumplimiento completo de rúbricas."
+  },
+  "aplicaciones": {
+    "ia_abre": true,
+    "test_informe_conservado": true,
+    "territorio_abre_con_evidencia_archivada": true,
+    "tablas": 6,
+    "servicios_nuevos": false
+  },
+  "notebook_fuente_solo_celda_explicativa": true,
+  "notebooks_ejecutados_modelo_resultados_datos_sin_cambios": true,
+  "captura_mlflow": {
+    "archivo": "assets/mlflow_experimentos_2026-11-17.png",
+    "navegador": "Chromium real mediante Playwright",
+    "origen": "copia local de entrega_ml/mlruns/mlflow.db",
+    "ejecuciones_existentes": 11,
+    "entrenamientos_nuevos": 0
+  },
+  "servicios_bda_n8n_en_esta_revision": "No se repite integración real; se revisan XML y JSON conservados del 12 de noviembre",
+  "inspeccion_visual": "Páginas rasterizadas y revisión visual de diagramas, tablas y figuras. Fuentes editables conservadas.",
+  "pendientes": [
+    "ensayo humano cronometrado y preguntas individuales",
+    "confirmar accesos o exportaciones HDFS y MongoDB para entrega",
+    "confirmar canal de aula y valoración de novedad"
+  ],
+  "pruebas_actuales": [
+    {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "168",
+      "time": "13.371",
+      "timestamp": "2026-11-17T19:22:28.598856+01:00",
+      "hostname": "f945174f46f9"
+    }
+  ],
+  "avisos_pruebas": 5,
+  "checks_ejecutados": [
+    "uv sync --locked --extra dev",
+    "main.py --audit --json",
+    "scripts/sync_sources.py --check",
+    "pytest tests/ -q",
+    "AppTest de ambas aplicaciones",
+    "lectura y rasterización de todos los PDF",
+    "verificación de texto, límites y enlaces locales",
+    "captura Chromium de MLflow sobre copia"
+  ]
+}
