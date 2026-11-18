@@ -2,7 +2,7 @@
 
 ## 1 ¿Qué supone alquilar siendo joven?
 
-Hemos comparado información de vivienda de distintos municipios de Euskadi.
+Trabajamos con los 19 municipios de la serie EMAL y comparamos todos los que tienen datos en cada trimestre.
 
 :::flow Recoger datos | Comparar municipios | Entender el esfuerzo
 
@@ -16,7 +16,7 @@ Juntamos estas fuentes porque el precio, por sí solo, no explica el esfuerzo pa
 
 ## 3 Cada dato cuenta algo diferente
 
-:::cards 17 :: Identidades de anuncios archivados. | 621 :: Registros de promociones de vivienda. | EMAL :: Rentas medias de contratos por municipio.
+:::cards 17 :: Identidades de anuncios archivados. | 621 :: Registros de promociones de vivienda. | EMAL :: Serie de rentas de 19 municipios.
 
 Los 638 registros del transporte no son 638 pisos distintos. Analizamos los conjuntos por separado para no mezclar unidades.
 
@@ -60,15 +60,15 @@ Además, con un índice la misma consulta revisa 4 documentos en vez de 638 y de
 
 ## 9 Mismo ingreso, distinto esfuerzo
 
-![Parte del ingreso de referencia destinada a la renta media](../assets/esfuerzo_capitales.png)
+![Esfuerzo en los 18 municipios con datos de 2024 T4](../assets/esfuerzo_municipios.png)
 
-Rentas EMAL de 2024 T4. Suponemos pagar el alquiler entero con el mismo ingreso autonómico de referencia.
+Todos los municipios con dato en 2024 T4. Suponemos pagar la renta completa con un ingreso común de 1.564 €/mes.
 
 ## 10 Lo enseñamos en el visor
 
-![Captura real de la comparación de capitales en el visor](../assets/visor_capitales.png)
+![Captura real del visor con todos los municipios de 2024 T4](../assets/visor_municipios.png)
 
-Elegimos municipios y vemos su comparación. La captura usa los resultados reales archivados del proyecto.
+Podemos comparar todos los municipios o elegir algunos. Aquí se ven la selección completa y las primeras filas de resultados.
 
 ## 11 El mapa también necesita contexto
 
@@ -78,6 +78,6 @@ El mapa sitúa promociones publicadas; no garantiza que estén disponibles. Los 
 
 ## 12 Qué hemos conseguido y qué mejoraríamos
 
-:::cards Conseguido :: Una comparación cuyo origen podemos comprobar. | Conclusión :: Vitoria exige menos esfuerzo que las otras dos capitales. | Siguiente paso :: Más muestra e ingresos reales de cada hogar.
+:::cards Conseguido :: Comparar todos los municipios disponibles. | Conclusión :: Eibar tiene la menor renta media y Donostia la mayor. | Siguiente paso :: Más muestra e ingresos reales de cada hogar.
 
-En el escenario comparado, las tres capitales superan la mitad del ingreso de referencia.
+En los 18 municipios de 2024 T4, pagar toda la renta supera el 40 % del ingreso común. No cubrimos todos los municipios de Euskadi.

@@ -2,7 +2,7 @@
 
 ## 1 Qué queríamos hacer
 
-Queríamos comparar el alquiler en Euskadi y entender qué parte de un sueldo joven podría llevarse. Para hacerlo buscamos fuentes, recogimos información y la organizamos hasta poder consultarla en un visor. Este esquema resume las partes del proyecto.
+Queríamos comparar el alquiler en todos los municipios disponibles en nuestras fuentes y entender qué parte de un sueldo joven podría llevarse. La serie EMAL incluye 19 municipios de Euskadi. Buscamos los datos, los organizamos y los mostramos en un visor. Este esquema resume el proyecto.
 
 ![Esquema general del proyecto: fuentes, preparación, almacenamiento, consultas y visor](../assets/estructura_bda_sbd.png)
 
@@ -12,7 +12,7 @@ El esquema es de elaboración propia. Cada conjunto conserva su significado: anu
 
 | Fuente | Qué aporta y para qué la usamos |
 |---|---|
-| EMAL, Excel | Rentas y contratos por municipio y trimestre, para comparar su evolución |
+| EMAL, Excel | Serie de 19 municipios; comparamos todos los que tienen datos en cada trimestre |
 | API del visor EMAL | Tres estadísticas de renta de 2024 T4, recibidas directamente desde Python |
 | Habitaclia y Pisos.com | 17 anuncios para analizar precios pedidos y características |
 | Visesa y Etxebide | 621 registros de promociones, para conservar y situar proyectos de vivienda |
@@ -25,7 +25,7 @@ El esquema es de elaboración propia. Cada conjunto conserva su significado: anu
 
 ## 3 Cómo hicimos la API y el scraping
 
-**Con la API recibimos datos preparados para un programa.** Pedimos las rentas de Bilbao, Donostia y Vitoria para 2024 T4, seleccionando nuevos contratos, vivienda habitual y edificio colectivo. Guardamos la dirección y los filtros de cada petición para saber qué estamos comparando.
+**Con la API recibimos datos preparados para un programa.** Hicimos una comprobación con rentas de las capitales para 2024 T4, seleccionando nuevos contratos, vivienda habitual y edificio colectivo. Guardamos la dirección y los filtros. Esta prueba complementa el análisis de todos los municipios disponibles en el Excel EMAL.
 
 ![Datos recibidos de la API EMAL, mostrados en nuestro visor](../assets/bda_api_en_visor.png)
 
@@ -33,7 +33,7 @@ La API devuelve 930,3 €/mes para Bilbao, 1.147,5 para Donostia y 798,6 para Vi
 
 **Con el scraping recogemos los datos del HTML de los listados.** Usamos `requests` para descargarlo y `BeautifulSoup` para encontrar cada anuncio. Extraemos precio, metros cuadrados, habitaciones, baños, ubicación y enlace, y los guardamos en JSON.
 
-Limitamos la captura a tres anuncios interpretables por ciudad y portal. Obtuvimos nueve de Habitaclia y ocho de Pisos.com: seis en Bilbao, seis en Donostia y cinco en Vitoria. En Pisos.com Vitoria solo obtuvimos dos interpretables. Al principio fallaron algunas rutas y selectores; los corregimos revisando el HTML recibido.
+Para probar la extracción reunimos una muestra de los dos portales en las capitales. Al principio fallaron algunas rutas y selectores; los corregimos revisando el HTML recibido. Esta muestra sirve para comprobar la recogida y las consultas; el análisis municipal más amplio procede de EMAL.
 
 ![Primeras filas de los anuncios archivados, con fuente, municipio, precio y superficie](../assets/bda_anuncios_en_visor.png)
 
@@ -149,39 +149,37 @@ Probamos **100 incrementos concurrentes y el contador terminó en 100**. Usamos 
 
 Esta actualización es atómica: los cambios del documento se hacen juntos. Para cambiar varias fichas de forma inseparable habría que estudiar una transacción. Hemos aprendido a distinguir esos casos.
 
-## 13 Qué vemos en las tres capitales
+## 13 Qué vemos al comparar todos los municipios
 
-Comparamos rentas EMAL de 2024 T4 con **1.564 € netos al mes**, salario medio de jóvenes asalariados de 18 a 34 años de Euskadi en 2024, incluidas las pagas extra. Mantenemos el ingreso fijo para observar el efecto de la renta.
+La serie EMAL incluye **19 municipios**. En **2024 T4 hay datos de 18**, y comparamos todos ellos. Erandio aparece en la serie histórica, pero no tiene dato en ese trimestre. Es la cobertura de nuestras fuentes, no un censo de todos los municipios de Euskadi.
 
-| Capital | Renta mensual | Contratos | Subida interanual | Esfuerzo |
-|---|---:|---:|---:|---:|
-| Vitoria-Gasteiz | 798,57 € | 549 | 2,88 % | 51,06 % |
-| Bilbao | 930,31 € | 767 | 6,86 % | 59,48 % |
-| Donostia-San Sebastián | 1.147,53 € | 516 | 8,53 % | 73,37 % |
+Usamos **1.564 € netos al mes**, salario medio de jóvenes asalariados de 18 a 34 años de Euskadi en 2024, incluidas las pagas extra. Al mantener ese ingreso fijo vemos cómo cambia el esfuerzo según la renta municipal.
 
-En Bilbao calculamos `930,31 / 1.564 × 100 = 59,48 %`. Una persona con ese ingreso que pagase toda la renta media dedicaría unos 59 de cada 100 euros al alquiler. Es un escenario común, no el sueldo real de cada municipio o persona.
+![Los 18 municipios con datos en 2024 T4: parte del ingreso de referencia destinada al alquiler](../assets/esfuerzo_municipios.png)
 
-![Comparación de las capitales en el visor, con los resultados archivados](../assets/visor_capitales.png)
+Eibar tiene la menor renta media de esta comparación: **651,55 €**, un **41,66 %** del ingreso de referencia. Donostia-San Sebastián tiene la mayor: **1.147,53 €**, un **73,37 %**. Los demás municipios quedan entre ambos. Son rentas de contratos observados, no precios de anuncios actuales.
 
-Calculamos cinco indicadores principales: renta mensual, equivalente anual, contratos, variación interanual y esfuerzo. También comparamos con el 30 %, una referencia analítica que no determina ayudas. En 2024 T4 hay datos de 18 municipios; la serie completa cubre 19. El resumen territorial usa medias simples entre municipios, no ponderadas por todos sus contratos.
+Por ejemplo, en Bilbao calculamos `930,31 / 1.564 × 100 = 59,48 %`. Suponemos que una persona paga todo el alquiler con ese ingreso común; no estamos usando el sueldo real de cada municipio o persona.
 
-Usamos barras para comparar, una línea para la evolución y un mapa para situar promociones. Las tablas y el CSV permiten revisar las cifras exactas.
+Calculamos cinco indicadores: renta mensual, equivalente anual, contratos, variación interanual y esfuerzo. También comparamos con el 30 %, una referencia analítica que no determina ayudas. El resumen territorial usa medias simples entre municipios, no ponderadas por todos sus contratos.
+
+El visor permite seleccionar cualquiera de los municipios disponibles. Usamos barras para comparar, una línea para la evolución y un mapa para situar promociones. Las tablas y el CSV permiten revisar las cifras exactas.
 
 ![Mapa de promociones publicado en el visor](../assets/visor_mapa.png)
 
-El mapa muestra coordenadas de promociones Visesa y no garantiza disponibilidad. Estas dos capturas se tomaron el 17 de noviembre sobre resultados archivados del proyecto.
+El mapa muestra coordenadas de promociones Visesa y no garantiza disponibilidad. Esta captura se tomó el 17 de noviembre sobre resultados archivados del proyecto.
 
-## 14 Qué podemos decir de los 17 anuncios
+## 14 Qué podemos decir de la muestra de anuncios
 
-| Municipio | Anuncios | Precio pedido medio | Media de €/m² |
-|---|---:|---:|---:|
-| Vitoria-Gasteiz | 5 | 1.604,40 € | 16,60 |
-| Donostia-San Sebastián | 6 | 2.108,33 € | 25,70 |
-| Bilbao | 6 | 2.316,67 € | 21,36 |
+| Municipio de la muestra | Precio pedido medio | Media de €/m² |
+|---|---:|---:|
+| Vitoria-Gasteiz | 1.604,40 € | 16,60 |
+| Donostia-San Sebastián | 2.108,33 € | 25,70 |
+| Bilbao | 2.316,67 € | 21,36 |
 
 Bilbao tiene el mayor precio medio de esta selección y Donostia la mayor media por m². Son viviendas de tamaños distintos; calculamos primero los €/m² de cada anuncio y luego su media.
 
-**17 anuncios son pocos para describir el mercado.** Un piso caro puede mover bastante la media. Además, hay tres señales de temporalidad y dos de anuncios dirigidos a empresas, que pueden coincidir. Esta muestra permite comprobar el sistema, pero no ordenar todo el mercado de Euskadi. Tampoco debemos mezclar precios pedidos de 2026 con rentas de contratos de 2024.
+**La muestra es pequeña y sirve para probar el funcionamiento.** Un piso caro puede mover bastante la media. Además, hay tres señales de temporalidad y dos de anuncios dirigidos a empresas, que pueden coincidir. Esta muestra permite comprobar el sistema, pero no ordenar todo el mercado de Euskadi. Tampoco debemos mezclar precios pedidos de 2026 con rentas de contratos de 2024.
 
 ## 15 Qué hemos aprendido y conclusión
 
@@ -189,7 +187,7 @@ Hemos aprendido a organizar los datos pensando en lo que queremos preguntar. Gua
 
 Lo mas importante ha sido revisar los límites: un dato vacío no es cero, una consulta sin resultados no demuestra que algo no exista y repetir una carga no debería duplicar registros. Las comprobaciones nos han ayudado a detectar esas situaciones.
 
-Nuestra conclusión sobre las capitales es que Vitoria requiere menos esfuerzo con el ingreso común elegido, aunque las tres superan la mitad de ese sueldo. Que una renta sea menor no significa que pagarla resulte fácil. No hemos medido cuántos jóvenes pueden emanciparse.
+Al comparar todos los municipios con datos en 2024 T4, Eibar tiene la menor renta media y Donostia-San Sebastián la mayor. En todos, pagar la renta completa supera el 40 % del ingreso común elegido. Que un municipio sea más barato no significa que resulte fácil pagarlo. No hemos medido cuántos jóvenes pueden emanciparse.
 
 Hemos conseguido un recorrido que recoge, conserva y consulta datos cuyo origen podemos comprobar. Para mejorarlo ampliaríamos la muestra, revisaríamos pisos repetidos entre portales y completaríamos campos como el ascensor y las ayudas. También buscaríamos ingresos comparables y probaríamos un volumen mayor. Son mejoras pendientes.
 

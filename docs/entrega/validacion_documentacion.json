@@ -6,10 +6,10 @@
       "archivo": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
       "paginas": 12,
       "texto_seleccionable": true,
-      "caracteres": 18049,
-      "sha256": "42137caf9ef248b4bfa7ba1f860fe03fc0abe09aab72a514277532c8b15cdbdd",
+      "caracteres": 18489,
+      "sha256": "20e82c715b623a4bd5209aedd47f482a15d50127232ff9b314100e67355be477",
       "enlaces_pdf": 33,
-      "paginas_con_imagenes": 4
+      "paginas_con_imagenes": 5
     },
     {
       "archivo": "docs/entrega/BDA_SBD/Guion_oral_BDA_SBD.pdf",
@@ -24,8 +24,8 @@
       "archivo": "docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf",
       "paginas": 12,
       "texto_seleccionable": true,
-      "caracteres": 3476,
-      "sha256": "2fc62c836bb12400c70f2cf8246a231b05852db61ed556c87ae14068950af7de",
+      "caracteres": 3562,
+      "sha256": "34a997811d2b85e2e9fc66fd4ee6e02ac3a379c3652b317ebafc429ff93c9cc6",
       "enlaces_pdf": 0,
       "paginas_con_imagenes": 3
     },
@@ -269,8 +269,8 @@
   "paquetes": [
     {
       "archivo": "Entrega_BDA_SBD.zip",
-      "bytes": 6487334,
-      "sha256": "2405834bf26e3a85e5e311cce601a0d55fc529559b82c0500b2b4d07704bfca6",
+      "bytes": 6787019,
+      "sha256": "3921c4c3298649c74755beb1658a490746e6c14cb50440a5cb8493bae14d5d1a",
       "archivos": 218,
       "pdf": [
         "Instrucciones_BDA_SBD.pdf",
@@ -413,5 +413,37 @@
     "servicios_repetidos": false,
     "entrenamiento_repetido": false,
     "test_final_reevaluado": false
+  },
+  "revision_alcance_bda_2026_11_18": {
+    "cambios": "Memoria, presentación, gráfico y captura explican la cobertura completa de las fuentes municipales. Se retira el desglose de anuncios por portal y por ciudad.",
+    "municipios_serie": 19,
+    "municipios_comparativa_2024_T4": 18,
+    "municipio_solo_historico": "Erandio",
+    "fuentes_verificadas": [
+      "docs/evidencias_entrega_2026-11-12/municipal/comparativa_municipal.json",
+      "docs/evidencias_entrega_2026-11-12/municipal/serie_trimestral.json"
+    ],
+    "no_se_afirma_cobertura_total_de_euskadi": true,
+    "api_y_scraping_conservan_su_alcance_real": true,
+    "grafico_todos_los_municipios": "docs/entrega/assets/esfuerzo_municipios.png",
+    "captura_seleccion_completa": "docs/entrega/assets/visor_municipios.png",
+    "inspeccion_visual": "Revisadas las 12 páginas de memoria y las 12 diapositivas, sin desbordamientos.",
+    "pruebas": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "168",
+      "time": "14.907",
+      "timestamp": "2026-11-18T15:55:36.489885+01:00",
+      "hostname": "a7f97f83d390"
+    },
+    "avisos_pruebas": 5,
+    "paquete_bda_extraido_y_verificado": true,
+    "paquete_ia_sin_cambios": true,
+    "codigo_y_datos_sin_cambios": true,
+    "integridad_local_correcta": true,
+    "servicios_repetidos": false,
+    "modelo_reevaluado": false
   }
 }

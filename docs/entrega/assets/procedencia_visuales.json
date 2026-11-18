@@ -39,7 +39,8 @@
     "esfuerzo_capitales.png": "docs/evidencias_entrega_2026-11-12/municipal/comparativa_municipal.json",
     "persistencia_train.png": "entrega_ml/data/train.csv",
     "baseline_validacion.png": "entrega_ml/models/selection.json",
-    "shap_validacion_resumen.png": "entrega_ml/resultados/shap_validacion.csv"
+    "shap_validacion_resumen.png": "entrega_ml/resultados/shap_validacion.csv",
+    "esfuerzo_municipios.png": "docs/evidencias_entrega_2026-11-12/municipal/comparativa_municipal.json"
   },
   "estructura_bda_sbd.png": {
     "fecha": "2026-11-18",
@@ -72,6 +73,49 @@
       "municipio",
       "precio",
       "superficie_m2"
+    ],
+    "servicios_repetidos": false
+  },
+  "esfuerzo_municipios.png": {
+    "fecha": "2026-11-18",
+    "tipo": "Gráfico de elaboración propia a partir de resultados archivados",
+    "municipios": 18,
+    "periodo": "2024 T4",
+    "datos": "docs/evidencias_entrega_2026-11-12/municipal/comparativa_municipal.json",
+    "sha256_datos": "218c8b678d806ba6ca2e1870fdc26254bae020c1d5047aee1c2bd945310a138d",
+    "calculo": "renta_media_eur / 1564 * 100",
+    "servicios_repetidos": false
+  },
+  "visor_municipios.png": {
+    "fecha": "2026-11-18",
+    "tipo": "Captura real de app/territorio.py abierta con resultados archivados",
+    "captura": "Chromium mediante Playwright; selección completa de 18 municipios y primeras cinco filas; columnas seleccionadas mediante la interfaz y recorte visible sin cambiar valores",
+    "datos": "docs/evidencias_entrega_2026-11-12/municipal/comparativa_municipal.json",
+    "sha256_datos": "218c8b678d806ba6ca2e1870fdc26254bae020c1d5047aee1c2bd945310a138d",
+    "seleccion": [
+      "Eibar",
+      "Arrasate/Mondragon",
+      "Tolosa",
+      "Durango",
+      "Basauri",
+      "Sestao",
+      "Santurtzi",
+      "Portugalete",
+      "Hernani",
+      "Barakaldo",
+      "Vitoria-Gasteiz",
+      "Errenteria",
+      "Irun",
+      "Leioa",
+      "Bilbao",
+      "Zarautz",
+      "Getxo",
+      "Donostia-San Sebastian"
+    ],
+    "columnas_visibles": [
+      "municipio",
+      "renta_media_eur",
+      "esfuerzo_escenario_pct"
     ],
     "servicios_repetidos": false
   }

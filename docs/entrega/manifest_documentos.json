@@ -4,7 +4,7 @@
   "documentos": [
     {
       "archivo": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
-      "sha256": "42137caf9ef248b4bfa7ba1f860fe03fc0abe09aab72a514277532c8b15cdbdd",
+      "sha256": "20e82c715b623a4bd5209aedd47f482a15d50127232ff9b314100e67355be477",
       "fuente": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.md",
       "revision_documental": "2026-11-18"
     },
@@ -15,8 +15,9 @@
     },
     {
       "archivo": "docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf",
-      "sha256": "2fc62c836bb12400c70f2cf8246a231b05852db61ed556c87ae14068950af7de",
-      "fuente": "docs/entrega/BDA_SBD/Presentacion_BDA_SBD.md"
+      "sha256": "34a997811d2b85e2e9fc66fd4ee6e02ac3a379c3652b317ebafc429ff93c9cc6",
+      "fuente": "docs/entrega/BDA_SBD/Presentacion_BDA_SBD.md",
+      "revision_documental": "2026-11-18"
     },
     {
       "archivo": "docs/entrega/Guia_entrega_y_defensa.pdf",
