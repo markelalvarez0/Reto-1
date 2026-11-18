@@ -40,5 +40,39 @@
     "persistencia_train.png": "entrega_ml/data/train.csv",
     "baseline_validacion.png": "entrega_ml/models/selection.json",
     "shap_validacion_resumen.png": "entrega_ml/resultados/shap_validacion.csv"
+  },
+  "estructura_bda_sbd.png": {
+    "fecha": "2026-11-18",
+    "tipo": "Esquema de elaboración propia, no captura de una ejecución",
+    "fuente": "docs/entrega/assets/estructura_bda_sbd.dot",
+    "generador": "Graphviz dot -Tpng -Gdpi=170",
+    "alcance": "Vista general del bloque; cada conjunto mantiene sus unidades"
+  },
+  "bda_api_en_visor.png": {
+    "fecha": "2026-11-18",
+    "tipo": "Captura real de app/territorio.py abierta con resultados archivados",
+    "captura": "Chromium mediante Playwright, recorte del componente visible, sin cambiar valores",
+    "datos": "data/capturas_api_rentas/2026-11-12/rentas_api.json",
+    "sha256_datos": "3b42ad26dff6c1801848b50fc59d34839c87a392c958672d716a4657dcf48e84",
+    "columnas_visibles": [
+      "municipio",
+      "renta_media_eur",
+      "numero_contratos"
+    ],
+    "servicios_repetidos": false
+  },
+  "bda_anuncios_en_visor.png": {
+    "fecha": "2026-11-18",
+    "tipo": "Captura real de app/territorio.py abierta con resultados archivados",
+    "captura": "Chromium mediante Playwright, recorte del componente visible, sin cambiar valores",
+    "datos": "docs/evidencias_entrega_2026-11-12/anuncios/anuncios.json",
+    "sha256_datos": "d5cce8d4fd8001e126a63088ba2602b0e03ab5b241db0ff2fe2e5d4848a72f52",
+    "columnas_visibles": [
+      "fuente",
+      "municipio",
+      "precio",
+      "superficie_m2"
+    ],
+    "servicios_repetidos": false
   }
 }

@@ -4,12 +4,12 @@
   "pdf": [
     {
       "archivo": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
-      "paginas": 14,
+      "paginas": 12,
       "texto_seleccionable": true,
-      "caracteres": 31281,
-      "sha256": "78e500729f0c85cda9079db4df3e1fe0d070fdcb11a54c938837ed6ae3b66901",
+      "caracteres": 18049,
+      "sha256": "42137caf9ef248b4bfa7ba1f860fe03fc0abe09aab72a514277532c8b15cdbdd",
       "enlaces_pdf": 33,
-      "paginas_con_imagenes": 1
+      "paginas_con_imagenes": 4
     },
     {
       "archivo": "docs/entrega/BDA_SBD/Guion_oral_BDA_SBD.pdf",
@@ -103,7 +103,7 @@
     }
   ],
   "errores_automaticos": [],
-  "enlaces_locales_comprobados": 132,
+  "enlaces_locales_comprobados": 136,
   "fuentes_docentes": [
     {
       "nombre": "Reto1_SAA_PIA_MIA_2026-27_v5.pdf",
@@ -269,9 +269,9 @@
   "paquetes": [
     {
       "archivo": "Entrega_BDA_SBD.zip",
-      "bytes": 5230071,
-      "sha256": "a5e06966340bfb8933e48516e3f39f78ef40774853624dd167d760a0f4a55777",
-      "archivos": 215,
+      "bytes": 6487334,
+      "sha256": "2405834bf26e3a85e5e311cce601a0d55fc529559b82c0500b2b4d07704bfca6",
+      "archivos": 218,
       "pdf": [
         "Instrucciones_BDA_SBD.pdf",
         "data/exportaciones_entrega_2026-11-17/Instrucciones_restauracion.pdf",
@@ -368,6 +368,48 @@
     "avisos_pruebas": 5,
     "paquete_bda_extraido_y_huellas_verificadas": true,
     "paquete_ia_sin_cambios": true,
+    "servicios_repetidos": false,
+    "entrenamiento_repetido": false,
+    "test_final_reevaluado": false
+  },
+  "revision_visual_bda_2026_11_18": {
+    "enfoque": "Memoria más breve, lenguaje sencillo y apoyos visuales sobre las fuentes, el recorrido y los resultados",
+    "paginas_anteriores": 14,
+    "paginas_actuales": 12,
+    "palabras_antes": 4879,
+    "palabras_ahora": 2763,
+    "esquema_inicial": "Elaboración propia con Graphviz; fuente editable en docs/entrega/assets/estructura_bda_sbd.dot",
+    "capturas_nuevas": 2,
+    "capturas_conservadas": 2,
+    "imagenes_totales": 5,
+    "captura_json_excluida": true,
+    "tildes_omitidas_en_prosa": 3,
+    "consultas_explicadas": 7,
+    "recuentos_contrastados": [
+      6,
+      1,
+      4,
+      10,
+      3,
+      0,
+      0
+    ],
+    "inspeccion_visual": "Revisadas las 12 páginas: esquema, capturas, tablas, índice, explicaciones y conclusión. Texto seleccionable y sin elementos fuera de página.",
+    "pruebas": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "168",
+      "time": "14.431",
+      "timestamp": "2026-11-18T15:44:14.858180+01:00",
+      "hostname": "a7f97f83d390"
+    },
+    "avisos_pruebas": 5,
+    "paquete_bda_extraido_y_huellas_verificadas": true,
+    "paquete_ia_sin_cambios": true,
+    "codigo_y_datos_sin_cambios": true,
+    "integridad_local_correcta": true,
     "servicios_repetidos": false,
     "entrenamiento_repetido": false,
     "test_final_reevaluado": false

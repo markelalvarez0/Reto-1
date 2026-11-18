@@ -1,0 +1,20 @@
+digraph Reto {
+ graph [rankdir=TB, bgcolor="white", pad="0.12", nodesep="0.23", ranksep="0.25", splines=ortho, fontname="DejaVu Sans"];
+ node [shape=box, style="rounded,filled", fillcolor="#edf5f6", color="#087e83", fontcolor="#123e53", fontname="DejaVu Sans", fontsize=15, margin="0.14,0.12", penwidth=1.4];
+ edge [color="#087e83", arrowsize=.65, penwidth=1.5];
+ inicio [label="BUSCAMOS LAS FUENTES", fillcolor="#123e53", fontcolor="white", color="#123e53", width=7.8];
+ {rank=same;
+ api [label="API\nRentas EMAL", width=2.25];
+ scraping [label="SCRAPING\nHabitaclia y Pisos.com", width=2.7];
+ archivos [label="OTRAS FUENTES\nEMAL, INE, OVJ,\nVisesa y Etxebide", width=2.4];
+ }
+ inicio -> api; inicio -> scraping; inicio -> archivos;
+ preparar [label="PREPARAMOS LOS DATOS\nGuardamos originales y revisamos los campos", width=7.8];
+ api -> preparar; scraping -> preparar; archivos -> preparar;
+ recorrido [label="HDFS  →  KAFKA  →  MONGODB\nConservamos archivos, enviamos registros y organizamos la información", width=7.8];
+ preparar -> recorrido;
+ consultas [label="HACEMOS CONSULTAS Y CÁLCULOS\nPrecio, habitaciones, condiciones, medias y esfuerzo", width=7.8];
+ recorrido -> consultas;
+ visor [label="MOSTRAMOS LOS RESULTADOS\nTablas, gráficos y mapa en el visor", fillcolor="#123e53", fontcolor="white", color="#123e53", width=7.8];
+ consultas -> visor;
+}
