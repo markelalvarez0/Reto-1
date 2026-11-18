@@ -4,8 +4,9 @@
   "documentos": [
     {
       "archivo": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
-      "sha256": "fb7ec56daefa8fa35ff3d8c58d8de3accfd8f37d56c974f5bd09922aef0b7843",
-      "fuente": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.md"
+      "sha256": "78e500729f0c85cda9079db4df3e1fe0d070fdcb11a54c938837ed6ae3b66901",
+      "fuente": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.md",
+      "revision_documental": "2026-11-18"
     },
     {
       "archivo": "docs/entrega/BDA_SBD/Guion_oral_BDA_SBD.pdf",
@@ -59,5 +60,6 @@
     }
   ],
   "modelo_cargado": false,
-  "test_reevaluado": false
+  "test_reevaluado": false,
+  "ultima_revision_documental": "2026-11-18"
 }

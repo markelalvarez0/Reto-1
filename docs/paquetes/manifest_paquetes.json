@@ -3,9 +3,9 @@
   "paquetes": [
     {
       "archivo": "Entrega_BDA_SBD.zip",
-      "bytes": 5408333,
-      "sha256": "83232651b501056985126c63e6b62e21143a30d8673424df2319c30db3d7cda4",
-      "archivos": 216,
+      "bytes": 5230071,
+      "sha256": "a5e06966340bfb8933e48516e3f39f78ef40774853624dd167d760a0f4a55777",
+      "archivos": 215,
       "pdf": [
         "Instrucciones_BDA_SBD.pdf",
         "data/exportaciones_entrega_2026-11-17/Instrucciones_restauracion.pdf",
@@ -24,5 +24,6 @@
         "docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf"
       ]
     }
-  ]
+  ],
+  "ultima_revision_documental": "2026-11-18"
 }

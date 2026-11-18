@@ -6,10 +6,10 @@
       "archivo": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
       "paginas": 14,
       "texto_seleccionable": true,
-      "caracteres": 24599,
-      "sha256": "fb7ec56daefa8fa35ff3d8c58d8de3accfd8f37d56c974f5bd09922aef0b7843",
-      "enlaces_pdf": 34,
-      "paginas_con_imagenes": 2
+      "caracteres": 31281,
+      "sha256": "78e500729f0c85cda9079db4df3e1fe0d070fdcb11a54c938837ed6ae3b66901",
+      "enlaces_pdf": 33,
+      "paginas_con_imagenes": 1
     },
     {
       "archivo": "docs/entrega/BDA_SBD/Guion_oral_BDA_SBD.pdf",
@@ -103,7 +103,7 @@
     }
   ],
   "errores_automaticos": [],
-  "enlaces_locales_comprobados": 133,
+  "enlaces_locales_comprobados": 132,
   "fuentes_docentes": [
     {
       "nombre": "Reto1_SAA_PIA_MIA_2026-27_v5.pdf",
@@ -269,9 +269,9 @@
   "paquetes": [
     {
       "archivo": "Entrega_BDA_SBD.zip",
-      "bytes": 5408333,
-      "sha256": "83232651b501056985126c63e6b62e21143a30d8673424df2319c30db3d7cda4",
-      "archivos": 216,
+      "bytes": 5230071,
+      "sha256": "a5e06966340bfb8933e48516e3f39f78ef40774853624dd167d760a0f4a55777",
+      "archivos": 215,
       "pdf": [
         "Instrucciones_BDA_SBD.pdf",
         "data/exportaciones_entrega_2026-11-17/Instrucciones_restauracion.pdf",
@@ -331,5 +331,45 @@
     "modelo_reevaluado": false,
     "sin_readme_en_ambos_zip": true,
     "instalacion_y_pruebas_tras_extraer": "126 pruebas BDA/SBD y 34 pruebas SAA/PIA/MIA, sin errores"
+  },
+  "ultima_revision_documental": "2026-11-18",
+  "revision_memoria_bda_2026_11_18": {
+    "enfoque": "Qué hicimos, por qué, utilidad de cada consulta, aprendizaje y conclusión en lenguaje sencillo",
+    "consultas_explicadas": 7,
+    "recuentos_contrastados": [
+      6,
+      1,
+      4,
+      10,
+      3,
+      0,
+      0
+    ],
+    "fuente_consultas": "docs/evidencias_entrega_2026-11-12/anuncios/consultas.json",
+    "diseno_explicado": [
+      "colecciones por significado",
+      "características anidadas",
+      "referencia municipal por INE",
+      "condiciones en listas",
+      "identidad por fuente e identificador"
+    ],
+    "inspeccion_visual": "Revisadas las 14 páginas completas, índice, tablas, esquemas, captura y conclusión; sin texto fuera de página.",
+    "captura_visor": "docs/entrega/assets/visor_capitales.png, captura conservada del 17 de noviembre",
+    "pruebas": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "168",
+      "time": "14.206",
+      "timestamp": "2026-11-18T15:22:42.307093+01:00",
+      "hostname": "a7f97f83d390"
+    },
+    "avisos_pruebas": 5,
+    "paquete_bda_extraido_y_huellas_verificadas": true,
+    "paquete_ia_sin_cambios": true,
+    "servicios_repetidos": false,
+    "entrenamiento_repetido": false,
+    "test_final_reevaluado": false
   }
 }

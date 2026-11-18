@@ -1,191 +1,210 @@
 # Documentación BDA y SBD
 
-## 1 La pregunta que queremos responder
+## 1 Qué queríamos averiguar
 
-Queremos estudiar en qué municipios de Euskadi resulta menos difícil acceder a una vivienda siendo joven. Para acercarnos a esa pregunta necesitamos precios y también un contexto de ingresos. Si solo enseñamos anuncios, sabemos cuánto se pide, pero no qué supone pagarlo. Si solo enseñamos salarios, nos falta el coste de la vivienda.
+Queríamos estudiar cuánto cuesta alquilar una vivienda en distintos municipios de Euskadi y qué parte de un sueldo joven podría llevarse ese alquiler. La idea era preparar una comparación que ayudara a entender la dificultad de emanciparse. Para ello necesitábamos conocer tanto el coste de la vivienda como el ingreso con el que lo comparamos.
 
-Hemos construido un recorrido en Python que recoge datos, conserva los originales, los transporta y los analiza con MongoDB. El resultado se puede consultar en un visor territorial. La idea es que podamos seguir una cifra desde el gráfico hasta el archivo del que salió, en vez de pedir que se confíe en una tabla sin más.
+Hemos creado un recorrido en Python que recoge información, guarda los archivos originales, organiza los datos en MongoDB y prepara resultados para un visor. En esta memoria explicamos las decisiones que hemos tomado: para qué sirve cada parte, qué consultas hemos hecho y qué hemos aprendido al comprobar sus resultados.
 
-Con los datos comparables de 2024 T4, Vitoria-Gasteiz presenta la menor renta media de las tres capitales. Aun así, pagarla entera supone el 51,06 % del salario de referencia que usamos. Esto muestra una dificultad de acceso en ese escenario. No nos permite afirmar qué porcentaje de jóvenes puede emanciparse ni elegir el mejor municipio para cualquier persona.
+El resultado más claro es que, usando el mismo ingreso de referencia, Vitoria-Gasteiz presenta el menor esfuerzo de las tres capitales en el cuarto trimestre de 2024. Aun así, pagar toda su renta media supone el 51,06 % de ese ingreso. Esta comparación ayuda a entender el problema, pero no basta para decidir dónde puede vivir una persona concreta: también influyen su sueldo, con quién comparte vivienda y sus demás gastos.
 
+## 2 Qué datos hemos usado y qué significa cada cifra
 
-## 2 Elegimos fuentes que aportan cosas distintas
+Hemos combinado fuentes porque cada una aporta una parte de la información. Los anuncios muestran lo que se pide por alquilar; EMAL permite consultar medias de contratos; y las fuentes oficiales de promociones dan información de proyectos de vivienda.
 
-Necesitábamos combinar información publicada con anuncios concretos. Por eso usamos EMAL para las rentas de contratos, dos portales para precios pedidos, catálogos oficiales para promociones, el INE para identificar municipios y el Observatorio Vasco de la Juventud para el contexto salarial. No damos por hecho que todos esos datos describen lo mismo.
-
-| Fuente | Qué observamos | Para qué nos sirve | Límite principal |
-|---|---|---|---|
-| EMAL Excel | Municipio y trimestre de nuevos contratos | Comparar rentas y su evolución | Agregados de municipios cubiertos, no pisos individuales |
-| API JSON del visor EMAL | Tres estadísticas de 2024 T4 | Acreditar extracción API con importes monetarios | Redondea a una décima |
-| Habitaclia y Pisos.com | 17 identidades de anuncio archivadas | Analizar precios pedidos y condiciones publicadas | Selección pequeña y no aleatoria |
-| Visesa y Etxebide | 621 registros de promociones aceptados | Situar promociones y conservar su información | No son 621 viviendas disponibles |
-| INE | Código municipal oficial | Relacionar fuentes sin depender del nombre | Los nombres ambiguos requieren revisión |
-| OVJ | Salario autonómico de 2024 | Construir un escenario común de esfuerzo | No es un salario municipal ni individual |
-
-El lote conjunto tiene 638 registros: 621 promociones y 17 anuncios. Esa suma sirve para comprobar el transporte, no para contar viviendas únicas. Además, las tres estadísticas de la API viajan por separado. Los datos declarados en la aplicación de IA tampoco forman parte de esos 638 registros.
-
-Las promociones aceptadas se reparten en 215 de Visesa y 406 de Etxebide. Puede haber referencias a una misma promoción en ambas fuentes. Entre los anuncios también puede haber un mismo inmueble publicado en dos portales. La identidad que comprobamos es la del registro de cada fuente.
-
-Evidencias: `data/capturas_oficiales/manifest.json`, `data/capturas_anuncios/manifest.json`, `data/capturas_api_rentas/2026-11-12/` y `docs/evidencias_entrega_2026-11-12/anuncios/resumen.json`.
-
-## 3 La API y el scraping se complementan
-
-Con una API recibimos una estructura preparada para que la lea un programa. Usamos el servicio JSON del visor público EMAL, con filtros de municipio, nuevos contratos del trimestre, vivienda habitual y edificio colectivo. Conservamos la URL completa para saber exactamente qué pedimos. No convertimos el Excel a JSON para presentarlo como si fuera una API.
-
-La dirección del servicio es https://eremutentsionatua.euskadi.eus/ad23aConsultaWar/consulta/emal. Las respuestas archivadas para 2024 T4 contienen 798,6 €/mes en Vitoria-Gasteiz, 1.147,5 en Donostia y 930,3 en Bilbao. Son rentas municipales, no anuncios. La diferencia de decimales con el Excel se explica por el redondeo de la API.
-
-Con scraping extraemos información del HTML de los listados. Lo necesitamos porque los anuncios aportan precio pedido, superficie y condiciones que no encontramos como observaciones individuales en EMAL. La captura del 12 de noviembre de 2026 conserva nueve anuncios de Habitaclia y ocho de Pisos.com: seis en Bilbao, seis en Donostia y cinco en Vitoria.
-
-La captura limita a tres candidatos interpretables por listado y portal; en Pisos.com Vitoria solo se obtuvieron dos. Se guardaron robots, HTML y metadatos. Hubo un primer intento con rutas antiguas y selectores que no funcionaban; ese fallo se conserva y no cuenta como captura correcta. El acceso con HTTPS, las pausas y la consulta de robots están registrados. Que robots permita una ruta no significa que conceda derechos de redistribución comercial.
-
-Elegimos conservar el HTML para poder revisar la extracción aunque el anuncio cambie o desaparezca. El análisis offline vuelve a leer los archivos archivados y contrasta sus campos con MongoDB. Esto comprueba lo capturado en esa fecha; no confirma que el anuncio siga disponible hoy.
-
-![Visor público de EMAL capturado el 12 de noviembre de 2026](../../evidencias_cierre_rubrica_2026-11-12/api-visor.png)
-
-La captura anterior es evidencia histórica real del visor, no una pantalla creada para esta memoria. La respuesta JSON y su manifiesto son los archivos que permiten comprobar los importes y los filtros exactos.
-
-## 4 Guardamos el origen antes de transformar
-
-Antes de limpiar los datos guardamos los bytes originales. Registramos la URL solicitada y final, fecha UTC, estado HTTP, tamaño y SHA-256. La huella funciona como una comprobación de integridad: si los bytes cambian, ya no coincide. No demuestra por sí sola que una fuente sea correcta; demuestra qué archivo hemos usado.
-
-Separamos originales y procesados porque cumplen funciones distintas. Los originales permiten revisar lo publicado; los procesados facilitan consultar y relacionar. Si una transformación tiene un fallo, podemos corregirla desde el original sin inventar el valor perdido. Los manifiestos se comprueban antes de utilizar las capturas.
-
-Los seis originales oficiales tienen protección frente a cambios automáticos de finales de línea en Git. Es relevante porque un CSV puede verse igual y tener bytes distintos al pasar de Windows a Linux. Esa diferencia rompería su huella aunque el texto pareciera idéntico.
-
-Ejemplo real: `emal_municipios.xlsx` se capturó el 10 de noviembre de 2026. Su SHA-256 es `f4d27d4e8e9bd3688d4e7a454026a4a0884073dc73e3fc1c0da4891a1ad1af5c`. Los anuncios y las respuestas API utilizadas en el cierre son del 12 de noviembre. No mezclamos fecha de captura y periodo estadístico: una captura de 2026 puede contener estadísticas de 2024.
-
-Código y evidencia: `scripts/audit_project.py`, `src/extraction/`, `.gitattributes` y los manifiestos de las tres carpetas de capturas.
-
-## 5 Así recorren los datos el sistema
-
-:::flow Captura y manifiesto | Preparación Python | HDFS y recuperación | Kafka | MongoDB | Visor
-
-Primero verificamos los originales y preparamos los registros. Después guardamos originales y derivados en HDFS. Recuperamos los archivos y comprobamos que coinciden con lo guardado. Publicamos en Kafka los registros recuperados y el consumidor valida cada mensaje antes de persistirlo en MongoDB. Desde ahí calculamos salidas que el visor puede representar.
-
-Usamos HDFS para separar el archivo de origen del procesamiento posterior y demostrar almacenamiento y recuperación. Nos permite organizar rutas raw y processed. Con esta muestra pequeña no necesitamos un clúster por volumen: su uso responde al recorrido de Big Data del reto. No afirmamos haber medido escalado con millones de anuncios.
-
-Kafka separa quien produce los datos de quien los recibe. En vez de que todo dependa de una única llamada, publicamos eventos que el consumidor va procesando. La clave municipal mantiene una organización territorial del flujo. El lote permite distinguir qué mensajes esperamos en una ejecución. No presentamos esta reproducción de un archivo como una fuente inmobiliaria en directo.
-
-MongoDB nos permite guardar documentos con campos comunes y otros que dependen de cada fuente. Por ejemplo, un anuncio puede tener habitaciones y una promoción puede no publicar un precio mensual. Usamos PyMongo para cargar, actualizar, limpiar y consultar sin rellenar huecos con valores inventados. También permite producir indicadores con agregaciones cerca de los datos.
-
-La evidencia del lote conserva 31 archivos recuperados idénticos y 638 registros recibidos y persistidos. La segunda carga completa mantiene 638. La API tiene su propio recorrido: seis archivos por carga y tres documentos en `rentas_api` después de repetir. Las vistas municipales también se transportan aparte, con identidad de archivo y huella.
-
-Código: `scripts/run_pipeline.py`, `src/hdfs/`, `src/kafka/consumer.py`, `scripts/transport_rent_api.py` y `scripts/transport_municipal.py`. Evidencias: carpetas `docs/evidencias_entrega_2026-11-12/` y `docs/evidencias_cierre_rubrica_2026-11-12/`.
-
-## 6 Evitamos duplicar al repetir una entrega
-
-Una carga puede fallar después de escribir un documento y antes de confirmar el mensaje. Por eso no basta con contar cuántos mensajes hemos enviado. Necesitamos que repetirlos no cree otra copia del mismo registro.
-
-En `viviendas` usamos la pareja `fuente` e `id_origen` para actualizar o insertar con upsert. Esa pareja también tiene un índice único parcial. En `municipios` usamos el código INE. El consumidor confirma el offset de Kafka después de la persistencia; si guardar falla, no confirma como si todo hubiera terminado bien.
-
-Esto nos da una entrega que admite repeticiones con persistencia idempotente. No afirmamos que exista una transacción única que abarque Kafka, HDFS y MongoDB. Hay que distinguir la confirmación de un mensaje de la consistencia de todo un sistema distribuido.
-
-La evidencia importante es repetir: la reentrega de los 17 anuncios mantiene los 638 documentos del lote. Repetir la API mantiene tres documentos. Un recuento estable y la comprobación de las identidades nos permiten detectar duplicados. Esta identidad no resuelve que dos portales anuncien el mismo piso con identificadores diferentes.
-
-## 7 Modelamos según lo que representa cada dato
-
-| Colección o estructura | Identidad y relación | Motivo |
+| Fuente | Qué hemos recogido | Por qué nos sirve |
 |---|---|---|
-| viviendas | fuente e id_origen; código INE hacia municipios | Separar identidad del portal y territorio |
-| caracteristicas dentro de vivienda | habitaciones, baños, ascensor | Se leen con el anuncio y describen ese mismo registro |
-| municipios | código INE único | Compartir contexto sin copiarlo en cada vivienda |
-| rentas_emal | Captura, municipio y trimestre | Conservar la versión de la serie estadística |
-| contextos_ovj | Contexto autonómico con procedencia | No atribuir un salario local que no medimos |
-| rentas_api | Estadística municipal con su procedencia | Mantenerla separada de anuncios y promociones |
-| vistas_municipales | Archivo y SHA-256 | Conservar versiones de resultados transportados |
-| rechazos_ingesta | Huella del registro y motivo | Revisar rechazos sin perder el origen |
+| EMAL, archivo Excel | Rentas y contratos por municipio y trimestre | Comparar municipios y ver cómo cambia el alquiler con el tiempo |
+| API del visor EMAL | Tres estadísticas de renta de 2024 T4 | Obtener importes directamente de un servicio consultable desde Python |
+| Habitaclia y Pisos.com | 17 anuncios de alquiler | Practicar la extracción de anuncios y consultar precio, tamaño y condiciones |
+| Visesa y Etxebide | 621 registros de promociones aceptados | Conservar y situar información de proyectos de vivienda |
+| INE | Códigos oficiales de municipios | Reconocer el mismo municipio aunque su nombre se escriba de forma distinta |
+| Observatorio Vasco de la Juventud, OVJ | Salario medio joven de Euskadi en 2024 | Hacer una comparación con el mismo ingreso de referencia |
 
-Metemos las características dentro del documento porque normalmente las consultamos junto al anuncio. Referenciamos el municipio por INE porque muchas viviendas comparten territorio. Así evitamos que un cambio de nombre o una variante bilingüe rompa la unión. Estas son las razones técnicas del diseño, no una afirmación de que probáramos todas las bases de datos alternativas.
+**Una promoción no equivale a un piso.** Por ejemplo, un proyecto de un edificio con 30 viviendas puede aparecer como una promoción. Por eso, los 621 registros de promociones no nos dicen por sí solos cuántos pisos representan. Se reparten en 215 registros de Visesa y 406 de Etxebide, y ambas fuentes podrían mencionar un mismo proyecto.
 
-Un ejemplo reducido de la consulta conservada de Bilbao tiene `id_origen=habitaclia_c0f284f7d936e9e47372d44b`, `precio=1200` y `superficie_m2=87`. Al unirlo con su documento completo comprobamos fuente, INE, URL y procedencia. El nombre del anuncio no se usa como identificador único.
+**Los 638 registros salen de sumar 621 promociones y 17 anuncios.** Usamos esa cifra para comprobar que los datos han llegado completos a la base de datos. No significa que hayamos encontrado 638 pisos diferentes. Además, un mismo piso podría estar anunciado en los dos portales con identificadores distintos.
 
-Código: `src/database/data_loader.py`, `src/database/indexes.py` y `src/municipal_analysis.py`.
+Las tres estadísticas recibidas por la API se guardan aparte. También separamos estas cifras de las del modelo de IA: ese modelo utiliza observaciones EMAL por municipio y trimestre. Los 17 anuncios no son sus datos de entrenamiento.
 
-## 8 Limpiamos sin hacer que los datos parezcan mejores
+## 3 Cómo recogimos la información y por qué usamos dos métodos
 
-Necesitábamos que precios, códigos y campos anidados se pudieran comparar. La limpieza aplica cuatro operaciones distintas: elimina duplicados por fuente e identificador, hace explícitos los nulos y ausencias, normaliza tipos y formatos, y calcula campos derivados. Las operaciones se ejecutan con PyMongo y MongoDB desde scripts, sin editar documentos uno a uno a mano.
+**La API nos entrega datos ya organizados.** Desde Python pedimos al visor EMAL la renta de Bilbao, Donostia y Vitoria para el cuarto trimestre de 2024, indicando nuevos contratos, vivienda habitual y edificio colectivo. Guardamos la dirección completa de cada petición para poder revisar qué filtros utilizamos.
 
-Convertimos importes y superficies a números cuando el valor lo permite. Si no es una medida válida, conservamos el problema y dejamos nulo el valor utilizable. No convertimos un ascensor desconocido en falso ni una renta ausente en cero. Calculamos precio por metro cuadrado solo cuando precio y superficie son positivos. Las categorías por tramos de precio describen importes; no conceden ayudas.
+La respuesta dio 930,3 €/mes para Bilbao, 1.147,5 para Donostia y 798,6 para Vitoria. El Excel tiene más decimales; la API redondea a una décima. Aprendimos que una pequeña diferencia entre dos salidas puede deberse al redondeo y debe comprobarse antes de considerarla un error.
 
-El código INE mantiene cinco caracteres para no perder el cero inicial de Araba. La preparación oficial acepta 621 de 623 registros y rechaza dos referencias ambiguas de Abanto. Preferimos registrar el rechazo antes que asignar Bilbao por defecto. Esto conserva la posibilidad de revisar el caso.
+**El scraping nos permite recoger información de los anuncios.** Usamos `requests` para descargar el HTML de los listados y `BeautifulSoup` para localizar las tarjetas de las viviendas. De ellas extraemos el precio, la superficie, las habitaciones, los baños, la ubicación y el enlace. Así pasamos de una página pensada para leerla a unos datos que podemos consultar desde un programa.
 
-En la selección de 17 anuncios no hay nulos de precio, superficie, habitaciones o baños. Hay nueve descripciones ausentes de Habitaclia y el ascensor sigue sin dato observado en el campo normalizado. Por eso una consulta que exige ascensor devuelve cero. No significa que los pisos no tengan ascensor: significa que no lo hemos acreditado en ese campo.
+En la captura del 12 de noviembre de 2026 pusimos un límite de tres anuncios interpretables por ciudad y portal. Obtuvimos nueve de Habitaclia y ocho de Pisos.com: seis en Bilbao, seis en Donostia y cinco en Vitoria. En Pisos.com Vitoria solo obtuvimos dos interpretables. Es una muestra pequeña, elegida para comprobar el recorrido; no es una selección representativa de todos los alquileres.
 
-El CRUD completo también se comprueba con una prueba separada: insertar un documento de prueba con precio 600, leerlo, actualizar a 700, comprobarlo, eliminarlo y comprobar su ausencia. Está en `integration_tests/test_mongodb_live.py::test_crud_comprobado_real`. Es un dato de prueba identificado, no una vivienda del análisis.
+Al principio fallaron algunas direcciones antiguas y la forma de localizar los anuncios dentro del HTML. Conservamos ese intento y corregimos las rutas y los selectores a partir de lo recibido. Esto nos enseñó que un scraper depende de cómo esté construida la web y puede dejar de funcionar si cambia.
 
-## 9 Las consultas responden preguntas concretas
+Antes de acceder comprobamos `robots.txt`, el archivo donde el portal publica sus reglas de acceso automatizado. Dejamos pausas entre peticiones y detenemos la captura ante los bloqueos previstos en el código. Guardamos también el HTML original: si un anuncio cambia o desaparece, podemos revisar qué información leímos aquel día. Las reglas de robots no sustituyen las condiciones de uso del portal.
 
-| Pregunta | Operación que enseñamos | Resultado archivado |
+:::flow Leer el listado HTML | Extraer los campos | Comprobar los datos | Guardar en JSON
+
+Las respuestas de la API y sus filtros están guardados en `data/capturas_api_rentas/2026-11-12/`. Abrir ahora estos archivos permite revisar la captura conservada; no comprueba que los anuncios sigan disponibles.
+
+## 4 Por qué conservamos los archivos originales
+
+Antes de cambiar formatos o calcular resultados, guardamos los archivos tal como llegaron. Junto a ellos conservamos la URL, la fecha de descarga y una huella digital llamada SHA-256, que permite comprobar si su contenido ha cambiado.
+
+Hemos separado los originales de los datos preparados porque podemos equivocarnos al limpiar. Si una conversión de precios sale mal, necesitamos volver a ver lo que publicó la fuente. Guardar solo la tabla final nos haría perder esa posibilidad.
+
+También distinguimos la fecha de descarga del periodo de los datos. Un archivo descargado en noviembre de 2026 puede contener estadísticas de 2024. Para comparar alquiler y sueldo usamos el año al que se refieren las cifras, no el día en que bajamos el archivo.
+
+Comprobar estas huellas nos ayuda a trabajar con las mismas copias en Windows y Linux. Lo que hemos aprendido aquí es que una cifra resulta más fácil de defender cuando podemos enseñar su origen y repetir su preparación.
+
+## 5 Para qué sirve cada parte del recorrido
+
+:::flow Recoger datos | Prepararlos | Guardarlos en HDFS | Enviarlos con Kafka | Consultar MongoDB | Mostrar el visor
+
+**Python prepara la información.** Las fuentes llegan como Excel, CSV, JSON o HTML. Les damos una estructura común y comprobamos campos necesarios, como el municipio y la identidad del registro. Esto permite que las siguientes partes trabajen de una forma más uniforme.
+
+**HDFS conserva los archivos.** Lo usamos para organizar originales y procesados, recuperarlos y comprobar que siguen iguales. Con nuestra muestra no hace falta un sistema distribuido por su tamaño; lo utilizamos para aprender el almacenamiento y la recuperación que pide el reto. La prueba útil consiste en recuperar los archivos y comprobar su contenido, además de haberlos subido.
+
+**Kafka comunica las dos partes del proceso.** Un programa publica los registros y otro los recibe para guardarlos. Así practicamos que quien recoge información y quien la almacena puedan trabajar por separado. Reproducimos un lote archivado; no estamos recibiendo anuncios nuevos continuamente desde las webs.
+
+**MongoDB organiza los datos para consultarlos.** Nos encaja porque las fuentes comparten algunos campos, pero no todos. Un anuncio puede incluir precio y habitaciones, mientras que una promoción puede no tener un precio mensual individual. Podemos guardar esas diferencias sin inventar los valores que faltan. PyMongo es la herramienta que usamos desde Python para comunicarnos con MongoDB.
+
+**El visor enseña las salidas preparadas.** En lugar de copiar las medias a mano, los scripts calculan los resultados y el visor los representa. Esto facilita repetir el análisis y saber de dónde sale lo que vemos.
+
+En la ejecución conservada, recuperamos 31 archivos del lote principal sin cambios y llegaron 638 registros a MongoDB. El recorrido de la API recuperó otros seis archivos y mantuvo tres estadísticas. Estas comprobaciones nos ayudan a detectar pérdidas o cambios entre una parte y otra.
+
+## 6 Cómo evitamos guardar dos veces lo mismo
+
+Si repetimos la carga porque ha fallado una conexión o queremos comprobarla otra vez, no queremos que el mismo anuncio se convierta en dos documentos. Eso aumentaría los recuentos y podría alterar las medias.
+
+Para reconocer cada registro usamos **la fuente y su identificador original juntos**. Si esa pareja ya existe, actualizamos su documento; si no existe, lo creamos. Esta operación se llama `upsert`. Usar ambos campos evita confundir dos registros de portales diferentes que tengan el mismo identificador.
+
+Añadimos además una restricción de unicidad para esa pareja. Kafka confirma un mensaje después de que se haya guardado. Si la escritura falla, no se da por terminada; al volver a recibir el mensaje, la misma identidad permite repetir el intento sin crear otra copia.
+
+Lo comprobamos volviendo a cargar los 17 anuncios: la colección siguió teniendo 638 documentos. La API también mantuvo sus tres estadísticas al repetir. Hemos aprendido que la prueba importante es repetir una carga y revisar el resultado. Este control detecta repeticiones del mismo registro de origen; todavía no identifica un mismo piso anunciado en dos webs distintas.
+
+## 7 Por qué hemos organizado así la base de datos
+
+En MongoDB, una **colección** es un grupo de documentos y cada **documento** es una ficha con sus datos. Hemos separado la información según lo que representa y cómo vamos a utilizarla.
+
+**Los anuncios y las promociones comparten la colección `viviendas`.** Ambos tienen fuente, identificador, municipio y procedencia, y aprovechamos el mismo proceso de carga. Para distinguirlos guardamos su tipo de registro. Al consultar alquileres filtramos las promociones, porque una ficha de un proyecto no equivale a una oferta de alquiler con precio mensual. Esta separación dentro de la colección es necesaria para que las consultas respondan a la pregunta correcta.
+
+**Las características van dentro de la ficha del anuncio.** Agrupamos habitaciones, baños y ascensor en `caracteristicas` porque describen ese anuncio y normalmente los consultamos juntos. Por ejemplo, para buscar una vivienda con dos habitaciones entramos en ese grupo de datos. Es lo que se llama un campo anidado: un dato dentro de otro grupo del mismo documento.
+
+**Los municipios tienen su propia colección.** Muchos anuncios comparten municipio. Si copiáramos todo su contexto en cada anuncio, repetiríamos información y sería más difícil mantenerla igual. Guardamos el municipio una vez y lo relacionamos mediante su código INE. Este código nos ayuda a unir variantes como Donostia y San Sebastián sin depender únicamente del texto del nombre.
+
+| Colección | Qué guarda | Por qué la hemos separado |
 |---|---|---|
-| Qué anuncios tenemos de Bilbao | Igualdad, proyección y orden | 6 |
-| Cuáles piden hasta 750 €/mes | Comparación de precio positivo | 1 |
-| Cuáles cumplen municipio, precio y superficie | Bilbao, hasta 2.000 € y desde 55 m² | 4 |
-| Cuáles tienen al menos dos habitaciones | Campo anidado, sin exigir ascensor; límite 10 | 10 |
-| Cuáles publican señal temporal | Array de condiciones, operador $all | 3 |
-| Cuáles acreditan dos habitaciones y ascensor | Anidado con ascensor observado | 0 |
-| Qué municipios traen Gaztelagun en su array | $elemMatch en datos publicados | 0 |
+| viviendas | Anuncios y promociones, con su tipo identificado | Compartir la carga y consultar cada tipo con sus filtros |
+| municipios | Información del territorio y código INE | Relacionar registros con el mismo municipio |
+| rentas_emal | Rentas por municipio, trimestre y captura | Conservar la evolución y la versión de la serie |
+| contextos_ovj | Contexto salarial autonómico y su fuente | Dejar claro que el sueldo es de Euskadi, no de cada municipio |
+| rentas_api | Estadísticas recibidas por la API | Distinguirlas de los anuncios y de la serie del Excel |
+| vistas_municipales | Resultados preparados y su procedencia | Guardar las salidas que se han transportado |
+| rechazos_ingesta | Registros rechazados y su motivo | Poder revisar qué no hemos podido incorporar |
 
-Todas las consultas de anuncios excluyen promociones y registros sintéticos, y exigen precio positivo. Es necesario porque mezclar una promoción sin renta individual con un alquiler daría medias que no significan lo que parecen.
+También guardamos las condiciones publicadas como una lista: un anuncio puede mencionar, por ejemplo, alquiler temporal y dirigido a empresas a la vez. Una lista permite conservar ambas señales y buscar después una de ellas. No las convertimos en una garantía sobre las condiciones legales del contrato.
 
-Las primeras cinco filas dan cinco consultas útiles, incluyendo campos anidados, arrays y condiciones combinadas. Los dos ceros también tienen valor: muestran qué no podemos responder con estas fuentes. El resultado limitado a diez no significa que solo existan diez anuncios que cumplan la condición.
+Un ejemplo real de nuestra muestra es un anuncio de Habitaclia en Bilbao con precio de 1.200 € y superficie de 87 m². En la misma ficha podemos revisar sus características y procedencia; con el código municipal podemos relacionarlo con el territorio. Cada decisión de organización tiene así una utilidad en las consultas posteriores.
 
-Código: `src/database/queries.py`. Resultados completos: `docs/evidencias_entrega_2026-11-12/anuncios/consultas.json`. Los umbrales 750 y 2.000 son filtros de análisis, no umbrales legales de acceso a vivienda.
+## 8 Qué limpiamos para que las consultas funcionen
 
-## 10 Agregamos para pasar de registros a resultados
+Una consulta de precios solo tiene sentido si los precios están guardados como números comparables. Además, necesitamos distinguir entre un valor que conocemos y uno que no aparece. Por eso automatizamos cuatro tipos de limpieza con Python y PyMongo.
 
-Una consulta devuelve documentos; una agregación nos ayuda a responder preguntas sobre el conjunto. Hemos preparado tres pipelines en `src/database/aggregations.py`: estadísticas por municipio, cruce con contexto y distribuciones mediante facet. No necesitamos cinco etapas en cada pipeline: la rúbrica pide al menos cinco etapas diferentes en conjunto.
-
-| Pipeline | Pregunta | Etapas principales y lectura |
+| Qué hacemos | Ejemplo o criterio | Para qué lo necesitamos |
 |---|---|---|
-| Estadísticas municipales | Cuánto se pide en nuestra muestra por municipio | $match filtra; $group calcula; $project prepara; $sort ordena |
-| Cruce de contexto | Podemos calcular esfuerzo con un salario medido | $lookup une por INE; $unwind conserva ausencia; $set y $project preparan |
-| Distribución y top | Cómo se reparte la selección y qué registros cuestan menos | $facet genera salidas distintas; $group, $sort y $limit resumen |
+| Quitar duplicados | Misma fuente y mismo identificador | Evitar contar varias veces el mismo registro |
+| Tratar datos ausentes | Ascensor desconocido queda como nulo | No confundir «no lo sabemos» con «no tiene» |
+| Unificar tipos y formatos | Precio y superficie como números; operación con formato común | Comparar importes y aplicar los filtros correctamente |
+| Calcular nuevos campos | Precio dividido entre superficie, si ambos son positivos | Comparar el precio por metro cuadrado |
 
-En el cruce de los anuncios de 2026 no rellenamos el salario municipal con el OVJ de 2024. El esfuerzo sigue nulo si falta un salario medido y comparable. La conclusión correcta es que ese cálculo no está respaldado para esos anuncios, no que el esfuerzo sea cero.
+Si el precio no aparece, no ponemos cero: eso haría que un anuncio sin información pareciera gratuito o especialmente barato. Lo mismo ocurre con el ascensor. En nuestra muestra ese campo no está acreditado, aunque algún título lo mencione. Nuestra extracción no ha convertido esa mención en un valor verificado del campo.
 
-El análisis EMAL de 2024 sí usa un escenario común con el OVJ de ese año. `src/municipal_analysis.py` obtiene comparación municipal, serie temporal y resumen territorial mediante MongoDB, además del mapa de promociones y metadatos. Exportamos esas salidas para representarlas sin copiar cifras manualmente.
+Conservamos los códigos INE con cinco caracteres para no perder ceros iniciales. De 623 registros oficiales, aceptamos 621 y dejamos fuera dos referencias ambiguas de Abanto. Registramos el motivo para revisarlas, porque asignarles un municipio sin estar seguros cambiaría el análisis.
 
-## 11 Comprobamos el índice sin exagerar el resultado
+**También comprobamos que podemos mantener la base de datos.** Hicimos una prueba CRUD, es decir, de crear, leer, actualizar y borrar: insertamos un documento de prueba con precio 600, comprobamos su lectura, lo cambiamos a 700 y después lo eliminamos y comprobamos que ya no estaba. Esto demuestra que podemos gestionar un registro durante su uso. Ese documento de prueba no cuenta como vivienda observada.
 
-Creamos un índice compuesto por municipio, tipo de operación y precio porque esos campos aparecen juntos en una consulta frecuente. También hay índices para INE e identidad de registro. Los índices ayudan a localizar documentos, pero tienen coste de espacio y de mantenimiento en las escrituras; no ponemos uno en cada campo sin motivo.
+## 9 Qué consultas hemos hecho, para qué y qué salió
 
-En la consulta de Bilbao, alquiler y precio hasta 2.000 €, comparamos el recorrido natural con el índice. `explain` muestra COLLSCAN sin índice e IXSCAN con él. En ambos casos obtenemos cuatro resultados. Los documentos examinados pasan de 638 a 4.
+Planteamos las consultas como preguntas que alguien podría hacer al revisar la muestra. Antes de buscar anuncios, excluimos las promociones y los datos de ejemplo, y pedimos un precio de alquiler válido y positivo. Así evitamos que registros de otro tipo entren en los resultados.
 
-| Medida | Recorrido natural | Índice compuesto |
+**Consulta 1. Ver los alquileres de Bilbao, ordenados por precio.** Queríamos consultar una ciudad concreta y localizar primero los anuncios de menor precio. Filtramos por Bilbao, ordenamos de menor a mayor y mostramos los campos necesarios para comparar, como título, precio y superficie. Obtuvimos **seis anuncios**. Esta consulta nos enseñó que guardar información no basta: también hay que elegir cómo presentarla para que sea útil.
+
+**Consulta 2. Buscar anuncios de hasta 750 € al mes.** Queríamos ver qué parte de nuestra muestra entraba en un presupuesto de ejemplo. Pedimos que el precio fuera mayor que cero y no superara 750 €. Salió **un anuncio**, situado en Vitoria. Para que funcione, el precio tiene que ser numérico y un dato ausente no puede convertirse en cero. El resultado significa que solo uno de nuestros 17 anuncios cumple ese filtro; no que en todo Euskadi solo exista uno. Tampoco significa que 750 € sea asequible para cualquier joven ni un límite oficial de ayuda.
+
+**Consulta 3. Combinar ciudad, precio y tamaño.** Buscamos anuncios de Bilbao, de hasta 2.000 € mensuales y con al menos 55 m². Nos interesaba comprobar una búsqueda con varias necesidades a la vez: no serviría devolver un anuncio barato si no cumple el tamaño solicitado. Encontramos **cuatro anuncios**. Los requisitos se aplican juntos. Los 2.000 € son el límite elegido para esta prueba, no una recomendación de presupuesto joven.
+
+**Consulta 4. Buscar anuncios con al menos dos habitaciones.** Esta pregunta puede ayudar a revisar opciones para compartir vivienda. Filtramos `caracteristicas.habitaciones`, el dato que guardamos dentro de la ficha, y limitamos la salida a diez resultados para que se pueda revisar fácilmente. La consulta devolvió **diez anuncios**. Ese límite no permite afirmar que solo diez cumplan la condición. Hemos comprobado por qué era útil agrupar las características del anuncio al diseñar la base de datos.
+
+**Consulta 5. Encontrar señales de alquiler temporal.** Un anuncio puede encajar por precio y no servir para quien necesita una vivienda estable. Por eso buscamos la señal «temporal» dentro de la lista de condiciones detectadas en el título o la descripción. Aparecieron **tres anuncios**. La lista permite buscar esta señal aunque el anuncio tenga otras, como estar dirigido a empresas. No encontrar la palabra tampoco demuestra que el alquiler sea de larga duración: habría que revisar sus condiciones.
+
+**Consulta 6. Pedir dos habitaciones y ascensor.** Añadimos el requisito de que el campo ascensor esté marcado como verdadero y obtuvimos **cero resultados**. Al revisar los datos vimos que ese campo estaba sin información acreditada. La consulta funciona, pero la muestra no tiene el dato necesario para responder bien. Hemos aprendido a revisar los valores vacíos antes de concluir que no hay viviendas con una característica. Mejorar la extracción del ascensor es una tarea pendiente.
+
+**Consulta 7. Buscar Gaztelagun dentro de los programas de los municipios.** Preparamos una búsqueda en la lista de programas de ayuda para localizar municipios que tuvieran ese nombre recogido. El resultado fue **cero**, porque los datos cargados no aportaban esa lista con el programa. Esto no demuestra que la ayuda no exista o no se aplique allí. Nos indica que necesitamos una fuente de ayudas y sus condiciones para que esta consulta aporte información real.
+
+Los resultados conservados son, por tanto, **6, 1, 4, 10, 3, 0 y 0** para las preguntas anteriores. Incluyen búsquedas simples, filtros combinados, campos anidados y listas. El código está en `src/database/queries.py` y las respuestas completas en `docs/evidencias_entrega_2026-11-12/anuncios/consultas.json`.
+
+Lo que más nos ha aportado esta parte es entender que debemos comprobar tanto la consulta como los datos de entrada. Una búsqueda bien escrita puede ser poco útil si la fuente no contiene el campo que necesitamos.
+
+## 10 Qué cálculos hemos hecho sobre el conjunto
+
+Además de buscar anuncios concretos, necesitábamos resumir varios registros. Para eso usamos **agregaciones**, que son una serie de pasos de MongoDB para filtrar, agrupar, calcular y ordenar. Hemos preparado tres recorridos de este tipo.
+
+**1. Resumir los alquileres por municipio.** Seleccionamos anuncios válidos, los agrupamos por código INE y calculamos cuántos hay, su precio medio, mínimo y máximo, su superficie media y la media de precio por metro cuadrado. Después ordenamos el resultado. Lo hacemos así para comparar ciudades sin tener que repasar los 17 anuncios a mano. En la muestra aparecen cinco anuncios de Vitoria, seis de Donostia y seis de Bilbao.
+
+**2. Relacionar anuncios con el contexto municipal.** Un precio aislado no indica qué parte de un sueldo consumiría. Hemos preparado la unión por código INE para recuperar el contexto del municipio y calcular ese porcentaje cuando haya un salario válido. En los anuncios de 2026 el salario municipal observado falta, así que el porcentaje queda vacío. No usamos el sueldo autonómico de 2024 para rellenarlo. Esta prueba nos enseñó que poder unir dos colecciones no significa que tengamos datos adecuados para todos los cálculos.
+
+**3. Preparar varios resúmenes de una misma selección.** Con una operación llamada `facet` obtenemos la distribución por tramos de precio, los cinco anuncios con menor precio y el desglose por tipo de operación. Sirve para preparar distintas vistas a partir de los mismos datos y distinguir alquiler de compraventa. Los tramos de precio ayudan a ordenar la muestra; no determinan si una persona puede pagarla.
+
+En el código aparecen pasos como `$match` para filtrar, `$group` para agrupar, `$project` para elegir campos, `$sort` para ordenar y `$lookup` para relacionar colecciones. También usamos `$unwind`, `$set`, `$facet` y `$limit`. Sus nombres permiten localizar lo implementado; la razón de usarlos es pasar de fichas sueltas a respuestas que se puedan comparar.
+
+Por otro lado, el análisis EMAL prepara la comparación municipal, la evolución trimestral y el resumen territorial. También genera un mapa de promociones. Los resultados se guardan automáticamente para que el visor use esas mismas cifras. La comparación de esfuerzo con el sueldo OVJ sí se hace para 2024, utilizando datos referidos al mismo año.
+
+## 11 Por qué añadimos un índice y cómo lo comprobamos
+
+Un índice funciona de forma parecida al índice de un libro: ayuda a llegar a la información buscada sin recorrer todo el contenido. Creamos uno con municipio, tipo de operación y precio porque esos tres campos aparecen juntos en una búsqueda que hemos probado. También usamos índices para el código INE y para impedir identidades duplicadas.
+
+Comparamos la búsqueda de alquileres de Bilbao de hasta 2.000 € con y sin utilizar ese índice. Con la herramienta `explain` podemos ver cuántos documentos examina MongoDB para responder.
+
+| Qué comprobamos | Sin usar el índice | Usando el índice |
 |---|---:|---:|
 | Documentos examinados | 638 | 4 |
-| Resultados devueltos | 4 | 4 |
+| Resultados encontrados | 4 | 4 |
 | Tiempo registrado | 0 ms | 0 ms |
 
-Podemos afirmar que el motor examina menos documentos. No podemos dar un porcentaje de mejora temporal porque los dos tiempos son cero a la resolución de la medición. `mongomock` no sirve para acreditar un plan de ejecución real. El detalle completo se conserva en `docs/evidencias_entrega_2026-11-12/anuncios/explain.json`.
+Los resultados son los mismos, pero MongoDB necesita revisar menos documentos. En el informe técnico eso aparece como `COLLSCAN`, recorrido de la colección, e `IXSCAN`, uso del índice. No podemos afirmar cuánto más rápido fue: ambas mediciones registraron cero milisegundos con esta muestra pequeña.
 
-## 12 La atomicidad tiene un alcance concreto
+Hemos aprendido a elegir un índice a partir de las consultas que hacemos y a comprobar su efecto. Añadir índices ocupa espacio y supone trabajo al modificar datos, así que no tendría sentido poner uno en cada campo sin una necesidad concreta.
 
-La rúbrica permite justificar que una operación no necesita una transacción multidocumento. En nuestro caso actualizamos un contador y una fecha del mismo documento con `find_one_and_update`, `$inc` y `$set`. MongoDB realiza esa actualización de forma atómica: no necesitamos cambiar el municipio ni otro documento para completar esa operación.
+## 12 Cómo comprobamos que no se pierden actualizaciones
 
-La prueba lanza 100 incrementos concurrentes sobre una copia aislada de un anuncio y obtiene contador 100. No modifica el contador de los anuncios originales y no representa interés real de cien personas. Sirve para mostrar que no se pierden incrementos al coincidir varias operaciones.
+Probamos un contador de interés para entender qué puede pasar si varias operaciones llegan a la vez. Si dos procesos leyeran el mismo número y cada uno guardara su propia suma, se podría perder una de las actualizaciones.
 
-Una operación que necesitara modificar dos colecciones de forma inseparable sí requeriría estudiar una transacción. No extendemos la garantía de un documento a todo el recorrido distribuido. Código: `src/database/consistency.py` y `scripts/analyze_rental_sample.py`.
+Para evitarlo pedimos a MongoDB que incremente el contador y actualice la fecha en una sola operación sobre el mismo documento. Esto se llama una actualización atómica. En el código se hace con `find_one_and_update`, `$inc` y `$set`.
 
-## 13 Qué vemos en la comparación territorial
+La comprobación lanzó **100 incrementos concurrentes y el contador terminó en 100**. Se hizo sobre una copia aislada de un anuncio. Son operaciones de prueba, no cien personas reales interesadas en la vivienda, y los anuncios originales no se modificaron.
 
-| Capital en 2024 T4 | Renta media mensual | Contratos | Variación interanual | Esfuerzo del escenario |
+En este caso no necesitamos una transacción que una cambios de varias colecciones: todo lo que debe cambiar junto está en una ficha. Si una operación futura exigiera modificar varias fichas de forma inseparable, habría que estudiar una transacción para ese caso. Lo aprendido es que debemos conocer qué garantiza la base de datos en cada operación y comprobar el resultado.
+
+## 13 Qué nos dice la comparación de las tres capitales
+
+Para comparar usamos rentas EMAL del cuarto trimestre de 2024 y un mismo sueldo de referencia: **1.564 € netos al mes**, media de jóvenes asalariados de 18 a 34 años de Euskadi en 2024, incluidas las pagas extra. Así mantenemos el ingreso fijo y observamos cómo cambia el esfuerzo cuando cambia la renta.
+
+| Capital en 2024 T4 | Renta media mensual | Contratos | Subida respecto al año anterior | Parte del sueldo del escenario |
 |---|---:|---:|---:|---:|
 | Vitoria-Gasteiz | 798,57 € | 549 | 2,88 % | 51,06 % |
 | Bilbao | 930,31 € | 767 | 6,86 % | 59,48 % |
 | Donostia-San Sebastián | 1.147,53 € | 516 | 8,53 % | 73,37 % |
 
-Usamos 1.564 €/mes: salario neto medio de jóvenes asalariados de 18 a 34 años en Euskadi en 2024, incluidas las pagas extra. Dividimos la renta entre ese ingreso y multiplicamos por cien. El escenario supone que una persona paga íntegra la renta media. No describe todos los salarios, hogares o repartos del alquiler.
+Por ejemplo, en Bilbao calculamos `930,31 / 1.564 × 100 = 59,48 %`. Es decir, si una persona ingresara ese sueldo y pagara entera esa renta media, dedicaría aproximadamente 59 de cada 100 euros al alquiler. No significa que todos los jóvenes de Bilbao tengan ese salario o dediquen ese porcentaje.
 
-Calculamos al menos cinco indicadores: renta mensual, equivalente anual, contratos, variación interanual y esfuerzo de escenario; también mostramos la diferencia respecto al 30 %. Este último es un umbral analítico, no un derecho a ayuda. La cobertura de 2024 T4 es de 18 municipios, aunque la serie completa tiene 19. No inventamos el dato ausente para completar la tabla.
+Calculamos renta mensual, su equivalente anual, número de contratos, variación respecto al año anterior y porcentaje de esfuerzo. También mostramos la distancia respecto al 30 %, utilizado como referencia de análisis. Los contratos ayudan a entender cuántas observaciones hay detrás de la estadística y la variación permite ver su evolución. El 30 % no es una condición legal para conceder ayudas.
 
-Elegimos barras para comparar municipios, una serie para ver evolución y un mapa para ubicar promociones con coordenadas observadas. La tabla permite leer cifras exactas y el CSV permite revisarlas fuera de la app. La media territorial es simple entre municipios cubiertos; no es una media ponderada de todos los contratos de cada provincia.
+Representamos las comparaciones con barras, la evolución con una línea y las promociones con coordenadas en un mapa. Elegimos cada gráfico según la pregunta: comparar importes, ver cambios o situar información. Las tablas permiten comprobar las cifras exactas y el CSV permite abrirlas fuera de la aplicación.
 
-![Visor territorial histórico con datos calculados en MongoDB](../../evidencias_2026-11-11/territorio.png)
+![Comparación de las tres capitales en nuestro visor, capturada el 17 de noviembre de 2026](../assets/visor_capitales.png)
 
-Esta captura del 11 de noviembre muestra la comparación territorial ejecutada entonces. La sección de anuncios se incorporó después y sus resultados se comprueban en los JSON del 12 de noviembre. No usamos esta pantalla para afirmar que la muestra de anuncios ya estaba en aquella versión.
+La captura muestra el visor con los resultados archivados del proyecto y las tres capitales seleccionadas. Abrirlos en pantalla no vuelve a ejecutar el transporte de datos. Para 2024 T4 tenemos 18 municipios con datos, aunque la serie completa cubre 19. La media del resumen territorial es una media simple de los municipios disponibles; no pondera todos los contratos de cada provincia.
 
-## 14 Qué aporta la muestra de anuncios
+## 14 Qué podemos aprender de los 17 anuncios
 
 | Municipio | Anuncios | Precio pedido medio | Superficie media | Media de €/m² |
 |---|---:|---:|---:|---:|
@@ -193,33 +212,38 @@ Esta captura del 11 de noviembre muestra la comparación territorial ejecutada e
 | Donostia-San Sebastián | 6 | 2.108,33 €/mes | 86,00 m² | 25,70 |
 | Bilbao | 6 | 2.316,67 €/mes | 105,50 m² | 21,36 |
 
-En esta selección Bilbao tiene el mayor precio pedido medio y Donostia la mayor media por metro cuadrado. No es una contradicción: son viviendas y superficies distintas. La media de €/m² se calcula promediando el cociente de cada anuncio, no dividiendo las dos medias de la tabla.
+En esta selección, Bilbao tiene el mayor precio medio por anuncio y Donostia el mayor precio medio por metro cuadrado. No se contradicen: el tamaño y las características de las viviendas son distintos. Para la media de €/m² calculamos primero ese valor en cada anuncio y después hacemos la media.
 
-Detectamos tres señales textuales de temporalidad y dos de alquiler dirigido a empresas, que pueden solaparse. No detectar esas palabras no acredita vivienda habitual. La mezcla de modalidades y el tamaño de la muestra impiden generalizar el orden de precios a todo el mercado.
+**La muestra de 17 anuncios es pequeña.** Nos ha servido para comprobar la extracción, la carga y las consultas, pero un anuncio caro puede cambiar bastante la media de una ciudad. Además, detectamos tres señales de alquiler temporal y dos de anuncios dirigidos a empresas, que pueden coincidir en el mismo anuncio. No todas las ofertas responden a la misma necesidad de vivienda.
 
-Por eso no comparamos estos anuncios de noviembre de 2026 con el salario OVJ de 2024 para decir cuál es asequible hoy. Tampoco mezclamos el precio pedido de una oferta con la renta de un contrato de EMAL. Cada tabla responde una pregunta distinta.
+Por eso, estos resultados describen nuestra selección y no permiten ordenar todo el mercado de Euskadi. Tampoco debemos comparar sin más el precio pedido en un anuncio de 2026 con la renta de contratos de 2024. Hemos aprendido que antes de comparar dos medias hay que mirar qué representan, de cuándo son y cuántos datos tienen detrás.
 
-## 15 Qué concluimos y qué mejoraríamos
+## 15 Qué hemos aprendido y conclusión
 
-Con el mismo ingreso de referencia, Vitoria-Gasteiz requiere menos esfuerzo que Bilbao y Donostia en 2024 T4. La conclusión se apoya en rentas EMAL y en un escenario salarial explícito. Las tres capitales superan el 30 % del ingreso de referencia. Por tanto, una renta menor no implica que acceder sea fácil.
+**Hemos aprendido a organizar los datos pensando en las preguntas.** Guardar las características dentro del anuncio nos permite buscar habitaciones; separar municipios nos permite relacionar información territorial; y distinguir promociones de anuncios evita hacer cálculos con registros que representan cosas diferentes. La estructura de la base de datos tiene sentido por lo que necesitamos consultar después.
 
-El recorrido técnico conserva el origen, permite repetir entregas y produce resultados que podemos explicar y comprobar. Sus límites son la cobertura territorial, la serie revisada, los ingresos agregados y la pequeña selección de anuncios. No hemos medido el impacto del sistema sobre la emancipación.
+**También hemos aprendido a comprobar lo que falta y lo que puede fallar.** Un campo vacío no equivale a cero, una consulta sin resultados no demuestra que algo no exista y volver a cargar un archivo no debería duplicar sus registros. Revisar estas situaciones nos ha permitido explicar mejor los resultados y detectar mejoras concretas, como recoger correctamente el ascensor o incorporar una fuente de ayudas.
 
-Como mejoras proponemos una captura periódica con revisión de acceso, mayor cobertura de anuncios, detección de posibles duplicados entre portales, datos de ingresos comparables y seguimiento de calidad por fecha. También sería útil medir rendimiento con un volumen mayor. Estas mejoras no se presentan como funciones ya implementadas.
+Sobre la vivienda, la comparación de 2024 T4 muestra que Vitoria exige menos esfuerzo que Bilbao y Donostia con el sueldo común elegido. Aun así, las tres capitales superan el 30 % y Vitoria también supera el 50 %. En ese escenario, que una ciudad tenga una renta menor no significa que pagarla entera resulte fácil. No hemos medido cuántos jóvenes pueden emanciparse ni el efecto de nuestra herramienta sobre su situación.
 
-Para defenderlo mostramos el visor, un original y su manifiesto, el resumen de transporte y la reentrega, las consultas, el explain y la operación atómica. El ZIP incluye una copia recuperada de HDFS y tres exportaciones MongoDB en `data/exportaciones_entrega_2026-11-17/`. Se ha comprobado su restauración en rutas y bases nuevas. El PDF de restauración de esa carpeta explica cómo recuperarlas; el PDF de instrucciones del paquete explica cómo ejecutar el bloque.
+Como siguientes pasos ampliaríamos la muestra de anuncios, revisaríamos posibles pisos repetidos entre portales y separaríamos mejor los alquileres habituales de los temporales. También buscaríamos datos de ingresos comparables y comprobaríamos el rendimiento con un volumen mayor. Son mejoras pendientes, no funciones ya terminadas.
 
-## 16 Dónde comprobamos cada parte
+**Nuestra conclusión es que hemos conseguido recoger, conservar, relacionar y consultar datos de varias fuentes, y convertirlos en una comparación que podemos explicar.** El principal aprendizaje ha sido entender por qué hacemos cada paso y hasta dónde llegan las conclusiones. La calidad de la respuesta depende tanto de cómo consultamos la base de datos como de la información que hemos conseguido recoger.
 
-| Afirmación | Archivo que abrimos desde la raíz |
+## 16 Dónde se puede comprobar lo explicado
+
+Las cifras de esta memoria proceden de los resultados conservados del proyecto. Esta revisión explica ese trabajo con más detalle; no presenta las ejecuciones guardadas como si se hubieran repetido al redactar el documento.
+
+| Qué queremos comprobar | Archivo o carpeta desde la raíz |
 |---|---|
-| Fuentes y huellas | data/capturas_oficiales/manifest.json |
-| 17 anuncios y composición | docs/evidencias_entrega_2026-11-12/anuncios/resumen.json |
-| Consultas y resultados | docs/evidencias_entrega_2026-11-12/anuncios/consultas.json |
-| COLLSCAN e IXSCAN | docs/evidencias_entrega_2026-11-12/anuncios/explain.json |
-| Tres estadísticas API y reentrega | docs/evidencias_cierre_rubrica_2026-11-12/api-transporte-2.json |
-| Indicadores territoriales | docs/evidencias_entrega_2026-11-12/municipal/ |
-| Pruebas históricas reales | docs/evidencias_entrega_2026-11-12/integracion-final.xml |
-| Datos exportados y restauración verificada | data/exportaciones_entrega_2026-11-17/ |
-
-Las rutas anteriores pertenecen a un único repositorio. Las carpetas académicas comparten código y recursos de la raíz. No las instalamos como proyectos independientes.
+| Fuentes y archivos originales | data/capturas_oficiales/manifest.json |
+| Captura de los anuncios | data/capturas_anuncios/2026-11-12/ |
+| Recuentos, repetición de carga y prueba de 100 incrementos | docs/evidencias_entrega_2026-11-12/anuncios/resumen.json |
+| Consultas y sus respuestas | docs/evidencias_entrega_2026-11-12/anuncios/consultas.json |
+| Comparación con y sin índice | docs/evidencias_entrega_2026-11-12/anuncios/explain.json |
+| Tres estadísticas API y carga repetida | docs/evidencias_cierre_rubrica_2026-11-12/api-transporte-2.json |
+| Comparación municipal y evolución | docs/evidencias_entrega_2026-11-12/municipal/ |
+| Código de preparación, consultas e indicadores | src/ |
+| Prueba de crear, leer, actualizar y borrar | integration_tests/test_mongodb_live.py |
+| Ejecución histórica de las pruebas con servicios reales | docs/evidencias_entrega_2026-11-12/integracion-final.xml |
+| Copias de HDFS y MongoDB y restauración comprobada | data/exportaciones_entrega_2026-11-17/ |
