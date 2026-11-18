@@ -46,11 +46,15 @@ series['trimestre_observado'] = series.anio.astype(str) + ' T' + series.trimestr
 st.line_chart(series.pivot(index='trimestre_observado', columns='municipio', values='renta_media_eur'))
 st.subheader('Promociones del catálogo Visesa')
 st.caption('Coordenadas publicadas por Visesa. La presencia en el catálogo no acredita disponibilidad. El mapa usa cartografía externa.')
+st.caption('El mapa muestra todo el catálogo con coordenadas, incluidos municipios sin dato de renta en el trimestre comparado.')
 points = pd.DataFrame(read('mapa_promociones'))
 if not points.empty:
-    points = points.loc[points.codigo_municipio.isin(table.codigo_municipio)]
+    if st.checkbox('Limitar el mapa a los municipios seleccionados en la comparación', key='filtrar_mapa_municipios'):
+        points = points.loc[points.codigo_municipio.isin(table.codigo_municipio)]
     if not points.empty:
         st.map(points[['lat', 'lon']])
+    else:
+        st.info('No hay promociones con coordenadas para esta selección.')
     st.dataframe(points, hide_index=True)
 st.subheader('Resumen territorial')
 st.dataframe(pd.DataFrame(read('resumen_territorial')), hide_index=True)

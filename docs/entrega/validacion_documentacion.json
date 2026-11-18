@@ -6,10 +6,10 @@
       "archivo": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
       "paginas": 12,
       "texto_seleccionable": true,
-      "caracteres": 18489,
-      "sha256": "20e82c715b623a4bd5209aedd47f482a15d50127232ff9b314100e67355be477",
+      "caracteres": 18282,
+      "sha256": "011bdf9bc687479a7c9aa8f8a6f619705008b49fd286cd60db9f2361241a98ba",
       "enlaces_pdf": 33,
-      "paginas_con_imagenes": 5
+      "paginas_con_imagenes": 4
     },
     {
       "archivo": "docs/entrega/BDA_SBD/Guion_oral_BDA_SBD.pdf",
@@ -24,8 +24,8 @@
       "archivo": "docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf",
       "paginas": 12,
       "texto_seleccionable": true,
-      "caracteres": 3562,
-      "sha256": "34a997811d2b85e2e9fc66fd4ee6e02ac3a379c3652b317ebafc429ff93c9cc6",
+      "caracteres": 3582,
+      "sha256": "28911f0d1091df7f25a346ee8297937d2fe3810f9441e2e5cf1fbc2881b608c5",
       "enlaces_pdf": 0,
       "paginas_con_imagenes": 3
     },
@@ -103,7 +103,7 @@
     }
   ],
   "errores_automaticos": [],
-  "enlaces_locales_comprobados": 136,
+  "enlaces_locales_comprobados": 135,
   "fuentes_docentes": [
     {
       "nombre": "Reto1_SAA_PIA_MIA_2026-27_v5.pdf",
@@ -269,9 +269,9 @@
   "paquetes": [
     {
       "archivo": "Entrega_BDA_SBD.zip",
-      "bytes": 6787019,
-      "sha256": "3921c4c3298649c74755beb1658a490746e6c14cb50440a5cb8493bae14d5d1a",
-      "archivos": 218,
+      "bytes": 6751883,
+      "sha256": "f5665198b3d6231d545ffb7f60e423c8164e51e267470fd98abf3ad5319ef003",
+      "archivos": 217,
       "pdf": [
         "Instrucciones_BDA_SBD.pdf",
         "data/exportaciones_entrega_2026-11-17/Instrucciones_restauracion.pdf",
@@ -445,5 +445,34 @@
     "integridad_local_correcta": true,
     "servicios_repetidos": false,
     "modelo_reevaluado": false
+  },
+  "revision_capturas_completas_bda_2026_11_18": {
+    "cambios": "Se retiran de la memoria las capturas de la API y de los anuncios de las capitales. Se incluye la selección municipal completa y se reemplaza el mapa en memoria y presentación por una captura de todo el catálogo con coordenadas.",
+    "mapa_promociones": 186,
+    "municipios_mapa": 48,
+    "mapa_filtrado_por_emal_antes": 125,
+    "municipios_comparativa": 18,
+    "codigo_modificado": "app/territorio.py muestra todas las promociones por defecto; la casilla permite filtrar por la selección de rentas.",
+    "prueba_regresion": "tests/test_territory_viewer.py comprueba el catálogo completo, selección de Bilbao, filtro activado, selección vacía y recuperación del catálogo.",
+    "captura_nueva": "docs/entrega/assets/visor_mapa_completo.png",
+    "inspeccion_visual": "Revisadas las 12 páginas de la memoria y la diapositiva del mapa; comparación y mapa completos, sin capturas de API/anuncios de las tres capitales en la memoria.",
+    "pruebas": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "169",
+      "time": "14.729",
+      "timestamp": "2026-11-18T16:08:16.977922+01:00",
+      "hostname": "a7f97f83d390"
+    },
+    "avisos_pruebas": 9,
+    "integridad_local_correcta": true,
+    "paquete_bda_extraido_y_huellas_verificadas": true,
+    "paquete_ia_sin_cambios": true,
+    "datos_conservados_sin_cambios": true,
+    "servicios_repetidos": false,
+    "modelo_reevaluado": false,
+    "prueba_del_visor_en_zip_extraido": "Correcta: mapa completo, filtro de Bilbao, selección vacía y recuperación"
   }
 }

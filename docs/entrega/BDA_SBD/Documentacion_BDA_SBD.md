@@ -27,19 +27,15 @@ El esquema es de elaboración propia. Cada conjunto conserva su significado: anu
 
 **Con la API recibimos datos preparados para un programa.** Hicimos una comprobación con rentas de las capitales para 2024 T4, seleccionando nuevos contratos, vivienda habitual y edificio colectivo. Guardamos la dirección y los filtros. Esta prueba complementa el análisis de todos los municipios disponibles en el Excel EMAL.
 
-![Datos recibidos de la API EMAL, mostrados en nuestro visor](../assets/bda_api_en_visor.png)
-
 La API devuelve 930,3 €/mes para Bilbao, 1.147,5 para Donostia y 798,6 para Vitoria. El Excel incluye más decimales. Comprobarlo nos ayudó a entender que una diferencia pequeña puede deberse al redondeo.
 
 **Con el scraping recogemos los datos del HTML de los listados.** Usamos `requests` para descargarlo y `BeautifulSoup` para encontrar cada anuncio. Extraemos precio, metros cuadrados, habitaciones, baños, ubicación y enlace, y los guardamos en JSON.
 
 Para probar la extracción reunimos una muestra de los dos portales en las capitales. Al principio fallaron algunas rutas y selectores; los corregimos revisando el HTML recibido. Esta muestra sirve para comprobar la recogida y las consultas; el análisis municipal más amplio procede de EMAL.
 
-![Primeras filas de los anuncios archivados, con fuente, municipio, precio y superficie](../assets/bda_anuncios_en_visor.png)
-
 Comprobamos `robots.txt`, dejamos pausas entre peticiones y detenemos el acceso ante los bloqueos previstos en el código. Tambien guardamos el HTML para revisar la extracción si el anuncio cambia. Las reglas de robots no sustituyen las condiciones de uso del portal.
 
-Estas dos capturas muestran nuestra aplicación abierta con los datos archivados del 12 de noviembre de 2026. No representan una nueva búsqueda ni garantizan que los anuncios sigan disponibles.
+Las muestras de API y scraping están archivadas desde el 12 de noviembre de 2026. Abrirlas en el visor no supone una nueva búsqueda ni garantiza que los anuncios sigan disponibles.
 
 ## 4 Por qué guardamos los originales
 
@@ -153,21 +149,23 @@ Esta actualización es atómica: los cambios del documento se hacen juntos. Para
 
 La serie EMAL incluye **19 municipios**. En **2024 T4 hay datos de 18**, y comparamos todos ellos. Erandio aparece en la serie histórica, pero no tiene dato en ese trimestre. Es la cobertura de nuestras fuentes, no un censo de todos los municipios de Euskadi.
 
+![Captura del visor con todos los municipios seleccionados y las primeras filas de resultados](../assets/visor_municipios.png)
+
 Usamos **1.564 € netos al mes**, salario medio de jóvenes asalariados de 18 a 34 años de Euskadi en 2024, incluidas las pagas extra. Al mantener ese ingreso fijo vemos cómo cambia el esfuerzo según la renta municipal.
 
 ![Los 18 municipios con datos en 2024 T4: parte del ingreso de referencia destinada al alquiler](../assets/esfuerzo_municipios.png)
 
-Eibar tiene la menor renta media de esta comparación: **651,55 €**, un **41,66 %** del ingreso de referencia. Donostia-San Sebastián tiene la mayor: **1.147,53 €**, un **73,37 %**. Los demás municipios quedan entre ambos. Son rentas de contratos observados, no precios de anuncios actuales.
+Eibar tiene la menor renta media: **651,55 €** y **41,66 %** del ingreso común. Donostia-San Sebastián tiene la mayor: **1.147,53 €** y **73,37 %**. Son contratos observados, no anuncios actuales.
 
-Por ejemplo, en Bilbao calculamos `930,31 / 1.564 × 100 = 59,48 %`. Suponemos que una persona paga todo el alquiler con ese ingreso común; no estamos usando el sueldo real de cada municipio o persona.
+En Bilbao calculamos `930,31 / 1.564 × 100 = 59,48 %`. Suponemos pagar todo el alquiler con el ingreso común, no con el sueldo real de cada municipio.
 
-Calculamos cinco indicadores: renta mensual, equivalente anual, contratos, variación interanual y esfuerzo. También comparamos con el 30 %, una referencia analítica que no determina ayudas. El resumen territorial usa medias simples entre municipios, no ponderadas por todos sus contratos.
+Calculamos renta mensual, equivalente anual, contratos, variación interanual y esfuerzo. El 30 % es una referencia de comparación, no un criterio de ayudas. El resumen territorial usa medias simples entre municipios, sin ponderar por contratos.
 
-El visor permite seleccionar cualquiera de los municipios disponibles. Usamos barras para comparar, una línea para la evolución y un mapa para situar promociones. Las tablas y el CSV permiten revisar las cifras exactas.
+El visor permite elegir municipios, comparar con barras, ver su evolución y descargar las cifras en CSV.
 
-![Mapa de promociones publicado en el visor](../assets/visor_mapa.png)
+El mapa incluye todas las promociones Visesa con coordenadas archivadas, también en municipios sin dato de renta. La casilla del visor permite limitarlo a la selección. Aparecer en el mapa no garantiza disponibilidad. Captura del 18 de noviembre con los resultados conservados.
 
-El mapa muestra coordenadas de promociones Visesa y no garantiza disponibilidad. Esta captura se tomó el 17 de noviembre sobre resultados archivados del proyecto.
+![Captura del mapa completo: todas las promociones del catálogo archivado con coordenadas](../assets/visor_mapa_completo.png)
 
 ## 14 Qué podemos decir de la muestra de anuncios
 

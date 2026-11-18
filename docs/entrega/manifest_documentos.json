@@ -4,7 +4,7 @@
   "documentos": [
     {
       "archivo": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
-      "sha256": "20e82c715b623a4bd5209aedd47f482a15d50127232ff9b314100e67355be477",
+      "sha256": "011bdf9bc687479a7c9aa8f8a6f619705008b49fd286cd60db9f2361241a98ba",
       "fuente": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.md",
       "revision_documental": "2026-11-18"
     },
@@ -15,7 +15,7 @@
     },
     {
       "archivo": "docs/entrega/BDA_SBD/Presentacion_BDA_SBD.pdf",
-      "sha256": "34a997811d2b85e2e9fc66fd4ee6e02ac3a379c3652b317ebafc429ff93c9cc6",
+      "sha256": "28911f0d1091df7f25a346ee8297937d2fe3810f9441e2e5cf1fbc2881b608c5",
       "fuente": "docs/entrega/BDA_SBD/Presentacion_BDA_SBD.md",
       "revision_documental": "2026-11-18"
     },

@@ -118,5 +118,19 @@
       "esfuerzo_escenario_pct"
     ],
     "servicios_repetidos": false
+  },
+  "visor_mapa_completo.png": {
+    "fecha": "2026-11-18",
+    "tipo": "Captura real de app/territorio.py con el catálogo completo archivado",
+    "captura": "Chromium mediante Playwright; recorte del componente de mapa visible, sin alterar valores ni añadir puntos",
+    "datos": "docs/evidencias_entrega_2026-11-12/municipal/mapa_promociones.json",
+    "sha256_datos": "a38aef0e4da450d4ca3fc17969412bd12b3a76a53e7d324d919a4dc952faf624",
+    "filtro_por_municipios_emal": false,
+    "promociones_con_coordenadas": 186,
+    "municipios_con_coordenadas": 48,
+    "zoom_captura": "Un paso de acercamiento desde la vista inicial; encuadre completo de los puntos",
+    "cartografia": "OpenStreetMap / CARTO",
+    "disponibilidad_no_acreditada": true,
+    "servicios_repetidos": false
   }
 }

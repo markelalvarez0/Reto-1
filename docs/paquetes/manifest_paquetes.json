@@ -3,9 +3,9 @@
   "paquetes": [
     {
       "archivo": "Entrega_BDA_SBD.zip",
-      "bytes": 6787019,
-      "sha256": "3921c4c3298649c74755beb1658a490746e6c14cb50440a5cb8493bae14d5d1a",
-      "archivos": 218,
+      "bytes": 6751883,
+      "sha256": "f5665198b3d6231d545ffb7f60e423c8164e51e267470fd98abf3ad5319ef003",
+      "archivos": 217,
       "pdf": [
         "Instrucciones_BDA_SBD.pdf",
         "data/exportaciones_entrega_2026-11-17/Instrucciones_restauracion.pdf",

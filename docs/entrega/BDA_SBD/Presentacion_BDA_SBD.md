@@ -72,9 +72,9 @@ Podemos comparar todos los municipios o elegir algunos. Aquí se ven la selecci�
 
 ## 11 El mapa también necesita contexto
 
-![Captura real del mapa de promociones del visor](../assets/visor_mapa.png)
+![Captura real del mapa completo de promociones con coordenadas](../assets/visor_mapa_completo.png)
 
-El mapa sitúa promociones publicadas; no garantiza que estén disponibles. Los 17 anuncios tampoco representan todo el mercado.
+El mapa muestra todo el catálogo con coordenadas, también en municipios sin dato de renta. Que una promoción aparezca no garantiza disponibilidad.
 
 ## 12 Qué hemos conseguido y qué mejoraríamos
 
