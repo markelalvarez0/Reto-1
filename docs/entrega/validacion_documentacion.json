@@ -6,8 +6,8 @@
       "archivo": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
       "paginas": 12,
       "texto_seleccionable": true,
-      "caracteres": 18282,
-      "sha256": "011bdf9bc687479a7c9aa8f8a6f619705008b49fd286cd60db9f2361241a98ba",
+      "caracteres": 18189,
+      "sha256": "0886aeb73139997617c1cac5a3698e779ae6c4f3375ba2469abdd27472184e64",
       "enlaces_pdf": 33,
       "paginas_con_imagenes": 4
     },
@@ -269,8 +269,8 @@
   "paquetes": [
     {
       "archivo": "Entrega_BDA_SBD.zip",
-      "bytes": 6751883,
-      "sha256": "f5665198b3d6231d545ffb7f60e423c8164e51e267470fd98abf3ad5319ef003",
+      "bytes": 6751755,
+      "sha256": "fc112d85a6e40efe53cc176dd7acd04b44dbd34e4c61f68f920353b8ec1058b8",
       "archivos": 217,
       "pdf": [
         "Instrucciones_BDA_SBD.pdf",
@@ -474,5 +474,24 @@
     "servicios_repetidos": false,
     "modelo_reevaluado": false,
     "prueba_del_visor_en_zip_extraido": "Correcta: mapa completo, filtro de Bilbao, selección vacía y recuperación"
+  },
+  "retirada_tiempo_registrado_2026_11_18": {
+    "cambio": "Se retira la fila de tiempo y su explicación de la memoria BDA/SBD. Se conserva la comparación de documentos examinados y resultados.",
+    "pagina_modificada": 8,
+    "inspeccion_visual": "Tabla revisada sin la fila retirada; el resto de páginas conserva el mismo texto.",
+    "pruebas": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "169",
+      "time": "15.464",
+      "timestamp": "2026-11-18T16:23:03.851460+01:00",
+      "hostname": "a7f97f83d390"
+    },
+    "avisos_pruebas": 9,
+    "zip_bda_regenerado_y_verificado": true,
+    "presentacion_sin_cambios": true,
+    "paquete_ia_sin_cambios": true
   }
 }

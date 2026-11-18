@@ -3,8 +3,8 @@
   "paquetes": [
     {
       "archivo": "Entrega_BDA_SBD.zip",
-      "bytes": 6751883,
-      "sha256": "f5665198b3d6231d545ffb7f60e423c8164e51e267470fd98abf3ad5319ef003",
+      "bytes": 6751755,
+      "sha256": "fc112d85a6e40efe53cc176dd7acd04b44dbd34e4c61f68f920353b8ec1058b8",
       "archivos": 217,
       "pdf": [
         "Instrucciones_BDA_SBD.pdf",

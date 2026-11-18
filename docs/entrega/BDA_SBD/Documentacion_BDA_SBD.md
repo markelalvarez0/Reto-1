@@ -135,9 +135,8 @@ Un índice ayuda a encontrar información sin revisar toda la colección, como e
 |---|---:|---:|
 | Documentos examinados | 638 | 4 |
 | Resultados encontrados | 4 | 4 |
-| Tiempo registrado | 0 ms | 0 ms |
 
-MongoDB revisa menos documentos y devuelve lo mismo. Ambos tiempos son cero: no podemos medir la mejora de velocidad. El informe distingue `COLLSCAN` e `IXSCAN`. También usamos índices para el INE y para impedir identidades duplicadas. Ocupan espacio, así que deben tener una utilidad.
+MongoDB revisa menos documentos y devuelve lo mismo. El informe distingue `COLLSCAN` e `IXSCAN`. También usamos índices para el INE y para impedir identidades duplicadas. Ocupan espacio, así que deben tener una utilidad.
 
 ## 12 Cómo comprobamos las actualizaciones simultáneas
 
