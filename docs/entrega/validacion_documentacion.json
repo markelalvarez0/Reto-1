@@ -6,8 +6,8 @@
       "archivo": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
       "paginas": 12,
       "texto_seleccionable": true,
-      "caracteres": 18113,
-      "sha256": "30cd1c8fbcacbbb97e38b8a6a823a7d605cf2fe5822cad2e83c381a2aa603d33",
+      "caracteres": 19381,
+      "sha256": "0fc7ec56bc0d0afddabab647b7ff5ff9a18fff060e1b51add27717548c6760d9",
       "enlaces_pdf": 32,
       "paginas_con_imagenes": 4
     },
@@ -269,8 +269,8 @@
   "paquetes": [
     {
       "archivo": "Entrega_BDA_SBD.zip",
-      "bytes": 6751596,
-      "sha256": "22e2f71a91442bd2aeee8f2a5eea2eead0dcdac00e540612badc69a66f00d364",
+      "bytes": 6753021,
+      "sha256": "d3cbea0c249196d88c7105709d3b83717d1ffce179f1b0b5bf75b2857b1d11c4",
       "archivos": 217,
       "pdf": [
         "Instrucciones_BDA_SBD.pdf",
@@ -536,5 +536,41 @@
     },
     "avisos_pruebas": 9,
     "inspeccion_visual": "Portada revisada sin el bloque retirado. Las otras once páginas son idénticas píxel a píxel al PDF anterior."
+  },
+  "revision_alternativas_bda_2026_11_19": {
+    "cambio": "Se explican alternativas, motivos y costes de las decisiones junto a cada apartado, y se refuerza la conclusión en lenguaje sencillo.",
+    "alternativas": [
+      "conservar originales o solo archivos limpios",
+      "archivos locales y carga directa o HDFS y Kafka",
+      "MongoDB o tablas SQL",
+      "colección común o separada para anuncios y promociones",
+      "características dentro del anuncio o en otra colección",
+      "contexto municipal referenciado o repetido",
+      "consultas con y sin índice",
+      "incremento atómico o lectura y escritura separadas"
+    ],
+    "comparacion_de_motores": "Opciones de diseño; se indica expresamente que no se ha realizado una prueba de rendimiento entre motores.",
+    "comparacion_con_indices": "Se conserva la evidencia existente de documentos examinados: 638 sin índice y 4 con índice, con cuatro resultados en ambos casos.",
+    "paginas": 12,
+    "palabras_antes": 2758,
+    "palabras_ahora": 2949,
+    "inspeccion_visual": "Revisadas las 12 páginas, índice, tablas y cuatro apoyos visuales; texto seleccionable sin elementos fuera de página.",
+    "consultas_y_cifras_sin_cambios": true,
+    "zip_bda_regenerado_y_huellas_verificadas": true,
+    "otros_pdf_y_zip_ia_sin_cambios": true,
+    "codigo_y_datos_sin_cambios": true,
+    "servicios_repetidos": false,
+    "modelo_reevaluado": false,
+    "pruebas": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "169",
+      "time": "18.262",
+      "timestamp": "2026-11-19T16:44:04.678145+01:00",
+      "hostname": "8a8f9cf41626"
+    },
+    "avisos_pruebas": 9
   }
 }

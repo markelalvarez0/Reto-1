@@ -39,7 +39,7 @@ Las muestras de API y scraping están archivadas desde el 12 de noviembre de 202
 
 ## 4 Por qué guardamos los originales
 
-Conservamos el archivo recibido, su URL, la fecha y una huella SHA-256 que permite detectar cambios. Separamos los originales de los datos preparados para poder volver atrás si cometemos un error al limpiar.
+Guardar solo el archivo limpio ocuparía menos espacio, pero perderíamos la posibilidad de revisar cómo llegó el dato. Por eso conservamos también el original, su URL, la fecha y una huella SHA-256 que permite detectar cambios. Así podemos volver atrás si cometemos un error al limpiar.
 
 También distinguimos la fecha de descarga del periodo estadístico. Descargar un archivo en 2026 no convierte sus cifras de 2024 en datos de 2026. Esto importa al comparar alquiler y sueldo: deben referirse a periodos compatibles.
 
@@ -53,7 +53,9 @@ También distinguimos la fecha de descarga del periodo estadístico. Descargar u
 
 Python adapta los formatos de las fuentes y PyMongo comunica nuestros scripts con MongoDB. El visor representa las salidas calculadas, por lo que no tenemos que copiar medias a mano.
 
-En la ejecución conservada recuperamos 31 archivos del lote principal sin cambios y llegaron 638 registros. La API tuvo otro recorrido de seis archivos y tres estadísticas. Con esta muestra pequeña usamos HDFS y Kafka para aprender y comprobar el recorrido del reto; no hemos medido su comportamiento con millones de anuncios.
+En la ejecución conservada recuperamos 31 archivos del lote principal sin cambios y llegaron 638 registros. La API tuvo otro recorrido de seis archivos y tres estadísticas.
+
+**La alternativa más sencilla sería guardar archivos locales y cargar MongoDB directamente.** Con esta muestra bastaría. HDFS y Kafka añaden configuración, pero nos permiten practicar el almacenamiento distribuido y separar el envío de la recepción, como pide el reto. Esa es nuestra razón para usarlos; no hemos medido su comportamiento con millones de anuncios.
 
 ## 6 Cómo evitamos los duplicados
 
@@ -61,15 +63,17 @@ Si repetimos una carga, el mismo anuncio no debe convertirse en dos documentos. 
 
 Kafka confirma el mensaje después de guardarlo. Asi evitamos dar por terminada una escritura que ha fallado. Al recargar los 17 anuncios seguimos teniendo **638 documentos**, y la API mantiene **tres**. Este control reconoce el mismo registro de origen, pero todavía no detecta un piso anunciado en dos webs diferentes.
 
-## 7 Por qué organizamos así la base de datos
+## 7 Decisiones de la base de datos y alternativas
 
-Una **colección** es un grupo de fichas y cada **documento** es una ficha. Elegimos MongoDB porque las fuentes traen campos distintos: un anuncio puede tener habitaciones y una promoción puede no publicar precio mensual.
+Una **colección** es un grupo de fichas y cada **documento** es una ficha. Estas son las alternativas que valoramos al revisar nuestro diseño; las comparamos por su utilidad para el proyecto.
 
-**Anuncios y promociones comparten `viviendas`**, la carga y los campos de fuente, identidad y municipio. Guardamos el tipo para distinguirlos. Las consultas de alquiler excluyen promociones para no mezclar unidades distintas.
+**MongoDB o tablas SQL.** Una base relacional también serviría, organizando los datos en tablas relacionadas. Usamos MongoDB porque permite guardar juntas características y listas que varían entre fuentes, y trabajar las consultas del reto. Esa flexibilidad exige revisar los tipos y campos antes de guardar. No hemos hecho una prueba de rendimiento entre ambos motores.
 
-**Las características van dentro del anuncio.** Agrupamos habitaciones, baños y ascensor en `caracteristicas` porque describen esa misma ficha y normalmente los consultamos juntos. Así podemos buscar, por ejemplo, anuncios con dos habitaciones.
+**Una colección común o dos separadas.** Anuncios y promociones comparten `viviendas`, la carga y los campos de fuente, identidad y municipio. Separarlos en dos colecciones distinguiría los tipos desde el principio. Compartirla simplifica la carga, pero obliga a guardar el tipo y excluir las promociones en las consultas de alquiler.
 
-**Los municipios van separados y se relacionan por código INE.** Guardar su contexto una sola vez evita repetirlo. El código permite reconocer nombres como Donostia y San Sebastián.
+**Características dentro o en otra colección.** Agrupamos habitaciones, baños y ascensor en `caracteristicas` porque describen la misma ficha y los consultamos juntos. Separarlas obligaría a relacionarlas de nuevo para ver un anuncio completo. Aquí guardarlas dentro facilita buscar, por ejemplo, anuncios con dos habitaciones.
+
+**Contexto municipal separado o repetido en cada anuncio.** Repetirlo permitiría leerlo todo en una ficha, pero habría que actualizar muchas copias cuando cambiase. Lo guardamos una vez y lo relacionamos por código INE. A cambio, algunas consultas necesitan unir las colecciones. El código reconoce nombres como Donostia y San Sebastián.
 
 | Otras colecciones | Por qué las separamos |
 |---|---|
@@ -136,13 +140,13 @@ Un índice ayuda a encontrar información sin revisar toda la colección, como e
 | Documentos examinados | 638 | 4 |
 | Resultados encontrados | 4 | 4 |
 
-MongoDB revisa menos documentos y devuelve lo mismo. El informe distingue `COLLSCAN` e `IXSCAN`. También usamos índices para el INE y para impedir identidades duplicadas. Ocupan espacio, así que deben tener una utilidad.
+**Aquí sí probamos las dos alternativas: consultar con y sin el índice.** MongoDB revisa menos documentos y devuelve lo mismo. El informe distingue `COLLSCAN` e `IXSCAN`. Mantener el índice ocupa espacio y añade trabajo al escribir; lo justificamos por esta búsqueda. También usamos índices para el INE y para impedir identidades duplicadas.
 
 ## 12 Cómo comprobamos las actualizaciones simultáneas
 
 Probamos **100 incrementos concurrentes y el contador terminó en 100**. Usamos `find_one_and_update`, `$inc` y `$set` para sumar y actualizar la fecha juntos, sobre un documento. La prueba se hizo en una copia aislada: no representa cien personas interesadas ni cambia los anuncios originales.
 
-Esta actualización es atómica: los cambios del documento se hacen juntos. Para cambiar varias fichas de forma inseparable habría que estudiar una transacción. Hemos aprendido a distinguir esos casos.
+Leer el contador, sumarle uno y guardarlo en pasos separados podría perder incrementos si dos procesos leen el mismo valor. Elegimos una actualización atómica: los cambios del documento se hacen juntos. Para cambiar varias fichas de forma inseparable habría que estudiar una transacción.
 
 ## 13 Qué vemos al comparar todos los municipios
 
@@ -180,7 +184,7 @@ Bilbao tiene el mayor precio medio de esta selección y Donostia la mayor media 
 
 ## 15 Qué hemos aprendido y conclusión
 
-Hemos aprendido a organizar los datos pensando en lo que queremos preguntar. Guardar características dentro del anuncio facilita buscar habitaciones; separar municipios permite relacionar fuentes; y distinguir promociones de anuncios evita confundir lo que estamos contando.
+Hemos aprendido a elegir según lo que queremos consultar. Guardar características dentro facilita leer un anuncio completo; separar municipios evita repetir su contexto, aunque después haya que relacionarlos. Un índice reduce los documentos examinados, pero también hay que mantenerlo. Cada decisión tiene una ventaja y un coste.
 
 Lo mas importante ha sido revisar los límites: un dato vacío no es cero, una consulta sin resultados no demuestra que algo no exista y repetir una carga no debería duplicar registros. Las comprobaciones nos han ayudado a detectar esas situaciones.
 
