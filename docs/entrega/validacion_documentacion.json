@@ -6,9 +6,9 @@
       "archivo": "docs/entrega/BDA_SBD/Documentacion_BDA_SBD.pdf",
       "paginas": 12,
       "texto_seleccionable": true,
-      "caracteres": 18189,
-      "sha256": "0886aeb73139997617c1cac5a3698e779ae6c4f3375ba2469abdd27472184e64",
-      "enlaces_pdf": 33,
+      "caracteres": 18113,
+      "sha256": "30cd1c8fbcacbbb97e38b8a6a823a7d605cf2fe5822cad2e83c381a2aa603d33",
+      "enlaces_pdf": 32,
       "paginas_con_imagenes": 4
     },
     {
@@ -269,8 +269,8 @@
   "paquetes": [
     {
       "archivo": "Entrega_BDA_SBD.zip",
-      "bytes": 6751755,
-      "sha256": "fc112d85a6e40efe53cc176dd7acd04b44dbd34e4c61f68f920353b8ec1058b8",
+      "bytes": 6751596,
+      "sha256": "22e2f71a91442bd2aeee8f2a5eea2eead0dcdac00e540612badc69a66f00d364",
       "archivos": 217,
       "pdf": [
         "Instrucciones_BDA_SBD.pdf",
@@ -517,5 +517,24 @@
     "inferencia_nueva": false,
     "entrenamiento_repetido": false,
     "test_final_reevaluado": false
+  },
+  "retirada_repositorio_portada_bda_2026_11_19": {
+    "cambio": "Se retiran de la portada de la memoria BDA/SBD el texto Repositorio y archivos funcionales y su enlace a GitHub. El generador conserva esta decisión al volver a crear el PDF.",
+    "pagina_modificada": 1,
+    "paginas_restantes_identicas_en_texto_y_pixeles": true,
+    "zip_bda_regenerado_y_huellas_verificadas": true,
+    "otros_pdf_y_zip_ia_sin_cambios": true,
+    "pruebas": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "169",
+      "time": "19.549",
+      "timestamp": "2026-11-19T16:07:51.931570+01:00",
+      "hostname": "8a8f9cf41626"
+    },
+    "avisos_pruebas": 9,
+    "inspeccion_visual": "Portada revisada sin el bloque retirado. Las otras once páginas son idénticas píxel a píxel al PDF anterior."
   }
 }

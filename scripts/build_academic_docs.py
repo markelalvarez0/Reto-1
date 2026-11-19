@@ -216,11 +216,14 @@ def report(source):
     doc.addPageTemplates(PageTemplate(id='report', frames=[Frame(48, 48, doc.width, doc.height, leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0)], onPage=footer))
     story = [Spacer(1, 70), Paragraph('RETO 1 · ACCESO A LA VIVIENDA', style(12)),
              Paragraph(inline(title), ParagraphStyle('title', parent=style(30), leading=38, spaceAfter=25)),
-             Paragraph('Curso de Especialización en Inteligencia Artificial y Big Data', style(13)),
-             Spacer(1, 25),
-             Paragraph('Repositorio y archivos funcionales', style(11)),
-             Paragraph('<link href="https://github.com/markelalvarez0/Reto-1" color="#087e83">https://github.com/markelalvarez0/Reto-1</link>', style(10)),
-             PageBreak(), Paragraph('Contenido', style(24))]
+             Paragraph('Curso de Especialización en Inteligencia Artificial y Big Data', style(13))]
+    if source.name != 'Documentacion_BDA_SBD.md':
+        story.extend([
+            Spacer(1, 25),
+            Paragraph('Repositorio y archivos funcionales', style(11)),
+            Paragraph('<link href="https://github.com/markelalvarez0/Reto-1" color="#087e83">https://github.com/markelalvarez0/Reto-1</link>', style(10)),
+        ])
+    story.extend([PageBreak(), Paragraph('Contenido', style(24))])
     toc = TableOfContents()
     toc.levelStyles = [ParagraphStyle('toc', parent=style(10), leading=15, spaceBefore=4)]
     story.extend([toc, PageBreak()])
