@@ -41,8 +41,9 @@
     },
     {
       "archivo": "docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf",
-      "sha256": "f66ea5447d0cb7aaa94e407aa4050d51eeb29d6731ab3fdd1e20b680973fb69f",
-      "fuente": "docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.md"
+      "sha256": "7d33d2936b2396ea6f1af40b08cf52f11c336d236cd7a07dbd2f4989223fd9d1",
+      "fuente": "docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.md",
+      "revision_documental": "2026-11-19"
     },
     {
       "archivo": "docs/paquetes/Instrucciones_BDA_SBD.pdf",
@@ -62,5 +63,5 @@
   ],
   "modelo_cargado": false,
   "test_reevaluado": false,
-  "ultima_revision_documental": "2026-11-18"
+  "ultima_revision_documental": "2026-11-19"
 }

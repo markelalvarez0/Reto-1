@@ -15,9 +15,9 @@
     },
     {
       "archivo": "Entrega_SAA_PIA_MIA.zip",
-      "bytes": 5980938,
-      "sha256": "ae966e58e9f2e6e082afb0dd60619dc99292e8134b06f0729e25878164ea6b98",
-      "archivos": 172,
+      "bytes": 5874514,
+      "sha256": "692c02cb04ac22c3e85debbd573262e0e29474a71662349e2bd346c3d9403008",
+      "archivos": 171,
       "pdf": [
         "Instrucciones_SAA_PIA_MIA.pdf",
         "docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf",
@@ -25,5 +25,5 @@
       ]
     }
   ],
-  "ultima_revision_documental": "2026-11-18"
+  "ultima_revision_documental": "2026-11-19"
 }

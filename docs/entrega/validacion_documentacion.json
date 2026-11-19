@@ -69,10 +69,10 @@
       "archivo": "docs/entrega/SAA_PIA_MIA/Presentacion_SAA_PIA_MIA.pdf",
       "paginas": 12,
       "texto_seleccionable": true,
-      "caracteres": 3223,
-      "sha256": "f66ea5447d0cb7aaa94e407aa4050d51eeb29d6731ab3fdd1e20b680973fb69f",
+      "caracteres": 3473,
+      "sha256": "7d33d2936b2396ea6f1af40b08cf52f11c336d236cd7a07dbd2f4989223fd9d1",
       "enlaces_pdf": 0,
-      "paginas_con_imagenes": 5
+      "paginas_con_imagenes": 4
     },
     {
       "archivo": "docs/paquetes/Instrucciones_BDA_SBD.pdf",
@@ -103,7 +103,7 @@
     }
   ],
   "errores_automaticos": [],
-  "enlaces_locales_comprobados": 135,
+  "enlaces_locales_comprobados": 134,
   "fuentes_docentes": [
     {
       "nombre": "Reto1_SAA_PIA_MIA_2026-27_v5.pdf",
@@ -281,9 +281,9 @@
     },
     {
       "archivo": "Entrega_SAA_PIA_MIA.zip",
-      "bytes": 5980938,
-      "sha256": "ae966e58e9f2e6e082afb0dd60619dc99292e8134b06f0729e25878164ea6b98",
-      "archivos": 172,
+      "bytes": 5874514,
+      "sha256": "692c02cb04ac22c3e85debbd573262e0e29474a71662349e2bd346c3d9403008",
+      "archivos": 171,
       "pdf": [
         "Instrucciones_SAA_PIA_MIA.pdf",
         "docs/entrega/SAA_PIA_MIA/Documentacion_SAA_PIA_MIA.pdf",
@@ -332,7 +332,7 @@
     "sin_readme_en_ambos_zip": true,
     "instalacion_y_pruebas_tras_extraer": "126 pruebas BDA/SBD y 34 pruebas SAA/PIA/MIA, sin errores"
   },
-  "ultima_revision_documental": "2026-11-18",
+  "ultima_revision_documental": "2026-11-19",
   "revision_memoria_bda_2026_11_18": {
     "enfoque": "Qué hicimos, por qué, utilidad de cada consulta, aprendizaje y conclusión en lenguaje sencillo",
     "consultas_explicadas": 7,
@@ -493,5 +493,29 @@
     "zip_bda_regenerado_y_verificado": true,
     "presentacion_sin_cambios": true,
     "paquete_ia_sin_cambios": true
+  },
+  "revision_diapositiva_9_ia_2026_11_19": {
+    "cambio": "La captura JSON se sustituye por tres tarjetas con estimación municipal, esfuerzo del escenario y recomendación, en lenguaje sencillo.",
+    "valores": "Caso ficticio conservado: ingreso 1500 €/mes; referencia 1013,84 €/mes; esfuerzo de referencia 67,59 %; alquiler declarado 500 €/mes y esfuerzo declarado 33,33 %.",
+    "procedencia": "docs/entrega/assets/procedencia_visuales.json, app_caso_decision.png y app_caso_formulario.png",
+    "inspeccion_visual": "Diapositiva 9 revisada sin desbordamientos; las otras once son idénticas píxel a píxel al PDF anterior.",
+    "paginas": 12,
+    "pruebas": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "169",
+      "time": "18.321",
+      "timestamp": "2026-11-19T15:12:22.703403+01:00",
+      "hostname": "8a8f9cf41626"
+    },
+    "avisos_pruebas": 9,
+    "zip_ia_extraido_y_huellas_verificadas": true,
+    "zip_bda_sin_cambios": true,
+    "integridad_local_correcta": true,
+    "inferencia_nueva": false,
+    "entrenamiento_repetido": false,
+    "test_final_reevaluado": false
   }
 }

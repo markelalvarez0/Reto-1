@@ -52,11 +52,15 @@ SHAP ayuda a explicar el modelo. En la prueba final, el error absoluto medio fue
 
 Bilbao: ingreso de 1.500 € y alquiler de 500 €. Sin deudas, el alquiler supone el 33,33 % del ingreso.
 
-## 9 Explicamos por qué orientamos así
+## 9 De la predicción a la recomendación
 
-![Captura real de la orientación obtenida en la aplicación](../assets/app_caso_decision.png)
+Seguimos con el caso ficticio de Bilbao: ingreso de 1.500 €/mes.
 
-Las diez reglas tienen prioridad. En este caso, la referencia supera el 40 % del ingreso y propone comparar municipios. El sueldo se usa después de predecir.
+:::cards 1.013,84 € :: Alquiler medio municipal estimado para 2026 T2. | 67,59 % :: Del ingreso si pagase toda esa referencia. | Comparar :: Otros municipios y opciones de alquiler.
+
+Como supera el 40 % de nuestra regla, la aplicación propone buscar alternativas.
+
+El alquiler declarado sigue siendo 500 € (33,33 %). La estimación municipal se usa como referencia.
 
 ## 10 Pedimos permiso antes de guardar
 
